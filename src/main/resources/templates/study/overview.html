@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+<!--	  <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>-->
+	  <script src="https://maps.googleapis.com/maps/api/js?v=3.11&amp;sensor=false" type="text/javascript"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <!-- other elements you want to reference in your layout -->
+	  <style>
+		  #map {
+			  /*height: 400px;*/
+			  /*width: 100%;*/
+			  display: table;
+			  width: 100vw;
+			  height: 100vh;
+		  }
+		  /*#toIdCase{*/
+			/*  padding-left: 300px;*/
+			/*  margin-left: -5000px;*/
+		  /*}*/
+		  /*html{*/
+			/*  scroll-behavior:smooth*/
+		  /*}*/
+
+
+	  </style>
+  </head>
+<body>
+
+
+    <div id="wrap-everything">
+
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+
+<!--		Tarberak Number 1-->
+
+<!--    THIS DIV OPENS THE MAP-->
+		<div id="map" style="height: 550px; width: 100%"></div>
+		<script src="/maps.js"></script>
+		<script th:inline="javascript">
+			/*<![CDATA[*/
+			// Initialize and add the map
+			function initMap() {
+				// The location of Yerevan
+				const locations = /*[[${overview.listOfCityObjects}]]*/;
+
+				const map = new google.maps.Map(document.getElementById("map"), {
+					// zoom: 2,
+					// center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+					mapTypeId: google.maps.MapTypeId.HYBRID
+				});
+
+
+				const infowindow = new google.maps.InfoWindow();
+				const bounds = new google.maps.LatLngBounds();
+
+				var marker, i;
+				for (i = 0; i < locations.length; i++) {
+					marker = new google.maps.Marker({
+						position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+						map: map
+					});
+					bounds.extend(marker.position);
+					google.maps.event.addListener(marker, 'click', (function(marker, i) {
+						return function() {
+							infowindow.setContent(locations[i][4]);
+							infowindow.open(map, marker);
+						}
+					})(marker, i));
+
+				}
+				map.fitBounds(bounds);
+				var listener = google.maps.event.addListener(map, "idle", function () {
+					map.setZoom(3);
+					google.maps.event.removeListener(listener);
+				});
+			}
+			/*]]>*/
+		</script>
+		<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+		<script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1OmDv-l0jbeLXAEgZuKzW0xUFK5-JUJQ&amp;callback=initMap"></script>
+
+<!--		<img src="/assets/fmjfox.png"/>-->
+<div class="row">
+  <div class="small-12 text-left columns">
+    <h5 style="margin-bottom:10px;" th:text="'Overview of ' + ${overview.benign_studies == false ? 'included' : 'excluded'} + ' studies for ' + ${overview.disease.abbreviation} + '-3.0*:'"></h5>
+  </div>
+</div>
+<div class="row" th:if="${not #strings.isEmpty(overview.empty_data_msg)}">
+  <div class="small-12 text-center columns" th:text="${overview.empty_data_msg}">
+  </div>
+</div>
+<form th:object="${overview}" th:unless="${overview.studies} == null">
+<!--	th:if="overview.studies.size() > 0"-->
+	<div class="row" th:with="ww=${overview.figures_available == false &amp;&amp; overview.benigns_available == false &amp;&amp; map_data == null ? 12 : ((overview.figures_available == false &amp;&amp; overview.benigns_available == false) || map_data == null ? 6 : 4)}">
+  <div th:class="${'small-' + 12 +' columns'}"   th:if="${overview.hide_filters == false and overview.short_version != true and overview.isStepThreeFile != true}">
+    <button name="action" type="submit" class="button secondary radius expand" th:value="plot" onclick="this.form.target='_blank';this.blur();" style="margin-bottom: 40px;">
+    Click here for summary of patients' characteristics
+</button>
+  </div>
+  <div th:class="${'small-' + ww +' columns'}" th:if="${overview.figures_available || overview.benigns_available} == false">
+<button name="action" type="submit" class="button secondary radius expand" value="plot_genetic" onclick="this.form.target='_blank';this.blur();" style="margin-bottom: 40px;" th:if="${overview.figures_available} == true">
+    Click here for summary of genetic findings
+</button>
+<button name="action" type="button" class="button secondary radius expand" value="plot_genetic" th:onclick="${'location.href=''/d/' + disease.id + '/gu/' + gene.id + ''';this.blur();'}" style="margin-bottom: 40px;" th:if="${overview.benigns_available == true  &amp;&amp; overview.figures_available == false}">
+    Click here for a list of presumably benign variants
+</button>
+  </div>
+  <div th:class="${'small-' + ww +' columns'}" th:if="${map_data} != null">
+<button name="action" type="submit" class="button secondary radius expand" value="plot_map" onclick="this.form.target='_blank';this.blur();" style="margin-bottom: 40px;">
+    Click here to show world map of all countries
+</button>
+  </div>
+</div>
+	<div class="row" th:if="${overview.hide_filters} == false and ${overview.isStepThreeFile!=true} and ${overview.short_version != true}">
+	  <div class="small-12 medium-7 text-left columns">
+	    <div class="row collapse">
+	      <div class="small-3 columns">
+	        <span class="prefix button secondary radius disabled"
+	              style="height:29px !important; line-height:17px !important;">Filter for</span>
+	      </div>
+	      <div th:class="*{filter_by_aao} == false ? 'small-7 columns end' : 'small-7 columns'">
+			<select id="fc" th:field="${overview.fc}">
+			  <option th:each="filter, _indx : *{filter_criterion}"
+			          th:value="${_indx.index}"
+			          th:text="${filter}">
+			  </option>
+			</select>
+		  </div>
+	      <div class="small-2 columns" th:if="*{filter_by_aao}">
+	        <select th:field="${overview.aao}">
+			  <option th:each="i: ${overview.aaoRange}"
+			          th:value="${i}"
+			          th:text="${i}"></option>
+	        </select>
+	      </div>
+	    </div>
+	  </div>
+	  <div style="display: none" class="small-12 medium-5 text-center columns">
+	    <div class="row collapse">
+	      <div class="small-2 columns">
+	        <span class="prefix button secondary radius disabled has-tip tip-top" data-tooltip="data-tooltip"
+	              aria-haspopup="true" title="Display can be filtered for mutations or pathogenicity group. Multiple mutations/mutation classes can be chosen by mouse-click on all variables of interest."
+	              style="height:29px !important; line-height:17px !important; font-weight: 400;">
+	          Mutations
+	        </span>
+	      </div>
+	      <div class="small-10 columns">
+	        <select id="mu[]" th:field="${overview.mu}" multiple="true" class="chzn_select" onchange="reload_the_filter(this);" th:attr="data-placeholder=${overview.filter_mutations_placeholder}">
+			  <option th:each="opt, _indx: *{filtered_mutations}"
+			          th:value="${_indx.index}"
+			          th:text="${opt}"></option>
+	        </select>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+<!--	this Div was added for new filter AAE-->
+<!--	<div class="row" th:if="${overview.isStepThreeFile!=true} and ${overview.short_version != true}">-->
+<!--		<div class="small-12 medium-7 text-left columns">-->
+<!--			<div class="row collapse">-->
+<!--				<div class="small-3 columns end">-->
+<!--	        <span class="prefix button secondary radius disabled"-->
+<!--				  style="height:29px !important; line-height:17px !important;">Filter for AAE</span>-->
+<!--				</div>-->
+<!--				<div th:class="*{filter_by_aae} == false ? 'small-7 columns end' : 'small-7 columns'">-->
+<!--					<select id="filterForAAE" th:field="${overview.filterForAAE}">-->
+<!--						<option th:value="${'All'}" th:text="${'All'}"></option>-->
+<!--						<option th:value="${'minus'}" th:text="${'AAE &lt; 50(click filter to adjust)'}"></option>-->
+<!--						<option th:value="${'plus'}" th:text="${'AAE &gt;= 50(click filter to adjust)'}"></option>-->
+<!--					</select>-->
+<!--				</div>-->
+<!--				<div class="small-2 columns" th:if="${overview.filter_by_aae}">-->
+<!--					<select th:field="${overview.aae}">-->
+<!--						<option th:each="i: ${overview.aaeRange}"-->
+<!--								th:value="${i}"-->
+<!--								th:text="${i}"></option>-->
+<!--					</select>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+
+<!--	This Div was created for Year of last contact (YLC) filter-->
+<!--	<div class="row" th:if="${overview.isStepThreeFile!=true} and ${overview.short_version != true}">-->
+<!--		<div class="small-12 medium-7 text-left columns">-->
+<!--			<div class="row collapse">-->
+<!--				<div class="small-3 columns end">-->
+<!--	        <span class="prefix button secondary radius disabled"-->
+<!--				  style="height:29px !important; line-height:17px !important;">Filter for YLC</span>-->
+<!--				</div>-->
+<!--				<div th:class="*{filter_by_ylc} == false ? 'small-7 columns end' : 'small-7 columns'">-->
+<!--					<select id="filterForYLC" th:field="${overview.filterForYLC}">-->
+<!--						<option th:value="${'All'}" th:text="${'All'}"></option>-->
+<!--						<option th:value="${'minus'}" th:text="${'YLC &lt; 2005(click filter to adjust)'}"></option>-->
+<!--						<option th:value="${'plus'}" th:text="${'YLC &gt;= 2005(click filter to adjust)'}"></option>-->
+<!--					</select>-->
+<!--				</div>-->
+<!--				<div class="small-2 columns" th:if="${overview.filter_by_ylc}">-->
+<!--					<select th:field="${overview.ylc}">-->
+<!--						<option th:each="i: ${overview.ylcRange}"-->
+<!--								th:value="${i}"-->
+<!--								th:text="${i}"></option>-->
+<!--					</select>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+
+<!--	<div class="row" th:if="${overview.hide_filters} == false">-->
+<!--	  <div class="small-12 medium-7 text-left columns">-->
+<!--	    <div class="row collapse">-->
+<!--	      <div class="small-3 columns">-->
+<!--	        <span class="prefix button secondary radius disabled"-->
+<!--	              style="height:29px !important; line-height:17px !important;">Filter for Genes</span>-->
+<!--	      </div>-->
+<!--	      <div class='small-7 columns end'>-->
+<!--			<select id="fc1" th:field="${overview.fc1}">-->
+<!--			  <option th:each="filter, _indx : *{filter_criterion1}"-->
+<!--			          th:value="${_indx.index}"-->
+<!--			          th:text="${filter}"></option>-->
+<!--			</select>-->
+<!--		  </div>-->
+<!--		</div>-->
+<!--	  </div>-->
+<!--	  <div style="display: none" class="small-12 medium-5 text-center columns">-->
+<!--	    <div class="row collapse">-->
+<!--	      <div class="small-2 columns">-->
+<!--	        <span class="prefix button secondary radius disabled has-tip tip-top" data-tooltip="data-tooltip"-->
+<!--              aria-haspopup="true" title="Display can be filtered for countries group. Multiple countries can be chosen by mouse-click on all variables of interest."-->
+<!--              style="height:29px !important; line-height:17px !important; font-weight: 400;">-->
+<!--	          Country-->
+<!--	        </span>-->
+<!--	      </div>-->
+<!--	      <div class='small-10 columns'>-->
+<!--			<select id="country" th:field="${overview.country}" multiple="true" class="chzn_select" data-placeholder='all countries'>-->
+<!--			  <option  th:each="instance : ${available_countries}"-->
+<!--			          th:value="${instance.value}"-->
+<!--			          th:text="${instance.key}"></option>-->
+<!--			</select>-->
+<!--&lt;!&ndash;			  onchange="reload_the_filter(this);"&ndash;&gt;-->
+<!--		  </div>-->
+<!--	    </div>-->
+<!--	  </div>-->
+<!--	</div>-->
+<!--	<div class="row">-->
+<!--		<div th:class="${'small-' + 12 +' columns'}">-->
+<!--			<button style="background-color: #b9b9b9" type="submit" class="button secondary radius expand">Filter</button>-->
+<!--		</div>-->
+<!--	</div>-->
+
+
+<!--	<div style="margin-bottom: 15px; padding-left: 0.9375rem; padding-right: 0.9375rem;" class="row">-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toIdCase">Go To Basic info</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toDiagnosedWithPD">Go To Basic demographic and clinical info</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toGeneticTests">Go To Genetic Testing</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toHoehnAndYahrStage">Go To Motor Assessment</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toDepressionScreeningScaleAvailable">Go To Nonmotor assessments</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toLifestyleDataAvailable">Go To Environmental risk factors</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toMedicetionAvailable">Go To Medication</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toOmicsData">Go To Additional assessments</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toDNA">Go To Biomaterials</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toPotentialAvailabilityForFollow_upStudies">Go To Availability for studies</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toPedigreeAvailable">Go To Genetics - pedigree</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toTranscriptIdEssemble">Go To Genetics - gene 1</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toHgVersion2">Go To Genetics - gene 2</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toHgVersion3">Go To Genetics - gene 3</a>-->
+<!--		<a style="color: #333; margin-right: 10px; margin-bottom: 10px; background-color: #b9b9b9; padding: 2px 6px 2px 6px; border-radius: 3px; float: left;" href="#toCommentsGenetics">Genetics - pathogenicity</a>-->
+
+<!--	</div>-->
+
+<div class="row" th:if="${overview.studies} != null">
+  <div class="small-12 columns"  style="overflow:scroll">
+    <table style="width:100%;" class="display">
+      <thead th:if="${overview.designs} != null">
+        <tr th:each="design: ${overview.designs}">
+          <th th:width="${design.width != -99 ? '' : design.width}" th:style="text-align: ${design.style};" th:each="m, idx: ${overview.studies[0]}">
+            <span data-tooltip="data-tooltip" th:aria-haspopup="${design.aria_haspopup}" th:class="${design.htmlClass}"
+                  th:title="${design.title}" th:text="${design.text}">
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <thead th:if="${overview.designs} == null and ${overview.unpublished_gene} == true">
+        <tr>
+          <th style="text-align: center"
+          th:text="${T(net.mdsgene.admin.admintool.business.ColumnsDecorator).getInstance().humanize(#strings.substring(d[0], 0, #strings.indexOf(d[0],'*')))}"
+          th:if="${#strings.contains(#strings.trim(d[0]), '*')}"
+			  th:each="d, idx1:${overview.studies}">
+
+            <span data-tooltip="data-tooltip" aria-haspopup="tooltip-ji4pps981" th:class="has-tip tip-top radius"
+                  th:title="${d[0]}" th:text="">
+            </span>
+
+          </th>
+        </tr>
+<!--		all-->
+		<tr>
+			<th style="text-align: center"
+				th:each="d, idx1:${overview.studies}"
+				th:if="${#strings.contains(#strings.trim(d[0]), '*')}">
+				<div id="top" class='small-10 columns' style="min-width: 150px">
+					<select th:field="${overview.selectedValues}" multiple="true" data-placeholder='Click to Select'
+							class="chzn_select">
+
+						<option th:each="string : ${overview.mapOfOptionsList[d[0]]}"
+								th:value="${d[0] + '#' + string}"
+								th:text="${string}"
+								th:selected="${overview.selectedValues.contains(d[0] + '#' + string)}">
+						</option>
+					</select>
+				</div>
+				<button style="margin-top: 15px; background-color: #b9b9b9" type="submit" class="button secondary radius expand">Filter</button>
+<!--				<span th:if="${d[0].toString().equals('id*')}" id="toIdCase"></span>-->
+<!--				<span th:if="${d[0].toString().equals('diagnosed_with_pd*')}" id="toDiagnosedWithPD"></span>-->
+<!--				<span th:if="${d[0].toString().equals('genetic_tests*')}" id="toGeneticTests"></span>-->
+<!--				<span th:if="${d[0].toString().equals('hy_stage_comb*')}" id="toHoehnAndYahrStage"></span>-->
+<!--				<span th:if="${d[0].toString().equals('depression_screening_comb*')}" id="toDepressionScreeningScaleAvailable"></span>-->
+<!--				<span th:if="${d[0].toString().equals('show_lifestyle*')}" id="toLifestyleDataAvailable"></span>-->
+<!--				<span th:if="${d[0].toString().equals('show_medication*')}" id="toMedicetionAvailable"></span>-->
+<!--				<span th:if="${d[0].toString().equals('od_omics_data*')}" id="toOmicsData"></span>-->
+<!--				<span th:if="${d[0].toString().equals('bi_dna*')}" id="toDNA"></span>-->
+<!--				<span th:if="${d[0].toString().equals('availability_for_follow_up_studies*')}" id="toPotentialAvailabilityForFollow_upStudies"></span>-->
+<!--				<span th:if="${d[0].toString().equals('pedigree*')}" id="toPedigreeAvailable"></span>-->
+<!--				<span th:if="${d[0].toString().equals('transcriptID1_ensemble*')}" id="toTranscriptIdEssemble"></span>-->
+<!--				<span th:if="${d[0].toString().equals('hg_version2*')}" id="toHgVersion2"></span>-->
+<!--				<span th:if="${d[0].toString().equals('hg_version3*')}" id="toHgVersion3"></span>-->
+<!--				<span th:if="${d[0].toString().equals('comments_genetics*')}" id="toCommentsGenetics"></span>-->
+			</th>
+		</tr>
+      </thead>
+		<thead>
+<!--			<button type="submit" class="button secondary radius expand">Search</button>-->
+<!--			<button class="button secondary radius expand" type="submit" th:name='action' th:value='clear'>Clear</button>-->
+		</thead>
+		<thead th:if="${overview.unpublished_gene} == false">
+			<div th:include="fragments/common :: publishedOverviewTableHeader"></div>
+		</thead>
+
+		      <tbody id="stud">
+      	<tr
+      	th:if="${idx.index} != 0"
+      	th:each="m, idx: ${overview.studies[0]}">
+      	    <th:block th:each="d, idx1:${overview.studies}">
+	      		<td class="table_line_height" th:style="${idx1.index &gt; 1 and idx1.index &lt; 300 ? 'text-align:center; vertical-align:center;' : ''}" th:if="${overview.unpublished_gene and !(d[idx.index] instanceof T(net.mdsgene.admin.tags.CustomTag)) and #strings.contains(#strings.trim(d[0]), '*')}" ><span th:text="${d[idx.index]}" th:name="${#strings.substring(d[0], 0, #strings.indexOf(d[0],'*'))}" th:attr="data-hint=${d[idx.index]}"></span></td>
+	      		<td class="table_line_height" th:style="${idx1.index &gt; 1 and idx1.index &lt; 10 ? 'text-align:center; vertical-align:center;' : ''}" th:if="${!overview.unpublished_gene and !(d[idx.index] instanceof T(net.mdsgene.admin.tags.CustomTag)) and #strings.contains(#strings.trim(d[0]), '*')}" th:text="${d[idx.index]}"></td>
+	      		<td th:if="${(d[idx.index] instanceof T(net.mdsgene.admin.tags.ArrayLinksTag)) and #strings.contains(#strings.trim(d[0]), '*')}">
+	      			<th:block th:each="d1,idx2:${d[idx.index]}">
+		      			<th:block th:if="${d1.myIndex == 4}" th:utext="'&lt;span class=\'hide\' id=\'study_view_row-' + ${idx.index} + '\'&gt;'" />
+	      				<span th:text="${d1.prefix}" th:unless="${d1.prefix == null}"></span><a th:text="${d1.body}" th:href="${d1.href}" data-reveal-ajax="true" data-reveal-id="global_modal_dialog"></a><span th:text="${d1.postfix}" th:unless="${d1.postfix == null}"></span><br/>
+						<th:block th:if="${d1.myIndex > 2 and d1.myIndex == d1.linkGroupsCount}" th:utext="'&lt;/span&gt;'" />
+						<a th:if="${d1.myIndex > 3 and d1.myIndex == d1.linkGroupsCount}" th:onclick="'show_more_or_less(this,\'study_view_row-' + ${idx.index} + '\')'" th:text="'Show more (+' + ${d1.linkGroupsCount-3} + ')'">Show more (+x)</a>
+	      			</th:block>
+	      		</td>
+	      		<td th:if="${(d[idx.index] instanceof T(net.mdsgene.admin.tags.LinkToTag)) and #strings.contains(#strings.trim(d[0]), '*')}">
+	    				<a th:text="${d[idx.index].body}" th:href="${d[idx.index].href}"></a>
+	      		</td>
+      	    </th:block>
+      	</tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row" th:if="${overview.current_page} != -1 and ${overview.total_count} > 10">
+  <div class="small-12 columns">
+      <div class="pagination-centered">
+    <ul class="pagination">
+    <li>
+  <a  th:href="'/d/' + ${overview.disease.id} + (${overview.unpublished_gene} == false ? '/g/' : '/gu/') + ${overview.gene.id} + '?p=1' + ${overview.paginationAppender}" th:if="${overview.current_page &gt; 1}">&#x00AB; First page</a>
+</li>
+<li>
+  <a rel="prev" th:href="'/d/' + ${overview.disease.id} + (${overview.unpublished_gene} == false ? '/g/' : '/gu/') + ${overview.gene.id} + '?p=' +  (${overview.current_page}-1) + ${overview.paginationAppender}" th:if="${overview.current_page &gt; 1}">&#x2039; Previous</a>
+</li>
+            <li class="unavailable" th:if="(${overview.current_page} - ${overview.limit_value}) &gt; 0">
+  <a href="#">&#x2026;</a>
+</li>
+          <li th:class="${i} == ${overview.current_page} ? 'current' : ''" th:each="i: ${#numbers.sequence(1, overview.total_pages)}" th:if= "${i} &gt; (${overview.current_page} - ${overview.limit_value}) and ${i} &lt; (${overview.current_page} + ${overview.limit_value})">
+  <a href="#" th:text="${i}" th:href="${i} != ${overview.current_page} ? '/d/' + ${overview.disease.id} + (${overview.unpublished_gene} == false ? '/g/' : '/gu/') + ${overview.gene.id} + '?p=' +  ${i}  + ${overview.paginationAppender}: '#'"></a>
+</li>
+          <li class="unavailable"  th:if="(${overview.current_page} + ${overview.limit_value}) &lt; (${overview.total_pages} + 1)">
+  <a href="#">&#x2026;</a>
+</li>
+
+      <li>
+  <a rel="next" th:href="'/d/' + ${overview.disease.id} + (${overview.unpublished_gene} == false ? '/g/' : '/gu/') + ${overview.gene.id} + '?p=' +  (${overview.current_page}+1) + ${overview.paginationAppender}" th:if="${overview.current_page &lt; overview.total_pages}">Next &#x203A;</a>
+</li>
+
+      <li>
+  <a th:href="'/d/' + ${overview.disease.id} + (${overview.unpublished_gene} == false ? '/g/' : '/gu/') + ${overview.gene.id} + '?p=' +  ${overview.total_pages} + ${overview.paginationAppender}" th:if="${overview.current_page &lt; overview.total_pages}">Last page &#x00BB;</a>
+</li>
+
+        <li class="">
+          <a th:href="'/d/' + ${overview.disease.id} + (${overview.unpublished_gene} == false ? '/g/' : '/gu/') + ${overview.gene.id} + '?p=-1' + ${overview.paginationAppender}">Show all studies on one page</a>
+        </li>
+    </ul>
+  </div>
+
+  </div>
+</div>
+</form>
+<div style="padding-bottom: 0.4em;"></div>
+
+
+</div>
+
+<!--<a style="scroll-behavior: smooth" href="#toCenter">GOTO top</a>-->
+<div th:include="fragments/layout :: pageBottom"></div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+<!--	<script type="text/javascript">-->
+<!--		$(document).ready(function() {-->
+<!--			$('#mainData').DataTable( {-->
+<!--				initComplete: function () {-->
+<!--					this.api().columns().every( function () {-->
+<!--						var column = this;-->
+<!--						var select = $('<select multiple="multiple" class="selectpicker form-control chzn_select"><option value=""></option></select>')-->
+<!--								.appendTo($(column.header()))-->
+<!--								.on('change', function () {-->
+<!--									var val = $.fn.dataTable.util.escapeRegex(-->
+<!--											$(this).val()-->
+<!--									);-->
+
+<!--									column-->
+<!--											.search( val ? '^'+val+'$' : '', true, false )-->
+<!--											.draw();-->
+<!--								});-->
+
+<!--						column.data().unique().sort().each( function ( d, j ) {-->
+<!--							const name = $(d).text();-->
+
+<!--							select.append( '<option value="'+name+'">'+name+'</option>' )-->
+<!--						});-->
+<!--					});-->
+<!--				}-->
+<!--			});-->
+<!--		});-->
+<!--	</script>-->
+
+
+</body>
+<script>
+$('span[name=cDNA],span[name=Reference],span[name=Protein1],span[name=Alias1]').each(function() {
+	if ($(this).text().length > 15) $(this).text($(this).text().substring(0,15) + '...');
+});
+</script>
+  <script th:inline="javascript">
+	  /*<![CDATA[*/
+	  var cityLocations = /*[[${overview.listOfCityObjects}]]*/;
+	  /*]]>*/
+  </script>
+</html>

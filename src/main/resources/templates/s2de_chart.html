@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+       <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+
+        function a() {
+        	var e = document.getElementsByName('moveToCategory')[0]; 
+        	var elements = document.forms[0].getElementsByClassName('text');
+
+        	for (var i = 0, len = elements.length; i < len; ++i) {
+        	    elements[i].readOnly = (e.options[e.selectedIndex].value != 'just rename');
+        	}
+        	
+      		document.getElementsByName('mergeToKey')[0].style.display = (e.options[e.selectedIndex].value == 'merge') ? 'block' : 'none';
+        	
+        	var elements = document.getElementsByName('selectedSs');
+        	for (var i = 0, len = elements.length; i < len; ++i) {
+        	    elements[i].checked = true;
+        	}
+        }
+        
+        function confirm_deletion() {
+        	var e = document.getElementsByName('moveToCategory')[0];
+        	if (e.options[e.selectedIndex].value == 'merge' && document.getElementsByName('mergeToKey')[0].value == 'merge-to') {
+        		alert('Please select merge target');
+        		return false;
+        	} else if (e.options[e.selectedIndex].value != 'delete' || confirm('Are you sure operation can\'t be undo?')) {
+				return true;        		
+        	}
+        	return false;
+        }
+        
+        function add_remove(key, text, checked) {
+        	var e = document.getElementsByName('moveToCategory')[0];
+        	var e1 = document.getElementsByName('mergeToKey')[0];
+        	if (checked) {
+            	e1.options[e1.options.length] = new Option(text, key);
+        	} else {
+        		for (i=0;i<e1.length;i++) {
+        			if (e1.options[i].value==key) {
+        				e1.remove(i);
+        				break;
+        			}
+        		}
+        	}
+        }
+        
+        function new_symptom_func() {
+        	var e1 = document.getElementsByName('mergeToKey')[0];
+        	if (e1.length >= 2) {
+        		document.getElementById('new_symptom_name').value = '';
+	    		for (i=1;i<2;i++) {
+	            	document.getElementById('original_symptom_name').value=e1.options[i].innerHTML;
+	            	document.getElementById('original_symptom_title').innerHTML=e1.options[i].innerHTML;
+	    			document.getElementById('new_import_header_name').value=e1.options[i].value;
+	    		}
+        		$('#new_symptom_modal_dialog').foundation('reveal', 'open');
+        	} else {
+        		alert("Please select at least one master symptom!");
+        		$('#new_symptom_modal_dialog').foundation('reveal', 'close');
+        	}
+        }
+        
+        function rename_category_func(categoryTitle) {
+        	document.getElementById('category_title_rename').innerHTML=categoryTitle;
+        	document.getElementById('original_category_name').value=categoryTitle;
+        }
+        
+        function delete_category_func(categoryTitle) {
+        	document.getElementById('delete_category_name').innerHTML=categoryTitle;
+        	document.getElementById('old_category_name').value=categoryTitle;
+        }
+        
+        function up_category_func(categoryTitle) {
+        	var times = prompt("Please enter how many times", "1");
+        	document.getElementsByName('times')[0].value=times;
+//        	window.location.assign('/s2de_up?category_name=' + categoryTitle + '&times=' + times);
+        }
+
+        function down_category_func(categoryTitle) {
+        	var times = prompt("Please enter how many times", "1");
+        	document.getElementsByName('times')[0].value=times;
+//        	window.location.assign('/s2de_down?category_name=' + categoryTitle + '&times=' + times);
+        }
+
+        /*]]>*/
+        </script>
+
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <div th:include="fragments/messages :: errorMsg"></div>
+      <p></p>
+      <!-- Title -->
+<p style="margin-bottom: 2.15em;"></p>
+        <p style="margin-bottom: 2.15em;"></p>
+      <div class="row">
+	    <div class="small-12 text-left columns">
+	       <h5 style="margin-bottom:10px;">Edit signs and symptoms:</h5>
+	    </div>
+      </div>
+<form action="/s2de_chart" accept-charset="UTF-8" th:object="${s2de_chart}" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+  <div style="padding-bottom: 0.7em;"></div>
+  <!-- 
+  <div class="row"  th:if="${s2de_chart.selectedGene != null}">
+    <div class="small-12 medium-6 text-center columns">
+      <button type="button" name="action" class="button secondary radius expand" value="copy_from_gene" onclick="return copy_from_gene_func()" data-disable-with="Copy order from gene">
+      Obtain order 
+      </button>
+      <span class="secondary radius expand" th:if="${s2de_chart.selectedGene == null}">&nbsp;</span>
+    </div>
+    <div class="small-2 medium-1 text-center columns">
+       <span class="prefix button secondary radius disabled"
+             style="height:29px !important; line-height:17px !important;">from</span>
+    </div>
+    <div class="small-10 medium-5 text-center columns">
+	   <select name="obtain_from">
+	      <option value="0">please select master gene</option>
+		  <option th:each="_gene : *{genes}" th:if="${s2de_chart.selectedGene != _gene}"
+		          th:value="${_gene.id}" 
+		          th:text="${_gene.name}"></option>
+	   </select>
+	</div>
+  </div>
+  -->
+  <div class="row">
+    <div class="small-12 medium-6 text-center columns">
+      <button type="button" name="create_new_symptom" class="button secondary radius expand" value="new_category"    onclick="return new_symptom_func()" data-disable-with="New symptom" data-reveal-ajax="true" data-reveal-id="new_category_modal_dialog" th:if="${s2de_chart.selectedGene != null}">
+      New symptom
+      </button>
+      <span class="secondary radius expand" th:if="${s2de_chart.selectedGene == null}">&nbsp;</span>
+    </div>
+    <div class="small-2 medium-1 text-center columns">
+       <span class="prefix button secondary radius disabled"
+             style="height:29px !important; line-height:17px !important;">Filter for</span>
+    </div>
+    <div class="small-10 medium-5 text-center columns">
+	   <select th:field="${s2de_chart.selectedGene}" onchange="submit();">
+	      <option value="0">please select gene</option>
+		  <option th:each="_gene : *{genes}" 
+		          th:value="${_gene.id}" 
+		          th:text="${_gene.name}"></option>
+	   </select>
+	</div>
+  </div>
+<div class="row">
+						<div class="small-1 columns" th:if="${s2de_chart.ignoreMotors != true}">
+							<input type="checkbox" th:field="${s2de_chart.motor}" name="motor" onchange="submit()"/>
+						</div>
+						<div class="small-11 columns" for="motor" th:if="${s2de_chart.ignoreMotors != true}">
+							<label>Motor</label>
+						</div>
+					</div>  
+  
+<th:block th:each="_symptom,_i : ${s2de_chart.chartSymptoms}">
+
+					<div class="row">
+					    <div class="small-1 medium-1 text-center columns" th:if="${not s2de_chart.ignoreMotors}">
+						     <button type="submit" name="action" class="button secondary radius expand" th:value="${'motor_non_motor_symptom' + _symptom.id}"    th1:onclick="${'if(confirm(''Sure to move to' + (s2de_chart.motor ? ' motor' : ' non-motor') + '?'')) return true;'}" th:text="${s2de_chart.motor ? 'm' : 'nm'}">
+						     motor/non-motor
+						     </button>
+						</div>
+					    <div class="small-4 medium-2 text-center columns">
+							 <input type="hidden" value="1" name="times"/>
+						     <button type="submit" name="action" class="button secondary radius expand" th:value="${'delete_symptom' + _symptom.id}"    onclick="return confirm('Sure?');">
+						     x
+						     </button>
+						</div>
+					    <div class="small-4 medium-2 text-center columns">
+						     <button type="submit" name="action" class="button secondary radius expand" th:value="${'up_symptom' + _symptom.id}"       th:onclick="${'return up_category_func(''' + _symptom.id + ''');'}" th:if="${_i.index != 0}">
+						     &uarr;
+						     </button>
+						     <span th:if="${_i.index == 0}">
+						      &uarr;
+						     </span>
+						</div>
+					    <div class="small-4 medium-2 text-center columns">
+
+						      <button type="submit" name="action" class="button secondary radius expand" th:value="${'down_symptom' + _symptom.id}"    th:onclick="${'return down_category_func(''' + _symptom.id + ''');'}" th:if="${_i.count != _i.size}">
+						      &darr;
+						      </button>
+						     <span th:if="${_i.count == _i.size}">
+						     &darr;
+						     </span>
+						</div>
+					    <div class="small-2 medium-1 text-center columns">
+							<p  th:text="${_i.count + '.'}"></p>
+					    </div>
+						<div class="small-9 medium-4 text-center columns" th:title="${_symptom.symptom.importHeader}">
+						<p  th:text="${'|' + _symptom.symptom.name + '|\\n[' + _symptom.symptom.importHeader + ']'}"></p>
+						</div>
+					</div>
+</th:block>    
+
+
+</form><div style="padding-bottom: 0.4em;"></div>
+      <p style="margin-bottom: 0.55em;"></p>
+    </div>
+    <div class="row">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="delete_category_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal">
+    
+    <form action="/s2de_delete_category" accept-charset="UTF-8" method="post">
+    <div class="row">
+		<div class="small-12 columns">
+			Delete category ( <span style="margin-bottom: 0.25rem;" id="delete_category_name">***</span>)
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+			<input style="width:100%" class="text" name="delete_category_for_sure" placeholder="type I'm sure here" required="required"/>
+			<input type="hidden" tyle="width:100%" class="text" name="old_category_name" id="old_category_name" />
+		</div>
+		<div class="small-10 medium-5 text-left columns">
+			<input type="checkbox" class="text" name="motor_signs_symptom" style="visibility: hidden;"/>
+		</div>
+		<div class="small-2 medium-1 columns">
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+		  <button type="submit" name="delete_category"    class="button secondary radius expand">
+	      Delete
+		  </button>    
+			
+		</div>
+	</div>
+	</form>
+	<a aria-label="Close" class="close-reveal-modal">x</a>
+    </div>    
+    <div id="new_category_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal">
+    
+    <form action="/s2de_chart"  accept-charset="UTF-8" th:object="${s2de_chart}" method="post">
+    <input type="hidden" th:field="${s2de_chart.selectedGene}" />
+    <div class="row">
+		<div class="small-12 columns">
+			New symptom
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+			<select id="country" th:field="${s2de_chart.selectedSymptoms}" multiple="true" class="chzn_select" data-placeholder='no symptom selected'>
+			  <option  th:each="instance : ${s2de_chart.notSelectedSymptoms}"
+			          th:value="${instance.id}" 
+			          th:text="${'[' + instance.name + ']'}"></option>
+			</select>
+		</div>
+		<div class="small-2 medium-1 columns">
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+		  <button type="submit" name="create_new_category"    class="button secondary radius expand">
+	      Create
+		  </button>    
+			
+		</div>
+	</div>
+	</form>
+	<a aria-label="Close" class="close-reveal-modal">x</a>
+    </div>
+    
+    <div id="new_symptom_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal">
+    
+    
+	
+    </div>
+  
+    
+    
+    <div id="rename_category_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal">
+    
+    
+	
+    </div>
+    
+    <div id="backup_db_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal">
+    
+    
+
+    </div>
+    
+    
+<script type="text/javascript">
+$("#_log").scrollTop(1000000);
+$("#_log").hide();
+</script>    
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

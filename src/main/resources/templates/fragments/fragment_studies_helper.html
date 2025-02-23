@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+  <div th:fragment="render_indexp(pid)">
+     <span th:text="*{__${pid}__.indexPatient == true ? 'Yes' : 'No'}"></span>
+  </div>
+  <div th:fragment="coerce_sex(pid)">
+    <span th:if="*{__${pid}__.sex == 1}">&#9794;</span>
+    <span th:if="*{__${pid}__.sex == 2}">&#9792;</span>
+    <span th:if="*{__${pid}__.sex != 1 and __${pid}__.sex != 2}">n.a.</span>
+  </div>
+  <div th:fragment="humanize_ethnicity(pid)">
+    <span th:if="*{__${pid}__.ethnicity == 2}">C</span>
+    <span th:if="*{__${pid}__.ethnicity == 3}">A</span>
+    <span th:if="*{__${pid}__.ethnicity == 4}">JA</span>
+    <span th:if="*{__${pid}__.ethnicity == 5}">JO</span>
+    <span th:if="*{__${pid}__.ethnicity == 6}">B</span>
+    <span th:if="*{__${pid}__.ethnicity == 7}">H</span>
+    <span th:if="*{__${pid}__.ethnicity == 8}">D</span>
+    <span th:if="*{__${pid}__.ethnicity == 9}">I</span>
+    <span th:if="*{__${pid}__.ethnicity == 10}">AM</span>
+    <span th:if="*{__${pid}__.ethnicity == 11}">O</span>
+    <span th:if="*{__${pid}__.ethnicity == null or __${pid}__.ethnicity &lt; 2 or  __${pid}__.ethnicity &gt; 11}">n.a.</span>
+  </div>
+  <div th:fragment="render_country(pid)">
+    <span th:if="*{__${pid}__.country != null}" th:text="*{T(net.mdsgene.admin.admintool.business.UploadMappers).country_mapper().get(__${pid}__.country)}">...</span>
+    <span th:if="*{__${pid}__.country == null}">n.a.</span>
+  </div>
+  <div th:fragment="render_aao(pid)">
+    <span th:if="*{__${pid}__.ageAtOnset != null}" th:text="*{T(java.lang.Math).round(__${pid}__.ageAtOnset.doubleValue())}"></span>
+    <span th:if="*{__${pid}__.ageAtOnset == null}" >n.a.</span>
+  </div>
+  <div th:fragment="render_aae(pid)">
+    <span th:if="*{__${pid}__.ageAtExam != null}" th:text="*{T(java.lang.Math).round(__${pid}__.ageAtExam.doubleValue())}"></span>
+    <span th:if="*{__${pid}__.ageAtExam == null}" >n.a.</span>
+  </div>
+  <div th:fragment="humanize_family_history(pid)">
+    <span th:if="*{__${pid}__.family != null and __${pid}__.family.history == true}">Yes</span>
+    <span th:if="*{__${pid}__.family != null and __${pid}__.family.history == false}">No</span>
+    <span th:if="*{__${pid}__.family == null or __${pid}__.family.history == null}">n.a.</span>
+  </div>
+  
+  <div th:fragment="pie_chart(data_prefix, title)">
+	<div th:id="*{data_prefix + '_chart'}" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">No data</div>
+	    <script th:inline="javascript" th:if="${__${data_prefix}___missing_percent != null}">
+	        /*<![CDATA[*/
+	        var _data =  /*[[${__${data_prefix}__}]]*/;
+	        var _data_missing = /*[[${__${data_prefix}___missing}]]*/;
+	        var _data_missing_percent = /*[[${__${data_prefix}___missing_percent}]]*/;
+	        var _chart_id = /*[[__${data_prefix}__]]*/;
+	        var _title = /*[[__${title}__]]*/;
+	        _title = _title.replace(/_/g, ' ');
+	        var _data_prefix_value = /*[[${data_prefix}]]*/;
+	        var _type_of_subject = _data_prefix_value.endsWith('healthy') ? 'subject(s)' : 'patient(s)';
+if (_data.length > 0)
+	        new Chartkick.PieChart(_chart_id + '_chart', _data, {"colors":array2hex(_data),"library":{"title":{"text":_title,"style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{"text":"Number of subjects with missing data: " + _data_missing + " (" + _data_missing_percent + "%)"},"tooltip":{"pointFormat":"\u003cb\u003e{point.y}\u003c/b\u003e " + _type_of_subject},"plotOptions":{"pie":{"size":"100", "dataLabels":{"enabled":true,"format":"{point.name}: {point.percentage:.1f} %","style":{"color":"#585a5a","fontWeight":"normal","fontSize":"10px"}}}}}});
+	        /*]]>*/
+	    </script>
+  </div>
+  <div th:fragment="pie_chart_no_missing_data(data_prefix, title)">
+	<div th:id="*{data_prefix + '_chart'}" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">No data</div>
+	    <script th:inline="javascript" th:if="${__${data_prefix}___missing_percent != null}">
+	        /*<![CDATA[*/
+	        var _data =  /*[[${__${data_prefix}__}]]*/;
+	        var _data_missing = /*[[${__${data_prefix}___missing}]]*/;
+	        var _data_missing_percent = /*[[${__${data_prefix}___missing_percent}]]*/;
+	        var _chart_id = /*[[__${data_prefix}__]]*/;
+	        var _title = /*[[__${title}__]]*/;
+	        _title = _title.replace(/_/g, ' ');
+	        var _data_prefix_value = /*[[${data_prefix}]]*/;
+	        var _type_of_subject = _data_prefix_value.endsWith('healthy') ? 'subject(s)' : 'patient(s)';	        
+if (_data.length > 0)
+	        new Chartkick.PieChart(_chart_id + '_chart', _data, {"colors":array2hex(_data),"library":{"title":{"text":_title,"style":{"color":"#585a5a","fontSize":"14px"}},"tooltip":{"pointFormat":"\u003cb\u003e{point.y}\u003c/b\u003e " + _type_of_subject},"plotOptions":{"pie":{"size":"100", "dataLabels":{"enabled":true,"format":"{point.name}: {point.percentage:.1f} %","style":{"color":"#585a5a","fontWeight":"normal","fontSize":"10px"}}}}}});
+	        /*]]>*/
+	    </script>
+  </div>  
+  <div th:fragment="pie_chart_no_missing_data_with_long_hint(data_prefix, title)">
+	<div th:id="*{data_prefix + '_chart'}" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">No data</div>
+	    <script th:inline="javascript" th:if="${__${data_prefix}___missing_percent != null}">
+	        /*<![CDATA[*/
+	        var _data =  /*[[${__${data_prefix}__}]]*/;
+	        var _data_missing = /*[[${__${data_prefix}___missing}]]*/;
+	        var _data_missing_percent = /*[[${__${data_prefix}___missing_percent}]]*/;
+	        var _chart_id = /*[[__${data_prefix}__]]*/;
+	        var _title = /*[[__${title}__]]*/;
+	        _title = _title.replace(/_/g, ' ');
+		    var pf = function () {
+		        var _data1 =  /*[[${__${data_prefix}__}]]*/;
+		    	for (var i = 0; i < _data1.length; i++) {
+		    		_d = _data1[i];
+		    		if (_d[0] === this.name) {
+				    	return _d[2];
+		    		}
+		    	  }
+		        var _data_prefix_value = /*[[${data_prefix}]]*/;
+		        var _type_of_subject = _data_prefix_value.endsWith('healthy') ? 'subject(s)' : 'patient(s)';	        
+		    	return "\u003cb\u003e" + this.name + "\u003c/b\u003e " + _type_of_subject;
+		    };
+if (_data.length > 0)
+		    new Chartkick.PieChart(_chart_id + '_chart', _data, {"colors":array2hex(_data),"library":{"title":{"text":_title,"style":{"color":"#585a5a","fontSize":"14px"}},"tooltip":{"pointFormatter":pf},"tooltip1":{"pointFormat":"\u003cb\u003e{point.y}\u003c/b\u003e patient1(s)"},"plotOptions":{"pie":{"size":"100", "dataLabels":{"enabled":true,"format":"{point.name}: {point.percentage:.1f} %","style":{"color":"#585a5a","fontWeight":"normal","fontSize":"10px"}}}}}});
+	        /*]]>*/
+	    </script>
+  </div>  
+  <div th:fragment="aao_chart(data_prefix, title)">
+    <div th:id="*{data_prefix + '_chart'}" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">No data</div>
+	    <script th:inline="javascript">
+		/*<![CDATA[*/
+	        var _data =  /*[[${__${data_prefix}__}]]*/;
+	        var _data_missing = /*[[${__${data_prefix}___missing}]]*/;
+	        var _data_missing_percent = /*[[${__${data_prefix}___missing_percent}]]*/;
+	        var _chart_id = /*[[__${data_prefix}__]]*/;
+	        var _title = /*[[__${title}__]]*/;
+	        _title = _title.replace(/_/g, ' ');
+		    var pf = function () {		    	
+		    	return "\u003cb\u003e" + this.y + "\u003c/b\u003e patient(s)";
+		    };
+if (_data.length > 0)
+			new Chartkick.ColumnChart(_chart_id + '_chart', _data, {"colors":["#ac202d"],"library":{"title":{"text":_title,"style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{"text":"Number of subjects with missing data: " + _data_missing + " (" + _data_missing_percent + "%)"},"xAxis":{"title":{"text":"Age at onset","align":"high","margin":8,"style":{"color":"#585a5a"}}},"tooltip":{"pointFormatter":pf},"yAxis":{"allowDecimals":false,"tickPixelInterval":30,"title":{"text":"Number of patients","align":"high","style":{"color":"#585a5a"}}},"plotOptions":{"column":{"groupPadding":0,"pointPadding":0,"borderWidth":0}}}});
+		  /*]]>*/
+		</script>
+  </div>
+  <div th:fragment="frequency_of_mutations(data_prefix, title, amount_of_patients)">
+    <div th:id="*{data_prefix + '_chart'}" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">No data</div>
+	    <script th:inline="javascript">
+	    /*<![CDATA[*/
+		var _data = /*[[${__${data_prefix}__}]]*/;
+		var mut_freq_max = /*[[${__${amount_of_patients}__}]]*/;;
+		var _data_missing = /*[[${__${data_prefix}___missing}]]*/;
+		var _data_missing_percentage = /*[[${__${data_prefix}___missing_percent}]]*/;
+        var _chart_id = /*[[__${data_prefix}__]]*/;
+        var _title = /*[[__${title}__]]*/;
+        _title = _title.replace(/_/g, ' ');		
+	    var pf = function () {
+	        var _data_prefix_value = /*[[${data_prefix}]]*/;
+	        var _type_of_subject = _data_prefix_value.endsWith('healthy') ? 'subject(s)' : 'patient(s)';	        
+	    	return '\u003cb\u003e' + this.y + '\u003c/b\u003e ' + _type_of_subject;
+	      };
+        var _data_prefix_value = /*[[${data_prefix}]]*/;
+        var _type_of_subject = _data_prefix_value.endsWith('healthy') ? 'subjects' : 'patients';	        
+if (_data.length > 0)
+		new Chartkick.BarChart(_chart_id + '_chart', _data, {"colors":["#ac202d"],"min":0,"max":mut_freq_max,"library":{"title":{"text":_title,"style":{"color":"#585a5a","fontSize":"14px"}},"tooltip":{"pointFormatter":pf},"yAxis":{"allowDecimals":false,"title":{"text":"Number of " + _type_of_subject,"align":"high","style":{"color":"#585a5a"}}}}});
+	 	/*]]>*/
+		</script>
+  </div>
+  <div th:fragment="column_chart(data_prefix, title)">
+    <div th:id="*{data_prefix + '_chart'}" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">No data</div>
+	    <script th:inline="javascript">
+		/*<![CDATA[*/
+        var _data =  /*[[${__${data_prefix}__}]]*/;
+        var _data_rep_sympt = /*[[${__${data_prefix}___rep_sympt}]]*/;
+        var _chart_id = /*[[__${data_prefix}__]]*/;
+        var _title = /*[[__${title}__]]*/;
+        _title = _title.replace(/_/g, ' ');
+	    var pf = function () {
+	        var _data_prefix_value = /*[[${data_prefix}]]*/;
+	        var _type_of_subject = _data_prefix_value.endsWith('healthy') ? 'subject(s)' : 'patient(s)';	        
+	    	return "\u003cbr\u003e\u003cspan style=\"color:" + this.series.color + ";padding:0\"\u003e" + this.series.name + "\u003c/span\u003e: \u003cb\u003e" + this.y + "\u003c/b\u003e " + _type_of_subject;
+	    };
+	    var test = false;
+	    
+	    for (var i = 0; i < _data.length; i++) {
+	        var _data1 = _data[i].data;
+	        console.log(_data1);
+	        for (var j = 0; j < _data1.length; j++) {
+	            if (_data1[j][1] > 0) {
+	        		new Chartkick.ColumnChart(_chart_id + '_chart', _data, {"colors":["#ac202d","#154789","#999999"],"min":0,"max":_data_rep_sympt,"library":{"title":{"text":_title,"style":{"color":"#585a5a","fontSize":"14px"}},"xAxis":{"crosshair":true},"tooltip":{"headerFormat":"\u003cb\u003e{point.key}\u003c/b\u003e","pointFormatter":pf,"shared":true,"useHTML":true},"yAxis":{"allowDecimals":false,"tickPixelInterval":25,"title":{"text":"Number of patients","align":"high","style":{"color":"#585a5a"}}},"plotOptions":{"column":{"pointPadding":0.2,"borderWidth":0}}}});
+	        		test = true;
+	        		break;
+	            }
+	        }
+	        if (test) break;
+	    }
+		/*]]>*/
+		</script>
+  </div>
+  </body>
+</html>

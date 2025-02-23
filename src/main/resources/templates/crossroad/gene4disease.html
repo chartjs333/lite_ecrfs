@@ -1,0 +1,53 @@
+ <!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html>
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+  <div class="row" th:unless="${genes_related_to_launched_diseases.empty == true}">
+    <div class="small-12 text-left columns">
+      <h5>Select a gene for your disease of interest:</h5>
+    </div>
+  </div>
+  <p style="margin-bottom:10px;"></p>
+  <div class="row">
+    <div class="small-12 text-center columns">
+      <dl class="accordion" data-accordion="">
+        <!-- @genes_related_to_launched_diseases.each_with_index do |_accordion_item, _accordion_index| -->
+          <dd class="accordion-navigation" th:each="_accordion_item,_accordion_index: ${genes_related_to_launched_diseases}"><!-- _panel_index = (_accordion_index + 1).to_s -->
+            <a class="button radius" th:href="'#genes_panel_' + ${_accordion_index.index+1}" style="text-decoration: none;" th:text="${_accordion_item.key == 'Primary familial brain calcification (PFBC)' ? 'Primary familial brain calcification (PFBC) - associated movement disorder' : _accordion_item.key}"></a>
+            <div class="content active row" th:id="'genes_panel_' + ${_accordion_index.index+1}" style="padding-top:0;">
+                <br th:if="${_accordion_item.value.empty == true}"/>
+                <div class="row" style="margin-left: 0px; margin-bottom: 0px" th:if="${_accordion_item.value.empty == false}">
+                  <!-- _accordion_item.second.each_with_index do |_gene, _index| -->
+                    <div th:class="${'small-' + _sub_disease.middle}" th:each="_sub_disease,_index0:${_accordion_item.value}" style="float:left">
+                    <span class="secondary radius expand" style="margin-bottom: 0px;background-color: #EFEFEF" th:text="${_sub_disease.left.name}" th:if="${_index0.size > 1}">
+    Click here for summary of patients' characteristics
+</span>
+                <div th:style="${_index0.size > 1 ? 'margin-left: 0px; margin-top: 10px;text-align: center' : 'margin-left: 0px; margin-top: 0px;text-align: left'}" th:if="${_accordion_item.value.empty == false}">
+                  <!-- _accordion_item.second.each_with_index do |_gene, _index| -->
+                    <th:block th:each="_gene,_index:${_sub_disease.right}" style="float: none;">
+ 	                      	<a th:style="${_index0.size > 1 ? 'margin-right:0.75rem;margin-left:0.75rem' : 'margin-left:1.375rem'}" th:id="'gp' + ${_accordion_index.index+1} + '_item' + ${_index.index}" th:href="'/d/' + ${T(net.mdsgene.admin.admintool.business.GeneDecorator).diseaseId(id.get(_accordion_item.key),_gene)} + ${_gene.id > 9999 ? '/gu/':'/g/'} + ${_gene.id}" th:text="${_gene.name}" th:if="${_gene.id != 0}"></a>
+ 	                      	<a th:style="${_index0.size > 1 ? 'margin-right:0.75rem;margin-left:0.75rem' : 'margin-right:0.75rem;margin-left:1.375rem'}" th:text="${_gene.name}" th:if="${_gene.id == 0}"></a> <sup th:if="${_gene.id == 0}">genes in progress</sup>
+                    </th:block>
+                </div>
+                    
+					</div>
+                </div>
+            </div>
+          </dd>
+      </dl>
+    </div>
+  </div>
+  <div style="padding-bottom: 0.4em;"></div>
+</div>
+<div th:include="fragments/layout :: pageBottom"></div>
+</body>
+</html>

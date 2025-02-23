@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragmentD3">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <!-- Title -->
+        <p style="margin-bottom: 2.15em;"></p>
+      <div class="row">
+  <div class="small-12 text-left columns" >
+    <h5 th:text="${disease.abbreviation} + '-' + ${gene.name} + ' Data summary (filter: ' + ${humanized_filter} + ')' + (${country} != null? ' Country of origin (' + ${country} + ')' : '')">
+      DYT-NGX: Data summary <!--<br/>-->(filter: females only)
+    </h5>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <p th:if="${nof_patients4hist == 0 and ((gene.name != 'TAF1' and #lists.isEmpty(bar_chart_data)) or (gene.name == 'TAF1' and #lists.isEmpty(sex_pie_chart))) and #lists.isEmpty(pie_chart_data) and (#lists.isEmpty(ethnicity_pie_chart) or #lists.isEmpty(sex_pie_chart)) and #lists.isEmpty(country_pie_chart) and #lists.isEmpty(sympt_categories) and not levodopa_response_observations_exist}">
+    All charts are going to be empty. You can try some other filtering criteria or provide the database with a dataset on the requested subject.</p>
+    <th:block th:unless="${#lists.isEmpty(sympt_categories)}">
+    <div id="chart-1" style="height: 450px; text-align: center; color: #999; line-height: 450px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+    <script th:inline="javascript">
+	/*<![CDATA[*/
+	    var important_symptoms_data = /*[[${important_symptoms_data}]]*/;
+		var rep_sympt_max = /*[[${rep_sympt_max}]]*/;
+	    var pf = function () {
+	    	return "\u003cbr\u003e\u003cspan style=\"color:" + this.series.color + ";padding:0\"\u003e" + this.series.name + "\u003c/span\u003e: \u003cb\u003e" + this.y + "\u003c/b\u003e patient(s)";
+	    };
+	    new Chartkick.ColumnChart("chart-1",important_symptoms_data, {"colors":["#ac202d","#154789","#999999"],"min":0,"max":rep_sympt_max,"library":{"title":{"text":"Reported signs and symptoms","style":{"color":"#585a5a","fontSize":"14px"}},"xAxis":{"crosshair":true},"tooltip":{"headerFormat":"\u003cb\u003e{point.key}\u003c/b\u003e","pointFormatter":pf,"shared":true,"useHTML":true},"yAxis":{"allowDecimals":false,"tickPixelInterval":25,"title":{"text":"Number of patients","align":"high","style":{"color":"#585a5a"}}},"plotOptions":{"column":{"pointPadding":0.2,"borderWidth":0}}}});
+	  /*]]>*/
+	</script>
+    </th:block>
+    <th:block th:unless="${#lists.isEmpty(sympt_categories1)}">
+    <div id="chart-1" style="height: 450px; text-align: center; color: #999; line-height: 450px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+    <script th:inline="javascript">
+	/*<![CDATA[*/
+	    var important_symptoms_data1 = /*[[${important_symptoms_data1}]]*/;
+		var rep_sympt_max1 = /*[[${rep_sympt_max1}]]*/;
+		var ss_titel1 = /*[[${ss_title1}]]*/;
+	    var pf = function () {
+	    	return "\u003cbr\u003e\u003cspan style=\"color:" + this.series.color + ";padding:0\"\u003e" + this.series.name + "\u003c/span\u003e: \u003cb\u003e" + this.y + "\u003c/b\u003e patient(s)";
+	    };
+	    new Chartkick.ColumnChart("chart-1",important_symptoms_data1, {"colors":["#ac202d","#154789","#999999"],"min":0,"max":rep_sympt_max1,"library":{"title":{"text":ss_titel1,"style":{"color":"#585a5a","fontSize":"14px"}},"xAxis":{"crosshair":true},"tooltip":{"headerFormat":"\u003cb\u003e{point.key}\u003c/b\u003e","pointFormatter":pf,"shared":true,"useHTML":true},"yAxis":{"allowDecimals":false,"tickPixelInterval":25,"title":{"text":"Number of patients","align":"high","style":{"color":"#585a5a"}}},"plotOptions":{"column":{"pointPadding":0.2,"borderWidth":0}}}});
+	  /*]]>*/
+	</script>	
+    </th:block>
+    <th:block th:unless="${#lists.isEmpty(sympt_categories2)}">
+    <div id="chart-2" style="height: 450px; text-align: center; color: #999; line-height: 450px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+    <script th:inline="javascript">
+	/*<![CDATA[*/
+	    var important_symptoms_data2 = /*[[${important_symptoms_data2}]]*/;
+		var rep_sympt_max2 = /*[[${rep_sympt_max2}]]*/;
+		var ss_titel2 = /*[[${ss_titel2}]]*/;
+	    var pf = function () {
+	    	return "\u003cbr\u003e\u003cspan style=\"color:" + this.series.color + ";padding:0\"\u003e" + this.series.name + "\u003c/span\u003e: \u003cb\u003e" + this.y + "\u003c/b\u003e patient(s)";
+	    };
+	    new Chartkick.ColumnChart("chart-2",important_symptoms_data2, {"colors":["#ac202d","#154789","#999999"],"min":0,"max":rep_sympt_max2,"library":{"title":{"text":ss_titel2,"style":{"color":"#585a5a","fontSize":"14px"}},"xAxis":{"crosshair":true},"tooltip":{"headerFormat":"\u003cb\u003e{point.key}\u003c/b\u003e","pointFormatter":pf,"shared":true,"useHTML":true},"yAxis":{"allowDecimals":false,"tickPixelInterval":25,"title":{"text":"Number of patients","align":"high","style":{"color":"#585a5a"}}},"plotOptions":{"column":{"pointPadding":0.2,"borderWidth":0}}}});
+	  /*]]>*/
+	</script>
+    </th:block>
+    
+    <th:block th:each="id:${categories}">
+    <th:block th:unless="${#lists.isEmpty(__${'cat_sympt_categories' + id}__)}">
+    <div th:id="${'chart-2-' + id}" style="height: 450px; text-align: center; color: #999; line-height: 450px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+    <script th:inline="javascript">
+	/*<![CDATA[*/
+	    var cat_important_symptoms_data2 = /*[[${cat_important_symptoms_data__${id}__}]]*/;
+		var cat_rep_sympt_max2 = /*[[${cat_rep_sympt_max__${id}__}]]*/;
+		var cat_ss_titel2 = /*[[${cat_ss_title__${id}__}]]*/;
+		var cat_chart_id = "chart-2-" + /*[[${__${id}__}]]*/;
+	    var pf = function () {
+	    	return "\u003cbr\u003e\u003cspan style=\"color:" + this.series.color + ";padding:0\"\u003e" + this.series.name + "\u003c/span\u003e: \u003cb\u003e" + this.y + "\u003c/b\u003e patient(s)";
+	    };
+	    new Chartkick.ColumnChart(cat_chart_id,cat_important_symptoms_data2, {"colors":["#ac202d","#154789","#999999"],"min":0,"max":cat_rep_sympt_max2,"library":{"title":{"text":cat_ss_titel2,"style":{"color":"#585a5a","fontSize":"14px"}},"xAxis":{"crosshair":true},"tooltip":{"headerFormat":"\u003cb\u003e{point.key}\u003c/b\u003e","pointFormatter":pf,"shared":true,"useHTML":true},"yAxis":{"allowDecimals":false,"tickPixelInterval":25,"title":{"text":"Number of patients","align":"high","style":{"color":"#585a5a"}}},"plotOptions":{"column":{"pointPadding":0.2,"borderWidth":0}}}});
+	  /*]]>*/
+	</script>
+    </th:block>
+	</th:block>
+    <center><p>Please note that signs and symptoms for which no information was reported in the literature are suppressed from the graphical displays.</p></center>
+    <ul class="small-block-grid-1 medium-block-grid-2">
+	<th:block th:unless="${nof_patients4hist == 0}">
+      <li><div id="chart-3" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+    <script th:inline="javascript">
+	/*<![CDATA[*/
+	    var histogram_data = /*[[${histogram_data}]]*/;
+	    var hist_missing = /*[[${hist_missing}]]*/;
+	    var hist_missing_percentage = /*[[${hist_missing_percentage}]]*/;
+	    var pf = function () {
+	    	return "\u003cb\u003e" + this.y + "\u003c/b\u003e patient(s)";
+	    };
+		new Chartkick.ColumnChart("chart-3", histogram_data, {"colors":["#ac202d"],"library":{"title":{"text":"Distribution of age at onset","style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{"text":"Number of subjects with missing data: " + hist_missing + " (" + hist_missing_percentage + "%)"},"xAxis":{"title":{"text":"Age at onset","align":"high","margin":8,"style":{"color":"#585a5a"}}},"tooltip":{"pointFormatter":pf},"yAxis":{"allowDecimals":false,"tickPixelInterval":30,"title":{"text":"Number of patients","align":"high","style":{"color":"#585a5a"}}},"plotOptions":{"column":{"groupPadding":0,"pointPadding":0,"borderWidth":0}}}});
+	  /*]]>*/
+	</script></li>
+	</th:block>	
+	<th:block th:unless="${nof_patients4hist == 0}">
+    <li>
+    <div id="chart-3a" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+	    var hist_aao_ed_data = /*[[${hist_aao_ed_data}]]*/;
+	    var hist_aao_median = /*[[${hist_aao_median}]]*/;
+	    var hist_aao_25_percent = /*[[${hist_aao_25_percent}]]*/;
+	    var hist_aao_75_percent = /*[[${hist_aao_75_percent}]]*/;
+	    var hist_range_min_years = /*[[${hist_range_min_years}]]*/;
+	    var hist_range_max_years = /*[[${hist_range_max_years}]]*/;
+	    var pf = function () {
+	    	return '\u003cb\u003e' + this.x + ' year(s)<br/>\u003cb\u003e' + this.y + '\u003c/b\u003e percent';
+	      };
+	    new Chartkick.LineChart("chart-3a", hist_aao_ed_data, {"min":0,"max":100,"colors":["#ac202d"],"library":{"title":{"text":"Empirical distribution of age at onset","style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{useHTML: true, "text":"Median: " + hist_aao_median + "; 25<sup>th</sup>/75<sup>th</sup> perc.: " + hist_aao_25_percent + "/" + hist_aao_75_percent + "; Range: " + hist_range_min_years + "-" + hist_range_max_years + " yrs."},"xAxis":{"minRange": 5,"type":"linear","title":{"text":"Age at onset","align":"high","margin":8,"style":{"color":"#585a5a"}}},"tooltip":{"headerFormat":"","pointFormatter":pf},"yAxis":{"allowDecimals":false,"tickPixelInterval":30,"title":{"text":"Percent rank","align":"high","style":{"color":"#585a5a"}}},"plotOptions":{"column":{"groupPadding":0,"pointPadding":0,"borderWidth":0}}}});
+		/*]]>*/
+	</script></li>
+	</th:block>
+	<th:block th:unless="${nof_patients4hist_1 == 0}">
+      <li><div id="chart-3b" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+    <script th:inline="javascript">
+	/*<![CDATA[*/
+	    var histogram_data = /*[[${histogram_data_1}]]*/;
+	    var hist_missing = /*[[${hist_missing_1}]]*/;
+	    var hist_missing_percentage = /*[[${hist_missing_percentage_1}]]*/;
+	    var pf = function () {
+	    	return "\u003cb\u003e" + this.y + "\u003c/b\u003e patient(s)";
+	    };
+		new Chartkick.ColumnChart("chart-3b", histogram_data, {"colors":["#ac202d"],"library":{"title":{"text":"Distribution of other disease age at onset","style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{"text":"Number of subjects with missing data: " + hist_missing + " (" + hist_missing_percentage + "%)"},"xAxis":{"title":{"text":"Other disease age at onset","align":"high","margin":8,"style":{"color":"#585a5a"}}},"tooltip":{"pointFormatter":pf},"yAxis":{"allowDecimals":false,"tickPixelInterval":30,"title":{"text":"Number of patients","align":"high","style":{"color":"#585a5a"}}},"plotOptions":{"column":{"groupPadding":0,"pointPadding":0,"borderWidth":0}}}});
+	  /*]]>*/
+	</script></li>
+	</th:block>	
+	<th:block th:unless="${nof_patients4hist_1 == 0}">
+    <li>
+    <div id="chart-3c" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+	    var hist_aao_ed_data = /*[[${hist_aao_ed_data_1}]]*/;
+	    var hist_aao_median = /*[[${hist_aao_median_1}]]*/;
+	    var hist_aao_25_percent = /*[[${hist_aao_25_percent_1}]]*/;
+	    var hist_aao_75_percent = /*[[${hist_aao_75_percent_1}]]*/;
+	    var hist_range_min_years = /*[[${hist_range_min_years_1}]]*/;
+	    var hist_range_max_years = /*[[${hist_range_max_years_1}]]*/;
+	    var pf = function () {
+	    	return '\u003cb\u003e' + this.x + ' year(s)<br/>\u003cb\u003e' + this.y + '\u003c/b\u003e percent';
+	      };
+	    new Chartkick.LineChart("chart-3c", hist_aao_ed_data, {"min":0,"max":100,"colors":["#ac202d"],"library":{"title":{"text":"Empirical distribution of other disease age at onset","style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{useHTML: true, "text":"Median: " + hist_aao_median + "; 25<sup>th</sup>/75<sup>th</sup> perc.: " + hist_aao_25_percent + "/" + hist_aao_75_percent + "; Range: " + hist_range_min_years + "-" + hist_range_max_years + " yrs."},"xAxis":{"minRange": 5,"type":"linear","title":{"text":"Other disease age at onset","align":"high","margin":8,"style":{"color":"#585a5a"}}},"tooltip":{"headerFormat":"","pointFormatter":pf},"yAxis":{"allowDecimals":false,"tickPixelInterval":30,"title":{"text":"Percent rank","align":"high","style":{"color":"#585a5a"}}},"plotOptions":{"column":{"groupPadding":0,"pointPadding":0,"borderWidth":0}}}});
+		/*]]>*/
+	</script></li>
+	</th:block>
+
+    <th:block th:unless="${#lists.isEmpty(initial_signs_symptoms)}">
+      <li><div id="chart-4" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+      <script th:inline="javascript">
+		/*<![CDATA[*/
+		var initial_signs_symptoms = /*[[${initial_signs_symptoms}]]*/;
+		var initial_signs_symptoms_missing = /*[[${initial_signs_symptoms_missing}]]*/;
+		var initial_missing_percentage = /*[[${initial_missing_percentage}]]*/;
+	    var pf = function () {
+	    	return '\u003cb\u003e' + this.y + '\u003c/b\u003e patient(s)';
+	      };
+		new Chartkick.ColumnChart("chart-4", initial_signs_symptoms, {"colors":["#ac202d","#434348","#154789","#f7a35c","#187422","#604a7b","#e4d354","#2b908f","#f45b5b","#91e8e1"],"library":{"title":{"text":"Initial signs and symptoms","style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{"text":"Number of subjects with missing data: " + initial_signs_symptoms_missing + " (" + initial_missing_percentage + "%)"},"tooltip":{"pointFormatter":pf},"xAxis":{"title":{"text":"Initial signs and symptoms","align":"high","margin":8,"style":{"color":"#585a5a"}}},"yAxis":{"allowDecimals":false,"tickPixelInterval":30,"title":{"text":"Number of patients","align":"high","style":{"color":"#585a5a"}}}}});
+		 /*]]>*/
+	  </script></li>
+	</th:block>
+
+    <th:block th:unless="${#lists.isEmpty(bar_chart_data)}">
+      <li><div id="chart-5" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+      <script th:inline="javascript">
+      /*<![CDATA[*/
+		var bar_chart_data = /*[[${bar_chart_data}]]*/;
+		var mut_freq_max = /*[[${mut_freq_max}]]*/;
+		var bar_missing = /*[[${bar_missing}]]*/;
+		var bar_missing_percentage = /*[[${bar_missing_percentage}]]*/;
+	    var pf = function () {
+	    	return '\u003cb\u003e' + this.y + '\u003c/b\u003e patient(s)';
+	      };
+		new Chartkick.BarChart("chart-5", bar_chart_data, {"colors":["#ac202d"],"min":0,"max":mut_freq_max,"library":{"title":{"text":"Frequency of mutations","style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{"text":"Number of subjects with missing data: " + bar_missing + " (" + bar_missing_percentage + "%)"},"tooltip":{"pointFormatter":pf},"yAxis":{"allowDecimals":false,"title":{"text":"Number of patients","align":"high","style":{"color":"#585a5a"}}}}});
+	 /*]]>*/
+  	 </script></li>
+	</th:block>
+<th:block th:unless="${#lists.isEmpty(sex_pie_chart)}">
+      <li><div id="chart-9" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+      <script th:inline="javascript">
+      /*<![CDATA[*/
+    	var sex_pie_chart = /*[[${sex_pie_chart}]]*/;
+    	var	sex_pie_missing = /*[[${sex_pie_missing}]]*/;
+        var	sex_pie_missing_percentage = /*[[${sex_pie_missing_percentage}]]*/;
+	    var pf = function () {
+	    	return '\u003cb\u003e' + this.y + '\u003c/b\u003e patient(s)';
+	      };
+        new Chartkick.PieChart("chart-9", sex_pie_chart, {"colors":["#ac202d","#434348","#154789","#f7a35c","#187422","#604a7b","#e4d354","#2b908f","#f45b5b","#91e8e1"],"library":{"title":{"text":"Sex","style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{"text":"Number of subjects with missing data: " + sex_pie_missing + " (" + sex_pie_missing_percentage + "%)"},"tooltip":{"pointFormatter":pf},"plotOptions":{"pie":{"dataLabels":{"enabled":true,"format":"{point.name}: {point.percentage:.1f} %","style":{"color":"#585a5a","fontWeight":"normal"}}}}}});
+	  /*]]>*/
+	 </script>
+</li>
+	</th:block>	
+    <th:block th:unless="${#lists.isEmpty(ethnicity_pie_chart)}">
+      <li><div id="chart-6" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+      <script th:inline="javascript">
+      /*<![CDATA[*/
+    	var ethnicity_pie_chart = /*[[${ethnicity_pie_chart}]]*/;
+    	var	ethnicity_pie_missing = /*[[${ethnicity_pie_missing}]]*/;
+        var	ethnicity_pie_missing_percentage = /*[[${ethnicity_pie_missing_percentage}]]*/;
+	    var pf = function () {
+	    	return '\u003cb\u003e' + this.y + '\u003c/b\u003e patient(s)';
+	      };
+        new Chartkick.PieChart("chart-6", ethnicity_pie_chart, {"colors":["#ac202d","#434348","#154789","#f7a35c","#187422","#604a7b","#e4d354","#2b908f","#f45b5b","#91e8e1"],"library":{"title":{"text":"Ethnicity","style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{"text":"Number of subjects with missing data: " + ethnicity_pie_missing + " (" + ethnicity_pie_missing_percentage + "%)"},"tooltip":{"pointFormatter":pf},"plotOptions":{"pie":{"dataLabels":{"enabled":true,"format":"{point.name}: {point.percentage:.1f} %","style":{"color":"#585a5a","fontWeight":"normal"}}}}}});
+	  /*]]>*/
+	 </script>
+</li>
+	</th:block>
+    <th:block th:if="${levodopa_response_observations_exist}">
+      <li><div id="chart-7" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+      <script th:inline="javascript">
+      /*<![CDATA[*/
+      var levodopa_response_data = /*[[${levodopa_response_data}]]*/;
+   	  var column_chart_missing = /*[[${column_chart_missing}]]*/;
+      var column_chart_missing_percentage = /*[[${column_chart_missing_percentage}]]*/;
+      var pf = function () {
+	    	return '\u003cb\u003e' + this.y + '\u003c/b\u003e patient(s)';
+	      };
+	  new Chartkick.ColumnChart("chart-7", levodopa_response_data, {"colors":["#ac202d"],"library":{"title":{"text":"Levodopa response","style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{"text":"Number of subjects with missing data: " + column_chart_missing + " (" + column_chart_missing_percentage + "%)"},"xAxis":{"title":{"text":"Levodopa response","align":"high","margin":8,"style":{"color":"#585a5a"}}},"tooltip":{"pointFormatter":pf},"yAxis":{"allowDecimals":false,"tickPixelInterval":30,"title":{"text":"Number of patients","align":"high","style":{"color":"#585a5a"}}}}});
+	  /*]]>*/	
+      </script>
+	</li>
+	</th:block>
+    <th:block th:unless="${#lists.isEmpty(country_pie_chart)}">
+      <li><div id="chart-8" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+      <script th:inline="javascript">
+      /*<![CDATA[*/
+      var country_pie_chart = /*[[${country_pie_chart}]]*/;
+   	  var country_pie_missing = /*[[${country_pie_missing}]]*/;
+      var country_pie_missing_percentage = /*[[${country_pie_missing_percentage}]]*/;
+      var pf = function () {
+	    	return '\u003cb\u003e' + this.y + '\u003c/b\u003e patient(s)';
+	      };
+	  new Chartkick.PieChart("chart-8", country_pie_chart, {"colors":["#ac202d","#434348","#154789","#f7a35c","#187422","#604a7b","#e4d354","#2b908f","#f45b5b","#91e8e1"],"library":{"title":{"text":"Country of origin","style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{"text":"Number of subjects with missing data: "+country_pie_missing+" ("+country_pie_missing_percentage+"%)"},"tooltip":{"pointFormatter":pf},"plotOptions":{"pie":{"dataLabels":{"enabled":true,"format":"{point.name}: {point.percentage:.1f} %","style":{"color":"#585a5a","fontWeight":"normal"}}}}}});
+	  /*]]>*/	
+	  </script></li>
+	</th:block>
+    </ul>
+  </div>
+</div>
+
+      <p style="margin-bottom: 0.55em;"></p>
+    </div>
+    <div class="row">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

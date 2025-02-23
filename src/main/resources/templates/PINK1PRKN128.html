@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title> State-Trait Anxiety Inventory</title>
+<!-- css files -->
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
+<link rel="stylesheet" type="text/css" href="../fonts/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/registration-style.css"/>
+<link rel="stylesheet" type="text/css" href="../css/elements.css"/>
+<!-- Bootstrap Timepicker CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../css/check-ecrf-minimal.css"/>
+<!-- jquery library --> 
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script> 
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/survey.js"></script>
+<!-- Bootstrap Timepicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../js/check-ecrf-minimal.js"></script>
+<script  type="text/javascript">
+$(document).ready(function(){     $('.timepicker').timepicker({
+        showInputs: false,
+        showMeridian: false
+    });});
+</script>
+<style>
+#logo {
+    display: block;
+    margin: auto;
+}
+.minimal-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.core-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-group.has-minimal > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.form-group.has-core > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.progress .progress-bar {
+    background-image: linear-gradient(to bottom, #E07800 0, #E07800 100%) !important;
+}
+.survey-button {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Arial',Arial,sans-serif;
+    line-height: 1.55;
+    font-weight: 600;
+    border-width: 2px;
+    border-radius: 6px;
+    background-color: #3A91B6;
+    background-position: center center;
+    border-color: #3A91B6;
+    border-style: solid;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.has-minimal .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.has-core .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+
+
+.header-label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subheader {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.move-up-first-header {
+    margin-top: 70px;
+}
+
+
+.move-down-header {
+    margin-bottom: 35px;
+}
+
+
+.move-up-header {
+    margin-top: 55px;
+}
+
+
+.move-down-subheader {
+    margin-bottom: 10px;
+}
+
+
+.move-up-subheader {
+    margin-top: 40px;
+}
+
+.move-up-yes-no {
+    margin-top: 5px;
+}
+
+.move-down-yes-no {
+    margin-bottom: 30px;
+}
+
+.move-down-text {
+    margin-bottom: 30px;
+}
+
+h4 {
+    line-height: 1.78;
+    margin: 0 auto;
+    width: 70%;
+    margin-bottom: 40px;
+}
+
+.active-tab {
+    background-color: #23527c!important;
+    color: #fff!important;
+}
+
+.less-bold-left-justified {
+    text-align: left!important;
+    /*padding-left: 30px!important;*/
+    color: #000; /* replace it with your color code */
+    font-size: 20px; /* adjust based on your needs */
+    font-weight: normal; /* Use 'bold' for bold font, 'normal' for less bold  */
+}
+
+nav.navbar-nav {
+    margin-bottom: 50px;
+}
+
+.instruction {
+    font-weight: normal;
+}
+
+.nav-justified {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.specific-list li {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.specific-list input[type="radio"] {
+    margin-right: 5px;
+}
+
+.specific-list label {
+    display: flex;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot');
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.completed {
+     color: green;
+ }
+.uncompleted {
+    color: red;
+}
+
+</style>
+</head>
+
+<body>
+<img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database" src="../assets/fmjfox.png" />
+<div class="registration-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+<div style="font-size: 18px;color: #8a6d3b; background-color: antiquewhite; border: burlywood 3px solid;border-radius: 5px;">
+    <div style="padding: 10px 10px 0px">
+        Data entered into this eCRF are automatically saved
+    </div>
+    <div style="padding: 0px 10px 10px">
+        The contributor will also be able to return at a future date to view
+        and/or edit the eCRF should new information regarding the patient/family become available
+    </div>
+</div>
+        <br/>
+        <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+          <span style="color: #133957" th:text="${'Local ID: ' + centerId}" th:if="${centerId}"></span><br/>
+          <span style="color: #133957" th:text="${'Project ID: ' + projectId}" th:if="${projectId}"></span>
+</div>
+        <form accept-charset="UTF-8" class="registration-form onlyForm" method="post" th:object="${formObj}" th:id="${formObj.surveyTwoId}" >
+<input type='hidden' id="filling_status" th:field="${formObj.fillingStatus}"/><div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">        <div class="top-box text-left">
+          <h2 class="title">State-Trait Anxiety Inventory</h2>
+        </div>  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%;background-image: linear-gradient(to bottom,#33A371 0,#33A371 100%)">
+      <span class="sr-only">0% Complete</span>
+    </div>
+  </div>
+	<div class="alert alert-warning" role="alert">
+  	   <strong>Warning:</strong> The minimal dataset is not complete yet. Please be reminded that to complete the minimal dataset is mandatory in order to have samples processed for analysis. Please continue or come back when you can complete at least the minimal dataset.
+	</div>
+</div>          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-first-header move-down-header" >
+                <label namelabel="stais_ex" class="" for="">STAI-S completed</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais_ex}" type="radio" name1="stais_ex" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais_ex}" type="radio" name1="stais_ex" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="stais_instruction" class="instruction">A number of statements which people have used to describe themselves are given below. Read each statement and then circle the appropriate number to the right of the statement to indicate how you feel right now, that is, at this moment. There are no right or wrong answers. Do not spend too much time on any one statement but give the answer which seems to describe your present feelings best.</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais1" class="" for="">1. I feel calm</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais1}" type="radio" name1="stais1" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais1}" type="radio" name1="stais1" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais1}" type="radio" name1="stais1" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais1}" type="radio" name1="stais1" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais2" class="" for="">2. I feel secure</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais2}" type="radio" name1="stais2" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais2}" type="radio" name1="stais2" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais2}" type="radio" name1="stais2" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais2}" type="radio" name1="stais2" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais3" class="" for="">3. I am tense</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais3}" type="radio" name1="stais3" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais3}" type="radio" name1="stais3" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais3}" type="radio" name1="stais3" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais3}" type="radio" name1="stais3" value="6"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais4" class="" for="">4. I feel strained</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais4}" type="radio" name1="stais4" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais4}" type="radio" name1="stais4" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais4}" type="radio" name1="stais4" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais4}" type="radio" name1="stais4" value="7"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais5" class="" for="">5. I feel at ease</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais5}" type="radio" name1="stais5" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais5}" type="radio" name1="stais5" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais5}" type="radio" name1="stais5" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais5}" type="radio" name1="stais5" value="8"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais6" class="" for="">6. I feel upset</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais6}" type="radio" name1="stais6" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais6}" type="radio" name1="stais6" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais6}" type="radio" name1="stais6" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais6}" type="radio" name1="stais6" value="9"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais7" class="" for="">7. I am presently worrying over possible misfortunes</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais7}" type="radio" name1="stais7" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais7}" type="radio" name1="stais7" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais7}" type="radio" name1="stais7" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais7}" type="radio" name1="stais7" value="10"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais8" class="" for="">8. I feel satisfied</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais8}" type="radio" name1="stais8" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais8}" type="radio" name1="stais8" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais8}" type="radio" name1="stais8" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais8}" type="radio" name1="stais8" value="11"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais9" class="" for="">9. I feel frightened</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais9}" type="radio" name1="stais9" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais9}" type="radio" name1="stais9" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais9}" type="radio" name1="stais9" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais9}" type="radio" name1="stais9" value="12"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais10" class="" for="">10. I feel comfortable</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais10}" type="radio" name1="stais10" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais10}" type="radio" name1="stais10" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais10}" type="radio" name1="stais10" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais10}" type="radio" name1="stais10" value="13"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais11" class="" for="">11. I feel self-confident</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais11}" type="radio" name1="stais11" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais11}" type="radio" name1="stais11" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais11}" type="radio" name1="stais11" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais11}" type="radio" name1="stais11" value="14"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais12" class="" for="">12. I feel nervous</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais12}" type="radio" name1="stais12" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais12}" type="radio" name1="stais12" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais12}" type="radio" name1="stais12" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais12}" type="radio" name1="stais12" value="15"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais13" class="" for="">13. I am jittery</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais13}" type="radio" name1="stais13" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais13}" type="radio" name1="stais13" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais13}" type="radio" name1="stais13" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais13}" type="radio" name1="stais13" value="16"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais14" class="" for="">14. I feel indecisive</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais14}" type="radio" name1="stais14" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais14}" type="radio" name1="stais14" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais14}" type="radio" name1="stais14" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais14}" type="radio" name1="stais14" value="17"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais15" class="" for="">15. I am relaxed</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais15}" type="radio" name1="stais15" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais15}" type="radio" name1="stais15" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais15}" type="radio" name1="stais15" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais15}" type="radio" name1="stais15" value="18"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais16" class="" for="">16. I am content</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais16}" type="radio" name1="stais16" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais16}" type="radio" name1="stais16" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais16}" type="radio" name1="stais16" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais16}" type="radio" name1="stais16" value="19"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais17" class="" for="">17. I am worried</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais17}" type="radio" name1="stais17" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais17}" type="radio" name1="stais17" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais17}" type="radio" name1="stais17" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais17}" type="radio" name1="stais17" value="20"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais18" class="" for="">18. I feel confused</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais18}" type="radio" name1="stais18" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais18}" type="radio" name1="stais18" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais18}" type="radio" name1="stais18" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais18}" type="radio" name1="stais18" value="21"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais19" class="" for="">19. I feel joyful</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais19}" type="radio" name1="stais19" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais19}" type="radio" name1="stais19" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais19}" type="radio" name1="stais19" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais19}" type="radio" name1="stais19" value="22"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="stais20" class="" for="">20. I feel pleasant</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais20}" type="radio" name1="stais20" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Not at all</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais20}" type="radio" name1="stais20" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Somewhat</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais20}" type="radio" name1="stais20" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Moderately</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Stais20}" type="radio" name1="stais20" value="23"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Very much so</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+        </form>
+<div id="upload-progress" style='display:none'><div class="progress-bar-1" style="display:none"></div></div> <!-- Progress bar added -->    <div class="selectedDrogsChildren">
+                    <span th:each="formChild: ${formD}"
+                          th:text="${formChild.name}"
+                          th:class="${formChild.name}"
+                          style="display:none;"
+                    ></span>
+    </div>
+
+            </div>
+    </div>
+  </div>
+</div>
+
+<script  type="text/javascript">
+function __main__() {
+//begin stais_instruction
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais_instruction",true,"null",null);
+else hide("stais_instruction",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais_instruction",false,"null",null);
+ else  hide("stais_instruction",false);
+  } else hide("stais_instruction",false);
+ }
+//end stais_instruction
+//begin stais1
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais1",true,"null",null);
+else hide("stais1",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais1",false,"null",null);
+ else  hide("stais1",false);
+  } else hide("stais1",false);
+ }
+//end stais1
+//begin stais2
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais2",true,"null",null);
+else hide("stais2",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais2",false,"null",null);
+ else  hide("stais2",false);
+  } else hide("stais2",false);
+ }
+//end stais2
+//begin stais3
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais3",true,"null",null);
+else hide("stais3",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais3",false,"null",null);
+ else  hide("stais3",false);
+  } else hide("stais3",false);
+ }
+//end stais3
+//begin stais4
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais4",true,"null",null);
+else hide("stais4",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais4",false,"null",null);
+ else  hide("stais4",false);
+  } else hide("stais4",false);
+ }
+//end stais4
+//begin stais5
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais5",true,"null",null);
+else hide("stais5",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais5",false,"null",null);
+ else  hide("stais5",false);
+  } else hide("stais5",false);
+ }
+//end stais5
+//begin stais6
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais6",true,"null",null);
+else hide("stais6",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais6",false,"null",null);
+ else  hide("stais6",false);
+  } else hide("stais6",false);
+ }
+//end stais6
+//begin stais7
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais7",true,"null",null);
+else hide("stais7",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais7",false,"null",null);
+ else  hide("stais7",false);
+  } else hide("stais7",false);
+ }
+//end stais7
+//begin stais8
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais8",true,"null",null);
+else hide("stais8",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais8",false,"null",null);
+ else  hide("stais8",false);
+  } else hide("stais8",false);
+ }
+//end stais8
+//begin stais9
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais9",true,"null",null);
+else hide("stais9",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais9",false,"null",null);
+ else  hide("stais9",false);
+  } else hide("stais9",false);
+ }
+//end stais9
+//begin stais10
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais10",true,"null",null);
+else hide("stais10",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais10",false,"null",null);
+ else  hide("stais10",false);
+  } else hide("stais10",false);
+ }
+//end stais10
+//begin stais11
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais11",true,"null",null);
+else hide("stais11",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais11",false,"null",null);
+ else  hide("stais11",false);
+  } else hide("stais11",false);
+ }
+//end stais11
+//begin stais12
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais12",true,"null",null);
+else hide("stais12",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais12",false,"null",null);
+ else  hide("stais12",false);
+  } else hide("stais12",false);
+ }
+//end stais12
+//begin stais13
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais13",true,"null",null);
+else hide("stais13",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais13",false,"null",null);
+ else  hide("stais13",false);
+  } else hide("stais13",false);
+ }
+//end stais13
+//begin stais14
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais14",true,"null",null);
+else hide("stais14",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais14",false,"null",null);
+ else  hide("stais14",false);
+  } else hide("stais14",false);
+ }
+//end stais14
+//begin stais15
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais15",true,"null",null);
+else hide("stais15",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais15",false,"null",null);
+ else  hide("stais15",false);
+  } else hide("stais15",false);
+ }
+//end stais15
+//begin stais16
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais16",true,"null",null);
+else hide("stais16",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais16",false,"null",null);
+ else  hide("stais16",false);
+  } else hide("stais16",false);
+ }
+//end stais16
+//begin stais17
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais17",true,"null",null);
+else hide("stais17",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais17",false,"null",null);
+ else  hide("stais17",false);
+  } else hide("stais17",false);
+ }
+//end stais17
+//begin stais18
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais18",true,"null",null);
+else hide("stais18",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais18",false,"null",null);
+ else  hide("stais18",false);
+  } else hide("stais18",false);
+ }
+//end stais18
+//begin stais19
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais19",true,"null",null);
+else hide("stais19",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais19",false,"null",null);
+ else  hide("stais19",false);
+  } else hide("stais19",false);
+ }
+//end stais19
+//begin stais20
+//condition display only if "yes" is checked in item "stais_ex"
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais20",true,"null",null);
+else hide("stais20",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais20",false,"null",null);
+ else  hide("stais20",false);
+  } else hide("stais20",false);
+ }
+//end stais20
+minimum_part_filled_out();
+    } __main__(); 
+$('#stais_ex,input[name="stais_ex"]').on('change', function() {if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais_instruction",true,"null",null);
+else hide("stais_instruction",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais_instruction",false,"null",null);
+ else  hide("stais_instruction",false);
+  } else hide("stais_instruction",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais1",true,"null",null);
+else hide("stais1",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais1",false,"null",null);
+ else  hide("stais1",false);
+  } else hide("stais1",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais2",true,"null",null);
+else hide("stais2",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais2",false,"null",null);
+ else  hide("stais2",false);
+  } else hide("stais2",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais3",true,"null",null);
+else hide("stais3",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais3",false,"null",null);
+ else  hide("stais3",false);
+  } else hide("stais3",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais4",true,"null",null);
+else hide("stais4",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais4",false,"null",null);
+ else  hide("stais4",false);
+  } else hide("stais4",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais5",true,"null",null);
+else hide("stais5",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais5",false,"null",null);
+ else  hide("stais5",false);
+  } else hide("stais5",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais6",true,"null",null);
+else hide("stais6",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais6",false,"null",null);
+ else  hide("stais6",false);
+  } else hide("stais6",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais7",true,"null",null);
+else hide("stais7",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais7",false,"null",null);
+ else  hide("stais7",false);
+  } else hide("stais7",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais8",true,"null",null);
+else hide("stais8",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais8",false,"null",null);
+ else  hide("stais8",false);
+  } else hide("stais8",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais9",true,"null",null);
+else hide("stais9",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais9",false,"null",null);
+ else  hide("stais9",false);
+  } else hide("stais9",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais10",true,"null",null);
+else hide("stais10",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais10",false,"null",null);
+ else  hide("stais10",false);
+  } else hide("stais10",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais11",true,"null",null);
+else hide("stais11",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais11",false,"null",null);
+ else  hide("stais11",false);
+  } else hide("stais11",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais12",true,"null",null);
+else hide("stais12",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais12",false,"null",null);
+ else  hide("stais12",false);
+  } else hide("stais12",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais13",true,"null",null);
+else hide("stais13",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais13",false,"null",null);
+ else  hide("stais13",false);
+  } else hide("stais13",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais14",true,"null",null);
+else hide("stais14",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais14",false,"null",null);
+ else  hide("stais14",false);
+  } else hide("stais14",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais15",true,"null",null);
+else hide("stais15",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais15",false,"null",null);
+ else  hide("stais15",false);
+  } else hide("stais15",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais16",true,"null",null);
+else hide("stais16",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais16",false,"null",null);
+ else  hide("stais16",false);
+  } else hide("stais16",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais17",true,"null",null);
+else hide("stais17",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais17",false,"null",null);
+ else  hide("stais17",false);
+  } else hide("stais17",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais18",true,"null",null);
+else hide("stais18",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais18",false,"null",null);
+ else  hide("stais18",false);
+  } else hide("stais18",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais19",true,"null",null);
+else hide("stais19",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais19",false,"null",null);
+ else  hide("stais19",false);
+  } else hide("stais19",false);
+ }
+if (length("stais_ex") > 0 ? isvisible("stais_ex", true) : false )
+{ if (check("stais_ex","yes"))
+ show("stais20",true,"null",null);
+else hide("stais20",true);
+} else {
+if (isvisible2("stais_ex", false)) {
+ if (check2("stais_ex","yes"))
+  show("stais20",false,"null",null);
+ else  hide("stais20",false);
+  } else hide("stais20",false);
+ }
+});
+
+</script>
+</body>
+</html>

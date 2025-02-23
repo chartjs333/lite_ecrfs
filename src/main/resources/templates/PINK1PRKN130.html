@@ -1,0 +1,2513 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title> SCOPA-AUT</title>
+<!-- css files -->
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
+<link rel="stylesheet" type="text/css" href="../fonts/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/registration-style.css"/>
+<link rel="stylesheet" type="text/css" href="../css/elements.css"/>
+<!-- Bootstrap Timepicker CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../css/check-ecrf-minimal.css"/>
+<!-- jquery library --> 
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script> 
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/survey.js"></script>
+<!-- Bootstrap Timepicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../js/check-ecrf-minimal.js"></script>
+<script  type="text/javascript">
+$(document).ready(function(){     $('.timepicker').timepicker({
+        showInputs: false,
+        showMeridian: false
+    });});
+</script>
+<style>
+#logo {
+    display: block;
+    margin: auto;
+}
+.minimal-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.core-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-group.has-minimal > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.form-group.has-core > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.progress .progress-bar {
+    background-image: linear-gradient(to bottom, #E07800 0, #E07800 100%) !important;
+}
+.survey-button {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Arial',Arial,sans-serif;
+    line-height: 1.55;
+    font-weight: 600;
+    border-width: 2px;
+    border-radius: 6px;
+    background-color: #3A91B6;
+    background-position: center center;
+    border-color: #3A91B6;
+    border-style: solid;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.has-minimal .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.has-core .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+
+
+.header-label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subheader {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.move-up-first-header {
+    margin-top: 70px;
+}
+
+
+.move-down-header {
+    margin-bottom: 35px;
+}
+
+
+.move-up-header {
+    margin-top: 55px;
+}
+
+
+.move-down-subheader {
+    margin-bottom: 10px;
+}
+
+
+.move-up-subheader {
+    margin-top: 40px;
+}
+
+.move-up-yes-no {
+    margin-top: 5px;
+}
+
+.move-down-yes-no {
+    margin-bottom: 30px;
+}
+
+.move-down-text {
+    margin-bottom: 30px;
+}
+
+h4 {
+    line-height: 1.78;
+    margin: 0 auto;
+    width: 70%;
+    margin-bottom: 40px;
+}
+
+.active-tab {
+    background-color: #23527c!important;
+    color: #fff!important;
+}
+
+.less-bold-left-justified {
+    text-align: left!important;
+    /*padding-left: 30px!important;*/
+    color: #000; /* replace it with your color code */
+    font-size: 20px; /* adjust based on your needs */
+    font-weight: normal; /* Use 'bold' for bold font, 'normal' for less bold  */
+}
+
+nav.navbar-nav {
+    margin-bottom: 50px;
+}
+
+.instruction {
+    font-weight: normal;
+}
+
+.nav-justified {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.specific-list li {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.specific-list input[type="radio"] {
+    margin-right: 5px;
+}
+
+.specific-list label {
+    display: flex;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot');
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.completed {
+     color: green;
+ }
+.uncompleted {
+    color: red;
+}
+
+</style>
+</head>
+
+<body>
+<img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database" src="../assets/fmjfox.png" />
+<div class="registration-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+<div style="font-size: 18px;color: #8a6d3b; background-color: antiquewhite; border: burlywood 3px solid;border-radius: 5px;">
+    <div style="padding: 10px 10px 0px">
+        Data entered into this eCRF are automatically saved
+    </div>
+    <div style="padding: 0px 10px 10px">
+        The contributor will also be able to return at a future date to view
+        and/or edit the eCRF should new information regarding the patient/family become available
+    </div>
+</div>
+        <br/>
+        <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+          <span style="color: #133957" th:text="${'Local ID: ' + centerId}" th:if="${centerId}"></span><br/>
+          <span style="color: #133957" th:text="${'Project ID: ' + projectId}" th:if="${projectId}"></span>
+</div>
+        <form accept-charset="UTF-8" class="registration-form onlyForm" method="post" th:object="${formObj}" th:id="${formObj.surveyTwoId}" >
+<input type='hidden' id="filling_status" th:field="${formObj.fillingStatus}"/><div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">        <div class="top-box text-left">
+          <h2 class="title">SCOPA-AUT</h2>
+        </div>  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%;background-image: linear-gradient(to bottom,#33A371 0,#33A371 100%)">
+      <span class="sr-only">0% Complete</span>
+    </div>
+  </div>
+	<div class="alert alert-warning" role="alert">
+  	   <strong>Warning:</strong> The minimal dataset is not complete yet. Please be reminded that to complete the minimal dataset is mandatory in order to have samples processed for analysis. Please continue or come back when you can complete at least the minimal dataset.
+	</div>
+</div>          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-first-header move-down-header" >
+                <label namelabel="scopaaut_ex" class="" for="">SCOPA-AUT completed</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut_ex}" type="radio" name1="scopaaut_ex" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut_ex}" type="radio" name1="scopaaut_ex" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="scopaaut_inst1" class="instruction">By means of this questionnaire, we would like to find out to what extent in the past month you have had problems with various bodily functions, such as difficulty passing urine, or excessive sweating. Answer the questions by placing a cross in the box which best reflects your situation. If you wish to change an answer, fill in the ‘wrong’ box and place a cross in the correct one. If you have used medication in the past month in relation to one or more of the problems mentioned, then the question refers to how you were while taking this medication. You can note the use of medication on the last page.</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaauta" class="" for="">Source of information</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaauta}" type="radio" name1="scopaauta" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Patient</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaauta}" type="radio" name1="scopaauta" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Caregiver</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaauta}" type="radio" name1="scopaauta" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Patient and Caregiver</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut1" class="" for="">In the past month have you had difficulty swallowing or have you choked?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut1}" type="radio" name1="scopaaut1" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut1}" type="radio" name1="scopaaut1" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut1}" type="radio" name1="scopaaut1" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut1}" type="radio" name1="scopaaut1" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut2" class="" for="">In the past month, has saliva dribbled out of your mouth?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut2}" type="radio" name1="scopaaut2" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut2}" type="radio" name1="scopaaut2" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut2}" type="radio" name1="scopaaut2" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut2}" type="radio" name1="scopaaut2" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut3" class="" for="">In the past month, has food ever become stuck in your throat?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut3}" type="radio" name1="scopaaut3" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut3}" type="radio" name1="scopaaut3" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut3}" type="radio" name1="scopaaut3" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut3}" type="radio" name1="scopaaut3" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut4" class="" for="">In the past month, did you ever have the feeling during a meal that you were full very quickly?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut4}" type="radio" name1="scopaaut4" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut4}" type="radio" name1="scopaaut4" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut4}" type="radio" name1="scopaaut4" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut4}" type="radio" name1="scopaaut4" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut5" class="" for="">In the past month, have you had problems with constipation? (Constipation is a blockage of the bowel, a condition in which someone has a bowel movement twice a week or less.)</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut5}" type="radio" name1="scopaaut5" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut5}" type="radio" name1="scopaaut5" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut5}" type="radio" name1="scopaaut5" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut5}" type="radio" name1="scopaaut5" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut6" class="" for="">In the past month, did you have to strain hard to pass stools?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut6}" type="radio" name1="scopaaut6" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut6}" type="radio" name1="scopaaut6" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut6}" type="radio" name1="scopaaut6" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut6}" type="radio" name1="scopaaut6" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut7" class="" for="">In the past month, have you had involuntary loss of stools?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut7}" type="radio" name1="scopaaut7" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut7}" type="radio" name1="scopaaut7" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut7}" type="radio" name1="scopaaut7" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut7}" type="radio" name1="scopaaut7" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut8" class="" for="">In the past month, have you had difficulty retaining urine?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut8}" type="radio" name1="scopaaut8" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut8}" type="radio" name1="scopaaut8" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut8}" type="radio" name1="scopaaut8" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut8}" type="radio" name1="scopaaut8" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut8}" type="radio" name1="scopaaut8" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> use catheter</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut9" class="" for="">In the past month, have you had involuntary loss of urine?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut9}" type="radio" name1="scopaaut9" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut9}" type="radio" name1="scopaaut9" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut9}" type="radio" name1="scopaaut9" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut9}" type="radio" name1="scopaaut9" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut9}" type="radio" name1="scopaaut9" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> use catheter</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut10" class="" for="">In the past month, have you had the feeling that after passing urine your bladder was not completely empty?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut10}" type="radio" name1="scopaaut10" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut10}" type="radio" name1="scopaaut10" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut10}" type="radio" name1="scopaaut10" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut10}" type="radio" name1="scopaaut10" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut10}" type="radio" name1="scopaaut10" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> use catheter</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut11" class="" for="">In the past month, has the stream of urine been weak?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut11}" type="radio" name1="scopaaut11" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut11}" type="radio" name1="scopaaut11" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut11}" type="radio" name1="scopaaut11" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut11}" type="radio" name1="scopaaut11" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut11}" type="radio" name1="scopaaut11" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> use catheter</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut12" class="" for="">In the past month, have you had to pass urine again within 2 hours of the previous time?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut12}" type="radio" name1="scopaaut12" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut12}" type="radio" name1="scopaaut12" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut12}" type="radio" name1="scopaaut12" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut12}" type="radio" name1="scopaaut12" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut12}" type="radio" name1="scopaaut12" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> use catheter</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut13" class="" for="">In the past month, have you had to pass urine at night?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut13}" type="radio" name1="scopaaut13" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut13}" type="radio" name1="scopaaut13" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut13}" type="radio" name1="scopaaut13" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut13}" type="radio" name1="scopaaut13" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut13}" type="radio" name1="scopaaut13" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> use catheter</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut14" class="" for="">In the past month, when standing up have you had the feeling of either becoming lightheaded, or no longer being able to see properly, or no longer being able to think clearly?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut14}" type="radio" name1="scopaaut14" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut14}" type="radio" name1="scopaaut14" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut14}" type="radio" name1="scopaaut14" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut14}" type="radio" name1="scopaaut14" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut15" class="" for="">In the past month, did you become lightheaded after standing for some time?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut15}" type="radio" name1="scopaaut15" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut15}" type="radio" name1="scopaaut15" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut15}" type="radio" name1="scopaaut15" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut15}" type="radio" name1="scopaaut15" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut16" class="" for="">Have you fainted in the past 6 months?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut16}" type="radio" name1="scopaaut16" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut16}" type="radio" name1="scopaaut16" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut16}" type="radio" name1="scopaaut16" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut16}" type="radio" name1="scopaaut16" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut17" class="" for="">In the past month, have you ever perspired excessively during the day?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut17}" type="radio" name1="scopaaut17" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut17}" type="radio" name1="scopaaut17" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut17}" type="radio" name1="scopaaut17" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut17}" type="radio" name1="scopaaut17" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut18" class="" for="">In the past month, have you ever perspired excessively during the night?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut18}" type="radio" name1="scopaaut18" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut18}" type="radio" name1="scopaaut18" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut18}" type="radio" name1="scopaaut18" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut18}" type="radio" name1="scopaaut18" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut19" class="" for="">In the past month, have your eyes ever been over-sensitive to bright light?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut19}" type="radio" name1="scopaaut19" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut19}" type="radio" name1="scopaaut19" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut19}" type="radio" name1="scopaaut19" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut19}" type="radio" name1="scopaaut19" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut20" class="" for="">In the past month, how often have you had trouble tolerating cold?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut20}" type="radio" name1="scopaaut20" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut20}" type="radio" name1="scopaaut20" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut20}" type="radio" name1="scopaaut20" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut20}" type="radio" name1="scopaaut20" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut21" class="" for="">In the past month, how often have you had trouble tolerating heat?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut21}" type="radio" name1="scopaaut21" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut21}" type="radio" name1="scopaaut21" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut21}" type="radio" name1="scopaaut21" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut21}" type="radio" name1="scopaaut21" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="scopaaut_inst2" class="instruction">The following questions are about sexuality. Although we are aware that sexuality is a highly intimate subject, we would still like you to answer these questions. For the questions on sexual activity, consider every form of sexual contact with a partner or masturbation (self- gratification). An extra response option has been added to these questions. Here you can indicate that the situation described has not been applicable to you in the past month, for example because you have not been sexually active. Questions 22 and 23 are intended specifically for men, 24 and 25 for women.</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-first-header move-down-header" >
+                <label id="scopaaut_headline1" class="header-label">The following 3 questions are only for men</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut22" class="" for="">In the past month, have you been impotent (unable to have or maintain an erection)?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut22}" type="radio" name1="scopaaut22" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut22}" type="radio" name1="scopaaut22" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut22}" type="radio" name1="scopaaut22" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut22}" type="radio" name1="scopaaut22" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut22}" type="radio" name1="scopaaut22" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> not applicable</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut23" class="" for="">In the past month, how often have you been unable to ejaculate?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut23}" type="radio" name1="scopaaut23" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut23}" type="radio" name1="scopaaut23" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut23}" type="radio" name1="scopaaut23" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut23}" type="radio" name1="scopaaut23" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut23}" type="radio" name1="scopaaut23" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> not applicable</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut23a" class="" for="">In the past month, have you taken medication for an erection disorder?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut23a}" type="radio" name1="scopaaut23a" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut23a}" type="radio" name1="scopaaut23a" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> No</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-text" >
+                <label for="scopaaut23a1" class="">Which medication?</label>
+                <input type="text" class="form-control" id="scopaaut23a1"  th:field="${formObj.Scopaaut23a1}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-first-header move-down-header" >
+                <label id="scopaaut_headline2" class="header-label">The following 2 questions are only for women</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut24" class="" for="">In the past month, was your vagina too dry during sexual activity?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut24}" type="radio" name1="scopaaut24" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut24}" type="radio" name1="scopaaut24" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut24}" type="radio" name1="scopaaut24" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut24}" type="radio" name1="scopaaut24" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut24}" type="radio" name1="scopaaut24" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> not applicable</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut25" class="" for="">In the past month, have you had difficulty reaching an orgasm?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut25}" type="radio" name1="scopaaut25" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">never</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut25}" type="radio" name1="scopaaut25" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> sometimes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut25}" type="radio" name1="scopaaut25" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> regularly</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut25}" type="radio" name1="scopaaut25" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> often</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut25}" type="radio" name1="scopaaut25" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> not applicable</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-first-header move-down-header" >
+                <label id="scopaaut_headline3" class="header-label">The following questions are for everyone</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="scopaaut_inst3" class="instruction">The questions below are about the use of medication for which you may have or have not needed a doctor’s prescription. If you use medication, also give the name of the substance.</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-first-header move-down-header" >
+                <label id="scopaaut26" class="header-label">In the past month, have you used medication for:</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut26a" class="" for="">Constipation?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut26a}" type="radio" name1="scopaaut26a" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut26a}" type="radio" name1="scopaaut26a" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> No</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-text" >
+                <label for="scopaaut26a1" class="">Which one?</label>
+                <input type="text" class="form-control" id="scopaaut26a1"  th:field="${formObj.Scopaaut26a1}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut26b" class="" for="">Urinary problems?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut26b}" type="radio" name1="scopaaut26b" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut26b}" type="radio" name1="scopaaut26b" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> No</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-text" >
+                <label for="scopaaut26b1" class="">Which one?</label>
+                <input type="text" class="form-control" id="scopaaut26b1"  th:field="${formObj.Scopaaut26b1}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut26c" class="" for="">blood pressure?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut26c}" type="radio" name1="scopaaut26c" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut26c}" type="radio" name1="scopaaut26c" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> No</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-text" >
+                <label for="scopaaut26c1" class="">Which one?</label>
+                <input type="text" class="form-control" id="scopaaut26c1"  th:field="${formObj.Scopaaut26c1}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="scopaaut26d" class="" for="">Other symptoms not related to PD?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut26d}" type="radio" name1="scopaaut26d" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Scopaaut26d}" type="radio" name1="scopaaut26d" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> No</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-text" >
+                <label for="scopaaut26d1" class="">Which one?</label>
+                <input type="text" class="form-control" id="scopaaut26d1"  th:field="${formObj.Scopaaut26d1}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="scopaaut_copyright" class="instruction">Copyright © 2019 International Parkinson and Movement Disorder Society. All rights reserved</label>
+              </div>
+            </div>          </div>
+        </form>
+<div id="upload-progress" style='display:none'><div class="progress-bar-1" style="display:none"></div></div> <!-- Progress bar added -->    <div class="selectedDrogsChildren">
+                    <span th:each="formChild: ${formD}"
+                          th:text="${formChild.name}"
+                          th:class="${formChild.name}"
+                          style="display:none;"
+                    ></span>
+    </div>
+
+            </div>
+    </div>
+  </div>
+</div>
+
+<script  type="text/javascript">
+function __main__() {
+//begin scopaaut_inst1
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut_inst1",true,"null",null);
+else hide("scopaaut_inst1",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut_inst1",false,"null",null);
+ else  hide("scopaaut_inst1",false);
+  } else hide("scopaaut_inst1",false);
+ }
+//end scopaaut_inst1
+//begin scopaauta
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaauta",true,"null",null);
+else hide("scopaauta",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaauta",false,"null",null);
+ else  hide("scopaauta",false);
+  } else hide("scopaauta",false);
+ }
+//end scopaauta
+//begin scopaaut1
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut1",true,"null",null);
+else hide("scopaaut1",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut1",false,"null",null);
+ else  hide("scopaaut1",false);
+  } else hide("scopaaut1",false);
+ }
+//end scopaaut1
+//begin scopaaut2
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut2",true,"null",null);
+else hide("scopaaut2",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut2",false,"null",null);
+ else  hide("scopaaut2",false);
+  } else hide("scopaaut2",false);
+ }
+//end scopaaut2
+//begin scopaaut3
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut3",true,"null",null);
+else hide("scopaaut3",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut3",false,"null",null);
+ else  hide("scopaaut3",false);
+  } else hide("scopaaut3",false);
+ }
+//end scopaaut3
+//begin scopaaut4
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut4",true,"null",null);
+else hide("scopaaut4",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut4",false,"null",null);
+ else  hide("scopaaut4",false);
+  } else hide("scopaaut4",false);
+ }
+//end scopaaut4
+//begin scopaaut5
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut5",true,"null",null);
+else hide("scopaaut5",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut5",false,"null",null);
+ else  hide("scopaaut5",false);
+  } else hide("scopaaut5",false);
+ }
+//end scopaaut5
+//begin scopaaut6
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut6",true,"null",null);
+else hide("scopaaut6",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut6",false,"null",null);
+ else  hide("scopaaut6",false);
+  } else hide("scopaaut6",false);
+ }
+//end scopaaut6
+//begin scopaaut7
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut7",true,"null",null);
+else hide("scopaaut7",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut7",false,"null",null);
+ else  hide("scopaaut7",false);
+  } else hide("scopaaut7",false);
+ }
+//end scopaaut7
+//begin scopaaut8
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut8",true,"null",null);
+else hide("scopaaut8",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut8",false,"null",null);
+ else  hide("scopaaut8",false);
+  } else hide("scopaaut8",false);
+ }
+//end scopaaut8
+//begin scopaaut9
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut9",true,"null",null);
+else hide("scopaaut9",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut9",false,"null",null);
+ else  hide("scopaaut9",false);
+  } else hide("scopaaut9",false);
+ }
+//end scopaaut9
+//begin scopaaut10
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut10",true,"null",null);
+else hide("scopaaut10",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut10",false,"null",null);
+ else  hide("scopaaut10",false);
+  } else hide("scopaaut10",false);
+ }
+//end scopaaut10
+//begin scopaaut11
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut11",true,"null",null);
+else hide("scopaaut11",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut11",false,"null",null);
+ else  hide("scopaaut11",false);
+  } else hide("scopaaut11",false);
+ }
+//end scopaaut11
+//begin scopaaut12
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut12",true,"null",null);
+else hide("scopaaut12",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut12",false,"null",null);
+ else  hide("scopaaut12",false);
+  } else hide("scopaaut12",false);
+ }
+//end scopaaut12
+//begin scopaaut13
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut13",true,"null",null);
+else hide("scopaaut13",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut13",false,"null",null);
+ else  hide("scopaaut13",false);
+  } else hide("scopaaut13",false);
+ }
+//end scopaaut13
+//begin scopaaut14
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut14",true,"null",null);
+else hide("scopaaut14",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut14",false,"null",null);
+ else  hide("scopaaut14",false);
+  } else hide("scopaaut14",false);
+ }
+//end scopaaut14
+//begin scopaaut15
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut15",true,"null",null);
+else hide("scopaaut15",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut15",false,"null",null);
+ else  hide("scopaaut15",false);
+  } else hide("scopaaut15",false);
+ }
+//end scopaaut15
+//begin scopaaut16
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut16",true,"null",null);
+else hide("scopaaut16",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut16",false,"null",null);
+ else  hide("scopaaut16",false);
+  } else hide("scopaaut16",false);
+ }
+//end scopaaut16
+//begin scopaaut17
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut17",true,"null",null);
+else hide("scopaaut17",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut17",false,"null",null);
+ else  hide("scopaaut17",false);
+  } else hide("scopaaut17",false);
+ }
+//end scopaaut17
+//begin scopaaut18
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut18",true,"null",null);
+else hide("scopaaut18",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut18",false,"null",null);
+ else  hide("scopaaut18",false);
+  } else hide("scopaaut18",false);
+ }
+//end scopaaut18
+//begin scopaaut19
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut19",true,"null",null);
+else hide("scopaaut19",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut19",false,"null",null);
+ else  hide("scopaaut19",false);
+  } else hide("scopaaut19",false);
+ }
+//end scopaaut19
+//begin scopaaut20
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut20",true,"null",null);
+else hide("scopaaut20",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut20",false,"null",null);
+ else  hide("scopaaut20",false);
+  } else hide("scopaaut20",false);
+ }
+//end scopaaut20
+//begin scopaaut21
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut21",true,"null",null);
+else hide("scopaaut21",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut21",false,"null",null);
+ else  hide("scopaaut21",false);
+  } else hide("scopaaut21",false);
+ }
+//end scopaaut21
+//begin scopaaut_inst2
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut_inst2",true,"null",null);
+else hide("scopaaut_inst2",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut_inst2",false,"null",null);
+ else  hide("scopaaut_inst2",false);
+  } else hide("scopaaut_inst2",false);
+ }
+//end scopaaut_inst2
+//begin scopaaut_headline1
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut_headline1",true,"null",null);
+else hide("scopaaut_headline1",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut_headline1",false,"null",null);
+ else  hide("scopaaut_headline1",false);
+  } else hide("scopaaut_headline1",false);
+ }
+//end scopaaut_headline1
+//begin scopaaut22
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut22",true,"null",null);
+else hide("scopaaut22",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut22",false,"null",null);
+ else  hide("scopaaut22",false);
+  } else hide("scopaaut22",false);
+ }
+//end scopaaut22
+//begin scopaaut23
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut23",true,"null",null);
+else hide("scopaaut23",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut23",false,"null",null);
+ else  hide("scopaaut23",false);
+  } else hide("scopaaut23",false);
+ }
+//end scopaaut23
+//begin scopaaut23a
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut23a",true,"null",null);
+else hide("scopaaut23a",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut23a",false,"null",null);
+ else  hide("scopaaut23a",false);
+  } else hide("scopaaut23a",false);
+ }
+//end scopaaut23a
+//begin scopaaut23a1
+//condition display only if "Yes" it item "scopaaut23a"
+if (length("scopaaut23a") > 0 ? isvisible("scopaaut23a", true) : false )  
+{ if (check("scopaaut23a","Yes"))  
+ show("scopaaut23a1",true,"null",null);  
+else hide("scopaaut23a1",true);  
+} else { 
+if (isvisible2("scopaaut23a", false)) { 
+ if (check2("scopaaut23a","Yes")) 
+  show("scopaaut23a1",false,"null",null); 
+ else  hide("scopaaut23a1",false); 
+  } else hide("scopaaut23a1",false); 
+ } 
+//end scopaaut23a1
+//begin scopaaut_headline2
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut_headline2",true,"null",null);
+else hide("scopaaut_headline2",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut_headline2",false,"null",null);
+ else  hide("scopaaut_headline2",false);
+  } else hide("scopaaut_headline2",false);
+ }
+//end scopaaut_headline2
+//begin scopaaut24
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut24",true,"null",null);
+else hide("scopaaut24",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut24",false,"null",null);
+ else  hide("scopaaut24",false);
+  } else hide("scopaaut24",false);
+ }
+//end scopaaut24
+//begin scopaaut25
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut25",true,"null",null);
+else hide("scopaaut25",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut25",false,"null",null);
+ else  hide("scopaaut25",false);
+  } else hide("scopaaut25",false);
+ }
+//end scopaaut25
+//begin scopaaut_headline3
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut_headline3",true,"null",null);
+else hide("scopaaut_headline3",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut_headline3",false,"null",null);
+ else  hide("scopaaut_headline3",false);
+  } else hide("scopaaut_headline3",false);
+ }
+//end scopaaut_headline3
+//begin scopaaut_inst3
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut_inst3",true,"null",null);
+else hide("scopaaut_inst3",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut_inst3",false,"null",null);
+ else  hide("scopaaut_inst3",false);
+  } else hide("scopaaut_inst3",false);
+ }
+//end scopaaut_inst3
+//begin scopaaut26
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut26",true,"null",null);
+else hide("scopaaut26",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut26",false,"null",null);
+ else  hide("scopaaut26",false);
+  } else hide("scopaaut26",false);
+ }
+//end scopaaut26
+//begin scopaaut26a
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut26a",true,"null",null);
+else hide("scopaaut26a",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut26a",false,"null",null);
+ else  hide("scopaaut26a",false);
+  } else hide("scopaaut26a",false);
+ }
+//end scopaaut26a
+//begin scopaaut26a1
+//condition display only if "Yes" it item "scopaaut26a"
+if (length("scopaaut26a") > 0 ? isvisible("scopaaut26a", true) : false )  
+{ if (check("scopaaut26a","Yes"))  
+ show("scopaaut26a1",true,"null",null);  
+else hide("scopaaut26a1",true);  
+} else { 
+if (isvisible2("scopaaut26a", false)) { 
+ if (check2("scopaaut26a","Yes")) 
+  show("scopaaut26a1",false,"null",null); 
+ else  hide("scopaaut26a1",false); 
+  } else hide("scopaaut26a1",false); 
+ } 
+//end scopaaut26a1
+//begin scopaaut26b
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut26b",true,"null",null);
+else hide("scopaaut26b",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut26b",false,"null",null);
+ else  hide("scopaaut26b",false);
+  } else hide("scopaaut26b",false);
+ }
+//end scopaaut26b
+//begin scopaaut26b1
+//condition display only if "Yes" it item "scopaaut26b"
+if (length("scopaaut26b") > 0 ? isvisible("scopaaut26b", true) : false )  
+{ if (check("scopaaut26b","Yes"))  
+ show("scopaaut26b1",true,"null",null);  
+else hide("scopaaut26b1",true);  
+} else { 
+if (isvisible2("scopaaut26b", false)) { 
+ if (check2("scopaaut26b","Yes")) 
+  show("scopaaut26b1",false,"null",null); 
+ else  hide("scopaaut26b1",false); 
+  } else hide("scopaaut26b1",false); 
+ } 
+//end scopaaut26b1
+//begin scopaaut26c
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut26c",true,"null",null);
+else hide("scopaaut26c",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut26c",false,"null",null);
+ else  hide("scopaaut26c",false);
+  } else hide("scopaaut26c",false);
+ }
+//end scopaaut26c
+//begin scopaaut26c1
+//condition display only if "Yes" it item "scopaaut26c"
+if (length("scopaaut26c") > 0 ? isvisible("scopaaut26c", true) : false )  
+{ if (check("scopaaut26c","Yes"))  
+ show("scopaaut26c1",true,"null",null);  
+else hide("scopaaut26c1",true);  
+} else { 
+if (isvisible2("scopaaut26c", false)) { 
+ if (check2("scopaaut26c","Yes")) 
+  show("scopaaut26c1",false,"null",null); 
+ else  hide("scopaaut26c1",false); 
+  } else hide("scopaaut26c1",false); 
+ } 
+//end scopaaut26c1
+//begin scopaaut26d
+//condition display only if "yes" is checked in item "scopaaut_ex"
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut26d",true,"null",null);
+else hide("scopaaut26d",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut26d",false,"null",null);
+ else  hide("scopaaut26d",false);
+  } else hide("scopaaut26d",false);
+ }
+//end scopaaut26d
+//begin scopaaut26d1
+//condition display only if "Yes" it item "scopaaut26d"
+if (length("scopaaut26d") > 0 ? isvisible("scopaaut26d", true) : false )  
+{ if (check("scopaaut26d","Yes"))  
+ show("scopaaut26d1",true,"null",null);  
+else hide("scopaaut26d1",true);  
+} else { 
+if (isvisible2("scopaaut26d", false)) { 
+ if (check2("scopaaut26d","Yes")) 
+  show("scopaaut26d1",false,"null",null); 
+ else  hide("scopaaut26d1",false); 
+  } else hide("scopaaut26d1",false); 
+ } 
+//end scopaaut26d1
+minimum_part_filled_out();
+    } __main__(); 
+$('#scopaaut26c,input[name="scopaaut26c"]').on('change', function() {if (length("scopaaut26c") > 0 ? isvisible("scopaaut26c", true) : false )  
+{ if (check("scopaaut26c","Yes"))  
+ show("scopaaut26c1",true,"null",null);  
+else hide("scopaaut26c1",true);  
+} else { 
+if (isvisible2("scopaaut26c", false)) { 
+ if (check2("scopaaut26c","Yes")) 
+  show("scopaaut26c1",false,"null",null); 
+ else  hide("scopaaut26c1",false); 
+  } else hide("scopaaut26c1",false); 
+ } 
+});
+$('#scopaaut26b,input[name="scopaaut26b"]').on('change', function() {if (length("scopaaut26b") > 0 ? isvisible("scopaaut26b", true) : false )  
+{ if (check("scopaaut26b","Yes"))  
+ show("scopaaut26b1",true,"null",null);  
+else hide("scopaaut26b1",true);  
+} else { 
+if (isvisible2("scopaaut26b", false)) { 
+ if (check2("scopaaut26b","Yes")) 
+  show("scopaaut26b1",false,"null",null); 
+ else  hide("scopaaut26b1",false); 
+  } else hide("scopaaut26b1",false); 
+ } 
+});
+$('#scopaaut26a,input[name="scopaaut26a"]').on('change', function() {if (length("scopaaut26a") > 0 ? isvisible("scopaaut26a", true) : false )  
+{ if (check("scopaaut26a","Yes"))  
+ show("scopaaut26a1",true,"null",null);  
+else hide("scopaaut26a1",true);  
+} else { 
+if (isvisible2("scopaaut26a", false)) { 
+ if (check2("scopaaut26a","Yes")) 
+  show("scopaaut26a1",false,"null",null); 
+ else  hide("scopaaut26a1",false); 
+  } else hide("scopaaut26a1",false); 
+ } 
+});
+$('#scopaaut23a,input[name="scopaaut23a"]').on('change', function() {if (length("scopaaut23a") > 0 ? isvisible("scopaaut23a", true) : false )  
+{ if (check("scopaaut23a","Yes"))  
+ show("scopaaut23a1",true,"null",null);  
+else hide("scopaaut23a1",true);  
+} else { 
+if (isvisible2("scopaaut23a", false)) { 
+ if (check2("scopaaut23a","Yes")) 
+  show("scopaaut23a1",false,"null",null); 
+ else  hide("scopaaut23a1",false); 
+  } else hide("scopaaut23a1",false); 
+ } 
+});
+$('#scopaaut26d,input[name="scopaaut26d"]').on('change', function() {if (length("scopaaut26d") > 0 ? isvisible("scopaaut26d", true) : false )  
+{ if (check("scopaaut26d","Yes"))  
+ show("scopaaut26d1",true,"null",null);  
+else hide("scopaaut26d1",true);  
+} else { 
+if (isvisible2("scopaaut26d", false)) { 
+ if (check2("scopaaut26d","Yes")) 
+  show("scopaaut26d1",false,"null",null); 
+ else  hide("scopaaut26d1",false); 
+  } else hide("scopaaut26d1",false); 
+ } 
+});
+$('#scopaaut_ex,input[name="scopaaut_ex"]').on('change', function() {if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut_inst1",true,"null",null);
+else hide("scopaaut_inst1",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut_inst1",false,"null",null);
+ else  hide("scopaaut_inst1",false);
+  } else hide("scopaaut_inst1",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaauta",true,"null",null);
+else hide("scopaauta",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaauta",false,"null",null);
+ else  hide("scopaauta",false);
+  } else hide("scopaauta",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut1",true,"null",null);
+else hide("scopaaut1",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut1",false,"null",null);
+ else  hide("scopaaut1",false);
+  } else hide("scopaaut1",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut2",true,"null",null);
+else hide("scopaaut2",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut2",false,"null",null);
+ else  hide("scopaaut2",false);
+  } else hide("scopaaut2",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut3",true,"null",null);
+else hide("scopaaut3",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut3",false,"null",null);
+ else  hide("scopaaut3",false);
+  } else hide("scopaaut3",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut4",true,"null",null);
+else hide("scopaaut4",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut4",false,"null",null);
+ else  hide("scopaaut4",false);
+  } else hide("scopaaut4",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut5",true,"null",null);
+else hide("scopaaut5",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut5",false,"null",null);
+ else  hide("scopaaut5",false);
+  } else hide("scopaaut5",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut6",true,"null",null);
+else hide("scopaaut6",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut6",false,"null",null);
+ else  hide("scopaaut6",false);
+  } else hide("scopaaut6",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut7",true,"null",null);
+else hide("scopaaut7",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut7",false,"null",null);
+ else  hide("scopaaut7",false);
+  } else hide("scopaaut7",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut8",true,"null",null);
+else hide("scopaaut8",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut8",false,"null",null);
+ else  hide("scopaaut8",false);
+  } else hide("scopaaut8",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut9",true,"null",null);
+else hide("scopaaut9",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut9",false,"null",null);
+ else  hide("scopaaut9",false);
+  } else hide("scopaaut9",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut10",true,"null",null);
+else hide("scopaaut10",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut10",false,"null",null);
+ else  hide("scopaaut10",false);
+  } else hide("scopaaut10",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut11",true,"null",null);
+else hide("scopaaut11",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut11",false,"null",null);
+ else  hide("scopaaut11",false);
+  } else hide("scopaaut11",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut12",true,"null",null);
+else hide("scopaaut12",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut12",false,"null",null);
+ else  hide("scopaaut12",false);
+  } else hide("scopaaut12",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut13",true,"null",null);
+else hide("scopaaut13",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut13",false,"null",null);
+ else  hide("scopaaut13",false);
+  } else hide("scopaaut13",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut14",true,"null",null);
+else hide("scopaaut14",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut14",false,"null",null);
+ else  hide("scopaaut14",false);
+  } else hide("scopaaut14",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut15",true,"null",null);
+else hide("scopaaut15",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut15",false,"null",null);
+ else  hide("scopaaut15",false);
+  } else hide("scopaaut15",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut16",true,"null",null);
+else hide("scopaaut16",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut16",false,"null",null);
+ else  hide("scopaaut16",false);
+  } else hide("scopaaut16",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut17",true,"null",null);
+else hide("scopaaut17",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut17",false,"null",null);
+ else  hide("scopaaut17",false);
+  } else hide("scopaaut17",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut18",true,"null",null);
+else hide("scopaaut18",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut18",false,"null",null);
+ else  hide("scopaaut18",false);
+  } else hide("scopaaut18",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut19",true,"null",null);
+else hide("scopaaut19",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut19",false,"null",null);
+ else  hide("scopaaut19",false);
+  } else hide("scopaaut19",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut20",true,"null",null);
+else hide("scopaaut20",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut20",false,"null",null);
+ else  hide("scopaaut20",false);
+  } else hide("scopaaut20",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut21",true,"null",null);
+else hide("scopaaut21",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut21",false,"null",null);
+ else  hide("scopaaut21",false);
+  } else hide("scopaaut21",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut_inst2",true,"null",null);
+else hide("scopaaut_inst2",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut_inst2",false,"null",null);
+ else  hide("scopaaut_inst2",false);
+  } else hide("scopaaut_inst2",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut_headline1",true,"null",null);
+else hide("scopaaut_headline1",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut_headline1",false,"null",null);
+ else  hide("scopaaut_headline1",false);
+  } else hide("scopaaut_headline1",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut22",true,"null",null);
+else hide("scopaaut22",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut22",false,"null",null);
+ else  hide("scopaaut22",false);
+  } else hide("scopaaut22",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut23",true,"null",null);
+else hide("scopaaut23",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut23",false,"null",null);
+ else  hide("scopaaut23",false);
+  } else hide("scopaaut23",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut23a",true,"null",null);
+else hide("scopaaut23a",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut23a",false,"null",null);
+ else  hide("scopaaut23a",false);
+  } else hide("scopaaut23a",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut_headline2",true,"null",null);
+else hide("scopaaut_headline2",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut_headline2",false,"null",null);
+ else  hide("scopaaut_headline2",false);
+  } else hide("scopaaut_headline2",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut24",true,"null",null);
+else hide("scopaaut24",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut24",false,"null",null);
+ else  hide("scopaaut24",false);
+  } else hide("scopaaut24",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut25",true,"null",null);
+else hide("scopaaut25",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut25",false,"null",null);
+ else  hide("scopaaut25",false);
+  } else hide("scopaaut25",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut_headline3",true,"null",null);
+else hide("scopaaut_headline3",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut_headline3",false,"null",null);
+ else  hide("scopaaut_headline3",false);
+  } else hide("scopaaut_headline3",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut_inst3",true,"null",null);
+else hide("scopaaut_inst3",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut_inst3",false,"null",null);
+ else  hide("scopaaut_inst3",false);
+  } else hide("scopaaut_inst3",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut26",true,"null",null);
+else hide("scopaaut26",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut26",false,"null",null);
+ else  hide("scopaaut26",false);
+  } else hide("scopaaut26",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut26a",true,"null",null);
+else hide("scopaaut26a",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut26a",false,"null",null);
+ else  hide("scopaaut26a",false);
+  } else hide("scopaaut26a",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut26b",true,"null",null);
+else hide("scopaaut26b",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut26b",false,"null",null);
+ else  hide("scopaaut26b",false);
+  } else hide("scopaaut26b",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut26c",true,"null",null);
+else hide("scopaaut26c",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut26c",false,"null",null);
+ else  hide("scopaaut26c",false);
+  } else hide("scopaaut26c",false);
+ }
+if (length("scopaaut_ex") > 0 ? isvisible("scopaaut_ex", true) : false )
+{ if (check("scopaaut_ex","yes"))
+ show("scopaaut26d",true,"null",null);
+else hide("scopaaut26d",true);
+} else {
+if (isvisible2("scopaaut_ex", false)) {
+ if (check2("scopaaut_ex","yes"))
+  show("scopaaut26d",false,"null",null);
+ else  hide("scopaaut26d",false);
+  } else hide("scopaaut26d",false);
+ }
+});
+
+</script>
+</body>
+</html>

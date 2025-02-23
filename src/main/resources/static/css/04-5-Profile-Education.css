@@ -1,0 +1,180 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/*Start header and footer area*/
+#top_area {
+    background: #003F55;
+    padding: 30px;
+}
+#footer {
+    background: #222A38;
+    padding: 70px;
+    margin-top: 30px;
+}
+/*end header and footer area*/
+
+#profile_education_top_section{}
+.navbar {
+    margin-bottom: 0px;
+}
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+.profile_education_top_menu_section{
+    border-bottom: 1px solid #EFEFEF;
+}
+.profile_education_top_menu_section h2 {
+    text-align: center;
+    margin-top: 71px;
+    margin-bottom: 40px;
+}
+/*start nav code*/
+.profile_education_top_menu_section ul{
+    margin: 0;
+    padding: 0;
+}
+.profile_education_top_menu_section ul li:hover {
+    border-bottom: 2px solid #9B59B6;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: none;
+}
+.navbar-nav li a:hover{
+    color: #555;
+    background-color: transparent;
+    border-bottom: 2px solid #9B59B6;
+    padding-bottom:13px;
+}
+.navbar-default .navbar-nav li.active a{
+    background-color: transparent;
+    border-bottom: 2px solid #9B59B6;
+}
+.navbar-default .navbar-nav li.active a:hover{
+    background-color: transparent;
+}
+/*end nav code*/
+.profile_education_body_section{
+    margin-top: 37px;
+    margin-bottom: 65px;
+}
+
+.profile_education_body_section_part_one {
+    border-bottom: 1px solid #EFEFEF;
+}
+.body_part_one{
+    width: 270px;
+    margin: 0 auto;
+}
+.body_part_one h5 {
+    float: left;
+    line-height: 20px;
+}
+.body_part_one select{
+ margin-bottom: 20px;
+}
+.profile_education_body_section_part_two{
+    margin-top: 26px;
+    border-bottom: 1px solid #EFEFEF;
+}
+.section_one{
+    width: 270px;
+    margin: 0 auto;
+}
+.section_one h5{
+   float: left;
+   line-height: 20px;
+}
+.section_one input {
+    margin-bottom: 20px;
+}
+.profile_education_body_section_part_last{
+	margin-top: 26px;
+}
+.section_last_one{
+	width: 270px;
+    margin: 0 auto;
+}
+.section_last_one h5{
+	float: left;
+    line-height: 20px;
+}
+.section_last_one input{
+  margin-bottom: 20px;
+}
+.profile_education_body_section_part_last h6{
+	line-height: 24px;
+    font-size: 14px;
+    color: #3498DB;
+    margin: 0 auto;
+    width: 270px;
+    margin-bottom: 2px;
+    margin-top: 14px;
+}
+.profile_education_body_section_part_last p{
+	line-height: 24px;
+    font-size: 14px;
+    margin: 0 auto;
+    width: 270px;
+    color: #C75757;
+}
+.profile_education_body_button_section {
+
+    border-top: 2px solid #EFEFEF;
+}
+.profile_education_body_button_section button {
+    margin-right: 290px;
+    float: right;
+    margin-top: 20px;
+}
+/*-------------------This is for 4-3-Profile Passport information-------------------------*/
+
+#profile_passport_body{
+	margin-top: 37px;
+}
+.profile_left_info_one h4{
+ line-height: 20px;
+}
+.profile_left_info_two h4{
+ line-height: 20px;
+}
+.profile_left_info_three h3 {
+    margin-top: 37px;
+    color: #5B5B5B;
+}
+.profile_left_info_three h4{
+ line-height: 20px;
+}
+.profile_passport_info_left_bottom{
+    margin-bottom: 40px;
+}
+.profile_left_info_four h4{
+ line-height: 20px;
+}
+.profile_right_info_one h4{
+ line-height: 20px;
+}
+.profile_right_info_two h4{
+ line-height: 20px;
+}
+.profile_right_info_three{
+	margin-top: 75px;
+}
+.profile_right_info_three h4{
+ line-height: 20px;
+}
+.profile_right_info_four{ 
+	font-size: 20px;
+}
+.profile_right_info_four h4{
+ line-height: 20px;
+}
+.profile_passport_button_area{
+	border-top: 2px solid #EFEFEF;
+}
+.profile_passport_button_area button{
+	float: right;
+	margin-top: 20px;
+    margin-right: 150px;
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+<p style="margin-bottom: 2.15em;"></p>
+      <div class="row">
+  <div class="small-12 text-left columns"><h5>Literature searches and data extraction</h5></div>
+</div>
+<div class="row">
+  <div class="small-12 text-justify columns">
+    <p>
+      The content of MDSGene is based on genetic as well as phenotypic and clinical data extracted from
+      the relevant literature following systematic screens of different resources (Lill <i>et al.</i>, 2016;
+      Kasten <i>et al.</i>, 2018). Eligible articles need to be
+      written in English and published in peer-reviewed journals. They are identified following
+      systematic <a href="http://www.ncbi.nlm.nih.gov/pubmed/" target="_blank">PubMed</a> searches based
+      on standardized search terms comprising the name of the genes (including aliases) and the
+      disease/syndrome of interest. Demographic, clinical and genetic data are extracted adhering to a
+      standardized data extraction protocol. Diagnoses displayed in MDSGene follow the recent
+      recommendations of the International Parkinson disease and Movement Disorder (MDS) Task Force of
+      Genetic Nomenclature in Movement Disorders (Marras <i>et al.</i>, 2016). Whenever necessary, mutations
+      are remapped to the human genome build 19, and mutation identifiers are renamed according to the
+      <a href="http://varnomen.hgvs.org" target="_blank">Human Genome Variation Society</a> (HGVS)
+      nomenclature. Mutation carriers are only included if clinical data has been provided and indicated that he/she is affected by a movement disorder.
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 text-left columns"><h5>Pathogenicity scoring</h5></div>
+</div>
+<div class="row">
+  <div class="small-12 text-justify columns">
+    <p>
+      Potential pathogenicity of reported variants is classified as “possible”, “probable”, or
+      “definite” based on the following criteria: i) co-segregation with disease in the reported
+      pedigrees and/or the number of reported mutation carriers, ii) frequency in ~120,000 ethnically
+      diverse individuals from the <a href="http://gnomad.broadinstitute.org" target="_blank">gnomAD</a> (Genome Aggregation Database) browser (http://gnomad.broadinstitute.org/), iii) CADD (“Combined Annotation Dependent Depletion")
+      score as an in-silico measure of deleteriousness of genetic variants (Kircher <i>et al.</i>, 2014, Rentzsch <i>et al.</i>, 2018), and
+      iv) reported molecular evidence from in-vivo and/or in-vitro studies. Each evidence domain was
+      divided into four categories each accumulating specific “points”, weighted by category
+      (see <a href="/methods#patho_scoring_table">Table 1</a>). Evidence domains
+      “co-segregation with disease” and “presence of mutation-specific positive functional data”
+      received the strongest weights in the pathogenicity grading. Finally, points were summed across
+      categories and pathogenicity was graded as follows: benign (&lt;5 points), possibly pathogenic
+      (5-9 points), probably pathogenic (10-14 points), definitely pathogenic (>14 points). Reported
+      genetic variants that have been classified as benign using this scoring
+      algorithm are not included in MDSGene.
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 text-left columns">
+    <p style="text-decoration: underline;" id="patho_scoring_table" name="patho_scoring_table">
+      Table 1. Pathogenicity scoring scheme implemented in MDSGene:
+    </p>
+    <table style="width:100%; padding-left: 0.95em; padding-right: 1.15em;">
+      <thead>
+        <tr>
+          <th width="112" style="text-align:center;">Evidence</th>
+          <th width="280" style="text-align:center;">Segregation</th>
+          <th width="112" style="text-align:center;">Frequency (gnomAD)</th>
+          <th style="text-align:center;">In-silico prediction <br/>(CADD score)</th>
+          <th style="text-align:center;">Functional studies</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align:center;">Least</td>
+          <td style="text-align:center;">Only a single heterozygous patient<br/>(0 points)</td>
+          <td style="text-align:center;">≥0.01<br/>(0 points)</td>
+          <td style="text-align:center;">&lt;10<br/>(0 points)</td>
+          <td style="text-align:center;">Only negative reports or absence of studies<br/>(0 points)</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;">Suggestive</td>
+          <td style="text-align:center; border-left: 0 none;">
+            ≥1 biallelic patient for recessive or ≥2 single heterozygous patients<br/>for dominant genes or 1 family <br/>(i.e. ≥2 affected mutation
+            carriers)<br/>(2 points)
+          </td>
+          <td style="text-align:center;">0.001-0.009<br/>(1 point)</td>
+          <td style="text-align:center;">10-14<br/>(1 point)</td>
+          <td style="text-align:center;">1 positive study<br/>(2 points)</td>
+        </tr>
+        <tr>
+          <td style="text-align:center; border-bottom-left-radius: 3px;">Strong</td>
+          <td style="text-align:center;">2 families<br/>(3 points)</td>
+          <td style="text-align:center;">0.0001-0.0009<br/>(2 points)</td>
+          <td style="text-align:center;">15-20<br/>(3 points)</td>
+          <td style="text-align:center;">2 positive studies or null allele<br/>(4 points)</td>
+        </tr>
+        <tr>
+          <td style="text-align:center; border-bottom-left-radius: 3px;">Highest</td>
+          <td style="text-align:center; border-left: 0 none;">>2 families<br/>or ≥1 de novo<br/>(6 points)</td>
+          <td style="text-align:center;">&lt;0.0001<br/>(3 points)</td>
+          <td style="text-align:center;">&gt;20<br/>(5 points)</td>
+          <td style="text-align:center;">&gt;2 positive studies<br/>(6 points)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 text-left columns">
+    <h5>Abbreviations/conventions used throughout MDSGene</h5>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 text-justify columns">
+    <p style="margin-bottom: 0.25rem;">
+      AAO = age at onset<br/>
+      comp. het. = compound heterozyous<br/>
+      het = heterozygous<br/>
+      hom = homozyogus<br/>
+      N = number<br/>
+      n.a. = not applicable<br/>
+      O = other/mixed (ethnicity)<br/>
+      SD = standard deviation
+    </p>
+    <p>
+      Note that the full names of the official gene names can be found in the
+      <a href="http://www.ncbi.nlm.nih.gov/gene" target="_blank">EntrezGene</a> database. In addition,
+      country names have been abbreviated according to the official
+      <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3" target="_blank">3-letter codes</a>
+      recommended by the International Organization for Standardization (ISO).
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 text-left columns">
+    <h5>References</h5>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 text-justify columns">
+    <p style="margin-bottom: 0.25rem;">
+      Kircher M, Witten DM, Jain P, O’Roak BJ, Cooper GM, Shendure J. A general framework for estimating
+      the relative pathogenicity of human genetic variants. Nat Genet 2014;46:310–5
+    </p>
+    <p style="margin-bottom: 0.25rem;">
+      Kasten M, Hartmann C, Hampf J, Schaake S, Westenberger A, Vollstedt EJ, Balck A, Domingo A, Vulinovic F, Dulovic M, Zorn I, Madoev H, Zehnle H, Lembeck CM, Schawe L, Reginold J, Huang J, König IR, Bertram L, Marras C, Lohmann K, Lill CM, Klein C. Genotype-Phenotype Relations for the Parkinson's Disease Genes Parkin, PINK1, DJ1: MDSGene Systematic Review. Mov Disord 2018;33:730-41.
+    </p>
+    <p style="margin-bottom: 0.25rem;">
+      Lill CM, Mashychev A, Hartmann C, Lohmann K, Marras C,. Lang AE, Klein C, Bertram L . Launching
+      the Movement Disorders Society Genetic Mutation Database (MDSGene). Mov Disord, 2016
+      May;31(5):607-9
+    </p>
+    <p style="margin-bottom: 0.25rem;">
+      Marras C, Lang A, van de Warrenburg BP, Sue CM, Tabrizi SJ, Bertram L, Mercimek-Mahmutoglu S,
+      Ebrahimi-Fakhari D, Warner TT, Durr A, Assmann B, Lohmann K, Kostic V, Klein C. Recommendations of
+      the International Parkinson and Movement Disorder Society Task Force on Nomenclature of Genetic
+      Movement Disorders. Mov Disord 2016;31(4):436-57.
+    </p><p>Rentzsch P, Witten D, Cooper GM, Shendure J, Kircher M. CADD: predicting the deleteriousness of variants throughout the human genome.Nucleic Acids Res. 2018 Oct 29.</p>
+  </div>
+</div>
+
+      <p style="margin-bottom: 0.55em;"></p>
+	  <!-- End -->      
+    </div>
+    <div class="row">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

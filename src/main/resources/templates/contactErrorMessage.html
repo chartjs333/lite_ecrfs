@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">Contact Success</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+        <p style="margin-bottom: 2.15em;"></p>
+     <div class="row" th:if="${membership_notice != null}">
+  <div class="small-12 text-left columns"><h5 th:text="${membership_notice}">Title</h5></div>
+</div>
+     
+      <div class="row">
+  <div class="small-12 text-left columns">
+    <p th:if="${notice != null}" th:text="${notice}" />
+    <p th:if="${errorMessage != null}" th:text="${errorMessage}" style="color: red;" ></p>
+  </div>
+</div>
+
+      <p style="margin-bottom: 0.55em;"></p>
+    </div>
+    <div class="row">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

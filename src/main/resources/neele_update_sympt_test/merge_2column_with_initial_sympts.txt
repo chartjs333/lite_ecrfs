@@ -1,0 +1,5 @@
+rename1_sympt	rename2_sympt	rename1_HP:555	rename2_HP:555	initial_sympt1	initial_sympt2	initial_sympt3
+-99	99	-99	99	rename1_sympt	not_rename2_sympt	
+-99				rename2_sympt	rename2_sympt	
+-99				rename1_HP:555		rename1_HP:555
+-99				rename2_HP:555	not_rename2_HP:555	

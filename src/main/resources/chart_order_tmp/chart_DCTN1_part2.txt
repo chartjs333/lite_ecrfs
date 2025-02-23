@@ -1,0 +1,2 @@
+depression_sympt	decreased_body_weight_HP:0004325	sleep_disorder_sympt	cognitive_decline_sympt	behavioral_abnormalities_HP:0000708	psychotic_sympt	autonomic_sympt	swallowing_disorder_sympt	anxiety_sympt	dysarthria_anarthria_sympt	impulsive_control_disorder_sympt	intellectual_developmental_disorder_sympt	hallucinations_HP:0000738	incontinence_sympt	apraxia_sympt	RBD_sympt	cataracts_sympt	olfaction_sympt
+1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1

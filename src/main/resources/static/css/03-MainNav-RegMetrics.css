@@ -1,0 +1,19 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.usarname{
+	font-size: 14px;
+	color: #526AB2;
+}
+.icon_thierd_pages{}
+.icon_thierd_pages{
+	font-size: 26px;
+	color: #526AB2;
+}
+.usaricon{}
+.usaricon img {
+	width: 40px;
+	margin-top: -8px;
+}

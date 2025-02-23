@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragmentD3">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything" align="center">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+<p style="margin-bottom: 2.15em;"></p>
+      <div class="row">
+  <div class="small-12 columns"><h5>Cooperation to share unpublished data</h5></div>
+</div>
+
+<svg width="960" height="900"></svg>
+<script src="/assets/d3.v4.min.js"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height"),
+    g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + (height / 2 + 20) + ")");
+
+var stratify = d3.stratify()
+    .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
+
+var cluster = d3.cluster()
+    .size([360, width / 2 - 120]);
+
+d3.csv("/flare.csv", function(error, data) {
+  if (error) throw error;
+
+  var root = stratify(data)
+      .sort(function(a, b) { return a.height - b.height || a.id.localeCompare(b.id); });
+
+  cluster(root);
+
+  var link = g.selectAll(".link")
+      .data(root.descendants().slice(1))
+    .enter().append("path")
+      .attr("class", "link")
+      .attr("d", function(d) {
+        return "M" + project(d.x, d.y)
+            + "C" + project(d.x, (d.y + d.parent.y) / 2)
+            + " " + project(d.parent.x, (d.y + d.parent.y) / 2)
+            + " " + project(d.parent.x, d.parent.y);
+      });
+
+  var node = g.selectAll(".node")
+      .data(root.descendants())
+    .enter().append("g")
+      .attr("class", function(d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
+      .attr("transform", function(d) { return "translate(" + project(d.x, d.y) + ")"; });
+  g.selectAll(".node").on("click", function() {
+	  if(this.__data__.id.endsWith('*')) {
+		  document.getElementById("test").href = "/unpublished_data/" + this.__data__.data.value;
+		  document.getElementById("test").click();
+	  }
+	  //alert(this.__data__.id);
+	});
+  node.append("circle")
+      .attr("r", 5.5);
+
+  node.append("text")
+      .attr("dy", "0.31em")
+      .attr("x", function(d) { return d.x < 180 === !d.children ? 6 : -6; })
+      .style("text-anchor", function(d) { return d.x < 180 === !d.children ? "start" : "end"; })
+      .attr("transform", function(d) { return "rotate(" + (d.x < 180 ? d.x - 90 : d.x + 90) + ")"; })
+      .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
+});
+
+function project(x, y) {
+  var angle = (x - 90) / 180 * Math.PI, radius = y;
+  return [radius * Math.cos(angle), radius * Math.sin(angle)];
+}
+/*]]>*/
+</script>
+    </div>
+    <div class="row">
+    <a data-reveal-ajax="true" data-reveal-id="global_modal_dialog" href="/sequence_variations/14982" id="test"></a>
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

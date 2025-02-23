@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title> Questionnaire for Impulsive-Compulsive Disorders in Parkinson's Disease (QUIP-Current-Short)</title>
+<!-- css files -->
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
+<link rel="stylesheet" type="text/css" href="../fonts/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/registration-style.css"/>
+<link rel="stylesheet" type="text/css" href="../css/elements.css"/>
+<!-- Bootstrap Timepicker CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../css/check-ecrf-minimal.css"/>
+<!-- jquery library --> 
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script> 
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/survey.js"></script>
+<!-- Bootstrap Timepicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../js/check-ecrf-minimal.js"></script>
+<script  type="text/javascript">
+$(document).ready(function(){     $('.timepicker').timepicker({
+        showInputs: false,
+        showMeridian: false
+    });});
+</script>
+<style>
+#logo {
+    display: block;
+    margin: auto;
+}
+.minimal-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.core-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-group.has-minimal > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.form-group.has-core > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.progress .progress-bar {
+    background-image: linear-gradient(to bottom, #E07800 0, #E07800 100%) !important;
+}
+.survey-button {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Arial',Arial,sans-serif;
+    line-height: 1.55;
+    font-weight: 600;
+    border-width: 2px;
+    border-radius: 6px;
+    background-color: #3A91B6;
+    background-position: center center;
+    border-color: #3A91B6;
+    border-style: solid;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.has-minimal .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.has-core .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+
+
+.header-label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subheader {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.move-up-first-header {
+    margin-top: 70px;
+}
+
+
+.move-down-header {
+    margin-bottom: 35px;
+}
+
+
+.move-up-header {
+    margin-top: 55px;
+}
+
+
+.move-down-subheader {
+    margin-bottom: 10px;
+}
+
+
+.move-up-subheader {
+    margin-top: 40px;
+}
+
+.move-up-yes-no {
+    margin-top: 5px;
+}
+
+.move-down-yes-no {
+    margin-bottom: 30px;
+}
+
+.move-down-text {
+    margin-bottom: 30px;
+}
+
+h4 {
+    line-height: 1.78;
+    margin: 0 auto;
+    width: 70%;
+    margin-bottom: 40px;
+}
+
+.active-tab {
+    background-color: #23527c!important;
+    color: #fff!important;
+}
+
+.less-bold-left-justified {
+    text-align: left!important;
+    /*padding-left: 30px!important;*/
+    color: #000; /* replace it with your color code */
+    font-size: 20px; /* adjust based on your needs */
+    font-weight: normal; /* Use 'bold' for bold font, 'normal' for less bold  */
+}
+
+nav.navbar-nav {
+    margin-bottom: 50px;
+}
+
+.instruction {
+    font-weight: normal;
+}
+
+.nav-justified {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.specific-list li {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.specific-list input[type="radio"] {
+    margin-right: 5px;
+}
+
+.specific-list label {
+    display: flex;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot');
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.completed {
+     color: green;
+ }
+.uncompleted {
+    color: red;
+}
+
+</style>
+</head>
+
+<body>
+<img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database" src="../assets/fmjfox.png" />
+<div class="registration-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+<div
+  style="
+    font-size: 18px;
+    color: #8a6d3b;
+    background-color: antiquewhite;
+    border: burlywood 3px solid;
+    border-radius: 5px;
+  "
+>
+  <div style="padding: 10px 10px 0px">
+    Data entered into this eCRF are automatically saved
+  </div>
+  <div style="padding: 0px 10px 10px">
+        The contributor will also be able to return at a future date to view
+        and/or edit the eCRF should new information regarding the patient/family become available
+    </div>
+  </div>
+        <br/>
+        <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+          <span style="color: #133957" th:text="${'Local ID: ' + centerId}" th:if="${centerId}"></span><br/>
+          <span style="color: #133957" th:text="${'Project ID: ' + projectId}" th:if="${projectId}"></span>
+</div>
+        <form accept-charset="UTF-8" class="registration-form onlyForm" method="post" th:object="${formObj}" th:id="${formObj.surveyTwoId}" >
+<input type='hidden' id="filling_status" th:field="${formObj.fillingStatus}"/><div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">        <div class="top-box text-left">
+          <h2 class="title">Questionnaire for Impulsive-Compulsive Disorders in Parkinson's Disease (QUIP-Current-Short)</h2>
+        </div>  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%;background-image: linear-gradient(to bottom,#33A371 0,#33A371 100%)">
+      <span class="sr-only">0% Complete</span>
+    </div>
+  </div>
+	<div class="alert alert-warning" role="alert">
+  	   <strong>Warning:</strong> The minimal dataset is not complete yet. Please be reminded that to complete the minimal dataset is mandatory in order to have samples processed for analysis. Please continue or come back when you can complete at least the minimal dataset.
+	</div>
+</div>          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-first-header move-down-header" >
+                <label namelabel="quip_ex" class="" for="">QUIP completed</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_ex}" type="radio" name1="quip_ex" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_ex}" type="radio" name1="quip_ex" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-header" >
+                <label namelabel="quip_who" class="" for="">Reported:</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_who}" type="radio" name1="quip_who" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Patient</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_who}" type="radio" name1="quip_who" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Informant (please answer questions based on your understanding of the patient)</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_who}" type="radio" name1="quip_who" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Patient and Informant</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-header" >
+                <label id="quip_headline2" class="header-label">Answer all questions based on current behaviors lasting at least 4 weeks</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-subheader move-down-subheader" >
+                <label id="quip_gamb_headline" class="subheader">A. Gambling</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="quip_gamb1" class="" for="">1. Do you or others think you have an issue with too much gambling behaviors (such as casinos, internet gambling, lotteries, scratch tickets, betting, or slot or poker machines)?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_gamb1}" type="radio" name1="quip_gamb1" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_gamb1}" type="radio" name1="quip_gamb1" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="quip_gamb2" class="" for="">2. Do you have difficulty controlling your gambling behaviors (such as increasing them over time, or having trouble cutting down or stopping them)?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_gamb2}" type="radio" name1="quip_gamb2" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_gamb2}" type="radio" name1="quip_gamb2" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-subheader move-down-subheader" >
+                <label id="quip_sex_headline" class="subheader">B. Sex</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="quip_sex1" class="" for="">1. Do you or others think you have an issue with too much sex behaviors (such as making sexual demands on others, promiscuity, prostitution, change in sexual orientation, masturbation, internet or telephone sexual activieties, or pornography)?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_sex1}" type="radio" name1="quip_sex1" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_sex1}" type="radio" name1="quip_sex1" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="quip_sex2" class="" for="">2. Do you think too much about sex behaviors (such as having trouble keeping thoughts out of your mind or feeling guilty)?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_sex2}" type="radio" name1="quip_sex2" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_sex2}" type="radio" name1="quip_sex2" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-subheader move-down-subheader" >
+                <label id="quip_buy_headline" class="subheader">C. Buying</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="quip_buy1" class="" for="">1. Do you or others think you have an issue with too much buying behaviors (such as too much of the same thing or things that you don't need or use)?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_buy1}" type="radio" name1="quip_buy1" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_buy1}" type="radio" name1="quip_buy1" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="quip_buy2" class="" for="">2. Do you engage in activities specifically to continue the buying behaviors (such as hiding what you're doing, lying, hoarding things, borrowing from others, accumulating debt, stealing, or being involved in illegal acts)?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_buy2}" type="radio" name1="quip_buy2" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_buy2}" type="radio" name1="quip_buy2" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-subheader move-down-subheader" >
+                <label id="quip_eat_headline" class="subheader">D. Eating</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="quip_eat1" class="" for="">1. Do you or others think you have an issue with too much eating behaviors (such as eating larger amounts or different types of food than in the past, more rapidly than normal, until feeling uncomfortably full, or when not hungry)?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_eat1}" type="radio" name1="quip_eat1" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_eat1}" type="radio" name1="quip_eat1" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="quip_eat2" class="" for="">2. Do you have urges or desires for eating behaviors that you feel are excessive or cause you distress (including becoming restless or irritable when unable to participate in the behavior)?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_eat2}" type="radio" name1="quip_eat2" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_eat2}" type="radio" name1="quip_eat2" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-subheader move-down-subheader" >
+                <label id="quip_oth_headline2" class="subheader">E. Other behaviors</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader" >
+                <label id="quip_oth_headline1" class="subheader">Do you or others think that you spend too much time....</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="quip_oth1" class="" for="">1. On specific tasks, hobbies, or other organized activities (such as writing, painting, gardening, repairing or dismantling things, collecting, computer use, working on projects, etc.)?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_oth1}" type="radio" name1="quip_oth1" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_oth1}" type="radio" name1="quip_oth1" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="quip_oth2" class="" for="">2. Repeating certain simple motor activities (such as cleaning, tidying, handling, examining, sorting, ordering, or arranging objects, etc.)?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_oth2}" type="radio" name1="quip_oth2" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_oth2}" type="radio" name1="quip_oth2" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="quip_oth3" class="" for="">3. Walking or driving with no intended goal or specific purpose?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_oth3}" type="radio" name1="quip_oth3" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_oth3}" type="radio" name1="quip_oth3" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-subheader move-down-subheader" >
+                <label id="quip_med_headline" class="subheader">F. Medication use</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="quip_med1" class="" for="">1. Do you or others (including you physicians) think that you constantly take too much of your Parkinson's medications?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_med1}" type="radio" name1="quip_med1" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_med1}" type="radio" name1="quip_med1" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_med1}" type="radio" name1="quip_med1" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> not applicable</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="quip_med2" class="" for="">2. Do you have difficulty controlling your use of Parkinson's medications (such as experiencing a stron desire for more medication, or having worse mood or feeling unmotivated at a lower dosage)?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_med2}" type="radio" name1="quip_med2" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_med2}" type="radio" name1="quip_med2" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Quip_med2}" type="radio" name1="quip_med2" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> not applicable</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="quip_copyright" class="instruction">QUIP- Copyright © 2008 University of Pennsylvania; All Rights Reserved</label>
+              </div>
+            </div>          </div>
+        </form>
+<div id="upload-progress" style='display:none'><div class="progress-bar-1" style="display:none"></div></div> <!-- Progress bar added -->    <div class="selectedDrogsChildren">
+                    <span th:each="formChild: ${formD}"
+                          th:text="${formChild.name}"
+                          th:class="${formChild.name}"
+                          style="display:none;"
+                    ></span>
+    </div>
+
+            </div>
+    </div>
+  </div>
+</div>
+
+<script  type="text/javascript">
+function __main__() {
+//begin quip_who
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_who",true,"null",null);
+else hide("quip_who",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_who",false,"null",null);
+ else  hide("quip_who",false);
+  } else hide("quip_who",false);
+ }
+//end quip_who
+//begin quip_headline2
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_headline2",true,"null",null);
+else hide("quip_headline2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_headline2",false,"null",null);
+ else  hide("quip_headline2",false);
+  } else hide("quip_headline2",false);
+ }
+//end quip_headline2
+//begin quip_gamb_headline
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_gamb_headline",true,"null",null);
+else hide("quip_gamb_headline",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_gamb_headline",false,"null",null);
+ else  hide("quip_gamb_headline",false);
+  } else hide("quip_gamb_headline",false);
+ }
+//end quip_gamb_headline
+//begin quip_gamb1
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_gamb1",true,"null",null);
+else hide("quip_gamb1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_gamb1",false,"null",null);
+ else  hide("quip_gamb1",false);
+  } else hide("quip_gamb1",false);
+ }
+//end quip_gamb1
+//begin quip_gamb2
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_gamb2",true,"null",null);
+else hide("quip_gamb2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_gamb2",false,"null",null);
+ else  hide("quip_gamb2",false);
+  } else hide("quip_gamb2",false);
+ }
+//end quip_gamb2
+//begin quip_sex_headline
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_sex_headline",true,"null",null);
+else hide("quip_sex_headline",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_sex_headline",false,"null",null);
+ else  hide("quip_sex_headline",false);
+  } else hide("quip_sex_headline",false);
+ }
+//end quip_sex_headline
+//begin quip_sex1
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_sex1",true,"null",null);
+else hide("quip_sex1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_sex1",false,"null",null);
+ else  hide("quip_sex1",false);
+  } else hide("quip_sex1",false);
+ }
+//end quip_sex1
+//begin quip_sex2
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_sex2",true,"null",null);
+else hide("quip_sex2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_sex2",false,"null",null);
+ else  hide("quip_sex2",false);
+  } else hide("quip_sex2",false);
+ }
+//end quip_sex2
+//begin quip_buy_headline
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_buy_headline",true,"null",null);
+else hide("quip_buy_headline",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_buy_headline",false,"null",null);
+ else  hide("quip_buy_headline",false);
+  } else hide("quip_buy_headline",false);
+ }
+//end quip_buy_headline
+//begin quip_buy1
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_buy1",true,"null",null);
+else hide("quip_buy1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_buy1",false,"null",null);
+ else  hide("quip_buy1",false);
+  } else hide("quip_buy1",false);
+ }
+//end quip_buy1
+//begin quip_buy2
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_buy2",true,"null",null);
+else hide("quip_buy2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_buy2",false,"null",null);
+ else  hide("quip_buy2",false);
+  } else hide("quip_buy2",false);
+ }
+//end quip_buy2
+//begin quip_eat_headline
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_eat_headline",true,"null",null);
+else hide("quip_eat_headline",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_eat_headline",false,"null",null);
+ else  hide("quip_eat_headline",false);
+  } else hide("quip_eat_headline",false);
+ }
+//end quip_eat_headline
+//begin quip_eat1
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_eat1",true,"null",null);
+else hide("quip_eat1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_eat1",false,"null",null);
+ else  hide("quip_eat1",false);
+  } else hide("quip_eat1",false);
+ }
+//end quip_eat1
+//begin quip_eat2
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_eat2",true,"null",null);
+else hide("quip_eat2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_eat2",false,"null",null);
+ else  hide("quip_eat2",false);
+  } else hide("quip_eat2",false);
+ }
+//end quip_eat2
+//begin quip_oth_headline2
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_oth_headline2",true,"null",null);
+else hide("quip_oth_headline2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_oth_headline2",false,"null",null);
+ else  hide("quip_oth_headline2",false);
+  } else hide("quip_oth_headline2",false);
+ }
+//end quip_oth_headline2
+//begin quip_oth_headline1
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_oth_headline1",true,"null",null);
+else hide("quip_oth_headline1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_oth_headline1",false,"null",null);
+ else  hide("quip_oth_headline1",false);
+  } else hide("quip_oth_headline1",false);
+ }
+//end quip_oth_headline1
+//begin quip_oth1
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_oth1",true,"null",null);
+else hide("quip_oth1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_oth1",false,"null",null);
+ else  hide("quip_oth1",false);
+  } else hide("quip_oth1",false);
+ }
+//end quip_oth1
+//begin quip_oth2
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_oth2",true,"null",null);
+else hide("quip_oth2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_oth2",false,"null",null);
+ else  hide("quip_oth2",false);
+  } else hide("quip_oth2",false);
+ }
+//end quip_oth2
+//begin quip_oth3
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_oth3",true,"null",null);
+else hide("quip_oth3",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_oth3",false,"null",null);
+ else  hide("quip_oth3",false);
+  } else hide("quip_oth3",false);
+ }
+//end quip_oth3
+//begin quip_med_headline
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_med_headline",true,"null",null);
+else hide("quip_med_headline",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_med_headline",false,"null",null);
+ else  hide("quip_med_headline",false);
+  } else hide("quip_med_headline",false);
+ }
+//end quip_med_headline
+//begin quip_med1
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_med1",true,"null",null);
+else hide("quip_med1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_med1",false,"null",null);
+ else  hide("quip_med1",false);
+  } else hide("quip_med1",false);
+ }
+//end quip_med1
+//begin quip_med2
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_med2",true,"null",null);
+else hide("quip_med2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_med2",false,"null",null);
+ else  hide("quip_med2",false);
+  } else hide("quip_med2",false);
+ }
+//end quip_med2
+//begin quip_copyright
+//condition display only if "yes" is checked in item "quip_ex"
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_copyright",true,"null",null);
+else hide("quip_copyright",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_copyright",false,"null",null);
+ else  hide("quip_copyright",false);
+  } else hide("quip_copyright",false);
+ }
+//end quip_copyright
+minimum_part_filled_out();
+    } __main__(); 
+$('#quip_ex,input[name="quip_ex"]').on('change', function() {if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_who",true,"null",null);
+else hide("quip_who",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_who",false,"null",null);
+ else  hide("quip_who",false);
+  } else hide("quip_who",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_headline2",true,"null",null);
+else hide("quip_headline2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_headline2",false,"null",null);
+ else  hide("quip_headline2",false);
+  } else hide("quip_headline2",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_gamb_headline",true,"null",null);
+else hide("quip_gamb_headline",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_gamb_headline",false,"null",null);
+ else  hide("quip_gamb_headline",false);
+  } else hide("quip_gamb_headline",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_gamb1",true,"null",null);
+else hide("quip_gamb1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_gamb1",false,"null",null);
+ else  hide("quip_gamb1",false);
+  } else hide("quip_gamb1",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_gamb2",true,"null",null);
+else hide("quip_gamb2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_gamb2",false,"null",null);
+ else  hide("quip_gamb2",false);
+  } else hide("quip_gamb2",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_sex_headline",true,"null",null);
+else hide("quip_sex_headline",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_sex_headline",false,"null",null);
+ else  hide("quip_sex_headline",false);
+  } else hide("quip_sex_headline",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_sex1",true,"null",null);
+else hide("quip_sex1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_sex1",false,"null",null);
+ else  hide("quip_sex1",false);
+  } else hide("quip_sex1",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_sex2",true,"null",null);
+else hide("quip_sex2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_sex2",false,"null",null);
+ else  hide("quip_sex2",false);
+  } else hide("quip_sex2",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_buy_headline",true,"null",null);
+else hide("quip_buy_headline",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_buy_headline",false,"null",null);
+ else  hide("quip_buy_headline",false);
+  } else hide("quip_buy_headline",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_buy1",true,"null",null);
+else hide("quip_buy1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_buy1",false,"null",null);
+ else  hide("quip_buy1",false);
+  } else hide("quip_buy1",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_buy2",true,"null",null);
+else hide("quip_buy2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_buy2",false,"null",null);
+ else  hide("quip_buy2",false);
+  } else hide("quip_buy2",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_eat_headline",true,"null",null);
+else hide("quip_eat_headline",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_eat_headline",false,"null",null);
+ else  hide("quip_eat_headline",false);
+  } else hide("quip_eat_headline",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_eat1",true,"null",null);
+else hide("quip_eat1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_eat1",false,"null",null);
+ else  hide("quip_eat1",false);
+  } else hide("quip_eat1",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_eat2",true,"null",null);
+else hide("quip_eat2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_eat2",false,"null",null);
+ else  hide("quip_eat2",false);
+  } else hide("quip_eat2",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_oth_headline2",true,"null",null);
+else hide("quip_oth_headline2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_oth_headline2",false,"null",null);
+ else  hide("quip_oth_headline2",false);
+  } else hide("quip_oth_headline2",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_oth_headline1",true,"null",null);
+else hide("quip_oth_headline1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_oth_headline1",false,"null",null);
+ else  hide("quip_oth_headline1",false);
+  } else hide("quip_oth_headline1",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_oth1",true,"null",null);
+else hide("quip_oth1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_oth1",false,"null",null);
+ else  hide("quip_oth1",false);
+  } else hide("quip_oth1",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_oth2",true,"null",null);
+else hide("quip_oth2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_oth2",false,"null",null);
+ else  hide("quip_oth2",false);
+  } else hide("quip_oth2",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_oth3",true,"null",null);
+else hide("quip_oth3",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_oth3",false,"null",null);
+ else  hide("quip_oth3",false);
+  } else hide("quip_oth3",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_med_headline",true,"null",null);
+else hide("quip_med_headline",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_med_headline",false,"null",null);
+ else  hide("quip_med_headline",false);
+  } else hide("quip_med_headline",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_med1",true,"null",null);
+else hide("quip_med1",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_med1",false,"null",null);
+ else  hide("quip_med1",false);
+  } else hide("quip_med1",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_med2",true,"null",null);
+else hide("quip_med2",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_med2",false,"null",null);
+ else  hide("quip_med2",false);
+  } else hide("quip_med2",false);
+ }
+if (length("quip_ex") > 0 ? isvisible("quip_ex", true) : false )
+{ if (check("quip_ex","yes"))
+ show("quip_copyright",true,"null",null);
+else hide("quip_copyright",true);
+} else {
+if (isvisible2("quip_ex", false)) {
+ if (check2("quip_ex","yes"))
+  show("quip_copyright",false,"null",null);
+ else  hide("quip_copyright",false);
+  } else hide("quip_copyright",false);
+ }
+});
+
+</script>
+</body>
+</html>

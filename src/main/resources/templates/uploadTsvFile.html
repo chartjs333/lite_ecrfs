@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment"></head>
+<body>
+
+<h1>Simulate upload your tsv file to MDSGene server</h1>
+<div th:if="${message}">
+    <h2 th:text="${message}"/>
+</div>
+<form method="POST" action="/uploadTsvFile" enctype="multipart/form-data">
+	Type the name of the gene here: <br/>
+	<input type="text" th:text="${geneName}" name="geneName"/><br/>
+	Choose the tsv file : <br/>
+    <input type="file" name="file" /> (only tsv(csv) files are supported)<br/> 
+    
+    File version: <th:block th:each="version : ${versions}" required="required">
+      <input type="radio" name="vers" th:value="${version.right}"/>
+      <label th:text="${version.left}"></label>
+    </th:block>
+    <br/>
+	  Upload to DB: <input type="checkbox" name="upload_to_db" value="true"/>
+    <br/>
+    <input type="submit" value="Update to the server and replace the gene (if it is exists there)!" onclick="$('#loading').show()"/><br/>
+    <img src="../assets/loading.gif" style="display: none;" id="loading"></img>
+    Note*:  You can create a tab-delimited (tsv) file just by save as excel file to the tab delimited file format. Important that the title of the columns should be the first line, and the data should start from the second line.<br/>
+</form>
+<div id="global_modal_dialog" class="reveal-modal medium" data-reveal=""></div>
+<noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+    <script th:inline="javascript">
+	/*<![CDATA[*/
+	    $("#global_modal_dialog").html(/*[[${upload_result}]]*/);
+	    $("#global_modal_dialog").foundation('reveal', 'open');
+	  /*]]>*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.usarname{
+	font-size: 14px;
+	color: #526AB2;
+}
+.icon_thierd_pages{}
+.icon_thierd_pages{
+	font-size: 26px;
+	color: #526AB2;
+}
+.usaricon{}
+.usaricon img {
+    width: 40px;
+    margin-top: -8px;
+}
+.notify_br{
+	border-bottom: 1px solid #ddd;
+}
+.notification{
+	margin-top: -15px;
+}
+.notification h3 {
+    background: #3498DB;
+    color: #fff;
+    padding-top: 10px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-size: 25px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.notification h3::before {
+    content: "Notifications -";
+}
+/*-----------------*/
+.notification_oen{
+	overflow: hidden;
+}
+.notification_oen img {
+    float: left;
+    margin: 15px 13px 12px 4px;
+    width: 56px;
+}
+.notification_oen h4 {
+    margin-bottom: -5px;
+}
+.notification_oen h5{
+	margin-bottom: 3px;
+}
+.notification_oen p{
+	color: #7F7F7F;
+}
+.notification_oen p span{
+	font-size: bold;
+}
+.list-group {
+    padding-left: 0;
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 1px 3px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: none;
+}
+
+.notification_footer {
+    background: #F8F8F8;
+    border-top: 1px solid #ddd;
+    margin-top: -20px;
+    padding: 15px 0 10px 0;
+    margin-bottom: 50px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.notification_footer h4 {
+	color: #69AEE1;
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 17px;
+    cursor: pointer;
+}
+.notification_footer i {
+    float: right;
+    display: inline-block;
+    margin-top: 7px;
+    font-size: 20px;
+    margin-right: 12px;
+}

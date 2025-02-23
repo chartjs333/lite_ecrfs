@@ -1,0 +1,2 @@
+sleep_benefit_sympt	autonomic_sympt	global_developmental_delay_HP:0001263	dev_regression_sympt	developmental_regression_HP:0002376	delayed_speech_and_language_development_HP:0000750	motor_delay_HP:0001270	depression_sympt	depression_HP:0000716	anxiety_sympt	anxiety_HP:0000739	abnormality_of_the_sense_of_smell_HP:0004408	sleep_disorder_sympt
+1	2	3	4	4	5	6	7	7	8	8	9	10

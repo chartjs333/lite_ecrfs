@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html>
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+  <div class="row" th:unless="${genes_related_to_launched_diseases.empty == true}">
+    <div class="small-12 text-left columns">
+      <h5>Select a gene for your disease of interest:</h5>
+    </div>
+  </div>
+  <p style="margin-bottom:10px;"></p>
+  <div class="row">
+    <div class="small-12 text-center columns">
+      <dl class="accordion" data-accordion="">
+        <!-- @genes_related_to_launched_diseases.each_with_index do |_accordion_item, _accordion_index| -->
+          <dd class="accordion-navigation" th:each="_accordion_item,_accordion_index: ${genes_related_to_launched_diseases}"><!-- _panel_index = (_accordion_index + 1).to_s -->
+            <a class="button radius" th:href="'#genes_panel_' + ${_accordion_index.index+1}" style="text-decoration: none;" th:text="${_accordion_item.key}"></a>
+            <div class="content active" th:id="'genes_panel_' + ${_accordion_index.index+1}" style="padding-top:0;">
+                <br th:if="${_accordion_item.value.empty == true}"/>
+                <ul class="inline-list" style="margin-left: 0px; margin-bottom: 0px" th:if="${_accordion_item.value.empty == false}">
+                  <!-- _accordion_item.second.each_with_index do |_gene, _index| -->
+                    <li th:each="_gene,_index:${_accordion_item.value}">
+                      <div>
+                      	<a th:id="'gp' + ${_accordion_index.index+1} + '_item' + ${_index.index}" th:href="'http://141.83.24.55:3000/d/' + ${id.get(_accordion_item.key)} + ${_gene.id > 9999 ? '/gu/':'/g/'} + ${_gene.id}" th:text="${_gene.name}"></a>
+<!--                       	<a th:id="'gp' + ${_accordion_index.index+1} + '_item' + ${_index.index}" th:href="'/d/' + ${id.get(_accordion_item.key)} + ${_gene.id > 9999 ? '/gu/':'/g/'} + ${_gene.id}" th:text="${_gene.name}"></a>
+-->                      </div>
+					</li>
+					<li class="divider">
+						<div style="padding-bottom: 0.4em;"></div>
+					</li>
+                </ul>
+            </div>
+          </dd>
+      </dl>
+    </div>
+  </div>
+  <div style="padding-bottom: 0.4em;"></div>
+</div>
+<div th:include="fragments/layout :: pageBottom"></div>
+</body>
+</html>

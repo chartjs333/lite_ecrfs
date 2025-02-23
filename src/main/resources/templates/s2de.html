@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+       <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+
+        function a() {
+        	var e = document.getElementsByName('moveToCategory')[0]; 
+        	var elements = document.forms[0].getElementsByClassName('text');
+
+        	for (var i = 0, len = elements.length; i < len; ++i) {
+        	    elements[i].readOnly = (e.options[e.selectedIndex].value != 'just rename');
+        	}
+        	
+      		document.getElementsByName('mergeToKey')[0].style.display = (e.options[e.selectedIndex].value == 'merge') ? 'block' : 'none';
+        	
+/*        	var elements = document.getElementsByName('selectedSs');
+        	for (var i = 0, len = elements.length; i < len; ++i) {
+        	    elements[i].checked = true;
+        	}*/
+        }
+        
+        function confirm_deletion() {
+        	var e = document.getElementsByName('moveToCategory')[0];
+        	if (e.options[e.selectedIndex].value == 'merge' && document.getElementsByName('mergeToKey')[0].value == 'merge-to') {
+        		alert('Please select merge target');
+        		return false;
+        	} else if (e.options[e.selectedIndex].value != 'delete' || confirm('Are you sure operation can\'t be undo?')) {
+				return true;        		
+        	}
+        	return false;
+        }
+        
+        function add_remove(key, text, checked) {
+        	var e = document.getElementsByName('moveToCategory')[0];
+        	var e1 = document.getElementsByName('mergeToKey')[0];
+        	if (checked) {
+            	e1.options[e1.options.length] = new Option(text, key);
+        	} else {
+        		for (i=0;i<e1.length;i++) {
+        			if (e1.options[i].value==key) {
+        				e1.remove(i);
+        				break;
+        			}
+        		}
+        	}
+        }
+        
+        function new_symptom_func() {
+        	var e1 = document.getElementsByName('mergeToKey')[0];
+        	if (e1.length >= 2) {
+        		document.getElementById('new_symptom_name').value = '';
+	    		for (i=1;i<2;i++) {
+	            	document.getElementById('original_symptom_name').value=e1.options[i].innerHTML;
+	            	document.getElementById('original_symptom_title').innerHTML=e1.options[i].innerHTML;
+	    			document.getElementById('new_import_header_name').value=e1.options[i].value;
+	    		}
+        		$('#new_symptom_modal_dialog').foundation('reveal', 'open');
+        	} else {
+        		alert("Please select at least one master symptom!");
+        		$('#new_symptom_modal_dialog').foundation('reveal', 'close');
+        	}
+        }
+        
+        function rename_category_func(categoryTitle) {
+        	document.getElementById('category_title_rename').innerHTML=categoryTitle;
+        	document.getElementById('original_category_name').value=categoryTitle;
+        }
+        
+        function delete_category_func(categoryTitle) {
+        	document.getElementById('delete_category_name').innerHTML=categoryTitle;
+        	document.getElementById('old_category_name').value=categoryTitle;
+        }
+        
+        function up_category_func(categoryTitle) {
+        	window.location.assign('/s2de_up?category_name=' + categoryTitle);
+        }
+
+        function down_category_func(categoryTitle) {
+        	window.location.assign('/s2de_down?category_name=' + categoryTitle);
+        }
+
+        /*]]>*/
+        </script>
+
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <div th:include="fragments/messages :: errorMsg"></div>
+      <p></p>
+      <!-- Title -->
+<p style="margin-bottom: 2.15em;"></p>
+        <p style="margin-bottom: 2.15em;"></p>
+      <div class="row">
+	    <div class="small-12 text-left columns">
+	       <h5 style="margin-bottom:10px;">Edit signs and symptoms:</h5>
+	    </div>
+	    <div class="small-12 text-left columns">
+	     <button name="infer" type="button" class="button secondary radius expand" id="sh_log" value="t" onclick="if ($('#sh_log').text() == 'Show log') { $('#_log').show(); $('#sh_log').text('Hide log');} else {$('#_log').hide(); $('#sh_log').text('Show log');}" >Show log</button>
+	  </div>    
+      </div>
+      <div class="row" style="height: 200px;overflow: scroll;" id="_log">
+	    <div class="small-12 text-left columns">
+		  <th:block th:each="line : ${log}" >
+		    <th:block th:text="${line}"></th:block><br/><br/>
+		  </th:block>
+	    </div>
+	  </div>
+<form onreset="force_reset();" action="/s2de" accept-charset="UTF-8" th:object="${s2d}" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+  <div style="padding-bottom: 0.7em;"></div>
+  <div class="row">
+    <div class="small-6 medium-3 text-center columns">
+      <button name="infer" type="submit" class="button secondary radius expand" id="infer" value="t" onclick="return confirm_deletion()" >
+      Click to process
+	  </button>    
+	</div>
+    <div class="small-6 medium-3 text-center columns">
+      <input type="reset" name="commit" value="Reset" class="button secondary radius expand" data-disable-with="Reset" />
+    </div>
+    <div class="small-6 medium-3 text-center columns">
+      <input type="button" name="backup" value="Backup" class="button secondary radius expand" data-disable-with="Backup" data-reveal-ajax="true" data-reveal-id="backup_db_modal_dialog"/>
+    </div>
+    <div class="small-6 medium-3 text-center columns">
+      <input type="button" name="restore" value="Restore" class="button secondary radius expand" data-disable-with="Restore" data-reveal-ajax="true" data-reveal-id="restore_db_modal_dialog"/>
+    </div>
+  </div>
+<div class="row">
+  <div class="small-12 columns">
+    <fieldset style="padding-top: 5px; margin-top: 0px; padding-bottom: 0px;">
+      <legend>Select operation:</legend>
+      <div class="row">
+        <div class="small-7 medium-5 columns">
+        <select name="sLstCountry" size="1" th:field="${s2d.moveToCategory}" onchange="a();">
+                        <option value="just rename" selected="selected">just rename</option>
+<th:block th:each="instance0 : ${s2d.grouped_ss}">
+<th:block th:each="instance : ${instance0}">
+                        <option th:value="${instance.key}" th:text="${'Move selected to: ' + instance.key}">is available</option>
+</th:block>
+</th:block>
+                        <option value="delete" selected="selected">delete</option>
+                        <option value="merge" selected="selected">merge</option>
+        </select>
+        </div>
+        <div class="small-7 medium-5 columns">
+        <select name="sLstCountry" size="1" th:field="${s2d.mergeToKey}" style='display:none'>
+            <option value="merge-to" selected="selected">[merge-to]</option>
+        </select>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<th:block th:each="instance0,_i : ${s2d.grouped_ss}">
+<th:block th:each="instance : ${instance0}">
+    <div class="row">
+	<div class="small-12 columns">
+		<fieldset style="padding-top: 5px; margin-top: 0px; padding-bottom: 0px;">
+
+			<legend th:text="${instance.key}"></legend>
+  <div class="row">
+    <div class="small-5 medium-2 text-center columns">
+      <button type="button" name="rename_category"    class="button secondary radius expand" value="rename_category" th:onclick="${'return rename_category_func(''' + instance.key + ''');'}" data-reveal-ajax="true" data-reveal-id="rename_category_modal_dialog">
+      Rename
+	  </button>    
+	</div>
+    <div class="small-5 medium-2 text-center columns">
+      <button type="button" name="create_new_category" class="button secondary radius expand" value="new_category"    onclick="return new_category()"  data-reveal-ajax="true" data-reveal-id="new_category_modal_dialog">
+      New
+      </button>
+    </div>
+    <div class="small-5 medium-2 text-center columns">
+      <button type="button" name="create_new_category" class="button secondary radius expand" value="new_category"    th:onclick="${'return delete_category_func(''' + instance.key + ''');'}" data-reveal-ajax="true" data-reveal-id="delete_category_modal_dialog">
+      Delete
+      </button>
+    </div>
+    <div class="small-7 medium-4 text-center columns">
+      <button type="button" name="create_new_symptom" class="button secondary radius expand" value="new_category"    onclick="return new_symptom_func()"  data-reveal-ajax="true" >
+      New symptom
+      </button>
+    </div>
+    <div class="small-1 medium-1 text-center columns">
+      <button type="button" name="up_category" class="button secondary radius expand" value="new_category"    th:onclick="${'return up_category_func(''' + instance.key + ''');'}" th:if="${_i.index != 0}">
+      &uarr;
+      </button>
+	</div>      
+    <div class="small-1 medium-1 text-center columns">
+      <button type="button" name="down_category" class="button secondary radius expand" value="new_category"    th:onclick="${'return down_category_func(''' + instance.key + ''');'}" th:if="${_i.count != _i.size}">
+      &darr;
+      </button>
+    </div>
+  </div>
+  			<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+
+				<th:block th:each="checkbox : ${instance.value}">
+				<li class="sas_block_grid_el">
+					<div class="row">
+						<div class="small-1 columns">
+							<input class="cb_sympt" type="checkbox" th:field="${s2d.selectedSs}" th:value="${checkbox.id}" th:class="${'cb_' + checkbox.id}" th:onclick="'add_remove(\'' + *{rows[__${checkbox.id}__].importHeader} + '\',\'' + *{rows[__${checkbox.id}__].name} + '\', this.checked);'"/>
+						</div>
+						<div th:for="${#ids.prev('selectedSs')}" class="small-11 columns">
+							<input style="width:100%" class="text" th:field="${s2d.rows[__${checkbox.id}__].name}" th:onchange="'var e = document.getElementsByName(\'moveToCategory\')[0]; if (e.options[e.selectedIndex].value == \'just rename\') document.getElementsByClassName(\'cb_' + ${checkbox.id} + '\')[0].checked = true;'" /><br/>
+							<input style="width:100%" class="text" th:field="${s2d.rows[__${checkbox.id}__].signName}" th:onchange="'var e = document.getElementsByName(\'moveToCategory\')[0]; if (e.options[e.selectedIndex].value == \'just rename\') document.getElementsByClassName(\'cb_' + ${checkbox.id} + '\')[0].checked = true;'" /><br/>
+							<input style="width:100%;font-size: 60%" class="text" th:field="${s2d.rows[__${checkbox.id}__].importHeader}" th:onchange="'var e = document.getElementsByName(\'moveToCategory\')[0]; if (e.options[e.selectedIndex].value == \'just rename\') document.getElementsByClassName(\'cb_' + ${checkbox.id} + '\')[0].checked = true;'" /><br/>
+<!--							<span th:text="*{rows[__${checkbox.id}__].importHeader}" style="font-size: 75%"></span>
+ 							<input th:value="${checkbox.id+':'+checkbox.name}" style="width:100%"></input>  -->
+ 							<br/>
+						</div>
+					</div>
+				</li>
+				</th:block>
+			</ul>
+		</fieldset>
+	</div>
+    </div>
+</th:block>    
+</th:block>
+
+
+</form><div style="padding-bottom: 0.4em;"></div>
+      <p style="margin-bottom: 0.55em;"></p>
+    </div>
+    <div class="row">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="delete_category_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal">
+    
+    <form action="/s2de_delete_category" accept-charset="UTF-8" method="post">
+    <div class="row">
+		<div class="small-12 columns">
+			Delete category ( <span style="margin-bottom: 0.25rem;" id="delete_category_name">***</span>)
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+			<input style="width:100%" class="text" name="delete_category_for_sure" placeholder="type I'm sure here" required="required"/>
+			<input type="hidden" tyle="width:100%" class="text" name="old_category_name" id="old_category_name" />
+		</div>
+		<div class="small-10 medium-5 text-left columns">
+			<input type="checkbox" class="text" name="motor_signs_symptom" style="visibility: hidden;"/>
+		</div>
+		<div class="small-2 medium-1 columns">
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+		  <button type="submit" name="delete_category"    class="button secondary radius expand">
+	      Delete
+		  </button>    
+			
+		</div>
+	</div>
+	</form>
+	<a aria-label="Close" class="close-reveal-modal">x</a>
+    </div>    
+    <div id="new_category_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal">
+    
+    <form action="/s2de_new_category" accept-charset="UTF-8" method="post">
+    <div class="row">
+		<div class="small-12 columns">
+			New category
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+			<input style="width:100%" class="text" name="new_category_name" placeholder="type category new name here" required="required"/>
+		</div>
+		
+		<div class="small-10 medium-5 text-left columns">
+			<input type="checkbox" class="text" name="motor_signs_symptom"/>
+			motor signs symptoms
+		</div>
+		<div class="small-2 medium-1 columns">
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+		  <button type="submit" name="create_new_category"    class="button secondary radius expand">
+	      Create
+		  </button>    
+			
+		</div>
+	</div>
+	</form>
+	<a aria-label="Close" class="close-reveal-modal">x</a>
+    </div>
+    
+    <div id="new_symptom_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal">
+    
+    <form action="/s2de_new_symptom" accept-charset="UTF-8" method="post">
+    <div class="row">
+		<div class="small-12 columns">
+			New symptom (as a copy from: <span style="margin-bottom: 0.25rem;" id="original_symptom_title">***</span>)
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+			<input style="width:100%" class="text" name="new_symptom_name" id="new_symptom_name" placeholder="type new symptom name here" required="required"/>
+			<input type="hidden" tyle="width:100%" class="text" name="original_symptom_name" id="original_symptom_name" />
+		</div>
+		
+		<div class="small-10 medium-5 text-left columns">
+			Change import header: <input style="width:100%" class="text" name="new_import_header_name" id="new_import_header_name" placeholder="type new symptom name here" required="required"/>
+		</div>
+		<div class="small-2 medium-1 columns">
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+		  <button type="submit" name="create_new_symptom"    class="button secondary radius expand">
+	      Create
+		  </button>    
+			
+		</div>
+	</div>
+	</form>
+	<a aria-label="Close" class="close-reveal-modal">x</a>
+    </div>
+  
+    
+    
+    <div id="rename_category_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal">
+    
+    <form action="/s2de_rename" accept-charset="UTF-8" method="post">
+    <div class="row">
+		<div class="small-12 columns">
+			Rename category ( <span style="margin-bottom: 0.25rem;" id="category_title_rename">***</span>)
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+			<input style="width:100%" class="text" name="new_category_name" placeholder="type category new name here" required="required"/>
+			<input type="hidden" tyle="width:100%" class="text" name="original_category_name" id="original_category_name" />
+		</div>
+		
+		<div class="small-10 medium-5 text-left columns">
+			<input type="checkbox" class="text" name="motor_signs_symptom"/>
+			motor signs symptoms
+		</div>
+		<div class="small-2 medium-1 columns">
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+		  <button type="submit" name="rename_category"    class="button secondary radius expand">
+	      Rename
+		  </button>    
+			
+		</div>
+	</div>
+	</form>
+	<a aria-label="Close" class="close-reveal-modal">x</a>
+    </div>
+    
+    <div id="backup_db_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal">
+    
+    <form action="/backup_db" accept-charset="UTF-8" method="post">
+    <div class="row">
+		<div class="small-12 columns">
+			Backup database will allowed you to restore it to the current point, if something will be done wrong.
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+			<input style="width:100%" class="text" name="restore_point_name" placeholder="type restore point name here" required="required"/>
+		</div>
+		
+		<div class="small-10 medium-5 text-left columns">
+		</div>
+		<div class="small-2 medium-1 columns">
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+		  <button type="submit" name="backup_database_button"    class="button secondary radius expand">
+	      Start Backup
+		  </button>    
+			
+		</div>
+	</div>
+	</form>
+	<a aria-label="Close" class="close-reveal-modal">x</a>
+    </div>
+    
+    <div id="restore_db_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal">
+    
+    <form action="/restore_db" accept-charset="UTF-8" method="post">
+    <div class="row">
+		<div class="small-12 columns">
+			<!-- Restore database will allowed you to restore it to the current point, if something will be done wrong.  -->
+			Please write an e-mail to the mdsgene administrator with the mentioning the restore point name.
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+			<select name="restore_point_id">
+			  <option  th:each="instance : ${available_restore_points}"
+			          th:value="${instance.id}" 
+			          th:text="${instance.createdAt + ':' + instance.name}"></option>
+			</select>
+		</div>
+		
+		<div class="small-10 medium-5 text-left columns">
+		<!--
+		<input style="width:100%" class="text" name="restore_db_for_sure" placeholder="type I'm sure here" required="required"/>
+		-->		
+		</div>
+		<div class="small-2 medium-1 columns">
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+		  <button type="submit" name="backup_database_button"    class="button secondary radius expand" style="display:none;">
+	      Restore database
+		  </button>    
+		</div>
+	</div>
+	</form>
+	<a aria-label="Close" class="close-reveal-modal">x</a>
+    </div>
+<script type="text/javascript">
+$("#_log").scrollTop(1000000);
+$("#_log").hide();
+</script>    
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

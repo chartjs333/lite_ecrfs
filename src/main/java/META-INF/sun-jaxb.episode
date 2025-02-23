@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+  <!--
+
+Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.11 generiert 
+Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+Generiert: 2019.06.07 um 03:14:52 PM CEST 
+
+  -->
+  <bindings xmlns:tns="http://www.execinc.com" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="net.mdsgene.admin.wsdl"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="tns:Login">
+      <class ref="net.mdsgene.admin.wsdl.Login"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:LoginResponse">
+      <class ref="net.mdsgene.admin.wsdl.LoginResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:LoginAndGetToken">
+      <class ref="net.mdsgene.admin.wsdl.LoginAndGetToken"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:LoginAndGetTokenResponse">
+      <class ref="net.mdsgene.admin.wsdl.LoginAndGetTokenResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:DeleteToken">
+      <class ref="net.mdsgene.admin.wsdl.DeleteToken"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:DeleteTokenResponse">
+      <class ref="net.mdsgene.admin.wsdl.DeleteTokenResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetObjectAccessorValue">
+      <class ref="net.mdsgene.admin.wsdl.GetObjectAccessorValue"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetObjectAccessorValueResponse">
+      <class ref="net.mdsgene.admin.wsdl.GetObjectAccessorValueResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetObjectAccessorValues">
+      <class ref="net.mdsgene.admin.wsdl.GetObjectAccessorValues"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:ArrayOfString">
+      <class ref="net.mdsgene.admin.wsdl.ArrayOfString"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetObjectAccessorValuesResponse">
+      <class ref="net.mdsgene.admin.wsdl.GetObjectAccessorValuesResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:ArrayOfAnyType">
+      <class ref="net.mdsgene.admin.wsdl.ArrayOfAnyType"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetObjectAccessorValuesAsString">
+      <class ref="net.mdsgene.admin.wsdl.GetObjectAccessorValuesAsString"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetObjectAccessorValuesAsStringResponse">
+      <class ref="net.mdsgene.admin.wsdl.GetObjectAccessorValuesAsStringResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetDelimitedObjectAccessorValues">
+      <class ref="net.mdsgene.admin.wsdl.GetDelimitedObjectAccessorValues"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetDelimitedObjectAccessorValuesResponse">
+      <class ref="net.mdsgene.admin.wsdl.GetDelimitedObjectAccessorValuesResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetObjectAccessorValuesAsString2">
+      <class ref="net.mdsgene.admin.wsdl.GetObjectAccessorValuesAsString2"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetObjectAccessorValuesAsString2Response">
+      <class ref="net.mdsgene.admin.wsdl.GetObjectAccessorValuesAsString2Response"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetUserGroups">
+      <class ref="net.mdsgene.admin.wsdl.GetUserGroups"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetUserGroupsResponse">
+      <class ref="net.mdsgene.admin.wsdl.GetUserGroupsResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetUserGroupsAsString">
+      <class ref="net.mdsgene.admin.wsdl.GetUserGroupsAsString"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetUserGroupsAsStringResponse">
+      <class ref="net.mdsgene.admin.wsdl.GetUserGroupsAsStringResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetQueryResults">
+      <class ref="net.mdsgene.admin.wsdl.GetQueryResults"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetQueryResultsResponse">
+      <class ref="net.mdsgene.admin.wsdl.GetQueryResultsResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:AddAutoTestUsers">
+      <class ref="net.mdsgene.admin.wsdl.AddAutoTestUsers"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:AddAutoTestUsersResponse">
+      <class ref="net.mdsgene.admin.wsdl.AddAutoTestUsersResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetVersion">
+      <class ref="net.mdsgene.admin.wsdl.GetVersion"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:GetVersionResponse">
+      <class ref="net.mdsgene.admin.wsdl.GetVersionResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:StoreEncryptedUnprocessedDataWithID">
+      <class ref="net.mdsgene.admin.wsdl.StoreEncryptedUnprocessedDataWithID"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:StoreEncryptedUnprocessedDataWithIDResponse">
+      <class ref="net.mdsgene.admin.wsdl.StoreEncryptedUnprocessedDataWithIDResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:StoreEncryptedUnprocessedDataWithoutID">
+      <class ref="net.mdsgene.admin.wsdl.StoreEncryptedUnprocessedDataWithoutID"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:StoreEncryptedUnprocessedDataWithoutIDResponse">
+      <class ref="net.mdsgene.admin.wsdl.StoreEncryptedUnprocessedDataWithoutIDResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:ExecuteNonQuery">
+      <class ref="net.mdsgene.admin.wsdl.ExecuteNonQuery"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:ExecuteNonQueryResponse">
+      <class ref="net.mdsgene.admin.wsdl.ExecuteNonQueryResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:ExecuteScalarQuery">
+      <class ref="net.mdsgene.admin.wsdl.ExecuteScalarQuery"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:ExecuteScalarQueryResponse">
+      <class ref="net.mdsgene.admin.wsdl.ExecuteScalarQueryResponse"/>
+    </bindings>
+  </bindings>
+  <bindings xmlns:tns="http://www.execinc.com/AbstractTypes" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="net.mdsgene.admin.wsdl"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="~tns:StringArray">
+      <class ref="net.mdsgene.admin.wsdl.StringArray"/>
+    </bindings>
+  </bindings>
+  <bindings xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="net.mdsgene.admin.wsdl"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="~tns:Array">
+      <class ref="net.mdsgene.admin.wsdl.Array"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:Struct">
+      <class ref="net.mdsgene.admin.wsdl.Struct"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:duration">
+      <class ref="net.mdsgene.admin.wsdl.Duration"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:dateTime">
+      <class ref="net.mdsgene.admin.wsdl.DateTime"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:NOTATION">
+      <class ref="net.mdsgene.admin.wsdl.NOTATION"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:time">
+      <class ref="net.mdsgene.admin.wsdl.Time"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:date">
+      <class ref="net.mdsgene.admin.wsdl.Date"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:gYearMonth">
+      <class ref="net.mdsgene.admin.wsdl.GYearMonth"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:gYear">
+      <class ref="net.mdsgene.admin.wsdl.GYear"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:gMonthDay">
+      <class ref="net.mdsgene.admin.wsdl.GMonthDay"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:gDay">
+      <class ref="net.mdsgene.admin.wsdl.GDay"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:gMonth">
+      <class ref="net.mdsgene.admin.wsdl.GMonth"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:boolean">
+      <class ref="net.mdsgene.admin.wsdl.Boolean"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:base64Binary">
+      <class ref="net.mdsgene.admin.wsdl.Base64Binary"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:hexBinary">
+      <class ref="net.mdsgene.admin.wsdl.HexBinary"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:float">
+      <class ref="net.mdsgene.admin.wsdl.Float"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:double">
+      <class ref="net.mdsgene.admin.wsdl.Double"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:anyURI">
+      <class ref="net.mdsgene.admin.wsdl.AnyURI"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:QName">
+      <class ref="net.mdsgene.admin.wsdl.QName"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:string">
+      <class ref="net.mdsgene.admin.wsdl.String"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:normalizedString">
+      <class ref="net.mdsgene.admin.wsdl.NormalizedString"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:token">
+      <class ref="net.mdsgene.admin.wsdl.Token"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:language">
+      <class ref="net.mdsgene.admin.wsdl.Language"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:Name">
+      <class ref="net.mdsgene.admin.wsdl.Name"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:NMTOKEN">
+      <class ref="net.mdsgene.admin.wsdl.NMTOKEN"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:NCName">
+      <class ref="net.mdsgene.admin.wsdl.NCName"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:NMTOKENS">
+      <class ref="net.mdsgene.admin.wsdl.NMTOKENS"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:ID">
+      <class ref="net.mdsgene.admin.wsdl.ID"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:IDREF">
+      <class ref="net.mdsgene.admin.wsdl.IDREF"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:ENTITY">
+      <class ref="net.mdsgene.admin.wsdl.ENTITY"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:IDREFS">
+      <class ref="net.mdsgene.admin.wsdl.IDREFS"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:ENTITIES">
+      <class ref="net.mdsgene.admin.wsdl.ENTITIES"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:decimal">
+      <class ref="net.mdsgene.admin.wsdl.Decimal"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:integer">
+      <class ref="net.mdsgene.admin.wsdl.Integer"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:nonPositiveInteger">
+      <class ref="net.mdsgene.admin.wsdl.NonPositiveInteger"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:negativeInteger">
+      <class ref="net.mdsgene.admin.wsdl.NegativeInteger"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:long">
+      <class ref="net.mdsgene.admin.wsdl.Long"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:int">
+      <class ref="net.mdsgene.admin.wsdl.Int"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:short">
+      <class ref="net.mdsgene.admin.wsdl.Short"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:byte">
+      <class ref="net.mdsgene.admin.wsdl.Byte"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:nonNegativeInteger">
+      <class ref="net.mdsgene.admin.wsdl.NonNegativeInteger"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:unsignedLong">
+      <class ref="net.mdsgene.admin.wsdl.UnsignedLong"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:unsignedInt">
+      <class ref="net.mdsgene.admin.wsdl.UnsignedInt"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:unsignedShort">
+      <class ref="net.mdsgene.admin.wsdl.UnsignedShort"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:unsignedByte">
+      <class ref="net.mdsgene.admin.wsdl.UnsignedByte"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:positiveInteger">
+      <class ref="net.mdsgene.admin.wsdl.PositiveInteger"/>
+    </bindings>
+  </bindings>
+</bindings>

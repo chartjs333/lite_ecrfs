@@ -1,0 +1,2 @@
+global_developmental_delay_HP:0001263	mild_global_developmental_delay_HP:0011342	severe_global_developmental_delay_HP:0011344	cognitive_impairment_HP:0100543	motor_delay_HP:0001270
+1	2	3	4	5

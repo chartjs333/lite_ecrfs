@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MJFF Screening Questions</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+<input name="utf8" type="hidden" value="&#x2713;" />
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTopSurvey">
+	  </div>
+      <p></p>
+      <!-- Title -->
+<form accept-charset="UTF-8" th:object="${gsfs}" method="post" th:if="${gsfs != null}">
+<p style="margin-bottom: 1.14em;" th:if="${collected != null}"></p>
+<div class="row" th:if="${collected != null}">
+	<div class="small-12 text-justify columns">
+		<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+			<li style="text-align: center;"><h5 th:text="${collected}"></h5></li>
+			<li> <br/>	</li>
+		</ul>
+	</div>
+</div>
+<p style="margin-bottom: 1.14em;" th:if="${collected == null}"></p>
+<div class="row" th:if="${collected == null}">
+	<div class="small-12 text-justify columns">
+		<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+			<li style="text-align: center;"><h5>Please press ‘done’ to save your data.</h5></li>
+			<li> <br/>	</li>
+		</ul>
+	</div>
+</div>
+<button name="action" class="button secondary radius expand" style="margin-bottom: 40px;" onclick="this.blur();" type="submit" value="plot">
+    Done
+</button>
+	<th:block th:include="fragments/fnSurvey :: h5(name='General information')"></th:block>
+	<p style="margin-bottom: 1.14em;"></p>
+			<th:block th:include="fragments/fnSurvey :: freeTextNotRequired(javaField='nameOfTheSite', name=' Name of the site')"></th:block>
+	<p style="margin-bottom: 1.14em;"></p>
+			<th:block th:include="fragments/fnSurvey :: freeTextNotRequired(javaField='principalInvestigator', name=' Principal investigator')"></th:block>
+	<p style="margin-bottom: 1.14em;"></p>
+			<th:block th:include="fragments/fnSurvey :: surveySelect(javaField='country', name=' Country', javaAllCountries='all_countries')"></th:block>
+	<p style="margin-bottom: 1.14em;"></p>
+			<th:block th:include="fragments/fnSurvey :: freeNumberNotRequired(javaField='numberOfNewPatientsYear', name=' Number of new patients/year')"></th:block>
+	<p style="margin-bottom: 1.14em;"></p>
+			<div class="row">
+				<div class="small-12 text-justify columns">
+					<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+						<li>Genetic testing</li>
+						<li>
+							<th:block th:include="fragments/fnSurvey :: surveyCheckbox(javaChkBxField='geneticTestingRegularyPerformed', name=' regulary performed?')"></th:block>
+							<select th:field="${gsfs.geneticTesting}" class="chzn_select">
+							  <option  value="-">-</option>
+							  <option  value="in-house/external">in-house/external</option>
+							  <option  value="costs covered by health insurance">costs covered by health insurance</option>
+							  <option  value="patients cover costs themselves">patients cover costs themselves</option>
+							</select>							
+						</li>
+					</ul>
+				</div>
+			</div>
+	<p style="margin-bottom: 1.14em;"></p>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo(javaField='qualifiedGeneticCounseling', name=' Qualified genetic counseling',yes='  available',no='  not available')"></th:block>
+	<p style="margin-bottom: 1.14em;"></p>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo(javaField='clinicalTrialSite', name=' Clinical trial site',yes=' already performing clinical trials',no=' willing to embark on clinical trials')"></th:block>
+	<p style="margin-bottom: 1.14em;"></p>
+	<th:block th:include="fragments/fnSurvey :: h5(name='Demographic data')"></th:block>			
+			<th:block th:include="fragments/fnSurvey :: surveySubTitle(s1='3',s2='5',s3='4', yes=' standardly recorded (and available for most cases)',no=' not standardly recorded (or not available for most cases)')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='sex', name=' Sex', s1='3',s2='5',s3='4', s4='0', yes=' standardly recorded (and available for most cases)',no=' not standardly recorded (or not available for most cases)')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='age', name=' Age', s1='3',s2='5',s3='4', s4='0', yes=' standardly recorded (and available for most cases)',no=' not standardly recorded (or not available for most cases)')"></th:block>
+	<p style="margin-bottom: 1.14em;"></p>
+	<th:block th:include="fragments/fnSurvey :: h5(name='Clinical data')"></th:block>			
+			<th:block th:include="fragments/fnSurvey :: surveySubTitle(s1='3',s2='5',s3='4', yes=' standardly recorded (and available for most cases)',no=' not standardly recorded (or not available for most cases)')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='ageAtOnset', name=' Age at onset', s1='3',s2='5',s3='4', s4='0', yes=' standardly recorded (and available for most cases)',no=' not standardly recorded (or not available for most cases)')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='updrs', name=' UPDRS', s1='3',s2='5',s3='4', s4='0', yes=' standardly recorded (and available for most cases)',no=' not standardly recorded (or not available for most cases)')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='hoehnAndYahrScale', name=' Hoehn and Yahr Scale', s1='3',s2='5',s3='4', s4='0', yes=' standardly recorded (and available for most cases)',no=' not standardly recorded (or not available for most cases)')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='nonmotorScales', name=' Nonmotor scales', s1='3',s2='5',s3='4', s4='0', yes=' standardly recorded (and available for most cases)',no=' not standardly recorded (or not available for most cases)')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='olfactoryTests', name=' Olfactory tests', s1='3',s2='5',s3='4', s4='0', yes=' standardly recorded (and available for most cases)',no=' not standardly recorded (or not available for most cases)')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: freeTextNotRequired(javaField='demographicDataOther', name=' Other')"></th:block>
+	<p style="margin-bottom: 1.14em;"></p>
+	<th:block th:include="fragments/fnSurvey :: h5(name='Biomaterial')"></th:block>			
+		<th:block th:include="fragments/fnSurvey :: surveyYesNo(javaField='irbConsentAvailable', name=' IRB consent available',yes=' yes',no=' no')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyYesNo(javaField='areYouAllowedToShipBiomaterialOutOfTheCountry', name=' Are you allowed to ship biomaterial out of the country?',yes=' yes',no=' no')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyBiomaterialsSubtitle(s1='2',s2='2',s3='2',s4='2',s5='2',s6='2')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyBiomaterials(javaField='dna', name=' DNA', javaFieldSC='dnaStorageConditions', s1='2',s2='2',s3='2',s4='2',s5='2',s6='2')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyBiomaterials(javaField='rna', name=' RNA', javaFieldSC='rnaStorageConditions', s1='2',s2='2',s3='2',s4='2',s5='2',s6='2')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyBiomaterials(javaField='serum', name=' Serum', javaFieldSC='serumStorageConditions', s1='2',s2='2',s3='2',s4='2',s5='2',s6='2')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyBiomaterials(javaField='plasma', name=' Plasma', javaFieldSC='plasmaStorageConditions', s1='2',s2='2',s3='2',s4='2',s5='2',s6='2')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyBiomaterials(javaField='wholeBlood', name=' Whole blood', javaFieldSC='wholeBloodStorageConditions', s1='2',s2='2',s3='2',s4='2',s5='2',s6='2')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyBiomaterials(javaField='csf', name=' CSF', javaFieldSC='csfStorageConditions', s1='2',s2='2',s3='2',s4='2',s5='2',s6='2')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyBiomaterials(javaField='fibroblasts', name=' Fibroblasts', javaFieldSC='fibroblastsStorageConditions', s1='2',s2='2',s3='2',s4='2',s5='2',s6='2')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyBiomaterials(javaField='ipscs', name=' IPSCs', javaFieldSC='ipscsStorageConditions', s1='2',s2='2',s3='2',s4='2',s5='2',s6='2')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyBiomaterials(javaField='brainTissue', name=' Brain tissue', javaFieldSC='brainTissueStorageConditions', s1='2',s2='2',s3='2',s4='2',s5='2',s6='2')"></th:block>
+	<p style="margin-bottom: 1.14em;"></p>
+	<th:block th:include="fragments/fnSurvey :: h5(name='OMICS')"></th:block>			
+		<th:block th:include="fragments/fnSurvey :: surveyOmicsSubtitle(s1='2',s2='2',s3='2',s4='2',s5='2')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyOmics(javaField='genomics', name=' Genomics', s1='2',s2='2',s3='2',s4='2',s5='2')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyOmics(javaField='transcriptomics', name=' Transcriptomics', s1='2',s2='2',s3='2',s4='2',s5='2')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyOmics(javaField='metabolomics', name=' Metabolomics', s1='2',s2='2',s3='2',s4='2',s5='2')"></th:block>
+		<th:block th:include="fragments/fnSurvey :: surveyOmics(javaField='proteomics', name=' Proteomics', s1='2',s2='2',s3='2',s4='2',s5='2')"></th:block>
+	<p style="margin-bottom: 1.14em;"></p>
+	<th:block th:include="fragments/fnSurvey :: h5(name='Laboratory facilities')"></th:block>			
+			<th:block th:include="fragments/fnSurvey :: surveyAvailableSubtitle(,s1='4',s2='2',s3='2', s4='4')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='csfHandling', name=' CSF Handling',,s1='4',s2='2',s3='2', s4='4',yes='  available',no='  not available')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='serumPlasmaHandling', name=' Serum Plasma handling',,s1='4',s2='2',s3='2', s4='4',yes='  available',no='  not available')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='culturingOfFibroblasts', name=' Culturing of fibroblasts',,s1='4',s2='2',s3='2', s4='4',yes='  available',no='  not available')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='isolationOfCellsFromWholeBlood', name=' Isolation of cells from whole blood',,s1='4',s2='2',s3='2', s4='4',yes='  available',no='  not available')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='generationOfIpscs', name=' Generation of iPSCs',,s1='4',s2='2',s3='2', s4='4',yes='  available',no='  not available')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='neuropathology', name=' Neuropathology',s1='4',s2='2',s3='2', s4='4',yes='  available',no='  not available')"></th:block>
+	<p style="margin-bottom: 1.14em;"></p>
+	<th:block th:include="fragments/fnSurvey :: h5(name='Imaging facilities')"></th:block>			
+			<th:block th:include="fragments/fnSurvey :: surveyAvailableSubtitle(s1='4',s2='2',s3='2', s4='4')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='mriDeviceFieldStrength', name=' MRI (device, field strength)',s1='4',s2='2',s3='2', s4='4',yes='  available',no='  not available')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='spectPet', name=' SPECT/PET',s1='4',s2='2',s3='2', s4='4',yes='  available',no='  not available')"></th:block>
+			<th:block th:include="fragments/fnSurvey :: surveyYesNo3(javaField='tcs', name=' TCS',s1='4',s2='2',s3='2', s4='4',yes='  available',no='  not available')"></th:block>
+	
+<p style="margin-bottom: 2.5em;"></p>
+<p style="margin-bottom: 0.55em;"></p>  
+<button name="action" class="button secondary radius expand" style="margin-bottom: 40px;" onclick="this.blur();" type="submit" value="plot">
+    Done
+</button>    
+</form>	
+<h5 th:if="${gsfs == null}">Invalid URL</h5>	
+	  <!-- End -->      
+    </div>
+    <div class="row" th:if="false">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

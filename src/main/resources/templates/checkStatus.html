@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<script src="../../../assets/checkStatus.js" data-turbolinks-track="true"></script>
+</head>
+<body>
+
+<h1>Excel file status</h1>
+
+<div th:if="${message}">
+	<th:block th:each="d1,idx2:${message}">
+	    <span th:text="${d1}"/><br/>
+	</th:block>
+</div>
+
+<div th:if="${categories}">
+<a href="/uploadTsvFile">Simulate gene upload</a>
+<hr with="100%"/>
+<h5>Available categories:</h5>
+<div class="row">
+  <div class="small-12 text-center columns">
+<table class="table table-striped table-hover" id="myCategoriesTable">
+	<thead>
+		<tr>
+		  <th></th>
+		  <th>Category name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="row,iter : ${categories}">
+		  <td th:text="${iter.index}+1">#</td>
+		  <td th:text="${row.name}">Title</td>
+ 		</tr>
+	</tbody>
+</table>	
+</div>
+</div>
+</div>
+
+<div th:if="${symptoms}">
+<hr with="100%"/>
+<h5>Available symptoms:</h5>
+<input type="text" id="myInput" onkeyup="myFunction()" onkeydown="myFunction()" placeholder="Search import header..." title="Type import header name"/>
+<div class="row">
+  <div class="small-12 text-center columns">
+<table class="table table-striped table-hover" id="myTable">
+	<thead>
+		<tr>
+		  <th></th>
+		  <th>Import Header</th>
+		  <th>Symptom name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="row,iter : ${symptoms}">
+		  <td th:text="${iter.index}+1">#</td>
+		  <td th:text="${row.importHeader}">PMIDs</td>
+		  <td th:text="${row.name}">Title</td>
+ 		</tr>
+	</tbody>
+</table>	
+</div>
+</div>
+</div>
+
+<div th:if="${chart}">
+<hr with="100%"/>
+	<th:block th:each="d1,idx2:${chart}">
+	    <span th:text="${d1}"/><br/>
+	</th:block>
+</div>
+
+</body>
+</html>

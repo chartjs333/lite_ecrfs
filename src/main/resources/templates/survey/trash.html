@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/base.html">
+<head>
+    <title>Survey</title>
+    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"/>
+    <link rel="stylesheet" href="/css/adminlte.css"/>
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css"/>
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://bossanova.uk/jspreadsheet/v4/jexcel.css" type="text/css" />
+    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Material+Icons" />
+
+    <link rel="stylesheet" th:href="@{/css/tooltip.css}"/>
+    <link rel="stylesheet" th:href="@{/css/glanceyear.css}"/>
+    <link rel="stylesheet" th:href="@{/css/notification.css}"/>
+    <link rel="stylesheet" th:href="@{/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css}"/>
+    <link rel="stylesheet" th:href="@{/plugins/datatables-responsive/css/responsive.bootstrap4.min.css}"/>
+    <link rel="stylesheet" th:href="@{/plugins/datatables-buttons/css/buttons.bootstrap4.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/user-profile-style.css}"/>
+
+    <script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+    <script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body class="sidebar-mini layout-fixed">
+<div class="content-wrapper" style="min-height: 327px;">
+<div layout:fragment="content" th:remove="tag">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+        <a href="#" class="brand-link">
+            <img src="/images/logo.png" alt="MJFF Logo" class="brand-image img-circle elevation-3" style="opacity: .8"/>
+            <span class="brand-text font-weight-light">
+                <b>PINK1/PRKN Project</b>
+            </span>
+        </a>
+
+        <div class="sidebar os-host os-theme-light os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-scrollbar-vertical-hidden os-host-transition">
+            <div class="os-resize-observer-host observed">
+                <div class="os-resize-observer" style="left: 0px; right: auto;"></div>
+            </div>
+            <div class="os-size-auto-observer observed" style="height: calc(100% + 1px); float: left;">
+                <div class="os-resize-observer"></div>
+            </div>
+            <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 383px;"></div>
+            <div class="os-padding">
+                <div class="os-viewport os-viewport-native-scrollbars-invisible">
+                    <div class="os-content" style="padding: 0px 8px; height: 100%; width: 100%;">
+
+                        <nav class="mt-2">
+                            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                                <!--                                <li class="nav-item">-->
+                                <!--                                    <a href="/dashboard" class="nav-link active">-->
+                                <!--                                        <i class="nav-icon fas fa-tachometer-alt"></i>-->
+                                <!--                                        <p> Dashboard</p>-->
+                                <!--                                    </a>-->
+                                <!--                                </li>-->
+                                <!--                                <li class="nav-item">-->
+                                <!--                                    <a href="/excel-file" class="nav-link">-->
+                                <!--                                        <i class="nav-icon fa fa-file-excel"></i>-->
+                                <!--                                        <p>Excel Files</p>-->
+                                <!--                                    </a>-->
+                                <!--                                </li>-->
+                                <li class="nav-item">
+                                    <a href="/survey" class="nav-link">
+                                        <i class="nav-icon fa fa-clipboard"></i>
+                                        <p>eCRFs</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/survey/trash" class="nav-link">
+                                        <i class="nav-icon fa fa-trash"></i>
+                                        <p>eCRFs trash</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/user/sign_out" class="nav-link">
+                                        <i class="nav-icon fa fa-sign-out-alt"></i>
+                                        <p>Logout</p>
+                                    </a>
+                                </li>
+                                <!--                                <li class="nav-item">-->
+                                <!--                                    <a href="/eCRF-report" class="nav-link">-->
+                                <!--                                        <i class="nav-icon fa fa-clipboard" aria-hidden="true"></i>-->
+                                <!--                                        <p>eCRF Report</p>-->
+                                <!--                                    </a>-->
+                                <!--                                </li>-->
+                                <!--                                <li class="nav-item">-->
+                                <!--                                    <a href="/rules" class="nav-link">-->
+                                <!--                                        <i class="nav-icon fa fa-list-alt"></i>-->
+                                <!--                                        <p>Rules</p>-->
+                                <!--                                    </a>-->
+                                <!--                                </li>-->
+                                <!--                                <li class="nav-item">-->
+                                <!--                                    <a href="/plugins" class="nav-link">-->
+                                <!--                                        <i class="fa fa-plug" aria-hidden="true"></i>-->
+                                <!--                                        <p>Plugins</p>-->
+                                <!--                                    </a>-->
+                                <!--                                </li>-->
+
+                            </ul>
+                        </nav>
+                    </div></div></div>
+            <div class="os-scrollbar os-scrollbar-horizontal os-scrollbar-unusable os-scrollbar-auto-hidden">
+                <div class="os-scrollbar-track">
+                    <div class="os-scrollbar-handle" style="width: 100%; transform: translate(0px, 0px);"></div>
+                </div></div>
+            <div class="os-scrollbar os-scrollbar-vertical os-scrollbar-unusable os-scrollbar-auto-hidden">
+                <div class="os-scrollbar-track">
+                    <div class="os-scrollbar-handle" style="height: 100%; transform: translate(0px, 0px);"></div>
+                </div></div>
+            <div class="os-scrollbar-corner"></div>
+        </div>
+    </aside>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="display-5 fw-bold m-0">Survey trash</h1>
+                </div>
+                <div class="col-12 mb-2">
+                    <button class="btn btn-danger btn-sm "
+                            th:data-href="@{/survey/delete-permanently}"
+                            data-toggle="modal"
+                            data-target="#deleteModaleCRF"
+                            id="delete-eCRF"
+                            data-message="Are you sure you want to delete the selected eCRF ?"
+                            disabled="disabled"
+                    ><i class="fas fa-trash"></i>  Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="content">
+        <div class="card card-solid">
+            <div class="card-body pb-0">
+                <table id="survey-list" class="table table-stripped col-12">
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox" id="select-all-eCRF"/></th>
+                        <th>Status</th>
+                        <th>Local Id</th>
+                        <th>Kit Id</th>
+                        <th>Project Id</th>
+                        <th>Time created</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div th:replace="layout/delete::delete"></div>
+        <div th:replace="layout/restore::restore"></div>
+        <div class="modal fade" id="deleteModaleCRF" tabindex="-1" aria-labelledby="deleteModaleCRF" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="message"></div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger btn-ok">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+    <th:block layout:fragment="script">
+        <script th:src="@{/plugins/datatables/jquery.dataTables.min.js}"></script>
+        <script th:src="@{/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js}"></script>
+        <script th:src="@{/plugins/datatables-responsive/js/dataTables.responsive.min.js}"></script>
+        <script th:src="@{/js/user.survey.trash.js}"></script>
+        <script th:src="@{/js/modal.delete.js}"></script>
+        <script th:src="@{/js/all.js}"></script>
+
+    </th:block>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div th:fragment="errorMsg">
+			<div class="row" th:if="${errors != null}">
+				<div class="small-12 columns">
+					<div class="alert-box errorbox-colors radius">
+						<ul>
+						    <li th:each="error : ${errors}" th:text="${error}"></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	</div>
+  </body>
+</html>

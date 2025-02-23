@@ -1,0 +1,2606 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title> IN/EX</title>
+<!-- css files -->
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
+<link rel="stylesheet" type="text/css" href="../fonts/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/registration-style.css"/>
+<link rel="stylesheet" type="text/css" href="../css/elements.css"/>
+<!-- Bootstrap Timepicker CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../css/check-ecrf-minimal.css"/>
+<!-- jquery library --> 
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script> 
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/survey.js"></script>
+<!-- Bootstrap Timepicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../js/check-ecrf-minimal.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"/>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-en_US.min.js"></script>
+<script  type="text/javascript">
+$(document).ready(function(){     $('.timepicker').timepicker({
+        showInputs: false,
+        showMeridian: false
+    });});
+</script>
+<style>
+#logo {
+    display: block;
+    margin: auto;
+}
+.minimal-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.core-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-group.has-minimal > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.form-group.has-core > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.progress .progress-bar {
+    background-image: linear-gradient(to bottom, #E07800 0, #E07800 100%) !important;
+}
+.survey-button {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Arial',Arial,sans-serif;
+    line-height: 1.55;
+    font-weight: 600;
+    border-width: 2px;
+    border-radius: 6px;
+    background-color: #3A91B6;
+    background-position: center center;
+    border-color: #3A91B6;
+    border-style: solid;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.has-minimal .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.has-core .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+
+
+.header-label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subheader {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.move-up-first-header {
+    margin-top: 70px;
+}
+
+
+.move-down-header {
+    margin-bottom: 35px;
+}
+
+
+.move-up-header {
+    margin-top: 55px;
+}
+
+
+.move-down-subheader {
+    margin-bottom: 10px;
+}
+
+
+.move-up-subheader {
+    margin-top: 40px;
+}
+
+.move-up-yes-no {
+    margin-top: 5px;
+}
+
+.move-down-yes-no {
+    margin-bottom: 30px;
+}
+
+.move-down-text {
+    margin-bottom: 30px;
+}
+
+h4 {
+    line-height: 1.78;
+    margin: 0 auto;
+    width: 70%;
+    margin-bottom: 40px;
+}
+
+.active-tab {
+    background-color: #23527c!important;
+    color: #fff!important;
+}
+
+.less-bold-left-justified {
+    text-align: left!important;
+    /*padding-left: 30px!important;*/
+    color: #000; /* replace it with your color code */
+    font-size: 20px; /* adjust based on your needs */
+    font-weight: normal; /* Use 'bold' for bold font, 'normal' for less bold  */
+}
+
+nav.navbar-nav {
+    margin-bottom: 50px;
+}
+
+.instruction {
+    font-weight: normal;
+}
+
+.nav-justified {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.specific-list li {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.specific-list input[type="radio"] {
+    margin-right: 5px;
+}
+
+.specific-list label {
+    display: flex;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot');
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.completed {
+     color: green;
+ }
+.uncompleted {
+    color: red;
+}
+
+</style>
+</head>
+
+<body>
+<img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database" src="../assets/fmjfox.png" />
+<div class="registration-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+<div style="font-size: 18px;color: #8a6d3b; background-color: antiquewhite; border: burlywood 3px solid;border-radius: 5px;">
+    <div style="padding: 10px 10px 0px">
+        Data entered into this eCRF are automatically saved
+    </div>
+    <div style="padding: 0px 10px 10px">
+        The contributor will also be able to return at a future date to view
+        and/or edit the eCRF should new information regarding the patient/family become available
+    </div>
+</div>
+          <br/>
+          <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+              <span style="color: #133957" th:text="${'Local ID: ' + centerId}" th:if="${centerId}"></span><br/>
+              <span style="color: #133957" th:text="${'Project ID: ' + projectId}" th:if="${projectId}"></span>
+          </div>
+        <form accept-charset="UTF-8" class="registration-form onlyForm" method="post" th:object="${formObj}" th:id="${formObj.surveyTwoId}" >
+<input type='hidden' id="filling_status" th:field="${formObj.fillingStatus}"/><div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">        <div class="top-box text-left">
+          <h2 class="title">IN/EX</h2>
+        </div>  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%;background-image: linear-gradient(to bottom,#33A371 0,#33A371 100%)">
+      <span class="sr-only">0% Complete</span>
+    </div>
+  </div>
+	<div class="alert alert-warning" role="alert">
+  	   <strong>Warning:</strong> The minimal dataset is not complete yet. Please be reminded that to complete the minimal dataset is mandatory in order to have samples processed for analysis. Please continue or come back when you can complete at least the minimal dataset.
+	</div>
+</div>          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-core move-up-first-header move-down-header" >
+                <label id="part_elig_header" class="header-label">Participant Eligibility</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-core " >
+                <label namelabel="gp2_part" class="" for="">Is the participant enrolled in GP2?</label>
+                
+		<ul class="listing core-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Gp2_part}" type="radio" name1="gp2_part" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Gp2_part}" type="radio" name1="gp2_part" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Gp2_part}" type="radio" name1="gp2_part" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> scheduled</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-core " >
+                <label namelabel="ppmi_part" class="" for="">Is the participant enrolled in PPMI?</label>
+                
+		<ul class="listing core-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ppmi_part}" type="radio" name1="ppmi_part" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ppmi_part}" type="radio" name1="ppmi_part" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ppmi_part}" type="radio" name1="ppmi_part" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> scheduled</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-core " >
+                <label for="PPMI_ID" class="">Please provide the PPMI ID</label>
+                <input type="text" class="form-control" id="PPMI_ID"  th:field="${formObj.PPMI_ID}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+			<div class="col-sm-12">
+              <div class="form-group has-minimal  " >
+                <label for="sel1" class="">This individual is enrolled as</label>
+                <select class="form-control" id="in_cat" th:field="${formObj.In_cat}" onchange="__main__()" >
+                  <option th:selected="${(formObj.In_cat == '-')}" value='-'>-</option>
+                  <option th:selected="${(formObj.In_cat == 'individual with PD and at least one pathogenic variant in PRKN')}" value='individual with PD and at least one pathogenic variant in PRKN'>individual with PD and at least one pathogenic variant in PRKN</option>
+                  <option th:selected="${(formObj.In_cat == 'individual with PD and at least one pathogenic variant in PINK1')}" value='individual with PD and at least one pathogenic variant in PINK1'>individual with PD and at least one pathogenic variant in PINK1</option>
+                  <option th:selected="${(formObj.In_cat == 'unaffected individual with at least one pathogenic variant in PRKN')}" value='unaffected individual with at least one pathogenic variant in PRKN'>unaffected individual with at least one pathogenic variant in PRKN</option>
+                  <option th:selected="${(formObj.In_cat == 'unaffected individual with at least one pathogenic variant in PINK1')}" value='unaffected individual with at least one pathogenic variant in PINK1'>unaffected individual with at least one pathogenic variant in PINK1</option>
+                  <option th:selected="${(formObj.In_cat == 'healthy control')}" value='healthy control'>healthy control</option>
+                  <option th:selected="${(formObj.In_cat == 'individual with iPD')}" value='individual with iPD'>individual with iPD</option>
+                </select>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="prknpd_header" class="">PD with PRKN pathogenic variant</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal subheader" >
+                <label id="in_prknpd_subheader" class="">Inclusion criteria</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="in_prknpd_instruction" class="instruction">All inclusion criteria must be marked “Yes” and all exclusion criteria must be marked “No” before proceeding to enrollment.</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_prknpd_age" class="" for="">a)  Male or female age >/=18 years</label>
+
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknpd_age}" type="radio" name1="in_prknpd_age" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknpd_age}" type="radio" name1="in_prknpd_age" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_prknpd_dx" class="" for="">b) Established clinical diagnosis  of Parkinson’s disease</label>
+
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknpd_dx}" type="radio" name1="in_prknpd_dx" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknpd_dx}" type="radio" name1="in_prknpd_dx" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_prknpd_pathvar" class="" for="">c) Pathogenic bi-allelic or mono-allelic variant in PRKN or PINK1</label>
+
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknpd_pathvar}" type="radio" name1="in_prknpd_pathvar" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknpd_pathvar}" type="radio" name1="in_prknpd_pathvar" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label for="in_prknpd_var" class="">Please enter the variant (cDNA and protein level):</label>
+                <input type="text" class="form-control" id="in_prknpd_var"  th:field="${formObj.In_prknpd_var}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_prknpd_ic" class="" for="">d) Able to provide informed consent</label>
+
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknpd_ic}" type="radio" name1="in_prknpd_ic" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknpd_ic}" type="radio" name1="in_prknpd_ic" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="in_pink1pd_header" class="">PD with PINK1 pathogenic variant</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal subheader" >
+                <label id="in_pink1pd_subheader" class="">Inclusion criteria</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="in_pink1pd_instruction" class="instruction">All inclusion criteria must be marked “Yes” and all exclusion criteria must be marked “No” before proceeding to enrollment.</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_pink1pd_age" class="" for="">a)  Male or female age >/=18 years</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1pd_age}" type="radio" name1="in_pink1pd_age" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1pd_age}" type="radio" name1="in_pink1pd_age" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_pink1pd_dx" class="" for="">b) Established clinical diagnosis  of Parkinson’s disease</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1pd_dx}" type="radio" name1="in_pink1pd_dx" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1pd_dx}" type="radio" name1="in_pink1pd_dx" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_pink1pd_pathvar" class="" for="">c) Pathogenic bi-allelic or mono-allelic variant in PRKN or PINK1</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1pd_pathvar}" type="radio" name1="in_pink1pd_pathvar" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1pd_pathvar}" type="radio" name1="in_pink1pd_pathvar" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label for="in_pink1pd_var" class="">Please enter the variant (cDNA and protein level):</label>
+                <input type="text" class="form-control" id="in_pink1pd_var"  th:field="${formObj.In_pink1pd_var}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_pink1pd_ic" class="" for="">d) Able to provide informed consent</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1pd_ic}" type="radio" name1="in_pink1pd_ic" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1pd_ic}" type="radio" name1="in_pink1pd_ic" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="ex_mitop_header" class="">PD with PRKN/PINK1 pathogenic variant</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal subheader" >
+                <label id="ex_mitop_subheader" class="">Exclusion criteria</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="ex_mitopd_symptomatic" class="" for="">a) Symptomatic PD syndromes due to either drugs (e.g., metoclopramide, flunarizine, neuroleptics) or metabolic disorders (e.g., Wilson’s disease), encephalitis</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_mitopd_symptomatic}" type="radio" name1="ex_mitopd_symptomatic" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_mitopd_symptomatic}" type="radio" name1="ex_mitopd_symptomatic" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="ex_mitopd_ex" class="" for="">b) Any other reason that, in the opinion of the investigator, would render the participant unsuitable for study enrollment.</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_mitopd_ex}" type="radio" name1="ex_mitopd_ex" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_mitopd_ex}" type="radio" name1="ex_mitopd_ex" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="ipd_header" class="">iPD</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal subheader" >
+                <label id="in_ipd_subheader" class="">Inclusion criteria</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_ipd_age" class="" for="">a) Male or female age >/=18 years</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_ipd_age}" type="radio" name1="in_ipd_age" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_ipd_age}" type="radio" name1="in_ipd_age" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_ipd_dx" class="" for="">b) Established clinical diagnosis of Parkinson’s disease</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_ipd_dx}" type="radio" name1="in_ipd_dx" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_ipd_dx}" type="radio" name1="in_ipd_dx" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_ipd_ic" class="" for="">c) Able to provide informed consent</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_ipd_ic}" type="radio" name1="in_ipd_ic" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_ipd_ic}" type="radio" name1="in_ipd_ic" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label for="in_ipd_match" class="">Matched to individual (ID)</label>
+                <input type="text" class="form-control" id="in_ipd_match"  th:field="${formObj.In_ipd_match}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal subheader" >
+                <label id="ex_ipd_subheader" class="">Exclusion criteria</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="ex_ipd_symptomatic" class="" for="">a) Symptomatic PD syndromes due to either drugs (e.g., metoclopramide, flunarizine, neuroleptics) or metabolic disorders (e.g., Wilson’s disease), encephalitis</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_ipd_symptomatic}" type="radio" name1="ex_ipd_symptomatic" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_ipd_symptomatic}" type="radio" name1="ex_ipd_symptomatic" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="ex_ipd_monogenic" class="" for="">b) Pathogenic variant in PD-related genes (GBA1, LRRK2, SNCA, VPS35, CHCHD2, PRKN, PINK1)</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_ipd_monogenic}" type="radio" name1="ex_ipd_monogenic" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_ipd_monogenic}" type="radio" name1="ex_ipd_monogenic" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label for="ex_ipd_var" class="">Please enter the gene and variant (cDNA and protein level):</label>
+                <input type="text" class="form-control" id="ex_ipd_var"  th:field="${formObj.Ex_ipd_var}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="ex_ipd_ex" class="" for="">c) Any other reason that, in the opinion of the investigator, would render the participant unsuitable for study enrollment.</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_ipd_ex}" type="radio" name1="ex_ipd_ex" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_ipd_ex}" type="radio" name1="ex_ipd_ex" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="in_prknunaff_age_header" class="">Non-manifesting pathogenic variant carriers</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal subheader" >
+                <label id="in_prknunaff_subheader" class="">Inclusion criteria</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_prknunaff_age" class="" for="">a) Male or female age >/=18 years</label>
+
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknunaff_age}" type="radio" name1="in_prknunaff_age" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknunaff_age}" type="radio" name1="in_prknunaff_age" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_prknunaff_pathvar" class="" for="">b) pathogenic bi-allelic or monogenic mutation in PRKN or PINK1</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknunaff_pathvar}" type="radio" name1="in_prknunaff_pathvar" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknunaff_pathvar}" type="radio" name1="in_prknunaff_pathvar" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label for="in_prknunaff_var" class="">Please enter the variant (cDNA and protein level):</label>
+                <input type="text" class="form-control" id="in_prknunaff_var"  th:field="${formObj.In_prknunaff_var}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_prknunaff_ic" class="" for="">c) Able to provide informed consent</label>
+
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknunaff_ic}" type="radio" name1="in_prknunaff_ic" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_prknunaff_ic}" type="radio" name1="in_prknunaff_ic" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_pink1unaff_age" class="" for="">a) Male or female age >/=18 years</label>
+
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1unaff_age}" type="radio" name1="in_pink1unaff_age" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1unaff_age}" type="radio" name1="in_pink1unaff_age" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_pink1unaff_pathvar" class="" for="">b) pathogenic bi-allelic or monogenic mutation in PRKN or PINK1</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1unaff_pathvar}" type="radio" name1="in_pink1unaff_pathvar" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1unaff_pathvar}" type="radio" name1="in_pink1unaff_pathvar" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label for="in_pink1unaff_var" class="">Please enter the variant (cDNA and protein level):</label>
+                <input type="text" class="form-control" id="in_pink1unaff_var"  th:field="${formObj.In_pink1unaff_var}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_pink1unaff_ic" class="" for="">c) Able to provide informed consent</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1unaff_ic}" type="radio" name1="in_pink1unaff_ic" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_pink1unaff_ic}" type="radio" name1="in_pink1unaff_ic" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal subheader" >
+                <label id="ex_unaff_subheader" class="">Exclusion criteria</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="ex_unaff_neuro" class="" for="">a) Current or active clinically significant neurological disorder other than PD (in the opinion of the Investigator)</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_unaff_neuro}" type="radio" name1="ex_unaff_neuro" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_unaff_neuro}" type="radio" name1="ex_unaff_neuro" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="ex_unaff_mri_neuro" class="" for="">b) Previously obtained MRI scan with evidence of clinically significant neurological disorder (in the opinion of the Investigator)</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_unaff_mri_neuro}" type="radio" name1="ex_unaff_mri_neuro" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_unaff_mri_neuro}" type="radio" name1="ex_unaff_mri_neuro" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="ex_unaff_ex" class="" for="">c) Any other reason that, in the opinion of the investigator, would render the participant unsuitable for study enrollment</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_unaff_ex}" type="radio" name1="ex_unaff_ex" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_unaff_ex}" type="radio" name1="ex_unaff_ex" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="hc_header" class="">Healthy controls</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal subheader" >
+                <label id="in_hc_subheader" class="">Inclusion criteria</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_hc_age" class="" for="">a) Male or female age >/=18 years</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_hc_age}" type="radio" name1="in_hc_age" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_hc_age}" type="radio" name1="in_hc_age" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="in_hc_ic" class="" for="">b) Able to provide informed consent</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_hc_ic}" type="radio" name1="in_hc_ic" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.In_hc_ic}" type="radio" name1="in_hc_ic" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label for="in_hc_match" class="">Matched to individual (ID)</label>
+                <input type="text" class="form-control" id="in_hc_match"  th:field="${formObj.In_hc_match}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal subheader" >
+                <label id="ex_hc_subheader" class="">Exclusion criteria</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="ex_hc_neuro" class="" for="">a) Current or active clinically significant neurological disorder (in the opinion of the Investigator)</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_hc_neuro}" type="radio" name1="ex_hc_neuro" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_hc_neuro}" type="radio" name1="ex_hc_neuro" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="ex_hc_monogenic" class="" for="">b) Pathogenic variant in PD-related genes (GBA1, LRRK2, SNCA, VPS35, CHCHD2, PRKN, PINK1)</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_hc_monogenic}" type="radio" name1="ex_hc_monogenic" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_hc_monogenic}" type="radio" name1="ex_hc_monogenic" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="ex_hc_mri_neuro" class="" for="">c) Previously obtained MRI scan with evidence of clinically significant neurological disorder (in the opinion of the Investigator)</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_hc_mri_neuro}" type="radio" name1="ex_hc_mri_neuro" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_hc_mri_neuro}" type="radio" name1="ex_hc_mri_neuro" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="ex_hc_ex" class="" for="">d) Any other reason that, in the opinion of the investigator, would render the participant unsuitable for study enrollment</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_hc_ex}" type="radio" name1="ex_hc_ex" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ex_hc_ex}" type="radio" name1="ex_hc_ex" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+        </form>
+<div id="upload-progress" style='display:none'><div class="progress-bar-1" style="display:none"></div></div> <!-- Progress bar added -->    <div class="selectedDrogsChildren">
+                    <span th:each="formChild: ${formD}"
+                          th:text="${formChild.name}"
+                          th:class="${formChild.name}"
+                          style="display:none;"
+                    ></span>
+    </div>
+
+    </div>
+    </div>
+  </div>
+</div>
+
+<script  type="text/javascript">
+function __main__() {
+//begin PPMI_ID
+//condition display only if "yes" is checked in item "ppmi_part"
+if (length("ppmi_part") > 0 ? isvisible("ppmi_part", true) : false )
+{ if (check("ppmi_part","yes"))
+ show("PPMI_ID",true,"null",null);
+else hide("PPMI_ID",true);
+} else {
+if (isvisible2("ppmi_part", false)) {
+ if (check2("ppmi_part","yes"))
+  show("PPMI_ID",false,"null",null);
+ else  hide("PPMI_ID",false);
+  } else hide("PPMI_ID",false);
+ }
+//end PPMI_ID
+//begin prknpd_header
+//condition display only if "individual with PD and at least one pathogenic variant in PRKN" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("prknpd_header",true,"null",null);
+else hide("prknpd_header",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("prknpd_header",false,"null",null);
+ else  hide("prknpd_header",false);
+  } else hide("prknpd_header",false);
+ }
+//end prknpd_header
+//begin in_prknpd_subheader
+//condition display only if "individual with PD and at least one pathogenic variant in PRKN" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_subheader",true,"null",null);
+else hide("in_prknpd_subheader",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_subheader",false,"null",null);
+ else  hide("in_prknpd_subheader",false);
+  } else hide("in_prknpd_subheader",false);
+ }
+//end in_prknpd_subheader
+//begin in_prknpd_instruction
+//condition display only if "individual with PD and at least one pathogenic variant in PRKN" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_instruction",true,"null",null);
+else hide("in_prknpd_instruction",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_instruction",false,"null",null);
+ else  hide("in_prknpd_instruction",false);
+  } else hide("in_prknpd_instruction",false);
+ }
+//end in_prknpd_instruction
+//begin in_prknpd_age
+//condition display only if "individual with PD and at least one pathogenic variant in PRKN" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_age",true,"null",null);
+else hide("in_prknpd_age",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_age",false,"null",null);
+ else  hide("in_prknpd_age",false);
+  } else hide("in_prknpd_age",false);
+ } 
+//end in_prknpd_age
+//begin in_prknpd_dx
+//condition display only if "individual with PD and at least one pathogenic variant in PRKN" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_dx",true,"null",null);
+else hide("in_prknpd_dx",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_dx",false,"null",null);
+ else  hide("in_prknpd_dx",false);
+  } else hide("in_prknpd_dx",false);
+ }
+//end in_prknpd_dx
+//begin in_prknpd_pathvar
+//condition display only if "individual with PD and at least one pathogenic variant in PRKN" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_pathvar",true,"null",null);
+else hide("in_prknpd_pathvar",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_pathvar",false,"null",null);
+ else  hide("in_prknpd_pathvar",false);
+  } else hide("in_prknpd_pathvar",false);
+ }
+//end in_prknpd_pathvar
+//begin in_prknpd_var
+//condition display only if "individual with PD and at least one pathogenic variant in PRKN" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_var",true,"null",null);
+else hide("in_prknpd_var",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_var",false,"null",null);
+ else  hide("in_prknpd_var",false);
+  } else hide("in_prknpd_var",false);
+ } 
+//end in_prknpd_var
+//begin in_prknpd_ic
+//condition display only if "individual with PD and at least one pathogenic variant in PRKN" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_ic",true,"null",null);
+else hide("in_prknpd_ic",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_ic",false,"null",null);
+ else  hide("in_prknpd_ic",false);
+  } else hide("in_prknpd_ic",false);
+ }
+//end in_prknpd_ic
+//begin in_pink1pd_header
+//condition display only if "individual with PD and at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_header",true,"null",null);
+else hide("in_pink1pd_header",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_header",false,"null",null);
+ else  hide("in_pink1pd_header",false);
+  } else hide("in_pink1pd_header",false);
+ }
+//end in_pink1pd_header
+//begin in_pink1pd_subheader
+//condition display only if "individual with PD and at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_subheader",true,"null",null);
+else hide("in_pink1pd_subheader",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_subheader",false,"null",null);
+ else  hide("in_pink1pd_subheader",false);
+  } else hide("in_pink1pd_subheader",false);
+ }
+//end in_pink1pd_subheader
+//begin in_pink1pd_instruction
+//condition display only if "individual with PD and at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_instruction",true,"null",null);
+else hide("in_pink1pd_instruction",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_instruction",false,"null",null);
+ else  hide("in_pink1pd_instruction",false);
+  } else hide("in_pink1pd_instruction",false);
+ } 
+//end in_pink1pd_instruction
+//begin in_pink1pd_age
+//condition display only if "individual with PD and at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_age",true,"null",null);
+else hide("in_pink1pd_age",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_age",false,"null",null);
+ else  hide("in_pink1pd_age",false);
+  } else hide("in_pink1pd_age",false);
+ } 
+//end in_pink1pd_age
+//begin in_pink1pd_dx
+//condition display only if "individual with PD and at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_dx",true,"null",null);
+else hide("in_pink1pd_dx",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_dx",false,"null",null);
+ else  hide("in_pink1pd_dx",false);
+  } else hide("in_pink1pd_dx",false);
+ } 
+//end in_pink1pd_dx
+//begin in_pink1pd_pathvar
+//condition display only if "individual with PD and at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_pathvar",true,"null",null);
+else hide("in_pink1pd_pathvar",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_pathvar",false,"null",null);
+ else  hide("in_pink1pd_pathvar",false);
+  } else hide("in_pink1pd_pathvar",false);
+ }
+//end in_pink1pd_pathvar
+//begin in_pink1pd_var
+//condition display only if "individual with PD and at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_var",true,"null",null);
+else hide("in_pink1pd_var",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_var",false,"null",null);
+ else  hide("in_pink1pd_var",false);
+  } else hide("in_pink1pd_var",false);
+ } 
+//end in_pink1pd_var
+//begin in_pink1pd_ic
+//condition display only if "individual with PD and at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_ic",true,"null",null);
+else hide("in_pink1pd_ic",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_ic",false,"null",null);
+ else  hide("in_pink1pd_ic",false);
+  } else hide("in_pink1pd_ic",false);
+ }
+//end in_pink1pd_ic
+//begin ex_mitop_header
+//condition display only if "individual with PD and at least one pathogenic variant in PRKN" or "individual with PD and at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))  
+ show("ex_mitop_header",true,"null",null);
+else hide("ex_mitop_header",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check2("in_cat","individual with PD and at least one pathogenic variant in PINK1")) 
+  show("ex_mitop_header",false,"null",null);
+ else  hide("ex_mitop_header",false);
+  } else hide("ex_mitop_header",false);
+ } 
+//end ex_mitop_header
+//begin ex_mitop_subheader
+//condition display only if "individual with PD and at least one pathogenic variant in PRKN" or "individual with PD and at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))  
+ show("ex_mitop_subheader",true,"null",null);
+else hide("ex_mitop_subheader",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check2("in_cat","individual with PD and at least one pathogenic variant in PINK1")) 
+  show("ex_mitop_subheader",false,"null",null);
+ else  hide("ex_mitop_subheader",false);
+  } else hide("ex_mitop_subheader",false);
+ } 
+//end ex_mitop_subheader
+//begin ex_mitopd_symptomatic
+//condition display only if "individual with PD and at least one pathogenic variant in PRKN" or "individual with PD and at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))  
+ show("ex_mitopd_symptomatic",true,"null",null);  
+else hide("ex_mitopd_symptomatic",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check2("in_cat","individual with PD and at least one pathogenic variant in PINK1")) 
+  show("ex_mitopd_symptomatic",false,"null",null); 
+ else  hide("ex_mitopd_symptomatic",false); 
+  } else hide("ex_mitopd_symptomatic",false); 
+ } 
+//end ex_mitopd_symptomatic
+//begin ex_mitopd_ex
+//condition display only if "individual with PD and at least one pathogenic variant in PRKN" or "individual with PD and at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))  
+ show("ex_mitopd_ex",true,"null",null);  
+else hide("ex_mitopd_ex",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check2("in_cat","individual with PD and at least one pathogenic variant in PINK1")) 
+  show("ex_mitopd_ex",false,"null",null); 
+ else  hide("ex_mitopd_ex",false); 
+  } else hide("ex_mitopd_ex",false); 
+ } 
+//end ex_mitopd_ex
+//begin ipd_header
+//condition display only if "individual with iPD" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("ipd_header",true,"null",null);  
+else hide("ipd_header",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("ipd_header",false,"null",null); 
+ else  hide("ipd_header",false); 
+  } else hide("ipd_header",false); 
+ } 
+//end ipd_header
+//begin in_ipd_subheader
+//condition display only if "individual with iPD" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("in_ipd_subheader",true,"null",null);  
+else hide("in_ipd_subheader",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("in_ipd_subheader",false,"null",null); 
+ else  hide("in_ipd_subheader",false); 
+  } else hide("in_ipd_subheader",false); 
+ } 
+//end in_ipd_subheader
+//begin in_ipd_age
+//condition display only if "individual with iPD" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("in_ipd_age",true,"null",null);  
+else hide("in_ipd_age",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("in_ipd_age",false,"null",null); 
+ else  hide("in_ipd_age",false); 
+  } else hide("in_ipd_age",false); 
+ } 
+//end in_ipd_age
+//begin in_ipd_dx
+//condition display only if "individual with iPD" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("in_ipd_dx",true,"null",null);  
+else hide("in_ipd_dx",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("in_ipd_dx",false,"null",null); 
+ else  hide("in_ipd_dx",false); 
+  } else hide("in_ipd_dx",false); 
+ } 
+//end in_ipd_dx
+//begin in_ipd_ic
+//condition display only if "individual with iPD" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("in_ipd_ic",true,"null",null);  
+else hide("in_ipd_ic",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("in_ipd_ic",false,"null",null); 
+ else  hide("in_ipd_ic",false); 
+  } else hide("in_ipd_ic",false); 
+ } 
+//end in_ipd_ic
+//begin in_ipd_match
+//condition display only if "individual with iPD" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("in_ipd_match",true,"null",null);  
+else hide("in_ipd_match",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("in_ipd_match",false,"null",null); 
+ else  hide("in_ipd_match",false); 
+  } else hide("in_ipd_match",false); 
+ } 
+//end in_ipd_match
+//begin ex_ipd_subheader
+//condition display only if "individual with iPD" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("ex_ipd_subheader",true,"null",null);  
+else hide("ex_ipd_subheader",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("ex_ipd_subheader",false,"null",null); 
+ else  hide("ex_ipd_subheader",false); 
+  } else hide("ex_ipd_subheader",false); 
+ } 
+//end ex_ipd_subheader
+//begin ex_ipd_symptomatic
+//condition display only if "individual with iPD" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("ex_ipd_symptomatic",true,"null",null);  
+else hide("ex_ipd_symptomatic",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("ex_ipd_symptomatic",false,"null",null); 
+ else  hide("ex_ipd_symptomatic",false); 
+  } else hide("ex_ipd_symptomatic",false); 
+ } 
+//end ex_ipd_symptomatic
+//begin ex_ipd_monogenic
+//condition display only if "individual with iPD" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("ex_ipd_monogenic",true,"null",null);  
+else hide("ex_ipd_monogenic",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("ex_ipd_monogenic",false,"null",null); 
+ else  hide("ex_ipd_monogenic",false); 
+  } else hide("ex_ipd_monogenic",false); 
+ } 
+//end ex_ipd_monogenic
+//begin ex_ipd_var
+//condition display only if "individual with iPD" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with iPD"))
+ show("ex_ipd_var",true,"null",null);
+else hide("ex_ipd_var",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with iPD"))
+  show("ex_ipd_var",false,"null",null);
+ else  hide("ex_ipd_var",false);
+  } else hide("ex_ipd_var",false);
+ }
+//end ex_ipd_var
+//begin ex_ipd_ex
+//condition display only if "individual with iPD" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("ex_ipd_ex",true,"null",null);  
+else hide("ex_ipd_ex",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("ex_ipd_ex",false,"null",null); 
+ else  hide("ex_ipd_ex",false); 
+  } else hide("ex_ipd_ex",false); 
+ } 
+//end ex_ipd_ex
+//begin in_prknunaff_age_header
+//condition display only if "unaffected individual with at least one pathogenic variant in PRKN" or "unaffected individual with at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))  
+ show("in_prknunaff_age_header",true,"null",null);
+else hide("in_prknunaff_age_header",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1")) 
+  show("in_prknunaff_age_header",false,"null",null);
+ else  hide("in_prknunaff_age_header",false);
+  } else hide("in_prknunaff_age_header",false);
+ } 
+//end in_prknunaff_age_header
+//begin in_prknunaff_subheader
+//condition display only if "unaffected individual with at least one pathogenic variant in PRKN" or "unaffected individual with at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))  
+ show("in_prknunaff_subheader",true,"null",null);
+else hide("in_prknunaff_subheader",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1")) 
+  show("in_prknunaff_subheader",false,"null",null);
+ else  hide("in_prknunaff_subheader",false);
+  } else hide("in_prknunaff_subheader",false);
+ }
+//end in_prknunaff_subheader
+//begin in_prknunaff_age
+//condition display only if "unaffected individual with at least one pathogenic variant in PRKN" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+ show("in_prknunaff_age",true,"null",null);
+else hide("in_prknunaff_age",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+  show("in_prknunaff_age",false,"null",null);
+ else  hide("in_prknunaff_age",false);
+  } else hide("in_prknunaff_age",false);
+ } 
+//end in_prknunaff_age
+//begin in_prknunaff_pathvar
+//condition display only if "unaffected individual with at least one pathogenic variant in PRKN" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+ show("in_prknunaff_pathvar",true,"null",null);
+else hide("in_prknunaff_pathvar",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+  show("in_prknunaff_pathvar",false,"null",null);
+ else  hide("in_prknunaff_pathvar",false);
+  } else hide("in_prknunaff_pathvar",false);
+ }
+//end in_prknunaff_pathvar
+//begin in_prknunaff_var
+//condition display only if "unaffected individual with at least one pathogenic variant in PRKN" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+ show("in_prknunaff_var",true,"null",null);
+else hide("in_prknunaff_var",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+  show("in_prknunaff_var",false,"null",null);
+ else  hide("in_prknunaff_var",false);
+  } else hide("in_prknunaff_var",false);
+ }
+//end in_prknunaff_var
+//begin in_prknunaff_ic
+//condition display only if "unaffected individual with at least one pathogenic variant in PRKN" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+ show("in_prknunaff_ic",true,"null",null);
+else hide("in_prknunaff_ic",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+  show("in_prknunaff_ic",false,"null",null);
+ else  hide("in_prknunaff_ic",false);
+  } else hide("in_prknunaff_ic",false);
+ }
+//end in_prknunaff_ic
+//begin in_pink1unaff_age
+//condition display only if "unaffected individual with at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+ show("in_pink1unaff_age",true,"null",null);
+else hide("in_pink1unaff_age",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+  show("in_pink1unaff_age",false,"null",null);
+ else  hide("in_pink1unaff_age",false);
+  } else hide("in_pink1unaff_age",false);
+ } 
+//end in_pink1unaff_age
+//begin in_pink1unaff_pathvar
+//condition display only if "unaffected individual with at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+ show("in_pink1unaff_pathvar",true,"null",null);
+else hide("in_pink1unaff_pathvar",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+  show("in_pink1unaff_pathvar",false,"null",null);
+ else  hide("in_pink1unaff_pathvar",false);
+  } else hide("in_pink1unaff_pathvar",false);
+ }
+//end in_pink1unaff_pathvar
+//begin in_pink1unaff_var
+//condition display only if "unaffected individual with at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+ show("in_pink1unaff_var",true,"null",null);
+else hide("in_pink1unaff_var",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+  show("in_pink1unaff_var",false,"null",null);
+ else  hide("in_pink1unaff_var",false);
+  } else hide("in_pink1unaff_var",false);
+ }
+//end in_pink1unaff_var
+//begin in_pink1unaff_ic
+//condition display only if "unaffected individual with at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+ show("in_pink1unaff_ic",true,"null",null);
+else hide("in_pink1unaff_ic",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+  show("in_pink1unaff_ic",false,"null",null);
+ else  hide("in_pink1unaff_ic",false);
+  } else hide("in_pink1unaff_ic",false);
+ } 
+//end in_pink1unaff_ic
+//begin ex_unaff_subheader
+//condition display only if "unaffected individual with at least one pathogenic variant in PRKN" or "unaffected individual with at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))  
+ show("ex_unaff_subheader",true,"null",null);  
+else hide("ex_unaff_subheader",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1")) 
+  show("ex_unaff_subheader",false,"null",null); 
+ else  hide("ex_unaff_subheader",false); 
+  } else hide("ex_unaff_subheader",false); 
+ } 
+//end ex_unaff_subheader
+//begin ex_unaff_neuro
+//condition display only if "unaffected individual with at least one pathogenic variant in PRKN" or "unaffected individual with at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))  
+ show("ex_unaff_neuro",true,"null",null);  
+else hide("ex_unaff_neuro",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1")) 
+  show("ex_unaff_neuro",false,"null",null); 
+ else  hide("ex_unaff_neuro",false); 
+  } else hide("ex_unaff_neuro",false); 
+ } 
+//end ex_unaff_neuro
+//begin ex_unaff_mri_neuro
+//condition display only if "unaffected individual with at least one pathogenic variant in PRKN" or "unaffected individual with at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))  
+ show("ex_unaff_mri_neuro",true,"null",null);  
+else hide("ex_unaff_mri_neuro",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1")) 
+  show("ex_unaff_mri_neuro",false,"null",null); 
+ else  hide("ex_unaff_mri_neuro",false); 
+  } else hide("ex_unaff_mri_neuro",false); 
+ } 
+//end ex_unaff_mri_neuro
+//begin ex_unaff_ex
+//condition display only if "unaffected individual with at least one pathogenic variant in PRKN" or "unaffected individual with at least one pathogenic variant in PINK1" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))  
+ show("ex_unaff_ex",true,"null",null);  
+else hide("ex_unaff_ex",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1")) 
+  show("ex_unaff_ex",false,"null",null); 
+ else  hide("ex_unaff_ex",false); 
+  } else hide("ex_unaff_ex",false); 
+ } 
+//end ex_unaff_ex
+//begin hc_header
+//condition display only if "healthy control" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("hc_header",true,"null",null);  
+else hide("hc_header",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("hc_header",false,"null",null); 
+ else  hide("hc_header",false); 
+  } else hide("hc_header",false); 
+ } 
+//end hc_header
+//begin in_hc_subheader
+//condition display only if "healthy control" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("in_hc_subheader",true,"null",null);  
+else hide("in_hc_subheader",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("in_hc_subheader",false,"null",null); 
+ else  hide("in_hc_subheader",false); 
+  } else hide("in_hc_subheader",false); 
+ } 
+//end in_hc_subheader
+//begin in_hc_age
+//condition display only if "healthy control" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("in_hc_age",true,"null",null);  
+else hide("in_hc_age",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("in_hc_age",false,"null",null); 
+ else  hide("in_hc_age",false); 
+  } else hide("in_hc_age",false); 
+ } 
+//end in_hc_age
+//begin in_hc_ic
+//condition display only if "healthy control" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("in_hc_ic",true,"null",null);  
+else hide("in_hc_ic",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("in_hc_ic",false,"null",null); 
+ else  hide("in_hc_ic",false); 
+  } else hide("in_hc_ic",false); 
+ } 
+//end in_hc_ic
+//begin in_hc_match
+//condition display only if "healthy control" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("in_hc_match",true,"null",null);  
+else hide("in_hc_match",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("in_hc_match",false,"null",null); 
+ else  hide("in_hc_match",false); 
+  } else hide("in_hc_match",false); 
+ } 
+//end in_hc_match
+//begin ex_hc_subheader
+//condition display only if "healthy control" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("ex_hc_subheader",true,"null",null);  
+else hide("ex_hc_subheader",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("ex_hc_subheader",false,"null",null); 
+ else  hide("ex_hc_subheader",false); 
+  } else hide("ex_hc_subheader",false); 
+ } 
+//end ex_hc_subheader
+//begin ex_hc_neuro
+//condition display only if "healthy control" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("ex_hc_neuro",true,"null",null);  
+else hide("ex_hc_neuro",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("ex_hc_neuro",false,"null",null); 
+ else  hide("ex_hc_neuro",false); 
+  } else hide("ex_hc_neuro",false); 
+ } 
+//end ex_hc_neuro
+//begin ex_hc_monogenic
+//condition display only if "healthy control" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("ex_hc_monogenic",true,"null",null);  
+else hide("ex_hc_monogenic",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("ex_hc_monogenic",false,"null",null); 
+ else  hide("ex_hc_monogenic",false); 
+  } else hide("ex_hc_monogenic",false); 
+ } 
+//end ex_hc_monogenic
+//begin ex_hc_mri_neuro
+//condition display only if "healthy control" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("ex_hc_mri_neuro",true,"null",null);  
+else hide("ex_hc_mri_neuro",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("ex_hc_mri_neuro",false,"null",null); 
+ else  hide("ex_hc_mri_neuro",false); 
+  } else hide("ex_hc_mri_neuro",false); 
+ } 
+//end ex_hc_mri_neuro
+//begin ex_hc_ex
+//condition display only if "healthy control" is checked in item "in_cat"
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("ex_hc_ex",true,"null",null);  
+else hide("ex_hc_ex",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("ex_hc_ex",false,"null",null); 
+ else  hide("ex_hc_ex",false); 
+  } else hide("ex_hc_ex",false); 
+ } 
+//end ex_hc_ex
+minimum_part_filled_out();
+    } __main__(); 
+$('#ppmi_part,input[name="ppmi_part"]').on('change', function() {if (length("ppmi_part") > 0 ? isvisible("ppmi_part", true) : false )
+{ if (check("ppmi_part","yes"))
+ show("PPMI_ID",true,"null",null);
+else hide("PPMI_ID",true);
+} else {
+if (isvisible2("ppmi_part", false)) {
+ if (check2("ppmi_part","yes"))
+  show("PPMI_ID",false,"null",null);
+ else  hide("PPMI_ID",false);
+  } else hide("PPMI_ID",false);
+ }
+});
+$('#in_cat,input[name="in_cat"]').on('change', function() {if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("prknpd_header",true,"null",null);
+else hide("prknpd_header",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("prknpd_header",false,"null",null);
+ else  hide("prknpd_header",false);
+  } else hide("prknpd_header",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_subheader",true,"null",null);
+else hide("in_prknpd_subheader",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_subheader",false,"null",null);
+ else  hide("in_prknpd_subheader",false);
+  } else hide("in_prknpd_subheader",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_instruction",true,"null",null);
+else hide("in_prknpd_instruction",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_instruction",false,"null",null);
+ else  hide("in_prknpd_instruction",false);
+  } else hide("in_prknpd_instruction",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_age",true,"null",null);
+else hide("in_prknpd_age",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_age",false,"null",null);
+ else  hide("in_prknpd_age",false);
+  } else hide("in_prknpd_age",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_dx",true,"null",null);
+else hide("in_prknpd_dx",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_dx",false,"null",null);
+ else  hide("in_prknpd_dx",false);
+  } else hide("in_prknpd_dx",false);
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_pathvar",true,"null",null);
+else hide("in_prknpd_pathvar",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_pathvar",false,"null",null);
+ else  hide("in_prknpd_pathvar",false);
+  } else hide("in_prknpd_pathvar",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_var",true,"null",null);
+else hide("in_prknpd_var",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_var",false,"null",null);
+ else  hide("in_prknpd_var",false);
+  } else hide("in_prknpd_var",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+ show("in_prknpd_ic",true,"null",null);
+else hide("in_prknpd_ic",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN"))
+  show("in_prknpd_ic",false,"null",null);
+ else  hide("in_prknpd_ic",false);
+  } else hide("in_prknpd_ic",false);
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_header",true,"null",null);
+else hide("in_pink1pd_header",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_header",false,"null",null);
+ else  hide("in_pink1pd_header",false);
+  } else hide("in_pink1pd_header",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_subheader",true,"null",null);
+else hide("in_pink1pd_subheader",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_subheader",false,"null",null);
+ else  hide("in_pink1pd_subheader",false);
+  } else hide("in_pink1pd_subheader",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_instruction",true,"null",null);
+else hide("in_pink1pd_instruction",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_instruction",false,"null",null);
+ else  hide("in_pink1pd_instruction",false);
+  } else hide("in_pink1pd_instruction",false);
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_age",true,"null",null);
+else hide("in_pink1pd_age",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_age",false,"null",null);
+ else  hide("in_pink1pd_age",false);
+  } else hide("in_pink1pd_age",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_dx",true,"null",null);
+else hide("in_pink1pd_dx",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_dx",false,"null",null);
+ else  hide("in_pink1pd_dx",false);
+  } else hide("in_pink1pd_dx",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_pathvar",true,"null",null);
+else hide("in_pink1pd_pathvar",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_pathvar",false,"null",null);
+ else  hide("in_pink1pd_pathvar",false);
+  } else hide("in_pink1pd_pathvar",false);
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_var",true,"null",null);
+else hide("in_pink1pd_var",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_var",false,"null",null);
+ else  hide("in_pink1pd_var",false);
+  } else hide("in_pink1pd_var",false);
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+ show("in_pink1pd_ic",true,"null",null);
+else hide("in_pink1pd_ic",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PINK1"))
+  show("in_pink1pd_ic",false,"null",null);
+ else  hide("in_pink1pd_ic",false);
+  } else hide("in_pink1pd_ic",false);
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))  
+ show("ex_mitop_header",true,"null",null);
+else hide("ex_mitop_header",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check2("in_cat","individual with PD and at least one pathogenic variant in PINK1")) 
+  show("ex_mitop_header",false,"null",null);
+ else  hide("ex_mitop_header",false);
+  } else hide("ex_mitop_header",false);
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))  
+ show("ex_mitop_subheader",true,"null",null);
+else hide("ex_mitop_subheader",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check2("in_cat","individual with PD and at least one pathogenic variant in PINK1")) 
+  show("ex_mitop_subheader",false,"null",null);
+ else  hide("ex_mitop_subheader",false);
+  } else hide("ex_mitop_subheader",false);
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))  
+ show("ex_mitopd_symptomatic",true,"null",null);  
+else hide("ex_mitopd_symptomatic",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check2("in_cat","individual with PD and at least one pathogenic variant in PINK1")) 
+  show("ex_mitopd_symptomatic",false,"null",null); 
+ else  hide("ex_mitopd_symptomatic",false); 
+  } else hide("ex_mitopd_symptomatic",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check("in_cat","individual with PD and at least one pathogenic variant in PINK1"))  
+ show("ex_mitopd_ex",true,"null",null);  
+else hide("ex_mitopd_ex",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with PD and at least one pathogenic variant in PRKN") || check2("in_cat","individual with PD and at least one pathogenic variant in PINK1")) 
+  show("ex_mitopd_ex",false,"null",null); 
+ else  hide("ex_mitopd_ex",false); 
+  } else hide("ex_mitopd_ex",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("ipd_header",true,"null",null);  
+else hide("ipd_header",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("ipd_header",false,"null",null); 
+ else  hide("ipd_header",false); 
+  } else hide("ipd_header",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("in_ipd_subheader",true,"null",null);  
+else hide("in_ipd_subheader",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("in_ipd_subheader",false,"null",null); 
+ else  hide("in_ipd_subheader",false); 
+  } else hide("in_ipd_subheader",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("in_ipd_age",true,"null",null);  
+else hide("in_ipd_age",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("in_ipd_age",false,"null",null); 
+ else  hide("in_ipd_age",false); 
+  } else hide("in_ipd_age",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("in_ipd_dx",true,"null",null);  
+else hide("in_ipd_dx",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("in_ipd_dx",false,"null",null); 
+ else  hide("in_ipd_dx",false); 
+  } else hide("in_ipd_dx",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("in_ipd_ic",true,"null",null);  
+else hide("in_ipd_ic",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("in_ipd_ic",false,"null",null); 
+ else  hide("in_ipd_ic",false); 
+  } else hide("in_ipd_ic",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("in_ipd_match",true,"null",null);  
+else hide("in_ipd_match",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("in_ipd_match",false,"null",null); 
+ else  hide("in_ipd_match",false); 
+  } else hide("in_ipd_match",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("ex_ipd_subheader",true,"null",null);  
+else hide("ex_ipd_subheader",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("ex_ipd_subheader",false,"null",null); 
+ else  hide("ex_ipd_subheader",false); 
+  } else hide("ex_ipd_subheader",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("ex_ipd_symptomatic",true,"null",null);  
+else hide("ex_ipd_symptomatic",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("ex_ipd_symptomatic",false,"null",null); 
+ else  hide("ex_ipd_symptomatic",false); 
+  } else hide("ex_ipd_symptomatic",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","individual with iPD"))  
+ show("ex_ipd_monogenic",true,"null",null);  
+else hide("ex_ipd_monogenic",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("ex_ipd_monogenic",false,"null",null); 
+ else  hide("ex_ipd_monogenic",false); 
+  } else hide("ex_ipd_monogenic",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with iPD"))
+ show("ex_ipd_var",true,"null",null);
+else hide("ex_ipd_var",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","individual with iPD"))
+  show("ex_ipd_var",false,"null",null);
+ else  hide("ex_ipd_var",false);
+  } else hide("ex_ipd_var",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","individual with iPD"))  
+ show("ex_ipd_ex",true,"null",null);  
+else hide("ex_ipd_ex",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","individual with iPD")) 
+  show("ex_ipd_ex",false,"null",null); 
+ else  hide("ex_ipd_ex",false); 
+  } else hide("ex_ipd_ex",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))  
+ show("in_prknunaff_age_header",true,"null",null);
+else hide("in_prknunaff_age_header",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1")) 
+  show("in_prknunaff_age_header",false,"null",null);
+ else  hide("in_prknunaff_age_header",false);
+  } else hide("in_prknunaff_age_header",false);
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))  
+ show("in_prknunaff_subheader",true,"null",null);
+else hide("in_prknunaff_subheader",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1")) 
+  show("in_prknunaff_subheader",false,"null",null);
+ else  hide("in_prknunaff_subheader",false);
+  } else hide("in_prknunaff_subheader",false);
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+ show("in_prknunaff_age",true,"null",null);
+else hide("in_prknunaff_age",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+  show("in_prknunaff_age",false,"null",null);
+ else  hide("in_prknunaff_age",false);
+  } else hide("in_prknunaff_age",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+ show("in_prknunaff_pathvar",true,"null",null);
+else hide("in_prknunaff_pathvar",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+  show("in_prknunaff_pathvar",false,"null",null);
+ else  hide("in_prknunaff_pathvar",false);
+  } else hide("in_prknunaff_pathvar",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+ show("in_prknunaff_var",true,"null",null);
+else hide("in_prknunaff_var",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+  show("in_prknunaff_var",false,"null",null);
+ else  hide("in_prknunaff_var",false);
+  } else hide("in_prknunaff_var",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+ show("in_prknunaff_ic",true,"null",null);
+else hide("in_prknunaff_ic",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN"))
+  show("in_prknunaff_ic",false,"null",null);
+ else  hide("in_prknunaff_ic",false);
+  } else hide("in_prknunaff_ic",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+ show("in_pink1unaff_age",true,"null",null);
+else hide("in_pink1unaff_age",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+  show("in_pink1unaff_age",false,"null",null);
+ else  hide("in_pink1unaff_age",false);
+  } else hide("in_pink1unaff_age",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+ show("in_pink1unaff_pathvar",true,"null",null);
+else hide("in_pink1unaff_pathvar",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+  show("in_pink1unaff_pathvar",false,"null",null);
+ else  hide("in_pink1unaff_pathvar",false);
+  } else hide("in_pink1unaff_pathvar",false);
+ }
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+ show("in_pink1unaff_var",true,"null",null);
+else hide("in_pink1unaff_var",true);
+} else {
+if (isvisible2("in_cat", false)) {
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+  show("in_pink1unaff_var",false,"null",null);
+ else  hide("in_pink1unaff_var",false);
+  } else hide("in_pink1unaff_var",false);
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+ show("in_pink1unaff_ic",true,"null",null);
+else hide("in_pink1unaff_ic",true);
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))
+  show("in_pink1unaff_ic",false,"null",null);
+ else  hide("in_pink1unaff_ic",false);
+  } else hide("in_pink1unaff_ic",false);
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))  
+ show("ex_unaff_subheader",true,"null",null);  
+else hide("ex_unaff_subheader",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1")) 
+  show("ex_unaff_subheader",false,"null",null); 
+ else  hide("ex_unaff_subheader",false); 
+  } else hide("ex_unaff_subheader",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))  
+ show("ex_unaff_neuro",true,"null",null);  
+else hide("ex_unaff_neuro",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1")) 
+  show("ex_unaff_neuro",false,"null",null); 
+ else  hide("ex_unaff_neuro",false); 
+  } else hide("ex_unaff_neuro",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))  
+ show("ex_unaff_mri_neuro",true,"null",null);  
+else hide("ex_unaff_mri_neuro",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1")) 
+  show("ex_unaff_mri_neuro",false,"null",null); 
+ else  hide("ex_unaff_mri_neuro",false); 
+  } else hide("ex_unaff_mri_neuro",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check("in_cat","unaffected individual with at least one pathogenic variant in PINK1"))  
+ show("ex_unaff_ex",true,"null",null);  
+else hide("ex_unaff_ex",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","unaffected individual with at least one pathogenic variant in PRKN") || check2("in_cat","unaffected individual with at least one pathogenic variant in PINK1")) 
+  show("ex_unaff_ex",false,"null",null); 
+ else  hide("ex_unaff_ex",false); 
+  } else hide("ex_unaff_ex",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("hc_header",true,"null",null);  
+else hide("hc_header",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("hc_header",false,"null",null); 
+ else  hide("hc_header",false); 
+  } else hide("hc_header",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("in_hc_subheader",true,"null",null);  
+else hide("in_hc_subheader",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("in_hc_subheader",false,"null",null); 
+ else  hide("in_hc_subheader",false); 
+  } else hide("in_hc_subheader",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("in_hc_age",true,"null",null);  
+else hide("in_hc_age",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("in_hc_age",false,"null",null); 
+ else  hide("in_hc_age",false); 
+  } else hide("in_hc_age",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("in_hc_ic",true,"null",null);  
+else hide("in_hc_ic",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("in_hc_ic",false,"null",null); 
+ else  hide("in_hc_ic",false); 
+  } else hide("in_hc_ic",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("in_hc_match",true,"null",null);  
+else hide("in_hc_match",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("in_hc_match",false,"null",null); 
+ else  hide("in_hc_match",false); 
+  } else hide("in_hc_match",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("ex_hc_subheader",true,"null",null);  
+else hide("ex_hc_subheader",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("ex_hc_subheader",false,"null",null); 
+ else  hide("ex_hc_subheader",false); 
+  } else hide("ex_hc_subheader",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("ex_hc_neuro",true,"null",null);  
+else hide("ex_hc_neuro",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("ex_hc_neuro",false,"null",null); 
+ else  hide("ex_hc_neuro",false); 
+  } else hide("ex_hc_neuro",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("ex_hc_monogenic",true,"null",null);  
+else hide("ex_hc_monogenic",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("ex_hc_monogenic",false,"null",null); 
+ else  hide("ex_hc_monogenic",false); 
+  } else hide("ex_hc_monogenic",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("ex_hc_mri_neuro",true,"null",null);  
+else hide("ex_hc_mri_neuro",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("ex_hc_mri_neuro",false,"null",null); 
+ else  hide("ex_hc_mri_neuro",false); 
+  } else hide("ex_hc_mri_neuro",false); 
+ } 
+if (length("in_cat") > 0 ? isvisible("in_cat", true) : false )  
+{ if (check("in_cat","healthy control"))  
+ show("ex_hc_ex",true,"null",null);  
+else hide("ex_hc_ex",true);  
+} else { 
+if (isvisible2("in_cat", false)) { 
+ if (check2("in_cat","healthy control")) 
+  show("ex_hc_ex",false,"null",null); 
+ else  hide("ex_hc_ex",false); 
+  } else hide("ex_hc_ex",false); 
+ } 
+});
+
+</script>
+</body>
+</html>

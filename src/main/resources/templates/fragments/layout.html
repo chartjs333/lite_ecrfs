@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+<head th:fragment="headerFragment">
+    <!--    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+    <script src="https://bossanova.uk/jexcel/v3/jexcel.js"></script>
+    <script src="https://bossanova.uk/jsuites/v2/jsuites.js"></script>
+    <link rel="stylesheet" href="https://bossanova.uk/jsuites/v2/jsuites.css" type="text/css"/>
+    <link rel="stylesheet" href="https://bossanova.uk/jexcel/v3/jexcel.css" type="text/css"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png"/>
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194"/>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192"/>
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"/>
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ac202d"/>
+<!--    <script src="https://maps.googleapis.com/maps/api/js?v=3.11&amp;sensor=false" type="text/javascript"></script>-->
+    <!--    <link rel="stylesheet" type="text/css" href="./style.css" />-->
+    <!--    <script src="./index.js"></script>-->
+    <!--    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css"/>-->
+
+    <meta name="msapplication-TileColor" content="#ac202d"/>
+    <meta name="msapplication-TileImage" content="mstile-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta content="Movement Disorder Society Genetic mutation database, also known as MJFF" name="description"/>
+    <meta content="Ingo Zorn" name="author"/>
+    <meta content="Christina Lill" name="author"/>
+    <title id="pageTitle">MJFF</title>
+    <link rel="stylesheet" media="all"
+          href="/assets/application-93d92604534c7016642adf195f7d5464bc441c73b942a30e9febbe75e693c0fb.css"
+          data-turbolinks-track="true"/>
+    <script src="/assets/application-d5997003b29970562b85e7a6e6c304597fcc2b562f53e4e6e0760e2a7b4abd77.js"
+            data-turbolinks-track="true"></script>
+    <!--    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>-->
+    <style th:if="${(!T(net.mdsgene.admin.admintool.business.UserDecorator).is_user_logged_in(#ctx.httpServletRequest, @environment.getProperty('mds.domain'))) and @environment.getProperty('check.for.membership') == 'yes'}">
+
+        #wrap-everything {
+            display: table;
+            margin: 0 auto;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            box-shadow: 0 5px 10px #ccc;
+            width: 70%;
+        }
+    </style>
+    <style>
+        #toIdCase,
+        #toDiagnosedWithPD,
+        #toGeneticTests,
+        #toHoehnAndYahrStage,
+        #toDepressionScreeningScaleAvailable,
+        #toLifestyleDataAvailable,
+        #toMedicetionAvailable,
+        #toOmicsData,
+        #toDNA,
+        #toPotentialAvailabilityForFollow_upStudies,
+        #toPedigreeAvailable,
+        #toTranscriptIdEssemble,
+        #toHgVersion2,
+        #toHgVersion3,
+        #toCommentsGenetics{
+            padding-left: 200px;
+            margin-left: -200px;
+            overflow: scroll;
+            scroll-behavior: smooth;
+        }
+        html:focus-within{
+            scroll-behavior:smooth !important;;
+        }
+    </style>
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "http://141.83.30.100:8085/";
+            _paq.push(['setTrackerUrl', u + 'piwik.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.async = true;
+            g.defer = true;
+            g.src = u + 'piwik.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+
+    <!-- End Piwik Code -->
+</head>
+<head th:fragment="headerFragmentD3">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png"/>
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194"/>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192"/>
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"/>
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ac202d"/>
+    <meta name="msapplication-TileColor" content="#ac202d"/>
+    <meta name="msapplication-TileImage" content="mstile-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta content="Movement Disorder Society Genetic mutation database, also known as MJFF" name="description"/>
+    <meta content="Ingo Zorn" name="author"/>
+    <meta content="Christina Lill" name="author"/>
+    <title id="pageTitle">MJFF</title>
+    <link rel="stylesheet" media="all"
+          href="/assets/application-93d92604534c7016642adf195f7d5464bc441c73b942a30e9febbe75e693c0fb.css"
+          data-turbolinks-track="true"/>
+    <script src="/assets/chartkick.js/chartkick.js"></script>
+    <script src="/assets/highcharts/highcharts.js"></script>
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
+    <style>
+        .node circle {
+            fill: #999;
+        }
+
+        .node text {
+            font: 10px sans-serif;
+        }
+
+        .node--internal circle {
+            fill: #555;
+        }
+
+        .node--internal text {
+            text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+        }
+
+        .link {
+            fill: none;
+            stroke: #555;
+            stroke-opacity: 0.4;
+            stroke-width: 1.5px;
+        }
+
+    </style>
+    <style th:if="${(!T(net.mdsgene.admin.admintool.business.UserDecorator).is_user_logged_in(#ctx.httpServletRequest, @environment.getProperty('mds.domain'))) and @environment.getProperty('check.for.membership') == 'yes'}">
+        #wrap-everything {
+            display: table;
+            margin: 0 auto;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            box-shadow: 0 5px 10px #ccc;
+            width: 70%;
+        }</style>
+    <!-- Piwik -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "http://141.83.30.100:8085/";
+            _paq.push(['setTrackerUrl', u + 'piwik.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.async = true;
+            g.defer = true;
+            g.src = u + 'piwik.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <!-- End Piwik Code -->
+</head>
+
+<head th:fragment="headerFragmentD4">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png"/>
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194"/>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192"/>
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"/>
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ac202d"/>
+    <meta name="msapplication-TileColor" content="#ac202d"/>
+    <meta name="msapplication-TileImage" content="mstile-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta content="Movement Disorder Society Genetic mutation database, also known as MJFF" name="description"/>
+    <meta content="Ingo Zorn" name="author"/>
+    <meta content="Christina Lill" name="author"/>
+    <title id="pageTitle">MJFF</title>
+    <link rel="stylesheet" media="all"
+          href="/assets/application-93d92604534c7016642adf195f7d5464bc441c73b942a30e9febbe75e693c0fb.css"
+          data-turbolinks-track="true"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/maps/modules/map.js"></script>
+    <script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
+    <style>
+        .node circle {
+            fill: #999;
+        }
+
+        .node text {
+            font: 10px sans-serif;
+        }
+
+        .node--internal circle {
+            fill: #555;
+        }
+
+        .node--internal text {
+            text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+        }
+
+        .link {
+            fill: none;
+            stroke: #555;
+            stroke-opacity: 0.4;
+            stroke-width: 1.5px;
+        }
+
+    </style>
+    <style th:if="${(!T(net.mdsgene.admin.admintool.business.UserDecorator).is_user_logged_in(#ctx.httpServletRequest, @environment.getProperty('mds.domain'))) and @environment.getProperty('check.for.membership') == 'yes'}">
+        #wrap-everything {
+            display: table;
+            margin: 0 auto;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            box-shadow: 0 5px 10px #ccc;
+            width: 70%;
+        }</style>
+    <!-- Piwik -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "http://141.83.30.100:8085/";
+            _paq.push(['setTrackerUrl', u + 'piwik.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.async = true;
+            g.defer = true;
+            g.src = u + 'piwik.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <!-- End Piwik Code -->
+</head>
+<head th:fragment="headerFragmentPlusOne">
+    <link rel="apple-touch-icon" sizes="57x57" href="../apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="../apple-touch-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="../apple-touch-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="../apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="../apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="../apple-touch-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon-180x180.png"/>
+    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="../favicon-194x194.png" sizes="194x194"/>
+    <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="../android-chrome-192x192.png" sizes="192x192"/>
+    <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16"/>
+    <link rel="manifest" href="../manifest.json"/>
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#ac202d"/>
+    <meta name="msapplication-TileColor" content="#ac202d"/>
+    <meta name="msapplication-TileImage" content="mstile-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta content="Movement Disorder Society Genetic mutation database, also known as MJFF" name="description"/>
+    <meta content="Ingo Zorn" name="author"/>
+    <meta content="Christina Lill" name="author"/>
+    <title id="pageTitle">MJFF</title>
+    <link rel="stylesheet" media="all"
+          href="../assets/application-93d92604534c7016642adf195f7d5464bc441c73b942a30e9febbe75e693c0fb.css"
+          data-turbolinks-track="true"/>
+    <script src="../assets/application-d5997003b29970562b85e7a6e6c304597fcc2b562f53e4e6e0760e2a7b4abd77.js"
+            data-turbolinks-track="true"></script>
+    <meta name="csrf-param" content="authenticity_token"/>
+    <meta name="csrf-token"
+          content="eAjMe/utXFaC8eJoYEUP2uFxxFv58JraBYFiGHJn9L8reH2uOe2rRjn7i9BHFhywYrf0wLoJE58RQOYqmYE5NA=="/>
+    <style th:if="${(!T(net.mdsgene.admin.admintool.business.UserDecorator).is_user_logged_in(#ctx.httpServletRequest, @environment.getProperty('mds.domain'))) and @environment.getProperty('check.for.membership') == 'yes'}">
+        #wrap-everything {
+            display: table;
+            margin: 0 auto;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            box-shadow: 0 5px 10px #ccc;
+            width: 70%;
+        }</style>
+    <!-- Piwik -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "http://141.83.30.100:8085/";
+            _paq.push(['setTrackerUrl', u + 'piwik.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.async = true;
+            g.defer = true;
+            g.src = u + 'piwik.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <!-- End Piwik Code -->
+</head>
+
+<head th:fragment="headerFragmentPlusThree">
+    <link rel="apple-touch-icon" sizes="57x57" href="../../../apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="../../../apple-touch-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../../../apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="../../../apple-touch-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../../../apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="../../../apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="../../../apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="../../../apple-touch-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon-180x180.png"/>
+    <link rel="icon" type="image/png" href="../../../favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="../../../favicon-194x194.png" sizes="194x194"/>
+    <link rel="icon" type="image/png" href="../../../favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="../../../android-chrome-192x192.png" sizes="192x192"/>
+    <link rel="icon" type="image/png" href="../../../favicon-16x16.png" sizes="16x16"/>
+    <link rel="manifest" href="../../../manifest.json"/>
+    <link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#ac202d"/>
+    <meta name="msapplication-TileColor" content="#ac202d"/>
+    <meta name="msapplication-TileImage" content="mstile-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta content="Movement Disorder Society Genetic mutation database, also known as MJFF" name="description"/>
+    <meta content="Ingo Zorn" name="author"/>
+    <meta content="Christina Lill" name="author"/>
+    <title id="pageTitle">MJFF</title>
+    <link rel="stylesheet" media="all"
+          href="../../../assets/application-93d92604534c7016642adf195f7d5464bc441c73b942a30e9febbe75e693c0fb.css"
+          data-turbolinks-track="true"/>
+    <script src="../../../assets/application-d5997003b29970562b85e7a6e6c304597fcc2b562f53e4e6e0760e2a7b4abd77.js"
+            data-turbolinks-track="true"></script>
+    <meta name="csrf-param" content="authenticity_token"/>
+    <meta name="csrf-token"
+          content="eAjMe/utXFaC8eJoYEUP2uFxxFv58JraBYFiGHJn9L8reH2uOe2rRjn7i9BHFhywYrf0wLoJE58RQOYqmYE5NA=="/>
+    <style th:if="${(!T(net.mdsgene.admin.admintool.business.UserDecorator).is_user_logged_in(#ctx.httpServletRequest, @environment.getProperty('mds.domain'))) and @environment.getProperty('check.for.membership') == 'yes'}">
+        #wrap-everything {
+            display: table;
+            margin: 0 auto;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            box-shadow: 0 5px 10px #ccc;
+            width: 70%;
+        }</style>
+    <!-- Piwik -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "http://141.83.30.100:8085/";
+            _paq.push(['setTrackerUrl', u + 'piwik.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.async = true;
+            g.defer = true;
+            g.src = u + 'piwik.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <!-- End Piwik Code -->
+</head>
+<head th:fragment="headerSurveyFragment">
+    <!--    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png"/>
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194"/>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192"/>
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"/>
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ac202d"/>
+
+    <meta name="msapplication-TileColor" content="#ac202d"/>
+    <meta name="msapplication-TileImage" content="mstile-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta content="Movement Disorder Society Genetic mutation database, also known as MJFF" name="description"/>
+    <meta content="Ingo Zorn" name="author"/>
+    <meta content="Christina Lill" name="author"/>
+    <!-- imported from another project -->
+    <meta name="_csrf" content="07bc05b1-0e08-4663-a388-b8dfeb017cca"/>
+    <meta name="_csrf_header" content="_csrf"/>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback"/>
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css"/>
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/adminlte.css"/>
+    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"/>
+
+    <link rel="stylesheet" href="https://bossanova.uk/jspreadsheet/v4/jexcel.css" type="text/css"/>
+    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css"/>
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Material+Icons"/>
+
+    <link rel="stylesheet" href="/css/tooltip.css"/>
+    <link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css"/>
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- end -->
+    <title id="pageTitle">MJFF Surveys</title>
+    <link rel="stylesheet" media="all"
+          href="/assets/application-93d92604534c7016642adf195f7d5464bc441c73b942a30e9febbe75e693c0fb.css"
+          data-turbolinks-track="true"/>
+    <script src="/assets/application-d5997003b29970562b85e7a6e6c304597fcc2b562f53e4e6e0760e2a7b4abd77.js"
+            data-turbolinks-track="true"></script>
+    <!--    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>-->
+    <style th:if="${(!T(net.mdsgene.admin.admintool.business.UserDecorator).is_user_logged_in(#ctx.httpServletRequest, @environment.getProperty('mds.domain'))) and @environment.getProperty('check.for.membership') == 'yes'}">
+
+        #wrap-everything {
+            display: table;
+            margin: 0 auto;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            box-shadow: 0 5px 10px #ccc;
+            width: 70%;
+        }
+    </style>
+    <style>
+        #toIdCase,
+        #toDiagnosedWithPD,
+        #toGeneticTests,
+        #toHoehnAndYahrStage,
+        #toDepressionScreeningScaleAvailable,
+        #toLifestyleDataAvailable,
+        #toMedicetionAvailable,
+        #toOmicsData,
+        #toDNA,
+        #toPotentialAvailabilityForFollow_upStudies,
+        #toPedigreeAvailable,
+        #toTranscriptIdEssemble,
+        #toHgVersion2,
+        #toHgVersion3,
+        #toCommentsGenetics{
+            padding-left: 200px;
+            margin-left: -200px;
+            overflow: scroll;
+            scroll-behavior: smooth;
+        }
+        html:focus-within{
+            scroll-behavior:smooth !important;;
+        }
+    </style>
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "http://141.83.30.100:8085/";
+            _paq.push(['setTrackerUrl', u + 'piwik.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.async = true;
+            g.defer = true;
+            g.src = u + 'piwik.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+
+    <!-- End Piwik Code -->
+</head>
+<body>
+<div th:fragment="pageTop">
+    <p></p>
+    <div class="row">
+        <div class="small-8 text-left columns" style="padding-left: 29px; padding-right: 1px;">
+            <a style="outline:none;" href="/">
+                <img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database"
+                     src="/assets/fmjfox.png"/>
+            </a>
+        </div>
+        <div class="small-4 text-right columns" style="padding-left: 1px; padding-right: 29px;">
+            <!--
+              <a target="_blank" style="outline:none;" href="http://www.movementdisorders.org/">
+                <img border="0" id="mds_logo" name="mds_logo" alt="International Parkinson and Movement Disorder Society" src="/assets/mds_logo-a83da224f99ea3bf43313ec295eb7b59775685aad58f8c3adb47324d1ce1f607.png" />
+              </a>
+             -->
+            <p th:if="${(!T(net.mdsgene.admin.admintool.business.UserDecorator).is_user_logged_in(#ctx.httpServletRequest, @environment.getProperty('mds.domain'))) and @environment.getProperty('check.for.membership') == 'yes'}">
+                Please log on to access the MJFF global genetic pd project step 3.</p>
+        </div>
+    </div>
+    <p></p>
+    <div class="row">
+        <div class="small-12 text-bottom columns">
+            <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+                <li th:if="${T(net.mdsgene.admin.admintool.business.UserDecorator).is_user_logged_in(#ctx.httpServletRequest, @environment.getProperty('mds.domain')) and @environment.getProperty('check.for.membership') == 'yes'}">
+                    <a href="/d/0/gu/0">MJFF Global Genetic PD Project Step 3</a></li>
+                <li><a href="/contact">Contact us</a></li>
+                <li th:if="${T(net.mdsgene.admin.admintool.business.UserDecorator).is_user_logged_in(#ctx.httpServletRequest, @environment.getProperty('mds.domain')) and @environment.getProperty('check.for.membership') == 'yes'}">
+                    <a rel="nofollow" href="/user/sign_out">Logout</a></li>
+                <li th:if="${(!T(net.mdsgene.admin.admintool.business.UserDecorator).is_user_logged_in(#ctx.httpServletRequest, @environment.getProperty('mds.domain'))) and @environment.getProperty('check.for.membership') == 'yes'}">
+                    <a rel="nofollow" href="/user/sign_in">Login</a></li>
+                <!-- <li><a href="/unpublished">Unpublished</a></li>  -->
+                <!-- <li>
+                 <a data-dropdown="droppi1" class='button secondary radius config-button' data-options="align:left" aria-controls="droppi1" aria-expanded="false">
+                   <span class="fi-widget"></span>
+                 </a>
+               </li> -->
+            </nav>
+            <ul id="droppi1" class="f-dropdown" data-dropdown-content="data-dropdown-content" tabindex="-1">
+                <li><a href="patients">Patients</a></li>
+                <li><a href="users/rights">Users</a></li>
+                <li><a href="dba">Database</a></li>
+                <li><a rel="nofollow" data-method="delete"
+                       th:href="${user == null ? 'users/sign_in' : 'users/sign_out'}"
+                       th:text="${user == null ? 'Login' : 'Logout'}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <p style="margin-bottom: 2.15em;"></p>
+</div>
+<div th:fragment="pageTopSurvey">
+    <p></p>
+    <div class="row">
+        <div class="small-12 text-left columns" style="padding-left: 79px; padding-right: 29px;">
+            <a style="outline:none;" href="/">
+                <img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database"
+                     src="/assets/fmjfox.png"/>
+            </a>
+        </div>
+    </div>
+    <p></p>
+    <h5 style="margin-bottom: 0em;text-align: center;color: #db8110">Screening Questions</h5>
+</div>
+<div th:fragmen="pageBottom">
+    <div class="row">
+        <div class="small-12 text-center columns" id="footer-copyright">
+            © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span>
+        </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+        <div id="noscript-warning">
+            MJFF works best with JavaScript enabled. Please follow
+            <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/"
+               style="color: #FFFFFF; text-decoration:underline;">
+                these instructions
+            </a> to activate JavaScript in your web browser.
+        </div>
+    </noscript>
+</div>
+<div th:fragment="pageTopPlusOne" th:with="more">
+    <p></p>
+    <div class="row">
+        <div class="small-8 text-left columns" style="padding-left: 29px; padding-right: 1px;">
+            <a style="outline:none;" href="">
+                <img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database"
+                     th:src="*{more} + '../assets/fmjfox.png'"/>
+            </a>
+        </div>
+        <div class="small-4 text-right columns" style="padding-left: 1px; padding-right: 29px;">
+            <!--
+              <a target="_blank" style="outline:none;" href="http://www.movementdisorders.org/">
+                <img border="0" id="mds_logo" name="mds_logo" alt="International Parkinson and Movement Disorder Society" th:src="*{more} + '../assets/mds_logo-a83da224f99ea3bf43313ec295eb7b59775685aad58f8c3adb47324d1ce1f607.png'" />
+              </a>
+             -->
+        </div>
+    </div>
+    <p></p>
+    <div class="row">
+        <div class="small-12 text-bottom columns">
+            <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+                <li><a href="s2d">Signs and symptoms</a></li>
+                <li><a href="g4d">Genes</a></li>
+                <li><a href="methods">Methods</a></li>
+                <li><a href="links">Links</a></li>
+                <li><a href="disclaimer">Disclaimer</a></li>
+                <li><a href="about">About us</a></li>
+                <li><a href="contact">Contact us</a></li>
+                <!-- <li>
+                  <a data-dropdown="droppi1" class='button secondary radius config-button' data-options="align:left" aria-controls="droppi1" aria-expanded="false">
+                    <span class="fi-widget"></span>
+                  </a>
+                </li> -->
+            </nav>
+            <ul id="droppi1" class="f-dropdown" data-dropdown-content="data-dropdown-content" aria-hidden="true"
+                tabindex="-1">
+                <li><a href="patients">Patients</a></li>
+                <li><a href="users/rights">Users</a></li>
+                <li><a href="dba">Database</a></li>
+                <li><a rel="nofollow" data-method="delete" href="users/sign_out">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <p></p>
+</div>
+<div th:fragment="pageBottom">
+    <div class="row">
+        <div class="small-12 text-center columns" id="footer-copyright">
+            © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span>
+        </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+        <div id="noscript-warning">
+            MJFF works best with JavaScript enabled. Please follow
+            <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/"
+               style="color: #FFFFFF; text-decoration:underline;">
+                these instructions
+            </a> to activate JavaScript in your web browser.
+        </div>
+    </noscript>
+</div>
+</body>
+</html>

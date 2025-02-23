@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/base.html">
+<head>
+    <!--    <head th:include="fragments/layout :: headerSurveyFragment">-->
+    <!--        <title id="pageTitle">Survey</title>-->
+    <!--        &lt;!&ndash; other elements you want to reference in your layout &ndash;&gt;-->
+    <!--    </head>-->
+    <title>Survey</title>
+    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"/>
+    <link rel="stylesheet" href="/css/adminlte.css"/>
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css"/>
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css"/>
+
+    <link rel="stylesheet" href="https://bossanova.uk/jspreadsheet/v4/jexcel.css" type="text/css"/>
+    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css"/>
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Material+Icons"/>
+
+    <link rel="stylesheet" th:href="@{/css/tooltip.css}"/>
+    <link rel="stylesheet" th:href="@{/css/glanceyear.css}"/>
+    <link rel="stylesheet" th:href="@{/css/notification.css}"/>
+    <link rel="stylesheet" th:href="@{/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css}"/>
+    <link rel="stylesheet" th:href="@{/plugins/datatables-responsive/css/responsive.bootstrap4.min.css}"/>
+    <link rel="stylesheet" th:href="@{/plugins/datatables-buttons/css/buttons.bootstrap4.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/user-profile-style.css}"/>
+
+    <script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+    <script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js"></script>
+</head>
+<body class="sidebar-mini layout-fixed">
+<div class="content-wrapper" style="min-height: 327px;">
+    <div layout:fragment="content" th:remove="tag">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+            <a href="#" class="brand-link">
+                <img src="/images/logo.png" alt="MJFF Logo" class="brand-image img-circle elevation-3"
+                     style="opacity: .8"/>
+                <span class="brand-text font-weight-light">
+                <b>PINK1/PRKN Project</b>
+            </span>
+            </a>
+
+            <div class="sidebar os-host os-theme-light os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-scrollbar-vertical-hidden os-host-transition">
+                <div class="os-resize-observer-host observed">
+                    <div class="os-resize-observer" style="left: 0px; right: auto;"></div>
+                </div>
+                <div class="os-size-auto-observer observed" style="height: calc(100% + 1px); float: left;">
+                    <div class="os-resize-observer"></div>
+                </div>
+                <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 383px;"></div>
+                <div class="os-padding">
+                    <div class="os-viewport os-viewport-native-scrollbars-invisible">
+                        <div class="os-content" style="padding: 0px 8px; height: 100%; width: 100%;">
+
+                            <nav class="mt-2">
+                                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                                    data-accordion="false">
+
+                                    <!--                                <li class="nav-item">-->
+                                    <!--                                    <a href="/dashboard" class="nav-link active">-->
+                                    <!--                                        <i class="nav-icon fas fa-tachometer-alt"></i>-->
+                                    <!--                                        <p> Dashboard</p>-->
+                                    <!--                                    </a>-->
+                                    <!--                                </li>-->
+                                    <!--                                <li class="nav-item">-->
+                                    <!--                                    <a href="/excel-file" class="nav-link">-->
+                                    <!--                                        <i class="nav-icon fa fa-file-excel"></i>-->
+                                    <!--                                        <p>Excel Files</p>-->
+                                    <!--                                    </a>-->
+                                    <!--                                </li>-->
+                                    <li class="nav-item">
+                                        <a href="/survey" class="nav-link">
+                                            <i class="nav-icon fa fa-clipboard"></i>
+                                            <p>eCRFs</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/survey/trash" class="nav-link">
+                                            <i class="nav-icon fa fa-trash"></i>
+                                            <p>eCRFs trash</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/user/sign_out" class="nav-link">
+                                            <i class="nav-icon fa fa-sign-out-alt"></i>
+                                            <p>Logout</p>
+                                        </a>
+                                    </li>
+                                    <!--                                <li class="nav-item">-->
+                                    <!--                                    <a href="/eCRF-report" class="nav-link">-->
+                                    <!--                                        <i class="nav-icon fa fa-clipboard" aria-hidden="true"></i>-->
+                                    <!--                                        <p>eCRF Report</p>-->
+                                    <!--                                    </a>-->
+                                    <!--                                </li>-->
+                                    <!--                                <li class="nav-item">-->
+                                    <!--                                    <a href="/rules" class="nav-link">-->
+                                    <!--                                        <i class="nav-icon fa fa-list-alt"></i>-->
+                                    <!--                                        <p>Rules</p>-->
+                                    <!--                                    </a>-->
+                                    <!--                                </li>-->
+                                    <!--                                <li class="nav-item">-->
+                                    <!--                                    <a href="/plugins" class="nav-link">-->
+                                    <!--                                        <i class="fa fa-plug" aria-hidden="true"></i>-->
+                                    <!--                                        <p>Plugins</p>-->
+                                    <!--                                    </a>-->
+                                    <!--                                </li>-->
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="os-scrollbar os-scrollbar-horizontal os-scrollbar-unusable os-scrollbar-auto-hidden">
+                    <div class="os-scrollbar-track">
+                        <div class="os-scrollbar-handle" style="width: 100%; transform: translate(0px, 0px);"></div>
+                    </div>
+                </div>
+                <div class="os-scrollbar os-scrollbar-vertical os-scrollbar-unusable os-scrollbar-auto-hidden">
+                    <div class="os-scrollbar-track">
+                        <div class="os-scrollbar-handle" style="height: 100%; transform: translate(0px, 0px);"></div>
+                    </div>
+                </div>
+                <div class="os-scrollbar-corner"></div>
+            </div>
+        </aside>
+        <!--    <div class="row">-->
+        <!--        <div class="small-8 text-left columns" style="padding-left: 29px; padding-right: 1px;">-->
+        <!--            <a style="outline:none;" href="/">-->
+        <!--                <img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database" src="/assets/fmjfox.png"/>-->
+        <!--            </a>-->
+        <!--        </div>-->
+        <!--        <div class="small-4 text-right columns" style="padding-left: 1px; padding-right: 29px;">-->
+        <!--            &lt;!&ndash;-->
+        <!--              <a target="_blank" style="outline:none;" href="http://www.movementdisorders.org/">-->
+        <!--                <img border="0" id="mds_logo" name="mds_logo" alt="International Parkinson and Movement Disorder Society" src="/assets/mds_logo-a83da224f99ea3bf43313ec295eb7b59775685aad58f8c3adb47324d1ce1f607.png" />-->
+        <!--              </a>-->
+        <!--             &ndash;&gt;-->
+
+        <!--        </div>-->
+        <!--    </div>-->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-12">
+                        <a
+                                href='#'
+                                class='btn btn-sm btn-primary mr-2'
+                                data-title='Add ECRF'
+                                data-toggle='modal'
+                                data-target='#newParticipantModal'
+                                data-message="Are you sure you want to add participant?"
+                                data-method='add'
+                                th:data-href='${"/survey/" + user_id + "/add-participant"}'
+                                data-placement='top' title='Add participant'
+                        ><i class="nav-icon fas fa-plus"></i>Add participant</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div th:replace="layout/alert::alert"></div>
+        <div th:replace="layout/progress-bar::progressBarEcrf"></div>
+        <section class="content">
+            <div class="card card-solid">
+                <div class="card-body pb-0">
+                    <div class="form-inline ml-auto">
+                        <div class="form-group">
+
+                            <select id="select-status" class="custom-select custom-select-sm"
+                                    style="width:170px;display:hidden;">
+                                <option th:each="surveyStatus : ${T( net.mdsgene.admin.ui.survey.SurveyStatus).values()}"
+                                        th:value="${surveyStatus.value}"
+                                        th:text="${surveyStatus.name}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <table id="survey-list" class="table table-stripped col-12">
+                        <thead>
+                        <tr>
+                            <th><input type="checkbox" id="select-all-eCRF"/></th>
+                            <th></th>
+                            <th>Status</th>
+                            <th>Local ID</th>
+                            <th>Kit ID</th>
+                            <th>Project ID</th>
+                            <th>Date of enrolment</th>
+                            <th>Time created</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div th:replace="layout/delete::delete"></div>
+            <div th:replace="layout/view::view"></div>
+            <div th:replace="layout/add::addNewParticipant"></div>
+            <div th:replace="layout/edit::updateEcrf"></div>
+            <div th:replace="layout/edit-doe::updateDOE"></div>
+
+
+        </section>
+    </div>
+</div>
+<th:block layout:fragment="script">
+    <script th:src="@{/plugins/datatables/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js}"></script>
+    <script th:src="@{/plugins/datatables-responsive/js/dataTables.responsive.min.js}"></script>
+    <script th:src="@{/js/user.survey.js}"></script>
+    <script th:src="@{/js/modal.delete.js}"></script>
+    <script th:src="@{/js/all.js}"></script>
+</th:block>
+</body>
+</html>

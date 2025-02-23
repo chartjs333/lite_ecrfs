@@ -1,0 +1,752 @@
+body {
+//    background: #ededed;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: 400;
+    color: #434343;
+    line-height: 24px;
+    font-size: 14px;
+}
+a{color: #434343;}
+.page_wrapper{ background:#fff; margin:30px auto; padding:20px;}
+
+/*<this css is uded for top_section>*/
+.top_icon {
+    margin: 0 0 30px;
+    padding: 0;
+    list-style: none;
+    display: table; border-spacing: 5px;
+}
+
+  
+/*this css is used for normal css of round circle */
+    .top_icon li {display:table-cell;
+        width: 98px;
+        height: 98px;
+        background: rgba(255, 255, 255);
+        border: #ecedee solid 1px;
+        border-radius: 50%;
+        text-align: center;
+        vertical-align: top;
+        font-size: 14px;
+        color: #b5b5b5;
+        line-height: 18px;
+        padding:0 2px 0;
+        position: relative;
+        margin: 0 10px 20px; vertical-align:middle;
+    }
+/* this css is used for normal css of round circle href */
+ .top_icon li a {display: block; color: #b5b5b5;}
+ 
+/* this css is used for hover css of round circle*/
+        .top_icon li:hover {
+            background: rgba(0, 0, 0, 0.502);
+            color: #fff;
+            width: 100px;
+            height: 100px;
+        }
+/* this css is used for hover css of round circle href */
+            .top_icon li:hover a {
+                color: #fff;
+            }
+
+/* this css is used for normal css of round circle image */ 
+        .top_icon li img {
+            border-radius: 50%;
+            width:auto;
+        }
+/* this css is used for normal css of round circle error */
+    .top_icon .error {
+        border: #eed3d7 solid 1px;
+        background: #f7f2f2;
+        color: #b00e0e;
+    }
+
+/* this css is used for normal css of round image circle  */
+.img {
+    border: 0 !important;
+    padding: 0 !important;
+}
+/* this css is used for hover css of round image circle  */
+.top_icon li.img:hover:before {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    content: "";
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+}
+
+/* this css is used for normal css of progress bar  */
+.progress_bar{display:none;  position: absolute;
+    background: rgba(0, 0, 0, 0.502);
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    content: "";
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0; padding-top:40%;}
+	
+/* this css is used for hover css of progress bar  */	
+.top_icon li:hover .progress_bar{display:block;}
+
+.progress_t:hover{ background-color:transparent !important; color:#b5b5b5 !important;}
+
+/* this css is used for progress bar image */
+.progress_bar img {
+    width: auto !important;
+    height: auto;
+}
+
+/* this css is used for delete icon  */
+.delete_icon{position:absolute; top:1px; right:4px; border-radius:50%; display:none; width:24px; height:24px; background:#f43d34; text-align:center; color:#fff; font-size:17px;}
+
+/* this css is used for delete icon hover  */
+.top_icon li.img:hover .delete_icon{display:block;}
+/*<end css for top_section>*/
+
+
+/*<start css for button>*/
+
+
+.button_style {
+    margin-bottom: 25px;
+}
+
+/* this css is used for button */
+.buttons {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+/* this css is used for button normal css  */
+.buttons li {
+        display: inline-block;
+    }
+
+        .buttons li a {
+            display: block;
+            font-size: 15px;
+            color: #fff;
+            font-family: Tahoma, Geneva, sans-serif;
+            border-radius: 3px;
+            background: #3498db;
+            padding:5px 16px;
+            margin: 0 0 10px 10px;
+            text-decoration: none;
+        }
+
+  /* this css is used for button normal css  */
+  
+            .buttons li a:hover {
+                background: #308fcf;
+            }
+/* this css is used for button progress bar  */
+.progress_bar1 {
+    width: 15px; margin-left: 14px;
+}
+/* this css is used for button progress bar image */
+    .progress_bar1 img {
+        width: auto;
+    }
+/*<end css for button>*/
+
+
+
+/* <css for dropdown >*/
+
+/* this css is used for dropdown */
+.dropdown_style {
+    margin: 0 0 25px;
+}
+/* this css is used for dropdown normal css */
+.dropdown_style .btn{background:#fff; border:#d6d6d6 solid 1px; opacity:1;}
+
+/* this css is used for hover css of dropdown*/
+.dropdown_style .btn:hover{background:#f2f2f2;  border:#e0e0e0 solid 1px;}
+
+/* this css is used for disable input, dropdown*/
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #eeeeee;
+    cursor: not-allowed;
+    opacity: 1;
+}
+/* this css is used for dropdown normal css */
+.dropdown .btn { background-color: rgb(255, 255, 255);
+    border: #ecedee solid 1px;
+    width: 168px;
+    height: 33px;
+    border-radius: 2px;
+    padding:2px 10px 2px 14px;
+}
+/* this css is used for hover css of dropdown*/
+.dropdown .btn:hover {
+        background-color: rgb(242, 242, 242);
+        border: #e0e0e0 solid 1px;
+    }
+/* this css is used for down arrow of dropdown*/
+.arrow_down {
+    float: right;
+    margin-right: 6px;
+    margin-top: 11px;
+}
+
+
+/* this css is used for option box of dropdown*/
+.select-menu {
+    background-color: #fff;
+    border: 1px solid rgba(217, 217, 217);
+    border-radius: 4px;
+    box-shadow: 0 3px 6px 0 rgb(0, 0, 0);
+    display: none;
+    float: left;
+    font-size: 14px;
+    left: 0;
+    list-style: outside none none;
+    margin: 2px 0 0;
+    min-width: 168px;
+    height: 140px;
+    padding: 5px 0;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    z-index: 1000;
+}
+
+
+/* this css is used for hover option box of dropdown*/
+.select-menu li a:hover {
+    background: #f5f5f5;
+}
+/* this css is used for selected option box of dropdown*/
+.select-menu li a.seceted {
+    background: #3498db;
+    color: #fff;
+}
+
+/*<css for inputbox >*/
+
+/* this css is used for input field normal css*/
+.inputbox {
+    width: 268px;
+    height: 33px;
+    border: #ecedee solid 1px;
+    border-radius: 2px; padding:6px 14px;
+}
+/* this css is used for input field hover or pressed css */
+.inputbox:focus {
+    border: #ced9dd solid 1px;
+    box-shadow: none;
+}
+/* this css is used for input field error css*/
+.has-extended .inputbox {
+    border-color: #eed3d7;
+    background: #f7f2f2;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+/* this css is used for input error text*/
+.help-block{ margin-top:8px !important;}
+/*<css for inputbox >
+
+<css for second dropdown>*/
+.dropdown1 {
+width: 160px;
+    height: 33px; position:relative
+}
+
+/* this css is used for normal css of dropdown*/
+.dropdown1 .btn { background-color: rgb(255, 255, 255);
+    border: #ecedee solid 1px;
+    width: 160px;
+    height: 33px;
+    border-radius: 2px;
+    padding: 2px 10px;
+}
+/* this css is used for hover css of dropdown*/
+.dropdown1 .btn:hover {
+        background-color: rgb(242, 242, 242);
+        border: #e0e0e0 solid 1px;
+    }
+
+.dropdown1 a {
+    display: block;
+}
+/* this css is used for hover option box of dropdown*/
+.select-menu1 li a:hover {
+    background: #f5f5f5;
+}
+/* this css is used for selected option box of dropdown*/
+.select-menu1 li a.seceted {
+    background: #f5f5f5;
+    color: #000;
+}
+
+/*css for radio checkbox*/
+.listing {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .listing li {
+        display: inline-block;
+        margin-right: 45px;
+    }
+
+/* this css is used for checkbox and radio button normal css*/
+input[type=checkbox], input[type=radio] {
+    opacity: 0;
+    position: static;
+    z-index: 12;
+    width: 11px;
+    height: 11px;
+}
+/* this css is used for checkbox and radio button outline normal css*/
+    input[type=checkbox]:checked, input[type=radio]:checked, input[type=checkbox]:focus, input[type=radio]:focus {
+        outline: none !important;
+    }
+/* this css is used for checkbox and radio button normal css*/
+    input[type=checkbox] + .lbl, input[type=radio] + .lbl {
+        position: relative;
+        z-index: 11;
+        display: inline-block;
+        margin: 0;
+        line-height: 20px;
+        min-height: 14px;
+        min-width: 14px;
+        font-weight: normal;
+    }
+
+/* this css is used for radio button css*/
+        input[type=radio] + .lbl::before {
+            font-family: fontAwesome;
+            font-weight: normal;
+            font-size: 11px;
+            color: #3498db;
+            content: "\a0";
+            background-color: #FAFAFA;
+            border: 1px solid #dadada;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            border-radius: 0;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            height: 13px;
+            line-height: 11px;
+            min-width: 13px;
+            margin-right: 1px;
+            margin-top: -5px;
+        }
+/* this css is used for checkbox */
+        input[type=checkbox] + .lbl::before {
+            font-family: fontAwesome;
+            font-weight: normal;
+            font-size: 11px;
+            color: #00a2d9;
+            content: "\a0";
+            background-color: #FAFAFA;
+            border: 1px solid #dadada;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            border-radius: 0;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            height: 13px;
+            line-height: 11px;
+            min-width: 13px;
+            margin-right: 1px;
+            margin-top: -5px;
+        }
+/* this css is used for radio button and checkbox active css*/
+    input[type=checkbox]:checked + .lbl::before, input[type=radio]:checked + .lbl::before {
+        display: inline-block;
+        content: '\f00c';
+        background-color: #F5F8FC;
+        border-color: #adb8c0;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+    }
+/* this css is used for radio button and checkbox hover css*/
+    input[type=checkbox]:hover + .lbl::before, input[type=radio]:hover + .lbl::before, input[type=checkbox] + .lbl:hover::before, input[type=radio] + .lbl:hover::before {
+        border-color: #3498db;
+    }
+/* this css is used for radio button and checkbox active css*/
+    input[type=checkbox]:active + .lbl::before, input[type=radio]:active + .lbl::before, input[type=checkbox]:checked:active + .lbl::before, input[type=radio]:checked:active + .lbl::before {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type=checkbox]:disabled + .lbl::before, input[type=radio]:disabled + .lbl::before, input[type=checkbox][disabled] + .lbl::before, input[type=radio][disabled] + .lbl::before, input[type=checkbox].disabled + .lbl::before, input[type=radio].disabled + .lbl::before {
+        background-color: #DDD !important;
+        border-color: #CCC !important;
+        box-shadow: none !important;
+        color: #BBB;
+    }
+
+    input[type=radio] + .lbl::before {
+        border-radius: 32px;
+        font-family: Arial,Helvetica,sans-serif;
+        font-size: 30px;
+    }
+
+    input[type=radio]:checked + .lbl::before {
+        content: "\2022";
+    }
+
+/* this css is used for dropdown of icon dropdown*/
+.select-menu2 {
+    padding-left: 10px;
+}
+/* this css is used for dropdown of icon dropdown label*/
+    .select-menu2 li label {
+        font-weight: 400;
+    }
+
+/* this css is used for lecture block */
+.lecture-block .header {
+    font-family: Tahoma;
+    font-size: 18px;
+    color: #3498DB;
+    margin-top: 26px;
+    margin-left: 15px;
+    height: 28px;
+}
+
+.lecture-block .body {
+    font-family: Tahoma;
+    font-size: 14px;
+    color: #5B5B5B;
+    margin-left: 15px;
+    margin-top: 15px;
+    height: 57px;
+    overflow: hidden;
+}
+
+.text-success {
+    font-size: 22px;
+}
+
+
+.lecture-block .subject {
+    font-family: Tahoma;
+    font-size: 14px;
+    color: #5B5B5B;
+    margin-left: 15px;
+    margin-top: 13px;
+    height: 24px;
+}
+
+.lecture-block .time {
+    margin-top: 8px;
+    margin-left: 15px;
+}
+
+.lecture-block .time > span {
+    font-family: Tahoma;
+    font-size: 14px;
+    color: #5B5B5B;
+    vertical-align: top;
+}
+
+.lecture-block .time > i{
+    font-family: Tahoma;
+    font-size: 21px;
+    color: #A4A4A4;
+}
+
+.lecture-block .lecture-name {
+    margin-top: 7px;
+    margin-left: 15px;
+    height: 24px;
+    margin-bottom: 26px;
+}
+
+
+.lecture-block .lecture-name > a {
+    font-family: Tahoma;
+    font-size: 14px;
+    color: #3498DB;
+}
+
+.border {
+	background-image:url(../images/border.png);
+        width: 100%;height: 1px;
+}
+
+.lectures-01-title {
+    text-align: center;
+    margin-top: 71px;
+    margin-bottom: 41px;
+    text-height: 40px;
+    font-family: Tahoma;
+    font-size: 30px;
+    color: #1D2939;
+
+}
+
+.lecture-01-selectors {
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    height: 35px;
+    margin-left: 15px;
+}
+
+.lecture-01-selectors .col-lg-2{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.has-extended .help-block,
+.has-extended .control-label,
+.has-extended .radio,
+.has-extended .checkbox,
+.has-extended .radio-inline,
+.has-extended .checkbox-inline,
+.has-extended.radio label,
+.has-extended.checkbox label,
+.has-extended.radio-inline label,
+.has-extended.checkbox-inline label {
+  color: #148AC1;
+}
+.has-extended .form-control {
+  border-color: #148AC1;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025);
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(20,138,193, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(20,138,193, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(20,138,193, 0.25);
+}
+.has-extended .form-control:focus {
+  border-color: #2b542c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 0 0 6px #67b168;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 0 0 6px #67b168;
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(20,138,193, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(20,138,193, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(20,138,193, 0.25);
+}
+.has-extended .input-group-addon {
+  color: #148AC1;
+  background-color: #dff0d8;
+  border-color: #148AC1;
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(20,138,193, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(20,138,193, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(20,138,193, 0.25);
+}
+.has-extended .form-control-feedback {
+  color: #148AC1;
+}
+.extended-radio {
+  color: #148AC1;
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(20,138,193, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(20,138,193, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(20,138,193, 0.25);
+}
+
+ .extended-checkbox {
+  color: #148AC1;
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(20,138,193, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(20,138,193, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(20,138,193, 0.25);
+}
+
+.has-core .help-block,
+.has-core .control-label,
+.has-core .radio,
+.has-core .checkbox,
+.has-core .radio-inline,
+.has-core .checkbox-inline,
+.has-core.radio label,
+.has-core.checkbox label,
+.has-core.radio-inline label,
+.has-core.checkbox-inline label {
+  color: #8C4E9F;
+}
+.has-core .form-control {
+  border-color: #8C4E9F;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025);
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(140,78,159, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(140,78,159, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(140,78,159, 0.25);
+}
+.has-core .form-control:focus {
+  border-color: #66512c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 0 0 6px #c0a16b;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 0 0 6px #c0a16b;
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(140,78,159, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(140,78,159, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(140,78,159, 0.25);
+}
+.has-core .input-group-addon {
+  color: #8C4E9F;
+  background-color: #fcf8e3;
+  border-color: #8C4E9F;
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(140,78,159, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(140,78,159, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(140,78,159, 0.25);
+}
+.has-core .form-control-feedback {
+  color: #8C4E9F;
+}
+.core-radio {
+  color: #8C4E9F;
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(140,78,159, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(140,78,159, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(140,78,159, 0.25);
+}
+.core-checkbox {
+  color: #8C4E9F;
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(140,78,159, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(140,78,159, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(140,78,159, 0.25);
+}
+.has-minimal .help-block,
+.has-minimal .control-label,
+.has-minimal .radio,
+.has-minimal .checkbox,
+.has-minimal .radio-inline,
+.has-minimal .checkbox-inline,
+.has-minimal.radio label,
+.has-minimal.checkbox label,
+.has-minimal.radio-inline label,
+.has-minimal.checkbox-inline label {
+  color: #a94442;
+}
+.has-minimal .form-control {
+  border-color: #33A371;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025);
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(51,163,113, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(51,163,113, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(51,163,113, 0.25);
+
+}
+.has-minimal .form-control:focus {
+  border-color: #843534;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 0 0 6px #ce8483;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 0 0 6px #ce8483;
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(51,163,113, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(51,163,113, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(51,163,113, 0.25);
+
+}
+.has-minimal .input-group-addon {
+  color: #33A371;
+  background-color: #f2dede;
+  border-color: #33A371;
+  
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(51,163,113, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(51,163,113, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(51,163,113, 0.25);
+}
+.has-minimal .form-control-feedback {
+  color: #33A371;
+}
+.minimal-radio {
+  color: #33A371;
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(51,163,113, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(51,163,113, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(51,163,113, 0.25);
+}
+
+ .minimal-checkbox {
+  color: #33A371;
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(51,163,113, 0.25);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(51,163,113, 0.25);
+  box-shadow:         2px 2px 1px 0px rgba(51,163,113, 0.25);
+}
+
+.survey-button {
+color: #ffffff;
+    font-size: 18px;
+    font-family: 'Arial',Arial,sans-serif;
+    line-height: 1.55;
+    font-weight: 600;
+    border-width: 2px;
+    border-radius: 6px;
+    background-color: #8c4e9f;
+    background-position: center center;
+    border-color: #8c4e9f;
+    border-style: solid;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}

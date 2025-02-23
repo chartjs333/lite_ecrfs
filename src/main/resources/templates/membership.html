@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+        <p style="margin-bottom: 2.15em;"></p>
+		<div class="row">
+		  <div class="small-12 text-left columns"><h5>Why to get a member?</h5></div>
+			<div class="small-12 text-justify columns">
+			    <p>MDSGene Mission:...</p>
+	        </div>
+		</div>
+		<div class="row">
+		  <div class="small-12 text-left columns"><h5>Membership Categories:</h5></div>
+			<div class="small-12 text-justify columns">
+			    <p>Category 1, Category 2, ... Category N.</p>
+	        </div>
+		</div>		
+		<div class="row">
+		  <div class="small-12 text-left columns"><h5>Category 1</h5></div>
+			<div class="small-12 text-justify columns">
+			<p><a href="/contact?m=1">$300 USD Annually - Apply Now</a><br/>
+			Category1 description ...</p>
+	        </div>
+		</div>		
+		<div class="row">
+		  <div class="small-12 text-left columns"><h5>Category 2</h5></div>
+			<div class="small-12 text-justify columns">
+			<p><a href="/contact?m=2">$200 USD Annually - Apply Now</a><br/>
+			Category2 description ...</p>
+	        </div>
+		</div>	
+		<div class="row">
+		  <div class="small-12 text-left columns"><h5>Category 3</h5></div>
+			<div class="small-12 text-justify columns">
+			<p><a href="/contact?m=3">$100 USD Annually - Apply Now</a><br/>
+			Category3 description ...</p>
+	        </div>
+		</div>
+
+      <p style="margin-bottom: 0.55em;"></p>
+    </div>
+    <div class="row">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

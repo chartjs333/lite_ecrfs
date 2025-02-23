@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html>
+  <head th:include="fragments/layout :: headerFragmentPlusOne">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTopPlusOne">
+	  </div>
+      <p></p>
+      <!-- Title -->
+      <div class="row">
+        <div class="small-12 columns"><h5>All Patients</h5></div>
+      </div>
+	<form class="new_meta_analysis" id="new_meta_analysis" th:object="${meta_analyses}"  th:action="@{/meta_analyses/new}"
+		accept-charset="UTF-8" method="post">
+		<input name="utf8" type="hidden" value="✓"/><input
+			type="hidden" name="authenticity_token"
+			value="5oJQmvzYe8F8ciBxN1ZYKlfuQfSQx6vRZrNuMZjxPimJZeReidYluazN7AkPffSRP1q8VB028HmcMut9TVAFKw=="/>
+		<div class="row">
+			<div class="small-12 columns">
+				<div class="progress small-12 success radius">
+					<span class="meter" style="width: 1%"></span>
+				</div>
+			</div>
+		</div>
+			<div th:include="fragments/messages :: errorMsg">
+			</div>
+			<div class="row">
+			<div class="small-12 text-left columns">
+				<div class="row">
+					<div class="small-6 columns">
+						<div class="required">
+							<label for="meta_analysis_search_performed_by">Search
+								performed by</label>
+						</div>
+						<input placeholder="First name, last name" type="text"
+							name="meta_analysis[search_performed_by]"
+							id="meta_analysis_search_performed_by"
+							th:field="*{searchPerformedBy}"/>
+					</div>
+					<div class="small-6 columns">
+						<div class="required">
+							<label for="meta_analysis_searched_at">Searched at</label>
+						</div>
+						<input type="date" name="meta_analysis[searched_at]"
+							id="meta_analysis_searched_at"
+							th:field="*{searchedAt}"
+							th:value="${#dates.format(meta_analyses.searchedAt, 'dd.mm.yyyy')}"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-6 columns">
+						<div class="required">
+							<label for="meta_analysis_search_term">Search term</label>
+						</div>
+						<textarea
+							placeholder="e.g. parkinson* AND (DJ1 OR DJ-1 OR PARK7 OR 1p36) AND (gene* OR genetic* OR mutation* OR mutated) AND &quot;english&quot;[Language]"
+							name="meta_analysis[search_term]" id="meta_analysis_search_term"
+							th:field="*{searchTerm}"></textarea>
+					</div>
+					<div class="small-6 columns">
+						<label for="meta_analysis_comment">Comment</label>
+						<textarea
+							placeholder="Any general comments concerning this search"
+							name="meta_analysis[comment]" id="meta_analysis_comment"
+							th:field="*{comment}"></textarea>
+						<input type="hidden" name="meta_analysis[id]"
+							id="meta_analysis_id"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<input type="submit" name="commit" value="Create Literature Search"
+					class="button radius expand"
+					data-disable-with="Create Literature Search"/>
+			</div>
+		</div>
+	</form>
+	      <p style="margin-bottom: 0.55em;"></p>
+    </div>
+	  <div th:include="fragments/layout :: pageBottom">
+	  </div>
+</body>
+</html>

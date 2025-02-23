@@ -1,0 +1,298 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#top_area{
+	background: #003F55;
+	padding: 30px;
+}
+.header{
+	border-bottom: 2px solid #ddd;
+}
+#header_area h1 {
+	margin-top: 71px;
+	font-size: 40px;
+	margin-bottom: 35px;
+}
+#header_area h3{
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+#header_area button {
+	margin-bottom: 40px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+.header i{
+	font-size: 18px;
+	margin-right: 5px;
+}
+.header button{
+	width: 140px;
+}
+#body_area h3{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 24px;
+}
+.h5, h5 {
+	font-size: 20px;
+	margin: 0 200px 5px 0px;
+}
+.form-group {
+	margin-bottom: 15px;
+	margin-right: 12px;
+	margin-left: 12px;
+}
+
+.form-inline{
+	margin-top: 14px;
+}
+
+.form-control {
+	padding: 3px 45px;
+	border-radius: 2px;
+	
+}
+#footer{
+	background: #222A38;
+	padding: 70px;
+	margin-top: 125px;
+}
+
+.bln_box{
+	margin-left: 70px;
+}
+.roun{
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	border: 2px solid #ddd;
+	margin: 0 auto;
+	color: #ddd;
+	margin-bottom: 14px;
+}
+.roun p{
+	margin-top: 20px;
+}
+#fout{
+	margin-bottom: 14px;
+}
+#five{
+	margin-bottom: 14px;
+}
+#five h5{}
+#five input{}
+
+#six{
+	margin-bottom: 14px;
+}
+#six h5{
+	margin-left: 75px;
+}
+.mrg {
+	margin: 0px 90px 0px 33px;
+}
+.s_right {
+	margin-top: -18px;
+}
+#seven {
+	margin-bottom: 14px;
+}
+#seven h5{
+	float: left;
+}
+#eight{
+	margin-bottom: 14px;
+}
+#eight{}
+#eight{}
+
+#nine{
+	margin-bottom: 14px;
+}
+
+
+#ten{
+	margin-bottom: 14px;
+}
+#ten{}
+#ten h5{
+
+}
+#ten span{
+	color: #ddd;
+	display: block;
+	margin-left: -190px;
+}
+.t_area{
+	margin-top: -20px;
+}
+.sp_area{
+
+}
+#eleven{}
+#eleven span{
+	color: #ddd;
+	display: block;
+	margin-right: 185px;
+	
+}
+.e_area{
+	margin-top: -20px;
+}
+#thirtnne{}
+#thirtnne img{
+	margin-left: -25px;
+}
+
+
+#last{}
+
+#last button {
+	margin-top: 20px;
+	width: 200px;
+	height: 50px;
+	font-size: 25px;
+
+}
+.footer_top_area{
+	border-top: 2px solid #ddd;
+	margin-top: 20px;
+}
+/* Reg congratulations Metrics arew*/
+#reg_header_area{
+	padding: 71px 0 300px 0;
+	background: #fff;
+
+}
+#reg_header_area h1{}
+#reg_header_area p {
+	margin-top: 40px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+/* page name Archive-Video-Lectures-Font*/
+
+.top_a{}
+.top_a h1 {
+	margin-top: 71px;
+	margin-bottom: 35px;
+}
+.side_bar{}
+.side_bar_one{}
+.side_bar_one h3{
+	height: 44px;
+	border-bottom: 1px solid #CCCCCC;
+}
+.side_bar_one label {
+	display: block;
+	max-width: 100%;
+}
+..side_bar_one a{
+	
+}
+.{}
+.last_side_bar{}
+.last_side_bar h3{
+	height: 44px;
+	border-bottom: 1px solid #CCCCCC;
+}
+.last_side_fo{}
+.last_side_fo h5{
+	width: 20px;
+	display: inline-block;
+}
+.last_side_fo select {
+	width: 165px;
+	display: inline-block;
+	margin-right: 50px;
+	float: right;
+	margin-top: -27px;
+}
+.{}
+.{}
+.{}
+.last_side_fo_two{
+	margin-top: 20px;
+}
+.last_side_fo_two h5{
+	width: 20px;
+	display: inline-block;
+}
+.last_side_fo_two select {
+	width: 165px;
+	display: inline-block;
+	margin-right: 50px;
+	float: right;
+	margin-top: -27px;
+}
+.side_bar button{
+	margin-top: 50px;
+	width: 215px;
+}
+.btn-group, .btn-group-vertical {
+	position: relative;
+	display: inline-block;
+	margin-top: -61px;
+	
+	margin-left: 100px;
+	vertical-align: middle;
+}
+.content_top_one{
+	width: 30%;
+	float: left;
+	display: inline-block;
+}
+.content_top_two{
+	width: 70%;
+	float: left;
+	display: inline-block;
+}
+.content_d_one{
+	width: 100%;
+}
+.con_le{
+	display: inline-block;
+	width: 28%
+}
+#con_bor{
+	border-top: 1px solid #CCCCCC;
+	
+	margin-top: 63px;
+}
+#con_bor_sec{
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	margin-top: -110px;
+}
+.con_le img{
+	width: 228px;
+	margin-bottom: 200px;
+}
+.con_le_t {
+	display: inline-block;
+	width: 28%;
+	margin-bottom: 25px;
+}
+.con_le_t img{
+	width: 228px;
+	margin-top: -220px;
+}
+.con_ri{
+	display: inline-block;
+	width: 70%
+}
+.con_ri h2{
+	color: #3699DB;
+}
+.con_ri h4{}
+.con_ri h4 sub{
+	margin: 0 5px 0 5px;
+}
+.con_ri h6{
+	font-size: 15px;
+}
+.con_ri h6 span{
+	color: #3699DB;
+}

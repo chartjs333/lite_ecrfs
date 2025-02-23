@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!--	  <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>-->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.11&amp;sensor=false" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <!-- other elements you want to reference in your layout -->
+    <style>
+        #map {
+            /*height: 400px;*/
+            /*width: 100%;*/
+            display: table;
+            width: 100vw;
+            height: 100vh;
+        }
+        /*#toIdCase{*/
+        /*  padding-left: 300px;*/
+        /*  margin-left: -5000px;*/
+        /*}*/
+        /*html{*/
+        /*  scroll-behavior:smooth*/
+        /*}*/
+
+
+    </style>
+</head>
+<body>
+
+
+<div id="wrap-everything">
+
+    <div th:include="fragments/layout :: pageTop">
+    </div>
+    <p></p>
+    <!-- Title -->
+    <p style="margin-bottom: 2.15em;"></p>
+    <div style="padding-bottom: 0.4em;"></div>
+
+</div>
+
+<!--<a style="scroll-behavior: smooth" href="#toCenter">GOTO top</a>-->
+<div th:include="fragments/layout :: pageBottom"></div>
+<div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+<noscript>
+    <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+            these instructions
+        </a> to activate JavaScript in your web browser.
+    </div>
+</noscript>
+<!--	<script type="text/javascript">-->
+<!--		$(document).ready(function() {-->
+<!--			$('#mainData').DataTable( {-->
+<!--				initComplete: function () {-->
+<!--					this.api().columns().every( function () {-->
+<!--						var column = this;-->
+<!--						var select = $('<select multiple="multiple" class="selectpicker form-control chzn_select"><option value=""></option></select>')-->
+<!--								.appendTo($(column.header()))-->
+<!--								.on('change', function () {-->
+<!--									var val = $.fn.dataTable.util.escapeRegex(-->
+<!--											$(this).val()-->
+<!--									);-->
+
+<!--									column-->
+<!--											.search( val ? '^'+val+'$' : '', true, false )-->
+<!--											.draw();-->
+<!--								});-->
+
+<!--						column.data().unique().sort().each( function ( d, j ) {-->
+<!--							const name = $(d).text();-->
+
+<!--							select.append( '<option value="'+name+'">'+name+'</option>' )-->
+<!--						});-->
+<!--					});-->
+<!--				}-->
+<!--			});-->
+<!--		});-->
+<!--	</script>-->
+
+
+</body>
+<script>
+    $('span[name=cDNA],span[name=Reference],span[name=Protein1],span[name=Alias1]').each(function() {
+        if ($(this).text().length > 15) $(this).text($(this).text().substring(0,15) + '...');
+    });
+</script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var cityLocations = /*[[${overview.listOfCityObjects}]]*/;
+    /*]]>*/
+</script>
+</html>

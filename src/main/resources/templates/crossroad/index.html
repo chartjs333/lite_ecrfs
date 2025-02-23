@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html>
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+<div class="row">
+  <div class="small-12 text-left columns"><h5>Introduction</h5></div>
+</div>
+<div class="row">
+</div>
+<p style="margin-bottom: 0.9em;"></p>
+<div style="padding-bottom: 0.4em;"></div>
+</div>
+<div th:include="fragments/layout :: pageBottom"></div>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>...
+</head>
+<body>
+	<div th:fragment="freeText(javaField, name)">
+        <div class="row">
+			<div class="small-12 text-justify columns">
+				<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+					<li th:text="${name}">Name of investigator</li>
+					<li>
+						 <input required="required" class="radius" autocomplete="off" autocorrect="on" type="text" th:field="*{__${javaField}__}" />
+					</li>
+				</ul>
+			</div>
+		</div>		
+	</div>
+	<div th:fragment="freeTextNotRequired(javaField, name)">
+        <div class="row">
+			<div class="small-12 text-justify columns">
+				<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+					<li th:text="${name}">Name of investigator</li>
+					<li>
+						 <input class="radius" autocomplete="off" autocorrect="on" type="text" th:field="*{__${javaField}__}" />
+					</li>
+				</ul>
+			</div>
+		</div>		
+	</div>	
+	<div th:fragment="h5(name)">
+        <div class="row">
+			<div class="small-12 text-justify columns">
+			<h5 th:text="${name}">Name of investigator</h5>
+			</div>
+		</div>		
+	</div>
+	<div th:fragment="surveyCountries(javaField, name, javaAllCountries)">
+        <div class="row">
+			<div class="small-12 text-justify columns">
+				<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+					<li th:text="${name}">Name of investigator</li>
+					<li>
+						 <select id="country" th:field="*{__${javaField}__}" multiple="false" class="chzn_select" onchange="reload_the_filter(this);"  data-placeholder='all countries'>
+						  <option  th:each="instance : *{__${javaAllCountries}__}"
+						          th:value="${instance.value}" 
+						          th:text="${instance.key}"></option>
+						 </select>					
+					</li>
+				</ul>
+			</div>
+		</div>		
+	</div>	
+
+	<div th:fragment="surveySelect(javaField, name, javaAllCountries)">
+        <div class="row">
+			<div class="small-12 text-justify columns">
+				<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+					<li th:text="${name}">Name of investigator</li>
+					<li>
+						 <select id="country" th:field="*{__${javaField}__}" class="chzn_select" data-placeholder='all countries'>
+						  <option value="-">-</option>
+						  <option  th:each="instance : *{__${javaAllCountries}__}"
+						          th:value="${instance.value}" 
+						          th:text="${instance.key}"></option>
+						 </select>					
+					</li>
+				</ul>
+			</div>
+		</div>		
+	</div>
+ 	<div th:fragment="surveyYesNoSQ(javaField, name)">
+        <div class="row">
+			<div class="small-12 text-justify columns">
+				<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+					<li th:text="${name}"></li>
+					<li>
+					<label 
+					    class="custom-input-wrapper custom-radio-wrapper" data-title="--">
+						<input type="radio" required="required" 
+						class="radio custom-input js-custom-input"
+						th:field="*{__${javaField}__}" value="true" /> Yes<span
+						class="custom-input-icon"></span></label> 
+					<label
+						class="custom-input-wrapper custom-radio-wrapper" data-title="--">
+						<input type="radio" required="required"
+						class="radio custom-input js-custom-input"
+						th:field="*{__${javaField}__}" value="false" /> No<span
+						class="custom-input-icon"></span></label>					
+					</li>
+				</ul>
+			</div>
+		</div>		
+	</div>
+	<div th:fragment="surveySubTitle(s1, s2, s3, yes, no)"> <!-- yes, no -->
+        <div class="row">
+			<div th:class="*{'small-' + {__${s1}__} + '  columns'}" style="font-size: 14px;">&nbsp;</div>
+			<div th:class="*{'small-' + {__${s2}__} + '  columns'}" style="font-size: 14px;align-items: center!important;">
+			<span class="custom-input-icon" th:text="${yes}"></span>
+			</div>
+			<div th:class="*{'small-' + {__${s3}__} + '  columns'}" style="font-size: 14px;align-items: center!important;">
+			<span class="custom-input-icon" th:text="${no}"></span>
+			</div>
+		</div>	
+    </div>	
+	<div th:fragment="surveySubTitle1(name)"> <!-- yes, no -->
+        <div class="row">
+			<div class="small-12 columns" style="font-size: 14px;" th:text="${name}">&nbsp;</div>
+		</div>	
+    </div>    
+	<div th:fragment="surveyYesNo3(javaField, name, s1, s2, s3, s4, yes, no)"> <!-- yes, no -->
+        <div class="row">
+			<div th:class="*{'small-' + {__${s1}__} + '  columns'}" ><span th:text="${name}" style="font-size: 14px;padding-left: 1em!important;">Name</span></div>
+			<div th:class="*{'small-' + {__${s2}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" th:value="${yes}"/>
+			</div>
+			<div th:class="*{'small-' + {__${s3}__} + '  columns'}" style="font-size: 14px;align-items: center;">
+			<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" th:value="${no}" />
+			</div>
+			<div th:class="*{'small-' + {__${s4}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			</div>			
+		</div>	
+    </div>	
+	<div th:fragment="surveyYesNo(javaField, name, yes, no)">
+        <div class="row">
+			<div class="small-12 text-justify columns">
+				<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+					<li th:text="${name}">Name of investigator</li>
+					<li>
+						<label class="custom-input-wrapper custom-radio-wrapper" data-title="--">
+							<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" th:value="${yes}" /><span class="custom-input-icon" th:text="${yes}"></span>&nbsp;&nbsp;&nbsp;
+							<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" th:value="${no}" /><span class="custom-input-icon" th:text="${no}"></span>
+						</label>
+                    </li>
+				</ul>
+			</div>
+		</div>	
+    </div>	
+	<div th:fragment="surveyYesNoOther(javaField, name, yes, no, name_other, javaFieldComment)">
+        <div class="row">
+			<div class="small-12 text-justify columns">
+				<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+					<li th:text="${name}">Name of investigator</li>
+					<li>
+						<label class="custom-input-wrapper custom-radio-wrapper" data-title="--">
+							<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" th:value="${yes}" /><span class="custom-input-icon" th:text="${yes}"></span>
+						</label>
+						<label class="custom-input-wrapper custom-radio-wrapper" data-title="--">
+							<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" th:value="${no}" /><span class="custom-input-icon" th:text="${no}"></span>
+						</label>
+					    <label style='display: inline-block; width: 50px;' th:text="${name_other}">Other</label><br/>
+                             <input id="${javaField}" onchange="waschanged = true;"
+                             class="survey-input antwort-35 offenes-textfeld" th:field="*{__${javaFieldComment}__}"
+                             style="width:100%!important;"/>
+                    </li>
+				</ul>
+			</div>
+		</div>	
+    </div>
+    <div th:fragment="surveyBiomaterialsOld(javaField, name, javaFieldSC)">
+        <div class="row">
+			<div class="small-12 text-justify columns">
+				<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+					<li th:text="${name}">Name of investigator</li>
+					<li>
+						<label class="custom-input-wrapper custom-radio-wrapper" data-title="--">
+							<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="available for most cases" /><span class="custom-input-icon"> available for most cases</span>
+						</label>
+						<label class="custom-input-wrapper custom-radio-wrapper" data-title="--">
+							<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="available for a subset" /><span class="custom-input-icon" > available for a subset</span>
+						</label>
+						<label class="custom-input-wrapper custom-radio-wrapper" data-title="--">
+							<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="can be obtained" /><span class="custom-input-icon" > can be obtained</span>
+						</label>
+						<label class="custom-input-wrapper custom-radio-wrapper" data-title="--">
+							<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="not available" /><span class="custom-input-icon" > not available</span>
+						</label>
+					    <label style='display: inline-block; width: 250px;'>What are the storage conditions?</label><br/>
+                             <input id="${javaField}" onchange="waschanged = true;"
+                             class="survey-input antwort-35 offenes-textfeld" th:field="*{__${javaFieldSC}__}"
+                             onkeypress="return disableEnterKey(event)" maxlength="50"/>
+                    </li>
+				</ul>
+			</div>
+		</div>	
+    </div>    
+    <div th:fragment="surveyBiomaterials(javaField, name, javaFieldSC, s1, s2, s3, s4, s5, s6)">
+        <div class="row">
+			<div th:class="*{'small-' + {__${s1}__} + '  text-justify columns'}" ><span th:text="${name}" style="font-size: 14px;padding-left: 1em!important;">Name</span></div>
+			<div th:class="*{'small-' + {__${s2}__} + '  text-justify columns'}" style="font-size: 14px;justify-content: center;">
+			<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="available for most cases"/>
+			</div>
+			<div th:class="*{'small-' + {__${s3}__} + '  text-justify columns'}" style="font-size: 14px;justify-content: center;">
+			<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="available for a subset"/>
+			</div>
+			<div th:class="*{'small-' + {__${s4}__} + '  text-justify columns'}" style="font-size: 14px;justify-content: center;">
+			<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="can be obtained"/>
+			</div>
+			<div th:class="*{'small-' + {__${s5}__} + '  text-justify columns'}" style="font-size: 14px;justify-content: center;">
+			<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="not available"/>
+			</div>
+			<div th:class="*{'small-' + {__${s6}__} + '  text-justify columns'}" style="font-size: 14px;justify-content: center;">
+                             <input id="${javaField}" onchange="waschanged = true;"
+                             class="survey-input antwort-35 offenes-textfeld" th:field="*{__${javaFieldSC}__}"
+                             onkeypress="return disableEnterKey(event)" maxlength="50"/>
+			</div>
+		</div>	
+    </div>	
+    <div th:fragment="surveyBiomaterialsSubtitle(s1, s2, s3, s4, s5, s6)">
+        <div class="row">
+			<div th:class="*{'small-' + {__${s1}__} + '  columns'}" >&nbsp;</div>
+			<div th:class="*{'small-' + {__${s2}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			<span class="custom-input-icon">available for most cases</span>
+			</div>
+			<div th:class="*{'small-' + {__${s3}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			<span class="custom-input-icon">available for a subset</span>
+			</div>
+			<div th:class="*{'small-' + {__${s4}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			<span class="custom-input-icon">can be obtained</span>
+			</div>
+			<div th:class="*{'small-' + {__${s5}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			<span class="custom-input-icon">not available</span>
+			</div>
+			<div th:class="*{'small-' + {__${s6}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			<span class="custom-input-icon">What are the storage conditions?</span>
+			</div>
+		</div>	
+    </div>	    
+    <div th:fragment="surveyOmicsOld(javaField, name)">
+        <div class="row">
+			<div class="small-12 text-justify columns">
+				<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+					<li th:text="${name}">Name of investigator</li>
+					<li>
+						<label class="custom-input-wrapper custom-radio-wrapper" data-title="--">
+							<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="available for most cases" /><span class="custom-input-icon"> available for most cases</span>
+						</label>
+						<label class="custom-input-wrapper custom-radio-wrapper" data-title="--">
+							<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="available for a subset" /><span class="custom-input-icon" > available for a subset</span>
+						</label>
+						<label class="custom-input-wrapper custom-radio-wrapper" data-title="--">
+							<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="can be obtained" /><span class="custom-input-icon" > can be obtained</span>
+						</label>
+						<label class="custom-input-wrapper custom-radio-wrapper" data-title="--">
+							<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="not available" /><span class="custom-input-icon" > not available</span>
+						</label>
+                    </li>
+				</ul>
+			</div>
+		</div>	
+    </div>	
+    <div th:fragment="surveyOmics(javaField, name, s1, s2, s3, s4, s5)">
+        <div class="row">
+			<div th:class="*{'small-' + {__${s1}__} + '  text-justify columns'}" ><span th:text="${name}" style="font-size: 14px;padding-left: 1em!important;">Name</span></div>
+			<div th:class="*{'small-' + {__${s2}__} + '  text-justify columns'}" style="font-size: 14px;justify-content: center;">
+			<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="available for most cases"/>
+			</div>
+			<div th:class="*{'small-' + {__${s3}__} + '  text-justify columns'}" style="font-size: 14px;justify-content: center;">
+			<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="available for a subset"/>
+			</div>
+			<div th:class="*{'small-' + {__${s4}__} + '  text-justify columns'}" style="font-size: 14px;justify-content: center;">
+			<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="can be obtained"/>
+			</div>
+			<div th:class="*{'small-' + {__${s5}__} + '  text-justify columns'}" style="font-size: 14px;justify-content: center;">
+			<input type="radio" onchange="waschanged = true;" class="radio custom-input js-custom-input" th:field="*{__${javaField}__}" value="not available"/>
+			</div>
+			<div class="small-2 text-justify columns" style="font-size: 14px;">&nbsp;</div>
+		</div>	
+    </div>	
+    <div th:fragment="surveyOmicsSubtitle(s1, s2, s3, s4, s5)">
+        <div class="row">
+			<div th:class="*{'small-' + {__${s1}__} + '  columns'}" >&nbsp;</div>
+			<div th:class="*{'small-' + {__${s2}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			<span class="custom-input-icon">available for most cases</span>
+			</div>
+			<div th:class="*{'small-' + {__${s3}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			<span class="custom-input-icon">available for a subset</span>
+			</div>
+			<div th:class="*{'small-' + {__${s4}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			<span class="custom-input-icon">can be obtained</span>
+			</div>
+			<div th:class="*{'small-' + {__${s5}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			<span class="custom-input-icon">not available</span>
+			</div>
+			<div class="small-2 columns" style="font-size: 14px;">&nbsp;</div>
+		</div>	
+    </div>
+    <div th:fragment="surveyAvailableSubtitle(s1, s2, s3, s4)">
+        <div class="row">
+			<div th:class="*{'small-' + {__${s1}__} + '  columns'}" >&nbsp;</div>
+			<div th:class="*{'small-' + {__${s2}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			<span class="custom-input-icon">available</span>
+			</div>
+			<div th:class="*{'small-' + {__${s3}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			<span class="custom-input-icon">not available</span>
+			</div>
+			<div  th:class="*{'small-' + {__${s4}__} + '  columns'}" style="font-size: 14px;justify-content: center;">
+			</div>			
+		</div>	
+    </div>    
+  
+	<div th:fragment="freeNumber(javaField, name)">
+        <div class="row">
+			<div class="small-12 text-justify columns">
+				<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+					<li th:text="${name}">Name of investigator</li>
+					<li>
+						 <input required="required" class="radius" autocomplete="off" autocorrect="on" type="number" th:field="*{__${javaField}__}" />
+					</li>
+				</ul>
+			</div>
+		</div>		
+	</div>
+	<div th:fragment="freeNumberNotRequired(javaField, name)">
+        <div class="row">
+			<div class="small-12 text-justify columns">
+				<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+					<li th:text="${name}">Name of investigator</li>
+					<li>
+						 <input class="radius" autocomplete="off" autocorrect="on" type="number" th:field="*{__${javaField}__}" />
+					</li>
+				</ul>
+			</div>
+		</div>		
+	</div>
+    <div th:fragment="surveyCheckbox(javaChkBxField, name)">
+	    <input type="checkbox" class="radio custom-input js-custom-input" th:id="${javaChkBxField}" th:field="*{__${javaChkBxField}__}" onchange='waschanged = true;'/>&nbsp;<label style='display: inline-block; width: 100%px;' th:text="${name}">Clinical diagnosis</label><br/> 
+    </div>
+</body>
+</html>

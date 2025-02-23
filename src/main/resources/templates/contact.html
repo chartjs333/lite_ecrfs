@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+        <p style="margin-bottom: 2.15em;"></p>
+     <div class="row" th:if="${membership_notice != null}">
+  <div class="small-12 text-left columns"><h5 th:text="${membership_notice}">Title</h5></div>
+</div>
+     
+      <div class="row">
+  <div class="small-12 text-left columns">
+    <p th:if="${notice != null}" th:text="${notice}" />
+    <p th:if="${notice == null &amp;&amp; membership_notice == null}">
+             <!--  Please fill in the form below if you have any questions, comments or suggestions
+        regarding MDSGene.  -->
+       Please fill in the form below if you will get a membership, or you have any questions, comments or suggestions.
+    </p>
+    <form th:if="${notice == null}" class="new_message" th:object="${message}" id="new_message" data-abide="" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="7KgggZA7lpz4axfChZmIrjMjYpnFm/79oQWHNbqIsgfHMp91b2bfHLuhjCTV4jvXBi7pWZk4gGBC/PFTtxBVcw==" />
+      <div class="row">
+        <div class="small-12 text-left columns">
+          <div class="name-field">
+            <div class="row">
+              <div class="small-2 columns">
+                <label for="message_name" class="right inline">Name:</label>
+              </div>
+              <div class="small-10 columns">
+                <input required="required" pattern="[^ ]+" class="radius" autocomplete="name" type="text" th:field="${message.name}" />
+              </div>
+            </div>
+          </div>
+          <div class="email-field">
+            <div class="row">
+              <div class="small-2 columns">
+                <label for="message_email" class="right inline">Email:</label>
+              </div>
+              <div class="small-10 columns">
+                <input required="required" class="radius" autocomplete="email" type="email" th:field="${message.email}" />
+              </div>
+            </div>
+          </div>
+          <div class="institution-field">
+            <div class="row">
+              <div class="small-2 columns">
+                <label for="message_institution" class="right inline">Institution:</label>
+              </div>
+              <div class="small-10 columns">
+                <input required="required" class="radius" pattern="[^ ]+" autocomplete="organization" type="text" th:field="${message.institution}" />
+              </div>
+            </div>
+          </div>
+          <div class="address-field">
+            <div class="row">
+              <div class="small-2 columns">
+                <label for="message_address" class="right inline">Address:</label>
+              </div>
+              <div class="small-10 columns">
+                <input required="required" class="radius" pattern="[^ ]+" autocomplete="street-address" type="text" th:field="${message.address}" />
+              </div>
+            </div>
+          </div>
+          <div class="country-field">
+            <div class="row">
+              <div class="small-2 columns">
+                <label for="message_country" class="right inline">Country:</label>
+              </div>
+              <div class="small-10 columns">
+                <input required="required" pattern="[^ ]+" class="radius" autocomplete="country" type="text" th:field="${message.country}" />
+              </div>
+            </div>
+          </div>
+          <div class="subject-field">
+            <div class="row">
+              <div class="small-2 columns">
+                <label for="message_subject" class="right inline">Subject:</label>
+              </div>
+              <div class="small-10 columns">
+                <input required="required" pattern="[^ ]+" class="radius" autocomplete="off" autocorrect="on" type="text" th:field="${message.subject}" />
+              </div>
+            </div>
+          </div>
+          <div class="message-field">
+            <div class="row">
+              <div class="small-2 columns">
+                <label for="message_message" class="right inline">Message:</label>
+              </div>
+              <div class="small-10 columns">
+                <textarea required="required" cols="50" rows="5" aria-invalid="false" class="radius" autocomplete="off" autocorrect="on" th:field="${message.message}" >
+</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button name="send" type="submit" class="button secondary radius expand" id="send" onclick="this.blur();" value="t">
+        Send the message
+</button></form>  </div>
+</div>
+
+      <p style="margin-bottom: 0.55em;"></p>
+    </div>
+    <div class="row">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

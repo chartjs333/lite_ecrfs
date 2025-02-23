@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragmentD4">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <!-- Title -->
+        <p style="margin-bottom: 2.15em;"></p>
+      <div class="row">
+  <div class="small-12 text-left columns" >
+    <h5 th:text="${disease.abbreviation} + '-' + ${gene.name} + ' Data summary (filter: ' + ${humanized_filter} + ')' + (${country} != null? ' Country of origin (' + ${country} + ')' : '')">
+      DYT-NGX: Data summary <!--<br/>-->(filter: females only)
+    </h5>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <p th:if="${map_data == null}">
+    All charts are going to be empty. You can try some other filtering criteria or provide the database with a dataset on the requested subject.</p>
+    <th:block th:if="${map_data != null}">
+    <div id="chart-1a" style="height: 450px; text-align: center; color: #999; line-height: 450px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+    <script th:inline="javascript">
+	/*<![CDATA[*/
+	    Highcharts.mapChart('chart-1a', {
+	        chart: {
+	            borderWidth: 1,
+	            map: 'custom/world'
+	        },
+
+	        title: {
+	            text: 'World map ' + /*[[${gene.name}]]*/ + ' by country'
+	        },
+
+	        subtitle: {
+	            text: 'Click bubbles to select'
+	        },
+
+	        legend: {
+	            enabled: false
+	        },
+
+	        mapNavigation: {
+	            enabled: true,
+	            buttonOptions: {
+	                verticalAlign: 'bottom'
+	            }
+	        },
+	        credits: {
+	            // Remove highcharts.com credits link from chart footer.
+	            enabled: false,
+	          },
+	        series: [{
+	            name: 'Countries',
+	            color: '#E0E0E0',
+	            enableMouseTracking: false
+	        }, {
+				type: 'mapbubble',
+	            allowPointSelect: false,
+	            cursor: 'pointer',
+	            name: /*[[${gene.name}]]*/,
+	            joinBy: ['iso-a2', 'code'],
+	            data: /*[[${map_data}]]*/,
+	            minSize: 4,
+	            maxSize: '12%',
+	            tooltip: {
+				enabled: true,
+	            shared : true,
+	            animation: false,
+	                pointFormat: '{point.country}: {point.z} patients'
+	            }
+	        }]
+	    });
+	  /*]]>*/
+	</script>	
+	
+	
+	<!-- Part for the pie charts -->
+    <ul class="small-block-grid-1 medium-block-grid-2">
+    <th:block th:unless="${#lists.isEmpty(available_countries_list)}">
+    <th:block th:each="i: ${#numbers.sequence(1, #lists.size(available_countries_list))}">
+      <th:block>
+      <li><div th:id="${'chart-5' + i}" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+      <script th:inline="javascript">
+      /*<![CDATA[*/
+    	var bar_chart_color = /*[[${bar_chart_color_list[i-1]}]]*/; 
+	    //alert(color_map1.get("Arg1441His: het"));
+    	var title = /*[[${available_countries_list[i-1]}]]*/;
+    	var chart_id = /*[[${'chart-5' + i}]]*/;
+		var bar_chart_data = /*[[${bar_chart_data_list[i-1]}]]*/;
+		var mut_freq_max = /*[[${mut_freq_max_1}]]*/;
+		var bar_missing = /*[[${bar_missing_1}]]*/;
+		var bar_missing_percentage = /*[[${bar_missing_percentage_1}]]*/;
+		var mutations_count = /*[[${count_by_countries_list[i-1]}]]*/;
+		// Build the chart
+		Highcharts.chart(chart_id, {
+		    chart: {
+		        plotBackgroundColor: null,
+		        plotBorderWidth: null,
+		        plotShadow: false,
+		        type: 'pie'
+		    },
+		    title: {
+		        text: 'Number of mutations in ' + title + ' n = ' + mutations_count
+		    },
+		    tooltip: {
+		        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		    },
+		    plotOptions: {
+		        pie: {
+		            allowPointSelect: true,
+		            cursor: 'pointer',
+		            size: 180,
+		            dataLabels: {
+		                enabled: true,
+		                crop:false,
+		                overflow:"allow"
+		            },
+		            showInLegend: false
+		        }
+		    },
+		    credits: {
+	            // Remove highcharts.com credits link from chart footer.
+	            enabled: false,
+	          },
+	        colors: bar_chart_color,//["#ac202d","#434348","#154789","#f7a35c","#187422","#604a7b","#e4d354","#2b908f","#f45b5b","#91e8e1"],
+		    series: [{
+		        name: 'Mutations',
+		        //colorByPoint: true,
+		        data: bar_chart_data
+		    }]
+		});
+	 /*]]>*/
+  	 </script></li>
+  	</th:block>
+  	</th:block>
+	</th:block>
+	</ul>	
+	<!-- End -->
+    </th:block>
+  </div>
+</div>
+
+      <p style="margin-bottom: 0.55em;"></p>
+    </div>
+    <div class="row">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+/*Progress Bar*/
+#upload-progress{
+    height: 20px;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+#upload-progress .progress-bar-1{
+	background: #bde1ff;
+    width: 0;
+    height: 20px;
+}

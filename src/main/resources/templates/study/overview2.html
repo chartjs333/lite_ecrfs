@@ -1,0 +1,169 @@
+<div class="row">
+  <div class="small-12 text-left columns">
+    <h5 style="margin-bottom:10px;">
+      Overview of included studies for
+      <%= @disease.abbreviation + '-' + @gene.name %><%= list_gene_aliases @aliases %>:
+    </h5>
+  </div>
+</div>
+<%= form_tag(literature_overview_path(@disease.id,@gene.id), method: :get) do %>
+<div class="row">
+  <div class="small-12 medium-7 text-left columns">
+    <div class="row collapse">
+      <div class="small-2 columns">
+        <span class="prefix button secondary radius disabled"
+              style="height:29px !important; line-height:17px !important;">Filter for</span>
+      </div>
+      <div class="small-8 columns<%= " end" unless @filter_by_aao %>">
+        <%= select_tag :fc,
+                       options_for_select([['index patients only', 2],
+                                           ["AAO < #{"50 (adjustable)" unless @filter_by_aao}", 3],
+                                           ["AAO >= #{"50 (adjustable)" unless @filter_by_aao}", 4],
+                                           ['females only', 5],
+                                           ['males only', 6],
+                                           ['homozygous only', 7],
+                                           ['heterozygous only', 8],
+                                           ['compound heterozygous only', 9]],
+                                           @filter_criterion),
+                       prompt: "all included patients", onchange: "reload_the_filter(this);" %>
+      </div>
+      <% if @filter_by_aao %>
+        <div class="small-2 columns">
+          <%= select_tag :aao, options_for_select(Array.new(99).fill{|i| i+1}, @aao_threshold),
+                         onchange: "reload_the_filter(this);" %>
+        </div>
+      <% end %>
+      <% if @filter_by_repeats %>
+        <div class="small-2 columns">
+          <%= select_tag :repeats, options_for_select(Array.new(200).fill{|i| i+1}, @repeats_threshold),
+                         onchange: "reload_the_filter(this);" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="small-12 medium-5 text-center columns">
+    <div class="row collapse">
+      <div class="small-2 columns">
+        <span class="prefix button secondary radius disabled has-tip tip-top" data-tooltip
+              aria-haspopup="true" title="Display can be filtered for mutations or pathogenicity group. Multiple mutations/mutation classes can be chosen by mouse-click on all variables of interest."
+              style="height:29px !important; line-height:17px !important; font-weight: 400;">
+          carrying
+        </span>
+      </div>
+      <div class="small-10 columns">
+        <%= select_tag 'mu', options_for_select(@filtered_mutations, @mut_restrict),
+                       multiple: true, class: :chzn_select, onchange: "reload_the_filter(this);",
+                       data: {placeholder: "any mutation"} %>
+      </div>
+    </div>
+  </div>
+</div>
+  <% unless @studies.blank? %>
+<div class="row">
+  <div class="small-12 columns">
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <th width="150" style="text-align: left;">
+            <span data-tooltip aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Details on the patients reported in the respective publication and eligible for inclusion in MDSGene can be found following the hyperlink underlying the study name.">
+              Study
+            </span>
+          </th>
+          <th width="105">
+            <span data-tooltip aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Indicates whether mutations were tested using a family-based approach, a mutational screen of unrelated patients (and controls) or another, e.g. mixed, design.">
+              Study design
+            </span>
+          </th>
+          <th width="94">
+            <span data-tooltip aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Indicates whether the recruitment/examination of patients was restricted to a certain age group.">
+              Age restriction
+            </span>
+          </th>
+          <th>
+            <span data-tooltip aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Number of patients reported in the study that were eligible for inclusion in MDSGene. For details on inclusion criteria, please see the MDSGene Methods section.">
+              N cases
+            </span>
+          </th>
+          <th>
+            <span data-tooltip aria-haspopup="true" class="has-tip tip-top radius"
+                  title="A = Asian; AM = Native American; B = Arab; C = Caucasian; D = African descent; H = Hispanic; I = Indian; JA = Jewish Askhenazi; JO = Jewish non-Askhenazi/mixed/other; O = other/mixed.">
+              Ethnicities
+            </span>
+          </th>
+          <th width="78">
+            <span data-tooltip aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Proportion of male patients of the respective study included in MDSGene.">
+              Sex<br>(% <span style="font-size: 16px;">&#9794;</span>)
+            </span>
+          </th>
+          <th width="111">
+            <span data-tooltip aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Mean age at onset and standard deviation.">
+              Mean AAO (+/- SD)
+            </span>
+          </th>
+          <th>
+            <span data-tooltip aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Mutations reported in the respective study. Hom = homozygous, het = heterozygous, comp. het = compound heterozygous. For comp. het. mutations, both mutations are listed (if the second mutation is located in another gene, the gene name precedes the mutation ID). Only mutations classified as “possibly”, “probably”, or “definitively pathogenic” according to the scoring scheme implemented in MDSGene are listed here (see Methods).">
+              Reported mutations
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody id="stud">
+      <%= render partial: 'study', collection: @studies %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns"><% _f = {a: @studies.total_count} %>
+    <% _f.store(:fc, @filter_criterion) unless @filter_criterion.blank? %>
+    <% _f.store(:aao, @aao_threshold) unless @aao_threshold.blank? %>
+    <% _f.store(:mu, @mut_restrict) unless @mut_restrict.blank? %>
+    <%= paginate(@studies, param_name: 'p', params: {controller: 'studies', action: 'overview'},
+                 window: 5, d: @disease.id, g: @gene.id, t: _f) %>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <%= button_tag(class: "button secondary radius expand", name: :plot, id: :plot, value: :t,
+                   onclick: "this.form.target='_blank';this.blur();",
+                   style: "margin-bottom: 40px;") do %>
+    Click here for summary of patients' characteristics
+    <% end %>
+  </div>
+</div>
+  <% end %>
+<% end if !@filter_criterion.blank? or !@filtered_mutations.blank? %>
+<% if @studies.blank? %>
+<div class="row">
+  <div class="small-12 columns">
+    <p>No eligible studies found.
+      <% if !@filter_criterion.blank? or !@filtered_mutations.blank? %>
+        The filtering criteria may be too strict.
+      <% end %>
+    </p>
+  </div>
+</div>
+<% end %>
+<% unless @review.nil? %>
+<div class="row">
+  <div class="small-12 columns">
+    <fieldset style="padding-top:5px;margin-top:0px;margin-bottom:20px;padding-bottom:16px;">
+      <legend>Systematic review</legend>
+      <%= @review_authors.map{|_ra| _ra.last_name + ' ' + _ra.initials}.join(', ') + '.' %>
+      <%= link_to @review.title, "http://www.ncbi.nlm.nih.gov/pubmed/#{@review.pubmed_id}",
+                  target: "_blank" %>
+      <span title="<%= @review.journal_title %>">
+        <%= always_end_it_with_one_dot @review.journal_abbreviation %>
+      </span> <%= "#{@review.issue_year} #{@review.issue_month};#{@review.journal_volume}(#{@review.journal_issue}):#{@review.pagination}." %>
+    </fieldset>
+  </div>
+</div>
+<% end %>
+<div style="padding-bottom: 0.4em;"></div>

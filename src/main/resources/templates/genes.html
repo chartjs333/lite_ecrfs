@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">DJ1</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+<!-- Title -->
+        <p style="margin-bottom: 2.15em;"></p>
+      <div class="row">
+  <div class="small-12 text-left columns" >
+    <h5 th:text="${disease.abbreviation} + '-' + ${gene.name} + ' Data summary (filter: none)'">
+      DYT-NGX: Data summary <!--<br/>-->(filter: females only)
+    </h5>
+  </div>
+  <div class="small-12 text-left columns" th:if="${overview.benigns_available} == true" >
+<button name="action" type="button" class="button secondary radius expand" value="plot_genetic" th:onclick="${'location.href=''/d/' + disease.id + '/gu/' + gene.id + ''';this.blur();'}" style="margin-bottom: 40px;">
+    Click here for a list of presumably benign variants
+</button>
+  </div>
+</div>
+</div>
+
+<hr width="100%"/>       
+<img th:src="${'/assets/' + gene.name + '.png'}" alt='Karte' usemap='#LandkarteGene'></img><map name='LandkarteGene'><area shape='rect' coords='406,56,499,70' href='/sequence_variations/1685' title='c.56_57delinsA' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='586,56,645,70' href='/sequence_variations/1' title='c.137delG' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='824,56,901,70' href='/sequence_variations/1691' title='c.252+8dupA' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='1320,56,1429,70' href='/sequence_variations/1694' title='c.471_473delGCC' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='369,238,418,252' href='/sequence_variations/1692' title='c.29T>C' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='436,238,489,252' href='/sequence_variations/1686' title='c.78G>A' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='520,238,583,252' href='/sequence_variations/1695' title='c.91-2A>G' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='580,252,637,266' href='/sequence_variations/1700' title='c.133C>T' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='661,238,721,252' href='/sequence_variations/1687' title='c.192G>C' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='965,238,1022,252' href='/sequence_variations/1706' title='c.313A>T' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='973,252,1033,266' href='/sequence_variations/1696' title='c.319G>C' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='983,266,1057,280' href='/sequence_variations/1704' title='c.322+4A>C' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='1234,238,1305,252' href='/sequence_variations/1684' title='c.410-1G>C' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='1306,238,1365,252' href='/sequence_variations/1705' title='c.461C>A' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='1342,252,1401,266' href='/sequence_variations/1688' title='c.487G>A' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='1355,266,1412,280' href='/sequence_variations/1677' title='c.497T>C' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='1380,238,1437,252' href='/sequence_variations/1703' title='c.515T>A' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area><area shape='rect' coords='286,238,365,252' href='/sequence_variations/1' title='c.-24+66C>G' data-reveal-id='global_modal_dialog' data-reveal-ajax='true'></area></map>      
+<hr width="100%"/>       
+<img th:src="${'/assets/' + gene.name + '_protein.png'}" alt='Karte' usemap='#Landkarte'></img>      
+    <div class="row">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>
+

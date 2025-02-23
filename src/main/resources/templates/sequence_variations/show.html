@@ -1,0 +1,129 @@
+
+<div class="row">
+	<div class="small-12 text-left columns">
+		<h5 id="modalTitle">Mutation details:</h5>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns" th:if="${not #strings.isEmpty(mutation.proteinRelated)}">
+		<p style="margin-bottom: 0.25rem;" th:text="${'Protein level identifier ' + protein_identifier + ':'}">***</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns" th:if="${not #strings.isEmpty(mutation.proteinRelated)}">
+		<p style="margin-bottom: 0.25rem;" th:text="${mutation.proteinRelated}">p.XXX</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns" th:if="${not #strings.isEmpty(mutation.cdnaRelated)}">
+		<p style="margin-bottom: 0.25rem;" th:text="${'cDNA level identifier ' + cdna_identifier + ':'}">***</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns" th:if="${not #strings.isEmpty(mutation.cdnaRelated)}">
+		<p style="margin-bottom: 0.25rem;" th:text="${mutation.cdnaRelated}">c.XXX</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns" th:if="${not #strings.isEmpty(mutation.gdnaRelated)}">
+		<p style="margin-bottom: 0.25rem;">Gene level identifier:</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns" th:if="${not #strings.isEmpty(mutation.gdnaRelated)}">
+		<p style="margin-bottom: 0.25rem;" th:text="${mutation.gdnaRelated}">g.XXX</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns" th:if="${not #strings.isEmpty(mutation.alias)}">
+		<p style="margin-bottom: 0.25rem;">Archive identifier/Other designation:</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns" th:if="${not #strings.isEmpty(mutation.alias)}">
+		<p style="margin-bottom: 0.25rem;" th:text="${mutation.alias}">***</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns" th:if="${not #strings.isEmpty(T(net.mdsgene.admin.admintool.business.SequenceVariationDecorator).allele(mutation))}">
+		<p style="margin-bottom: 0.25rem;">Reference, alternative allele:</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns" th:if="${not #strings.isEmpty(T(net.mdsgene.admin.admintool.business.SequenceVariationDecorator).allele(mutation))}">
+		<p style="margin-bottom: 0.25rem;" th:text="${T(net.mdsgene.admin.admintool.business.SequenceVariationDecorator).allele(mutation)}">G, A</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns" th:if="${T(net.mdsgene.admin.admintool.business.SequenceVariationDecorator).location(mutation)}">
+		<p style="margin-bottom: 0.25rem;" th:text="${T(net.mdsgene.admin.admintool.business.SequenceVariationDecorator).location(mutation)[5] != null ? 'Genomic location hg(' + T(net.mdsgene.admin.admintool.business.SequenceVariationDecorator).location(mutation)[5] + ')': 'Genomic location'}">Genetic location (hg19):</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns" th:if="${T(net.mdsgene.admin.admintool.business.SequenceVariationDecorator).location(mutation)}">
+		<p style="margin-bottom: 0.25rem;" th:if="${T(net.mdsgene.admin.admintool.business.SequenceVariationHelper).link_to_exac(mutation) instanceof T(net.mdsgene.admin.tags.CustomTag)}" th:with="url = ${T(net.mdsgene.admin.admintool.business.SequenceVariationHelper).link_to_exac(mutation)}"><a th:text="${url.body}" th:href="${url.href}" target="_blank"></a></p>
+		<p style="margin-bottom: 0.25rem;" th:if="${!(T(net.mdsgene.admin.admintool.business.SequenceVariationHelper).link_to_exac(mutation) instanceof T(net.mdsgene.admin.tags.CustomTag))}" th:text="${T(net.mdsgene.admin.admintool.business.SequenceVariationHelper).link_to_exac(mutation)}"> not url</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns">
+		<p style="margin-bottom: 0.25rem;">Gene name:</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns">
+		<p style="margin-bottom: 0.25rem;" th:with="link_to = ${T(net.mdsgene.admin.admintool.business.SequenceVariationHelper).link_to_entrez_gene(mutation)}">
+		    <a th:text="${link_to.body}" th:href="${link_to.href}" target="_blank"></a><span th:text="${link_to.postfix}" th:unless="${link_to.postfix == null}"></span>
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns">
+		<p style="margin-bottom: 0.25rem;">Consequence:</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns">
+		<p style="margin-bottom: 0.25rem;" th:text="${T(net.mdsgene.admin.admintool.business.SequenceVariationDecorator).is_splice_region(mutation) ? 'splice region' : T(net.mdsgene.admin.admintool.business.SequenceVariationDecorator).impact_humanize_downcase(mutation)}">***</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns">
+		<p style="margin-bottom: 0.25rem;">Pathogenicity scoring:</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns">
+		<p style="margin-bottom: 0.25rem;" th:text="${T(net.mdsgene.admin.admintool.business.SequenceVariationDecorator).pathogenicity_humanize_downcase(mutation)}">***</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns">
+		<p style="margin-bottom: 0.25rem;">CADD score:</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns">
+		<p style="margin-bottom: 0.25rem;" th:text="${T(net.mdsgene.admin.admintool.business.SequenceVariationDecorator).mutation_CADD(mutation)}">***</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns">
+		<p style="margin-bottom: 0.25rem;">Positive functional evidence:</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns">
+		<p style="margin-bottom: 0.25rem;" th:if="${#lists.isEmpty(T(net.mdsgene.admin.admintool.business.SequenceVariationHelper).supply_with_links_to_pubmed(mutation))}">not available</p>
+		<p style="margin-bottom: 0.25rem;" th:if="${not #lists.isEmpty(T(net.mdsgene.admin.admintool.business.SequenceVariationHelper).supply_with_links_to_pubmed(mutation))}">
+		<th:block th:each="d1:${T(net.mdsgene.admin.admintool.business.SequenceVariationHelper).supply_with_links_to_pubmed(mutation)}">
+		     <a th:text="${d1.body}" th:href="${d1.href}" class="funct_evidence" target="_blank"></a><span th:text="${d1.postfix}" th:unless="${d1.postfix == null}"></span>
+		</th:block>
+		</p>
+	</div>
+</div>
+<script>
+	//<![CDATA[
+	search_PubMed('funct_evidence');
+	//]]>
+</script>
+<div class="row" th:unless="${supply_with_links == null or ((supply_with_links instanceof T(net.mdsgene.admin.tags.CustomTag)) and supply_with_links.size() == 0) or ((!(supply_with_links instanceof T(net.mdsgene.admin.tags.CustomTag))) and #string.isEmpty(supply_with_links))}">
+	<div class="small-12 medium-6 columns">
+		<p style="margin-bottom: 0.25rem;">Diseases reported for this mutation:</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns">
+		<p style="margin-bottom: 0.25rem;" th:if="${!(supply_with_links instanceof T(net.mdsgene.admin.tags.CustomTag))}" th:text="${supply_with_links}">***</p>
+		<p style="margin-bottom: 0.25rem;" th:if="${(supply_with_links instanceof T(net.mdsgene.admin.tags.CustomTag))}">
+		<th:block th:each="d1:${supply_with_links}">
+		     <a th:text="${d1.body}" th:href="${d1.href}" class="funct_evidence" target="_blank"></a><span th:text="${d1.postfix}" th:unless="${d1.postfix == null}"></span>
+		</th:block>
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns">
+		<p style="margin-bottom: 0.25rem;">Number of all included cases:</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns">
+		<p style="margin-bottom: 0.25rem;" th:text="${genotype_specific}">***</p>
+	</div>
+</div>
+<a aria-label="Close" class="close-reveal-modal">×</a>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1>Upload your excel file for check</h1>
+<div th:if="${message}">
+    <h2 th:text="${message}"/>
+</div>
+<form method="POST" action="/uploadAAOFile" enctype="multipart/form-data">
+	Choose the csv file : <br/>
+    <input type="file" name="file" /> (only AAO csv files are supported)<br/> 
+    
+    <br/>
+    
+    <input type="submit" value="Upload it!" /><br/>
+    Note*:  You can find the format of your file by looking at the file name extension - the characters to the right of the dot in the file name. 
+</form>
+
+</body>
+</html>

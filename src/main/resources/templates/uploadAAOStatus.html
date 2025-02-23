@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1>AAO upload file status</h1>
+
+<div th:if="${message}">
+	<th:block th:each="d1,idx2:${message}">
+	    <span th:text="${d1}"/><br/>
+	</th:block>
+</div>
+
+<div th:if="${chart}">
+<hr with="100%"/>
+	<th:block th:each="d1,idx2:${chart}">
+	    <span th:text="${d1}"/><br/>
+	</th:block>
+</div>
+
+</body>
+</html>

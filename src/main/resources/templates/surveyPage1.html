@@ -1,0 +1,1472 @@
+
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Information on recruitment and facilitie</title>
+<!-- css files -->
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
+<link rel="stylesheet" type="text/css" href="../fonts/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/registration-style.css"/>
+<link rel="stylesheet" type="text/css" href="../css/elements.css"/>
+<link rel="stylesheet" type="text/css" href="../css/check-ecrf-minimal.css"/>
+<!-- jquery library --> 
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script> 
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/survey.js"></script>
+<script type="text/javascript" src="../js/check-ecrf-minimal.js"></script>
+<script  type="text/javascript">
+$(document).ready(function(){ });
+      function next_part() {
+          var progressBarElements = document.querySelectorAll('.progress-bar');
+          var fillingStatus = parseInt(progressBarElements[0].getAttribute('aria-valuenow'));
+          if(fillingStatus !== 100){
+              alert("Please fill out all the answers.");
+              return;
+          }
+
+          // submit the first form in the document
+          if(document.forms.length > 0) {
+              //get filling_status by id and set it to 100
+              var fillingStatus = document.getElementById('filling_status');
+              fillingStatus.value = 'done';
+              document.forms[0].submit();
+          }
+      }
+	  
+	  function redirectToModifiedUrl() {
+		// Read the current URL
+		var currentUrl = window.location.href;
+
+		// Replace 'survey1' with 'survey0'
+		var modifiedUrl = currentUrl.replace('survey1', 'survey0');
+
+		// Redirect to the modified URL
+		window.location.href = modifiedUrl;
+	}
+    function limitInputLength(elem) {
+        if (elem.value.length > 4) {
+            elem.value = elem.value.slice(0, 4);
+        }
+        minimum_part_filled_out(); // Call this function if needed when the input changes
+    }
+</script>
+    <style>
+        #logo {
+            display: block;
+            margin: auto;
+        }
+.minimal-radio {
+  color: #E07800;
+
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+  -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+  box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-control {
+  border-color: #E07800;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-group.has-minimal > label {
+  color: #263C49;
+  /* You can add any other CSS properties here to style the label. */
+}
+.progress .progress-bar {
+    background-image: linear-gradient(to bottom, #E07800 0, #E07800 100%) !important;
+}
+.survey-button {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Arial',Arial,sans-serif;
+    line-height: 1.55;
+    font-weight: 600;
+    border-width: 2px;
+    border-radius: 6px;
+    background-color: #3A91B6;
+    background-position: center center;
+    border-color: #3A91B6;
+    border-style: solid;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.has-minimal .form-control {
+  border-color: #E07800;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+
+
+.header-label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+.subheader {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.move-up-first-header {
+  margin-top: 70px;
+}
+
+
+.move-down-header {
+  margin-bottom: 30px;
+}
+
+
+.move-up-header {
+  margin-top: 55px;
+}
+
+
+.move-down-subheader {
+  margin-bottom: 10px;
+}
+
+
+.move-up-subheader {
+  margin-top: 20px;
+}
+
+.move-up-yes-no {
+  margin-top: 5px;
+}
+
+.move-down-yes-no {
+  margin-bottom: 30px;
+}
+
+.move-down-text {
+  margin-bottom: 15px;
+}
+
+.button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button {
+            margin-bottom:50px;
+}
+
+    </style>
+</head>
+
+<body>
+    <img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database" src="/assets/fmjfox.png"/>
+    <!-- The rest of your HTML content -->
+
+
+<div class="registration-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">        <form accept-charset="UTF-8" class="registration-form onlyForm" method="post" th:object="${formObj}" th:id="${formObj.surveyTwoId}" >
+<input type='hidden' id="filling_status" th:field="${formObj.fillingStatus}"/><div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+    <div class="top-box button-container">
+      <button name="action" class="button secondary radius expand survey-button" onclick='this.blur();redirectToModifiedUrl();' type="submit" value="plot" th:if="${collected == null}">
+          Back to Part 1
+      </button>
+      <button name="action" class="button secondary radius expand survey-button" onclick='this.blur();next_part();' type="submit" value="plot" th:if="${collected == null}">
+          Save
+      </button>
+  </div>
+</div>
+<div class="top-box text-center">
+  <h3>Part 2</h3>	</div>
+<div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">        <div class="top-box text-center">
+          <h2 class="title">Information on recruitment and facilities</h2>
+        </div>  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%;background-image: linear-gradient(to bottom,#33A371 0,#33A371 100%)">
+      <span class="sr-only">0% Complete</span>
+    </div>
+  </div>
+	<div class="alert alert-warning" role="alert">
+  	   <strong>Warning:</strong> The minimal dataset is not complete yet. Please be reminded that to complete the minimal dataset is mandatory in order to have samples processed for analysis. Please continue or come back when you can complete at least the minimal dataset.
+	</div>
+</div>          <div class="row">
+  <div class="col-sm-12">
+    <div class="form-group has-minimal move-up-first-header move-down-header" >
+      <label for="num_new" class="subheader">Expected number of newly recruited mutation carriers (PRKN/PINK1)</label>
+      <input type="number" class="form-control" id="num_new"  th:field="${formObj.NumNew}"  maxlength='4' placeholder=""  onkeyup="limitInputLength(this)" onchange="minimum_part_filled_out()" />
+    </div>
+  </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+        <label id="match_contr" class="subheader">Would you be able to recruit matched controls (ethnicity, gender, age, disease duration)?</label>
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="match_contr_healthy_indiv" for="">healthy individuals</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.MatchContrHealthyIndiv}" type="radio" name1="match_contr_healthy_indiv" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.MatchContrHealthyIndiv}" type="radio" name1="match_contr_healthy_indiv" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="match_contr_indiv_idiop_Park" for="">individuals with idiopathic Parkinson's disease</label>
+        
+<ul class="listing minimal-radio move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.MatchContrIndivIdiopPark}" type="radio" name1="match_contr_indiv_idiop_Park" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.MatchContrIndivIdiopPark}" type="radio" name1="match_contr_indiv_idiop_Park" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-header move-up-header" >
+        <label id="nonmot_sc" class="header-label">Nonmotor scales</label>
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader" >
+        <label id="moca" class="subheader">MoCa</label>
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="moca_lang" for="">Is this scale available in your language?</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.MocaLang}" type="radio" name1="moca_lang" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.MocaLang}" type="radio" name1="moca_lang" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="moca_team" for="">Is this assessment feasible for your team?</label>
+        
+<ul class="listing minimal-radio  move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.MocaTeam}" type="radio" name1="moca_team" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.MocaTeam}" type="radio" name1="moca_team" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-yes-no" >
+        <label for="moca_team_why">Please state why</label>
+        <input type="text" class="form-control" id="moca_team_why"  th:field="${formObj.MocaTeamWhy}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+        <label id="upsit" class="subheader">UPSIT (Olfactory Testing, 40 items)</label>
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="upsit_lang" for="">Is this scale available in your language?</label>
+        
+<ul class="listing minimal-radio  move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.UpsitLang}" type="radio" name1="upsit_lang" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.UpsitLang}" type="radio" name1="upsit_lang" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="upsit_team" for="">Is this assessment feasible for your team?</label>
+        
+<ul class="listing minimal-radio  move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.UpsitTeam}" type="radio" name1="upsit_team" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.UpsitTeam}" type="radio" name1="upsit_team" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-yes-no" >
+        <label for="upsit_team_why">Please state why</label>
+        <input type="text" class="form-control" id="upsit_team_why"  th:field="${formObj.UpsitTeamWhy}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+        <label id="rbd" class="subheader">RBD Screening Questionnaire</label>
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="rbd_lang" for="">Is this scale available in your language?</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.RbdLang}" type="radio" name1="rbd_lang" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.RbdLang}" type="radio" name1="rbd_lang" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="rbd_team" for="">Is this assessment feasible for your team?</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.RbdTeam}" type="radio" name1="rbd_team" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.RbdTeam}" type="radio" name1="rbd_team" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has- move-down-yes-no" >
+        <label for="rbd_team_why">Please state why</label>
+        <input type="text" class="form-control" id="rbd_team_why"  th:field="${formObj.RbdTeamWhy}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+        <label id="quip" class="subheader">QUIP</label>
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="quip_lang" for="">Is this scale available in your language?</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.QuipLang}" type="radio" name1="quip_lang" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.QuipLang}" type="radio" name1="quip_lang" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="quip_team" for="">Is this assessment feasible for your team?</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.QuipTeam}" type="radio" name1="quip_team" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.QuipTeam}" type="radio" name1="quip_team" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-yes-no" >
+        <label for="quip_team_why">Please state why</label>
+        <input type="text" class="form-control" id="quip_team_why"  th:field="${formObj.QuipTeamWhy}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+        <label id="epw_sleep_sc" class="subheader">Epworth Sleepiness Scale</label>
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="epw_sleep_sc_lang" for="">Is this scale available in your language?</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.EpwSleepScLang}" type="radio" name1="epw_sleep_sc_lang" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.EpwSleepScLang}" type="radio" name1="epw_sleep_sc_lang" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="epw_sleep_sc_team" for="">Is this assessment feasible for your team?</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.EpwSleepScTeam}" type="radio" name1="epw_sleep_sc_team" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.EpwSleepScTeam}" type="radio" name1="epw_sleep_sc_team" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-yes-no" >
+        <label for="epw_sleep_sc_team_why">Please state why</label>
+        <input type="text" class="form-control" id="epw_sleep_sc_team_why"  th:field="${formObj.EpwSleepScTeamWhy}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+        <label id="ger_depr_sc" class="subheader">Geriatric Depression Scale</label>
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="ger_depr_sc_lang" for="">Is this scale available in your language?</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.GerDeprScLang}" type="radio" name1="ger_depr_sc_lang" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.GerDeprScLang}" type="radio" name1="ger_depr_sc_lang" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="ger_depr_sc_team" for="">Is this assessment feasible for your team?</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.GerDeprScTeam}" type="radio" name1="ger_depr_sc_team" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.GerDeprScTeam}" type="radio" name1="ger_depr_sc_team" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-yes-no" >
+        <label for="ger_depr_sc_team_why">Please state why</label>
+        <input type="text" class="form-control" id="ger_depr_sc_team_why"  th:field="${formObj.GerDeprScTeamWhy}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+        <label id="st_tr_anx_inv" class="subheader">Statee-Trait Anxiety Inventory</label>
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="st_tr_anx_inv_lang" for="">Is this scale available in your language?</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.StTrAnxInvLang}" type="radio" name1="st_tr_anx_inv_lang" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.StTrAnxInvLang}" type="radio" name1="st_tr_anx_inv_lang" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="st_tr_anx_inv_team" for="">Is this assessment feasible for your team?</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.StTrAnxInvTeam}" type="radio" name1="st_tr_anx_inv_team" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.StTrAnxInvTeam}" type="radio" name1="st_tr_anx_inv_team" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-yes-no" >
+        <label for="st_tr_anx_inv_team_why">Please state why</label>
+        <input type="text" class="form-control" id="st_tr_anx_inv_team_why"  th:field="${formObj.StTrAnxInvTeamWhy}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+        <label id="scopa_aut" class="subheader">SCOPA AUT</label>
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="scopa_aut_lang" for="">Is this scale available in your language?</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.ScopaAutLang}" type="radio" name1="scopa_aut_lang" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.ScopaAutLang}" type="radio" name1="scopa_aut_lang" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="scopa_aut_team" for="">Is this assessment feasible for your team?</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.ScopaAutTeam}" type="radio" name1="scopa_aut_team" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">yes</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.ScopaAutTeam}" type="radio" name1="scopa_aut_team" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> no</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-yes-no" >
+        <label for="scopa_aut_team_why">Please state why</label>
+        <input type="text" class="form-control" id="scopa_aut_team_why"  th:field="${formObj.ScopaAutTeamWhy}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-header move-up-header" >
+        <label id="imaging" class="header-label">Imaging</label>
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader" >
+        <label namelabel="mri_brain" for="" class="subheader">MRI Brain (Structure - Y1 and DTI)</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.MriBrain}" type="radio" name1="mri_brain" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">available</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.MriBrain}" type="radio" name1="mri_brain" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> not available</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label for="mri_brain_str">field strength</label>
+        <input type="text" class="form-control" id="mri_brain_str"  th:field="${formObj.MriBrainStr}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label for="mri_brain_name">name of the device</label>
+        <input type="text" class="form-control" id="mri_brain_name"  th:field="${formObj.MriBrainName}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+        <label namelabel="dat_sc_im" for="" class="subheader">DAT Scan Imaging</label>
+        
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.DatScIm}" type="radio" name1="dat_sc_im" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">available</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.DatScIm}" type="radio" name1="dat_sc_im" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> not available</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-header move-up-header" >
+        <label id="biomat" class="header-label">Biomaterials</label>
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label namelabel="csf" for="">CSF (5ml)</label>
+        
+<ul class="listing minimal-radio move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Csf}" type="radio" name1="csf" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">feasible</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Csf}" type="radio" name1="csf" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> not feasible</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label for="csf_com">comment</label>
+        <input type="text" class="form-control" id="csf_com"  th:field="${formObj.CsfCom}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+        <label namelabel="ser_blood" for="">Serum Blood (16ml)</label>
+        
+<ul class="listing minimal-radio move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.SerBlood}" type="radio" name1="ser_blood" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">feasible</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.SerBlood}" type="radio" name1="ser_blood" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> not feasible</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label for="ser_blood_com">comment</label>
+        <input type="text" class="form-control" id="ser_blood_com"  th:field="${formObj.SerBloodCom}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+        <label namelabel="edta_blood" for="">EDTA Blood (16ml)</label>
+        
+<ul class="listing minimal-radio move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.EdtaBlood}" type="radio" name1="edta_blood" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">feasible</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.EdtaBlood}" type="radio" name1="edta_blood" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> not feasible</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label for="edta_blood_com">comment</label>
+        <input type="text" class="form-control" id="edta_blood_com"  th:field="${formObj.EdtaBloodCom}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+        <label namelabel="rna" for="">RNA (1 PAXgene tube)</label>
+        
+<ul class="listing minimal-radio move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Rna}" type="radio" name1="rna" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">feasible</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Rna}" type="radio" name1="rna" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> not feasible</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal" >
+        <label for="rna_com">comment</label>
+        <input type="text" class="form-control" id="rna_com"  th:field="${formObj.RnaCom}"  maxlength='50' placeholder=""   onkeyup="minimum_part_filled_out()" onchange="minimum_part_filled_out()" />
+      </div>
+    </div>          </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+        <label namelabel="pbmcs" for="">Peripheral Blood Mononuclear Cells (PBMCs)</label>
+        
+<ul class="listing minimal-radio move-up-yes-no">
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Pbmcs}" type="radio" name1="pbmcs" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;">feasible</span>   
+ </label>
+    </li>
+    <li>
+        <label style="margin-left:10px;">
+          <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Pbmcs}" type="radio" name1="pbmcs" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+          <span class="padding-8" style="margin-left:5px;"> not feasible</span>   
+ </label>
+    </li>
+</ul>
+      </div>
+    </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group has-minimal" >
+      <label for="pbmcs_com">comment</label>
+      <input type="text" class="form-control" id="pbmcs_com"  th:field="${formObj.PbmcsCom}"  maxlength='50' placeholder=""  onchange="minimum_part_filled_out()" />
+    </div>
+  </div>          </div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group has-minimal move-down-header move-up-header" >
+      <label id="facilities" class="header-label">Facilities</label>
+    </div>
+  </div>          </div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group has-minimal" >
+      <label namelabel="aliquoting" for="">Aliquoting</label>
+      
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+  <li>
+      <label style="margin-left:10px;">
+        <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Aliquoting}" type="radio" name1="aliquoting" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+        <span class="padding-8" style="margin-left:5px;">available</span>   
+</label>
+  </li>
+  <li>
+      <label style="margin-left:10px;">
+        <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Aliquoting}" type="radio" name1="aliquoting" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+        <span class="padding-8" style="margin-left:5px;"> not available</span>   
+</label>
+  </li>
+</ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group has-minimal" >
+      <label namelabel="centrifuge" for="">Centrifuge</label>
+      
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+  <li>
+      <label style="margin-left:10px;">
+        <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Centrifuge}" type="radio" name1="centrifuge" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+        <span class="padding-8" style="margin-left:5px;">available</span>   
+</label>
+  </li>
+  <li>
+      <label style="margin-left:10px;">
+        <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Centrifuge}" type="radio" name1="centrifuge" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+        <span class="padding-8" style="margin-left:5px;"> not available</span>   
+</label>
+  </li>
+</ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group has-minimal" >
+      <label namelabel="freezer_20" for="">Freezer (-20&deg;C)</label>
+      
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+  <li>
+      <label style="margin-left:10px;">
+        <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Freezer20}" type="radio" name1="freezer_20" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+        <span class="padding-8" style="margin-left:5px;">available</span>   
+</label>
+  </li>
+  <li>
+      <label style="margin-left:10px;">
+        <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Freezer20}" type="radio" name1="freezer_20" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+        <span class="padding-8" style="margin-left:5px;"> not available</span>   
+</label>
+  </li>
+</ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group has-minimal" >
+      <label namelabel="freezer_80" for="">Freezer (-80&deg;C)</label>
+      
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+  <li>
+      <label style="margin-left:10px;">
+        <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Freezer80}" type="radio" name1="freezer_80" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+        <span class="padding-8" style="margin-left:5px;">available</span>   
+</label>
+  </li>
+  <li>
+      <label style="margin-left:10px;">
+        <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Freezer80}" type="radio" name1="freezer_80" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+        <span class="padding-8" style="margin-left:5px;"> not available</span>   
+</label>
+  </li>
+</ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group has-minimal" >
+      <label namelabel="pbmc" for="">PBMC handling</label>
+      
+<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+  <li>
+      <label style="margin-left:10px;">
+        <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Pbmc}" type="radio" name1="pbmc" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+        <span class="padding-8" style="margin-left:5px;">available</span>   
+</label>
+  </li>
+  <li>
+      <label style="margin-left:10px;">
+        <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Pbmc}" type="radio" name1="pbmc" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+        <span class="padding-8" style="margin-left:5px;"> not available</span>   
+</label>
+  </li>
+</ul>
+    </div>
+  </div>
+</div>
+</form>
+<div id="upload-progress" style='display:none'><div class="progress-bar-1" style="display:none"></div></div> <!-- Progress bar added -->    <div class="selectedDrogsChildren">
+                    <span th:each="formChild: ${formD}"
+                          th:text="${formChild.name}"
+                          th:class="${formChild.name}"
+                          style="display:none;"
+                    ></span>
+    </div>
+	
+<div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">        <div class="top-box text-center">
+          <h2 class="title"></h2>
+        </div>  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%;background-image: linear-gradient(to bottom,#33A371 0,#33A371 100%)">
+      <span class="sr-only">0% Complete</span>
+    </div>
+  </div>
+	<div class="alert alert-warning" role="alert">
+  	   <strong>Warning:</strong> The minimal dataset is not complete yet. Please be reminded that to complete the minimal dataset is mandatory in order to have samples processed for analysis. Please continue or come back when you can complete at least the minimal dataset.
+	</div>
+</div>
+<!--
+<div class="row">
+	<div class="col-md-3">
+	</div>
+	<div class="col-md-2">
+		<ul class="listing core-radio">
+			<li class="has-core">Preferable data</li>
+		</ul>
+	</div>
+	<div class="col-md-2">
+		<ul class="listing minimal-radio">
+			<li class="has-core">Data required</li>
+		</ul>
+	</div>
+	<div class="col-md-2">
+		<ul class="listing extended-radio">
+			<li class="has-core">Extended data</li>
+		</ul>
+	</div>
+	<div class="col-md-3">
+	</div>
+</div>
+-->
+<div class="row">
+	<div class="col-md-3">
+	<br/>
+	</div>
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-3">
+	</div>
+</div>
+
+<div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+	<div class="top-box button-container">
+<button name="action" class="button secondary radius expand survey-button" style="margin-bottom: 40px;" onclick='this.blur();redirectToModifiedUrl();' type="submit" value="plot" th:if="${collected == null}">
+    Back to Part 1
+</button>	
+<button name="action" class="button secondary radius expand survey-button" style="margin-bottom: 40px;" onclick='this.blur();next_part();' type="submit" value="plot" th:if="${collected == null}">
+    Save
+</button>	</div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script  type="text/javascript">
+function __main__() {
+//begin moca_team_why
+//condition display only if "no" is checked in item "moca_team"
+if (length("moca_team") > 0 ? isvisible("moca_team", true) : false )  
+{ if (check("moca_team","no"))  
+ show("moca_team_why",true,"null",null);  
+else hide("moca_team_why",true);  
+} else { 
+if (isvisible2("moca_team", false)) { 
+ if (check2("moca_team","no")) 
+  show("moca_team_why",false,"null",null); 
+ else  hide("moca_team_why",false); 
+  } else hide("moca_team_why",false); 
+ } 
+//end moca_team_why
+//begin upsit_team_why
+//condition display only if "no" is checked in item "upsit_team"
+if (length("upsit_team") > 0 ? isvisible("upsit_team", true) : false )  
+{ if (check("upsit_team","no"))  
+ show("upsit_team_why",true,"null",null);  
+else hide("upsit_team_why",true);  
+} else { 
+if (isvisible2("upsit_team", false)) { 
+ if (check2("upsit_team","no")) 
+  show("upsit_team_why",false,"null",null); 
+ else  hide("upsit_team_why",false); 
+  } else hide("upsit_team_why",false); 
+ } 
+//end upsit_team_why
+//begin rbd_team_why
+//condition display only if "no" is checked in item "rbd_team"
+if (length("rbd_team") > 0 ? isvisible("rbd_team", true) : false )  
+{ if (check("rbd_team","no"))  
+ show("rbd_team_why",true,"null",null);  
+else hide("rbd_team_why",true);  
+} else { 
+if (isvisible2("rbd_team", false)) { 
+ if (check2("rbd_team","no")) 
+  show("rbd_team_why",false,"null",null); 
+ else  hide("rbd_team_why",false); 
+  } else hide("rbd_team_why",false); 
+ } 
+//end rbd_team_why
+//begin quip_team_why
+//condition display only if "no" is checked in item "quip_team"
+if (length("quip_team") > 0 ? isvisible("quip_team", true) : false )  
+{ if (check("quip_team","no"))  
+ show("quip_team_why",true,"null",null);  
+else hide("quip_team_why",true);  
+} else { 
+if (isvisible2("quip_team", false)) { 
+ if (check2("quip_team","no")) 
+  show("quip_team_why",false,"null",null); 
+ else  hide("quip_team_why",false); 
+  } else hide("quip_team_why",false); 
+ } 
+//end quip_team_why
+//begin epw_sleep_sc_team_why
+//condition display only if "no" is checked in item "epw_sleep_sc_team"
+if (length("epw_sleep_sc_team") > 0 ? isvisible("epw_sleep_sc_team", true) : false )  
+{ if (check("epw_sleep_sc_team","no"))  
+ show("epw_sleep_sc_team_why",true,"null",null);  
+else hide("epw_sleep_sc_team_why",true);  
+} else { 
+if (isvisible2("epw_sleep_sc_team", false)) { 
+ if (check2("epw_sleep_sc_team","no")) 
+  show("epw_sleep_sc_team_why",false,"null",null); 
+ else  hide("epw_sleep_sc_team_why",false); 
+  } else hide("epw_sleep_sc_team_why",false); 
+ } 
+//end epw_sleep_sc_team_why
+//begin ger_depr_sc_team_why
+//condition display only if "no" is checked in item "ger_depr_sc_team"
+if (length("ger_depr_sc_team") > 0 ? isvisible("ger_depr_sc_team", true) : false )  
+{ if (check("ger_depr_sc_team","no"))  
+ show("ger_depr_sc_team_why",true,"null",null);  
+else hide("ger_depr_sc_team_why",true);  
+} else { 
+if (isvisible2("ger_depr_sc_team", false)) { 
+ if (check2("ger_depr_sc_team","no")) 
+  show("ger_depr_sc_team_why",false,"null",null); 
+ else  hide("ger_depr_sc_team_why",false); 
+  } else hide("ger_depr_sc_team_why",false); 
+ } 
+//end ger_depr_sc_team_why
+//begin st_tr_anx_inv_team_why
+//condition display only if "no" is checked in item "st_tr_anx_inv_team"
+if (length("st_tr_anx_inv_team") > 0 ? isvisible("st_tr_anx_inv_team", true) : false )  
+{ if (check("st_tr_anx_inv_team","no"))  
+ show("st_tr_anx_inv_team_why",true,"null",null);  
+else hide("st_tr_anx_inv_team_why",true);  
+} else { 
+if (isvisible2("st_tr_anx_inv_team", false)) { 
+ if (check2("st_tr_anx_inv_team","no")) 
+  show("st_tr_anx_inv_team_why",false,"null",null); 
+ else  hide("st_tr_anx_inv_team_why",false); 
+  } else hide("st_tr_anx_inv_team_why",false); 
+ } 
+//end st_tr_anx_inv_team_why
+//begin scopa_aut_team_why
+//condition display only if "no" is checked in item "scopa_aut_team"
+if (length("scopa_aut_team") > 0 ? isvisible("scopa_aut_team", true) : false )  
+{ if (check("scopa_aut_team","no"))  
+ show("scopa_aut_team_why",true,"null",null);  
+else hide("scopa_aut_team_why",true);  
+} else { 
+if (isvisible2("scopa_aut_team", false)) { 
+ if (check2("scopa_aut_team","no")) 
+  show("scopa_aut_team_why",false,"null",null); 
+ else  hide("scopa_aut_team_why",false); 
+  } else hide("scopa_aut_team_why",false); 
+ } 
+//end scopa_aut_team_why
+//begin csf_com
+//condition display only if "not feasible" is checked in item "csf"
+if (length("csf") > 0 ? isvisible("csf", true) : false )  
+{ if (check("csf","not feasible"))  
+ show("csf_com",true,"null",null);  
+else hide("csf_com",true);  
+} else { 
+if (isvisible2("csf", false)) { 
+ if (check2("csf","not feasible")) 
+  show("csf_com",false,"null",null); 
+ else  hide("csf_com",false); 
+  } else hide("csf_com",false); 
+ } 
+//end csf_com
+//begin ser_blood_com
+//condition display only if "not feasible" is checked in item "ser_blood"
+if (length("ser_blood") > 0 ? isvisible("ser_blood", true) : false )  
+{ if (check("ser_blood","not feasible"))  
+ show("ser_blood_com",true,"null",null);  
+else hide("ser_blood_com",true);  
+} else { 
+if (isvisible2("ser_blood", false)) { 
+ if (check2("ser_blood","not feasible")) 
+  show("ser_blood_com",false,"null",null); 
+ else  hide("ser_blood_com",false); 
+  } else hide("ser_blood_com",false); 
+ } 
+//end ser_blood_com
+//begin edta_blood_com
+//condition display only if "not feasible" is checked in item "edta_blood"
+if (length("edta_blood") > 0 ? isvisible("edta_blood", true) : false )  
+{ if (check("edta_blood","not feasible"))  
+ show("edta_blood_com",true,"null",null);  
+else hide("edta_blood_com",true);  
+} else { 
+if (isvisible2("edta_blood", false)) { 
+ if (check2("edta_blood","not feasible")) 
+  show("edta_blood_com",false,"null",null); 
+ else  hide("edta_blood_com",false); 
+  } else hide("edta_blood_com",false); 
+ } 
+//end edta_blood_com
+//begin rna_com
+//condition display only if "not feasible" is checked in item "rna"
+if (length("rna") > 0 ? isvisible("rna", true) : false )  
+{ if (check("rna","not feasible"))  
+ show("rna_com",true,"null",null);  
+else hide("rna_com",true);  
+} else { 
+if (isvisible2("rna", false)) { 
+ if (check2("rna","not feasible")) 
+  show("rna_com",false,"null",null); 
+ else  hide("rna_com",false); 
+  } else hide("rna_com",false); 
+ } 
+//end rna_com
+//begin pbmcs_com
+//condition display only if "not feasible" is checked in item "pbmcs"
+if (length("pbmcs") > 0 ? isvisible("pbmcs", true) : false )  
+{ if (check("pbmcs","not feasible"))  
+ show("pbmcs_com",true,"null",null);  
+else hide("pbmcs_com",true);  
+} else { 
+if (isvisible2("pbmcs", false)) { 
+ if (check2("pbmcs","not feasible")) 
+  show("pbmcs_com",false,"null",null); 
+ else  hide("pbmcs_com",false); 
+  } else hide("pbmcs_com",false); 
+ } 
+//end pbmcs_com
+minimum_part_filled_out();
+    } __main__(); 
+$('#upsit_team,input[name="upsit_team"]').on('change', function() {if (length("upsit_team") > 0 ? isvisible("upsit_team", true) : false )  
+{ if (check("upsit_team","no"))  
+ show("upsit_team_why",true,"null",null);  
+else hide("upsit_team_why",true);  
+} else { 
+if (isvisible2("upsit_team", false)) { 
+ if (check2("upsit_team","no")) 
+  show("upsit_team_why",false,"null",null); 
+ else  hide("upsit_team_why",false); 
+  } else hide("upsit_team_why",false); 
+ } 
+});
+$('#epw_sleep_sc_team,input[name="epw_sleep_sc_team"]').on('change', function() {if (length("epw_sleep_sc_team") > 0 ? isvisible("epw_sleep_sc_team", true) : false )  
+{ if (check("epw_sleep_sc_team","no"))  
+ show("epw_sleep_sc_team_why",true,"null",null);  
+else hide("epw_sleep_sc_team_why",true);  
+} else { 
+if (isvisible2("epw_sleep_sc_team", false)) { 
+ if (check2("epw_sleep_sc_team","no")) 
+  show("epw_sleep_sc_team_why",false,"null",null); 
+ else  hide("epw_sleep_sc_team_why",false); 
+  } else hide("epw_sleep_sc_team_why",false); 
+ } 
+});
+$('#ger_depr_sc_team,input[name="ger_depr_sc_team"]').on('change', function() {if (length("ger_depr_sc_team") > 0 ? isvisible("ger_depr_sc_team", true) : false )  
+{ if (check("ger_depr_sc_team","no"))  
+ show("ger_depr_sc_team_why",true,"null",null);  
+else hide("ger_depr_sc_team_why",true);  
+} else { 
+if (isvisible2("ger_depr_sc_team", false)) { 
+ if (check2("ger_depr_sc_team","no")) 
+  show("ger_depr_sc_team_why",false,"null",null); 
+ else  hide("ger_depr_sc_team_why",false); 
+  } else hide("ger_depr_sc_team_why",false); 
+ } 
+});
+$('#scopa_aut_team,input[name="scopa_aut_team"]').on('change', function() {if (length("scopa_aut_team") > 0 ? isvisible("scopa_aut_team", true) : false )  
+{ if (check("scopa_aut_team","no"))  
+ show("scopa_aut_team_why",true,"null",null);  
+else hide("scopa_aut_team_why",true);  
+} else { 
+if (isvisible2("scopa_aut_team", false)) { 
+ if (check2("scopa_aut_team","no")) 
+  show("scopa_aut_team_why",false,"null",null); 
+ else  hide("scopa_aut_team_why",false); 
+  } else hide("scopa_aut_team_why",false); 
+ } 
+});
+$('#rna,input[name="rna"]').on('change', function() {if (length("rna") > 0 ? isvisible("rna", true) : false )  
+{ if (check("rna","not feasible"))  
+ show("rna_com",true,"null",null);  
+else hide("rna_com",true);  
+} else { 
+if (isvisible2("rna", false)) { 
+ if (check2("rna","not feasible")) 
+  show("rna_com",false,"null",null); 
+ else  hide("rna_com",false); 
+  } else hide("rna_com",false); 
+ } 
+});
+$('#edta_blood,input[name="edta_blood"]').on('change', function() {if (length("edta_blood") > 0 ? isvisible("edta_blood", true) : false )  
+{ if (check("edta_blood","not feasible"))  
+ show("edta_blood_com",true,"null",null);  
+else hide("edta_blood_com",true);  
+} else { 
+if (isvisible2("edta_blood", false)) { 
+ if (check2("edta_blood","not feasible")) 
+  show("edta_blood_com",false,"null",null); 
+ else  hide("edta_blood_com",false); 
+  } else hide("edta_blood_com",false); 
+ } 
+});
+$('#st_tr_anx_inv_team,input[name="st_tr_anx_inv_team"]').on('change', function() {if (length("st_tr_anx_inv_team") > 0 ? isvisible("st_tr_anx_inv_team", true) : false )  
+{ if (check("st_tr_anx_inv_team","no"))  
+ show("st_tr_anx_inv_team_why",true,"null",null);  
+else hide("st_tr_anx_inv_team_why",true);  
+} else { 
+if (isvisible2("st_tr_anx_inv_team", false)) { 
+ if (check2("st_tr_anx_inv_team","no")) 
+  show("st_tr_anx_inv_team_why",false,"null",null); 
+ else  hide("st_tr_anx_inv_team_why",false); 
+  } else hide("st_tr_anx_inv_team_why",false); 
+ } 
+});
+$('#quip_team,input[name="quip_team"]').on('change', function() {if (length("quip_team") > 0 ? isvisible("quip_team", true) : false )  
+{ if (check("quip_team","no"))  
+ show("quip_team_why",true,"null",null);  
+else hide("quip_team_why",true);  
+} else { 
+if (isvisible2("quip_team", false)) { 
+ if (check2("quip_team","no")) 
+  show("quip_team_why",false,"null",null); 
+ else  hide("quip_team_why",false); 
+  } else hide("quip_team_why",false); 
+ } 
+});
+$('#pbmcs,input[name="pbmcs"]').on('change', function() {if (length("pbmcs") > 0 ? isvisible("pbmcs", true) : false )  
+{ if (check("pbmcs","not feasible"))  
+ show("pbmcs_com",true,"null",null);  
+else hide("pbmcs_com",true);  
+} else { 
+if (isvisible2("pbmcs", false)) { 
+ if (check2("pbmcs","not feasible")) 
+  show("pbmcs_com",false,"null",null); 
+ else  hide("pbmcs_com",false); 
+  } else hide("pbmcs_com",false); 
+ } 
+});
+$('#ser_blood,input[name="ser_blood"]').on('change', function() {if (length("ser_blood") > 0 ? isvisible("ser_blood", true) : false )  
+{ if (check("ser_blood","not feasible"))  
+ show("ser_blood_com",true,"null",null);  
+else hide("ser_blood_com",true);  
+} else { 
+if (isvisible2("ser_blood", false)) { 
+ if (check2("ser_blood","not feasible")) 
+  show("ser_blood_com",false,"null",null); 
+ else  hide("ser_blood_com",false); 
+  } else hide("ser_blood_com",false); 
+ } 
+});
+$('#rbd_team,input[name="rbd_team"]').on('change', function() {if (length("rbd_team") > 0 ? isvisible("rbd_team", true) : false )  
+{ if (check("rbd_team","no"))  
+ show("rbd_team_why",true,"null",null);  
+else hide("rbd_team_why",true);  
+} else { 
+if (isvisible2("rbd_team", false)) { 
+ if (check2("rbd_team","no")) 
+  show("rbd_team_why",false,"null",null); 
+ else  hide("rbd_team_why",false); 
+  } else hide("rbd_team_why",false); 
+ } 
+});
+$('#csf,input[name="csf"]').on('change', function() {if (length("csf") > 0 ? isvisible("csf", true) : false )  
+{ if (check("csf","not feasible"))  
+ show("csf_com",true,"null",null);  
+else hide("csf_com",true);  
+} else { 
+if (isvisible2("csf", false)) { 
+ if (check2("csf","not feasible")) 
+  show("csf_com",false,"null",null); 
+ else  hide("csf_com",false); 
+  } else hide("csf_com",false); 
+ } 
+});
+$('#moca_team,input[name="moca_team"]').on('change', function() {if (length("moca_team") > 0 ? isvisible("moca_team", true) : false )  
+{ if (check("moca_team","no"))  
+ show("moca_team_why",true,"null",null);  
+else hide("moca_team_why",true);  
+} else { 
+if (isvisible2("moca_team", false)) { 
+ if (check2("moca_team","no")) 
+  show("moca_team_why",false,"null",null); 
+ else  hide("moca_team_why",false); 
+  } else hide("moca_team_why",false); 
+ } 
+});
+
+</script>
+</body>
+</html>

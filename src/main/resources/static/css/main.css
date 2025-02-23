@@ -1,0 +1,174 @@
+.border {
+	background-image:url(../images/border.png);
+}
+
+/* Changes on navigation bar */
+.navbar-default {
+	background-color:#FFFFFF;
+}
+
+.container-fluid {
+    padding: 0px 0px 0px 0px !important;
+}
+
+.nav {
+	padding-top:15px;
+}
+
+.navbar-header {
+	height:80px;
+}
+
+.navbar-brand-placeholder {
+    padding: 0px 33px 0px 0px !important ;
+}
+
+.remove-left-right-padding {
+	padding-left:0px !important ;
+	padding-right:0px !important ;
+}
+
+.remove-right-padding {
+	padding-right:0px !important ;
+}
+
+
+.width-less-1200px {
+	max-width:1200px;
+}
+
+.part1 {
+	min-height:615px !important;
+	background-image:url(../images/sailfish.png);
+	background-repeat:no-repeat;
+	background-position: right;
+}
+
+.part2 {
+	background-color:#3498DB;
+	min-height:400px !important;
+}
+
+.part4 {
+	background-color:#222A38;
+	min-height:200px !important;
+}
+
+
+.part3 {
+	min-height:400px !important;
+}
+
+
+.main-logo {
+	margin: 0px 0px !important;
+	height: 74px;
+	width: 63px;
+}
+
+.main-navbar {
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+	margin-bottom: 0px !important;
+	min-height: 74px !important;
+}
+
+#topNavBar {
+	height:20px;
+}
+
+.span-vertical-align {
+	position: absolute;    top: 50%;    left: 50%;    height: 60%;  width: 80%; margin: -21% 0 0 -40%;
+}
+
+
+/* Landscape - телефоны */
+@media (max-width: 480px) {
+	.placeholder-160 {
+		width:100%;
+	}
+
+	.delimeter {
+		width:0px;
+	}
+	.signIn {
+		text-align: left;
+	}
+	.signIn a{
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+	.signUp {
+		text-align: left;
+	}
+	.signUp a{
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+	.nav {
+		margin-top: 0px !important;
+	}
+	.navbar-nav {
+		padding-top: 0px !important;
+		margin-top: 0px !important;
+	}
+}
+ 
+/* От ландшафтного экрана телефона до потретного планшета */
+@media (max-width: 767px) {
+	.placeholder-160 {
+		width:100%;
+	}
+	.delimeter {
+		width:0px;
+	}
+	.signIn {
+		text-align: left;
+	}
+	.signIn a{
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+	.signUp {
+		text-align: left;
+	}
+	.signUp a{
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+	.nav {
+		margin-top: 0px !important;
+	}
+	.navbar-nav {
+		padding-top: 0px !important;
+		margin-top: 0px !important;
+	}
+}
+ 
+/* От портретного планшета до ландшафтного экрана и настольных дисплеев */
+@media (min-width: 768px) and (max-width: 979px) {
+	.placeholder-160 {
+		width:160px;
+       	text-align:center;
+	}
+	.delimeter {
+		background-color:#000000;
+		width:1px;
+		min-height: 20px;
+		margin-top: 15px;
+	}
+}
+ 
+/* Большой дисплей */
+@media (min-width: 1200px) {
+	.placeholder-160 {
+		width:160px;
+       	text-align:center;
+	}
+	.delimeter {
+		background-color:#000000;
+		width:1px;
+		min-height: 20px;
+		margin-top: 15px;
+	}
+}

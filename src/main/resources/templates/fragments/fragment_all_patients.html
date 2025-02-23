@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div th:fragment="metaAnalyse">
+            <!-- Fragment: Meta analyse -->
+            <tr>
+              <td><a th:href="@{meta_analyses/{meta_analyses_id}/edit(meta_analyses_id=${record.meta_analyses_id})}" th:text="${record.meta_analyses_name}"></a></td>
+              <td><a th:href="@{meta_analyses/{meta_analyses_id}/studies/new(meta_analyses_id=${record.meta_analyses_id})}"><i class="fi-plus"></i></a></td>
+              <td></td>
+              <td><a data-confirm="Are you sure?" style="color: #ac202d" rel="nofollow" data-method="delete"
+                     th:href="@{meta_analyses/{meta_analyses_id}(meta_analyses_id=${record.meta_analyses_id})}"><i class="fi-x"></i></a></td>
+            </tr>
+    </div>
+    <div th:fragment="study">
+            <!-- Fragment: Study -->
+            <tr>
+              <td></td>
+              <td><a th:href="@{studies/{studies_id}/edit(studies_id=${record.studies_id})}" th:text="${record.studies_name}"></a></td>
+              <td><a th:href="@{studies/{studies_id}/patients/new(studies_id=${record.studies_id})}"><i class="fi-plus"></i></a></td>
+              <td><a data-confirm="Are you sure?" style="color: #ac202d" rel="nofollow" data-method="delete"
+                     href="@{studies/{studies_id}(studies_id=${record.studies_id})}"><i class="fi-x"></i></a></td>
+            </tr>
+    </div>
+    <div th:fragment="patient">
+            <!-- Fragment: Patient -->
+            <tr>
+              <td></td>
+              <td></td>
+              <td><a th:href="@{patients/{patients_id}/edit(patients_id=${record.patients_id})}" th:text="${record.patients_name}"></a></td>
+              <td><a data-confirm="Are you sure?" style="color: #ac202d" rel="nofollow" data-method="delete"
+                     href="@{patients/{patients_id}(patients_id=${record.patients_id})}"><i class="fi-x"></i></a></td>
+            </tr>
+    </div>
+  </body>
+</html>

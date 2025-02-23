@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Navigation Bar 1</title>
+    <style>
+        .status-complete { background-color: green; }
+        .status-in-progress { background-color: yellow; }
+        .status-not-started { background-color: grey; }
+    </style>
+</head>
+<body>
+<th:block th:fragment="navbar(navbarNumber)">
+    <nav class="nav-justified" style="font-size: 22px; font-weight: bold; display: flex; justify-content: space-between;">
+        <!-- Links for the first range (1-5) -->
+        <th:block th:if="${navbarNumber == 1 or navbarNumber == 2 or navbarNumber == 3 or navbarNumber == 4 or navbarNumber == 5}">
+        <a th:href="@{'/informed-consent/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 1} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="0" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">Informed Consent</a>
+        <a th:href="@{'/in-ex/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 2} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="1" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">IN/EX</a>
+        <a th:href="@{'/biomaterials/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 3} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="2" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">Biomaterials</a>
+        <a th:href="@{'/csf/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 4} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="3" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">CSF</a>
+        <a th:href="@{'/imaging/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 5} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="4" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">Imaging</a>
+        <!-- Next button -->
+        <a th:href="@{'/med-history/' + ${surveyTwoId}}" class="button secondary radius expand survey-button" style="width: 8%; height: 50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+        <!-- Links for the second range (6-10) -->
+        <th:block th:if="${navbarNumber == 6 or navbarNumber == 7 or navbarNumber == 8 or navbarNumber == 9 or navbarNumber == 10}">
+            <!-- Previous button -->
+        <a th:href="@{'/imaging/' + ${surveyTwoId}}" class="button secondary radius expand survey-button" style="width: 8%; height: 50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/med-history/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 6} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="5" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">Med. History</a>
+        <a th:href="@{'/fh/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 7} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="6" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">FH</a>
+        <a th:href="@{'/demographics/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 8} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="7" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">Demographics</a>
+        <a th:href="@{'/ledd/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 9} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="8" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">LEDD</a>
+        <a th:href="@{'/treatments/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 10} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="9" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">Treatments</a>
+        <!-- Next button -->
+        <a th:href="@{'/exam/' + ${surveyTwoId}}" class="button secondary radius expand survey-button" style="width: 8%; height: 50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+        <!-- Links for the third range (11-15) -->
+        <th:block th:if="${navbarNumber == 11 or navbarNumber == 12 or navbarNumber == 13 or navbarNumber == 14 or navbarNumber == 15}">
+            <!-- Previous button -->
+        <a th:href="@{'/treatments/' + ${surveyTwoId}}" class="button secondary radius expand survey-button" style="width: 8%; height: 50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/exam/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 11} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="10" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">Exam</a>
+        <a th:href="@{'/vital-signs/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 12} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="11" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">Vital Signs</a>
+        <a th:href="@{'/pd-history/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 13} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="12" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">PD History</a>
+        <a th:href="@{'/mdsupdrs-i/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 14} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="13" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">MDS-UPDRS I</a>
+        <a th:href="@{'/mdsupdrs-pat-i-ii/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 15} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="14" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">MDS-UPDRS Pat I II</a>
+        <!-- Next button -->
+        <a th:href="@{'/mdsupdrs-iii/' + ${surveyTwoId}}" class="button secondary radius expand survey-button" style="width: 8%; height: 50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+        <!-- Links for the fourth range (16-20) -->
+        <th:block th:if="${navbarNumber == 16 or navbarNumber == 17 or navbarNumber == 18 or navbarNumber == 19 or navbarNumber == 20}">
+            <!-- Previous button -->
+        <a th:href="@{'/mdsupdrs-pat-i-ii/' + ${surveyTwoId}}" class="button secondary radius expand survey-button" style="width: 8%; height: 50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/mdsupdrs-iii/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 16} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="15" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">MDS-UPDRS III</a>
+        <a th:href="@{'/mdsupdrs-iv/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 17} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="16" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">MDS-UPDRS IV</a>
+        <a th:href="@{'/moca/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 18} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="17" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">MOCA</a>
+        <a th:href="@{'/upsit/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 19} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="18" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">UPSIT</a>
+        <a th:href="@{'/rbd/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 20} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="19" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">RBD</a>
+        <!-- Next button -->
+        <a th:href="@{'/quip/' + ${surveyTwoId}}" class="button secondary radius expand survey-button" style="width: 8%; height: 50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+        <!-- Links for the fifth range (21-26) -->
+        <th:block th:if="${navbarNumber == 21 or navbarNumber == 22 or navbarNumber == 23 or navbarNumber == 24 or navbarNumber == 25 or navbarNumber == 26}">
+        <!-- Previous button -->
+        <a th:href="@{'/rbd/' + ${surveyTwoId}}" class="button secondary radius expand survey-button" style="width: 8%; height: 50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/quip/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 21} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="20" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">QUIP</a>
+        <a th:href="@{'/ess/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 22} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="21" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">ESS</a>
+        <a th:href="@{'/gds/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 23} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="22" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">GDS</a>
+        <a th:href="@{'/stai-s/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 24} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="23" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">STAI-S</a>
+        <a th:href="@{'/stai-t/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 25} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="24" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">STAI-T</a>
+        <a th:href="@{'/scopa-aut/' + ${surveyTwoId}}" th:classappend="${navbarNumber == 26} ? ' active-tab'" class="nav-link less-bold-left-justified status-button" data-index="25" style="width:20%; height:50px; display:flex; align-items:center; justify-content:center;">SCOPA-AUT</a>
+        </th:block>
+    </nav>
+
+    <!-- Скрипт для обновления цветов кнопок -->
+    <script th:inline="javascript">
+        const surveyId = /*[[${surveyTwoId}]]*/ '';
+        const statusButtons = document.querySelectorAll('.status-button');
+
+        function updateButtonColors() {
+            if (document.hidden) return;
+            console.log('Вызов updateButtonColors'); // для отладки
+            fetch('/survey/get-status-colors', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: 'surveyId=' + encodeURIComponent(surveyId)
+            })
+            .then(response => response.json())
+            .then(colors => {
+                statusButtons.forEach(button => {
+                    const index = button.getAttribute('data-index');
+                    const color = colors[index];
+                    button.classList.remove('status-complete', 'status-in-progress', 'status-not-started');
+                    if (color === 'green') {
+                        button.classList.add('status-complete');
+                    } else if (color === 'yellow') {
+                        button.classList.add('status-in-progress');
+                    } else {
+                        button.classList.add('status-not-started');
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching status colors:', error));
+        }
+
+        // Вызов сразу, если DOM уже загружен
+        updateButtonColors();
+
+        // А также при переходе страницы в активное состояние:
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                updateButtonColors();
+            }
+        });
+
+        // Пример использования MutationObserver
+        const targetNode = document.getElementById('some-element');
+        const observerOptions = {
+            childList: true,
+            subtree: true
+        };
+
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                console.log('Mutation detected:', mutation);
+            });
+        });
+
+        observer.observe(targetNode, observerOptions);
+    </script>
+</th:block>
+</body>
+</html>

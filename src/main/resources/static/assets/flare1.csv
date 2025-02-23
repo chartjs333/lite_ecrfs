@@ -1,0 +1,35 @@
+id,value
+mdsgene,
+mdsgene.published,
+mdsgene.published.Dystonia (DYT),
+mdsgene.published.Dystonia (DYT).ANO3,1000
+mdsgene.published.Dystonia (DYT).GNAL,1001
+mdsgene.published.Dystonia (DYT).KMT2B,1002
+mdsgene.published.Dystonia (DYT).THAP1,1003
+mdsgene.published.Dystonia (DYT).TOR1A,1004
+mdsgene.unpublished,
+mdsgene.unpublished.Dystonia/Parkinsonism (DYT/PARK),
+mdsgene.unpublished.Dystonia/Parkinsonism (DYT/PARK).XDP*,11005
+mdsgene.published.Dystonia/Parkinsonism (DYT/PARK),
+mdsgene.published.Dystonia/Parkinsonism (DYT/PARK).SLC30A10,1006
+mdsgene.published.Dystonia/Parkinsonism (DYT/PARK).TAF1,1007
+mdsgene.published.Parkinsonism (PARK),
+mdsgene.published.Parkinsonism (PARK).ATP13A2,1008
+mdsgene.published.Parkinsonism (PARK).DJ1,1009
+mdsgene.published.Parkinsonism (PARK).DNAJC6,1010
+mdsgene.published.Parkinsonism (PARK).FBXO7,1011
+mdsgene.published.Parkinsonism (PARK).LRRK2,1012
+mdsgene.published.Parkinsonism (PARK).Parkin,1013
+mdsgene.published.Parkinsonism (PARK).PINK1,1014
+mdsgene.published.Parkinsonism (PARK).SNCA,1015
+mdsgene.published.Parkinsonism (PARK).SYNJ1,1016
+mdsgene.published.Parkinsonism (PARK).VPS35,1017
+mdsgene.published.Paroxysmal movement disorder (PxMD),
+mdsgene.published.Paroxysmal movement disorder (PxMD).PNKD,1018
+mdsgene.published.Paroxysmal movement disorder (PxMD).PRRT2,1019
+mdsgene.published.Paroxysmal movement disorder (PxMD).SLC2A1,1020
+mdsgene.published.Primary familial brain calcification (PFBC),
+mdsgene.published.Primary familial brain calcification (PFBC).PDGFB,1021
+mdsgene.published.Primary familial brain calcification (PFBC).PDGFRB,1022
+mdsgene.published.Primary familial brain calcification (PFBC).SLC20A2,1023
+mdsgene.published.Primary familial brain calcification (PFBC).XPR1,1024

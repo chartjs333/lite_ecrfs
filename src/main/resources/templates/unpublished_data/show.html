@@ -1,0 +1,74 @@
+
+<div class="row">
+	<div class="small-12 text-left columns">
+		<h5 id="modalTitle">Unpublished data:</h5>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns">
+		<p style="margin-bottom: 0.25rem;">Contact person</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns">
+		<p style="margin-bottom: 0.25rem;">Christine Klein</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns">
+		<p style="margin-bottom: 0.25rem;">Disease</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns">
+		<p style="margin-bottom: 0.25rem;" th:text="${overview.disease.name}">Christine Klein</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns">
+		<p style="margin-bottom: 0.25rem;">Gene</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns">
+		<p style="margin-bottom: 0.25rem;" th:text="${overview.gene.name}">Christine Klein</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns">
+		<p style="margin-bottom: 0.25rem;">Patients count:</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns">
+		<p style="margin-bottom: 0.25rem;" th:text="${overview.total_count}">Christine Klein</p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-6 columns">
+		<p style="margin-bottom: 0.25rem;">Details:</p>
+	</div>
+	<div class="small-12 medium-6 text-left columns">
+		<a style="margin-bottom: 0.25rem;" th:href="${'/d/' + overview.disease.id + '/gu/' + overview.gene.id}">?</a>
+	</div>
+</div>
+
+<div class="row" th:if="${charts != null}">
+  <div class="small-8 columns" th:if="${charts.lstRepeatsCount  != null}">
+    <ul class="small-block-grid-1 medium-block-grid-2">
+      <li><div id="chart-1" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+      <script th:inline="javascript">
+  	/*<![CDATA[*/      
+      var repeats_count = /*[[${charts.lstRepeatsCount}]]*/;
+      new Chartkick.ColumnChart("chart-1", repeats_count, {"colors":["#ac202d"],"library":{"title":{"text":"Repeats count","style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{"text":""},"xAxis":{"title":{"text":"Repeats count","align":"high","margin":8,"style":{"color":"#585a5a"}}},"tooltip":{"pointFormat":"\u003cb\u003e{point.y}\u003c/b\u003e patient(s)"},"yAxis":{"allowDecimals":false,"tickPixelInterval":30,"title":{"text":"Number of patients","align":"high","style":{"color":"#585a5a"}}}}});
+	  /*]]>*/
+      </script>
+</li>
+    </ul>
+    </div>
+  <div class="small-8 columns"  th:if="${charts.lstAAOCount != null}">
+    <ul class="small-block-grid-1 medium-block-grid-2">
+      <li><div id="chart-2" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+      <script th:inline="javascript">
+  	/*<![CDATA[*/ 
+		var aao_count = /*[[${charts.lstAAOCount}]]*/;    
+		new Chartkick.ColumnChart("chart-2", aao_count, {"colors":["#ac202d"],"library":{"title":{"text":"Age at onset","style":{"color":"#585a5a","fontSize":"14px"}},"subtitle":{"text":""},"xAxis":{"title":{"text":"AAO count","align":"high","margin":8,"style":{"color":"#585a5a"}}},"tooltip":{"pointFormat":"\u003cb\u003e{point.y}\u003c/b\u003e patient(s)"},"yAxis":{"allowDecimals":false,"tickPixelInterval":30,"title":{"text":"Number of patients","align":"high","style":{"color":"#585a5a"}}}}});
+		/*]]>*/
+		</script>
+</li>
+    </ul>
+    </div>
+ </div>
+<a aria-label="Close" class="close-reveal-modal">×</a>

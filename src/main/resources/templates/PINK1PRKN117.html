@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title> MDS-UPDRS I-IV ON</title>
+<!-- css files -->
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
+<link rel="stylesheet" type="text/css" href="../fonts/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/registration-style.css"/>
+<link rel="stylesheet" type="text/css" href="../css/elements.css"/>
+<!-- Bootstrap Timepicker CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../css/check-ecrf-minimal.css"/>
+<!-- jquery library --> 
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script> 
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/survey.js"></script>
+<!-- Bootstrap Timepicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../js/check-ecrf-minimal.js"></script>
+<script  type="text/javascript">
+$(document).ready(function(){     $('.timepicker').timepicker({
+        showInputs: false,
+        showMeridian: false
+    });});
+</script>
+<style>
+#logo {
+    display: block;
+    margin: auto;
+}
+.minimal-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.core-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-group.has-minimal > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.form-group.has-core > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.progress .progress-bar {
+    background-image: linear-gradient(to bottom, #E07800 0, #E07800 100%) !important;
+}
+.survey-button {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Arial',Arial,sans-serif;
+    line-height: 1.55;
+    font-weight: 600;
+    border-width: 2px;
+    border-radius: 6px;
+    background-color: #3A91B6;
+    background-position: center center;
+    border-color: #3A91B6;
+    border-style: solid;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.has-minimal .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.has-core .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+
+
+.header-label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subheader {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.move-up-first-header {
+    margin-top: 70px;
+}
+
+
+.move-down-header {
+    margin-bottom: 35px;
+}
+
+
+.move-up-header {
+    margin-top: 55px;
+}
+
+
+.move-down-subheader {
+    margin-bottom: 10px;
+}
+
+
+.move-up-subheader {
+    margin-top: 40px;
+}
+
+.move-up-yes-no {
+    margin-top: 5px;
+}
+
+.move-down-yes-no {
+    margin-bottom: 30px;
+}
+
+.move-down-text {
+    margin-bottom: 30px;
+}
+
+h4 {
+    line-height: 1.78;
+    margin: 0 auto;
+    width: 70%;
+    margin-bottom: 40px;
+}
+
+.active-tab {
+    background-color: #23527c!important;
+    color: #fff!important;
+}
+
+.less-bold-left-justified {
+    text-align: left!important;
+    /*padding-left: 30px!important;*/
+    color: #000; /* replace it with your color code */
+    font-size: 20px; /* adjust based on your needs */
+    font-weight: normal; /* Use 'bold' for bold font, 'normal' for less bold  */
+}
+
+nav.navbar-nav {
+    margin-bottom: 50px;
+}
+
+.instruction {
+    font-weight: normal;
+}
+
+.nav-justified {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.specific-list li {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.specific-list input[type="radio"] {
+    margin-right: 5px;
+}
+
+.specific-list label {
+    display: flex;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot');
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.completed {
+     color: green;
+ }
+.uncompleted {
+    color: red;
+}
+
+</style>
+</head>
+
+<body>
+<img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database" src="../assets/fmjfox.png" />
+<div class="registration-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+<div style="font-size: 18px;color: #8a6d3b; background-color: antiquewhite; border: burlywood 3px solid;border-radius: 5px;">
+    <div style="padding: 10px 10px 0px">
+        Data entered into this eCRF are automatically saved
+    </div>
+    <div style="padding: 0px 10px 10px">
+        The contributor will also be able to return at a future date to view
+        and/or edit the eCRF should new information regarding the patient/family become available
+    </div>
+</div>
+        <br/>
+        <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+          <span style="color: #133957" th:text="${'Local ID: ' + centerId}" th:if="${centerId}"></span><br/>
+          <span style="color: #133957" th:text="${'Project ID: ' + projectId}" th:if="${projectId}"></span>
+</div>
+        <form accept-charset="UTF-8" class="registration-form onlyForm" method="post" th:object="${formObj}" th:id="${formObj.surveyTwoId}" >
+<input type='hidden' id="filling_status" th:field="${formObj.fillingStatus}"/><div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">        <div class="top-box text-left">
+          <h2 class="title">MDSUPDRS I</h2>
+        </div>  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%;background-image: linear-gradient(to bottom,#33A371 0,#33A371 100%)">
+      <span class="sr-only">0% Complete</span>
+    </div>
+  </div>
+	<div class="alert alert-warning" role="alert">
+  	   <strong>Warning:</strong> The minimal dataset is not complete yet. Please be reminded that to complete the minimal dataset is mandatory in order to have samples processed for analysis. Please continue or come back when you can complete at least the minimal dataset.
+	</div>
+</div>          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-first-header move-down-header" >
+                <label id="mdsupdrs_headline2" class="header-label">Part I: Non-Motor Aspects of Experiences of Daily Living (nM-EDL)</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="mdsupdrs_overview" class="instruction">Overview: This portion of the scale assesses the non-motor impact of Parkinson's disease (PD) on patients’ experiences of daily living. There are 13 questions. Part IA is administered by the rater (six questions) and focuses on complex behaviors. Part IB is a component of the self-administered Patient Questionnaire that covers seven questions on non-motor experiences of daily living.</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-header move-up-header" >
+                <label id="mdsupdrs_headline3" class="header-label">Part IA: Complex bahaviors</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="mdsupdrs_part_ia_guidelines" class="instruction">In administering Part IA, the examiner should use the following guidelines:
+
+
+1. Mark at the top of the form the primary data source as patient, caregiver, or patient and caregiver in equal proportion.
+2. The response to each item should refer to a period encompassing the prior week including the day on which the information is collected.
+3. All items must have an integer rating (no half points, no missing scores). In the event that an item does not apply or cannot be rated (e.g., amputee who cannot walk), the item is marked "UR" for Unable to Rate.
+4. The answers should reflect the usual level of function and words such as “usually”, “generally”, “most of the time” can be used with patients.
+5. Each question has a text for you to read (Instructions to patients/caregiver). After that statement, you can elaborate and probe based on the target symptoms outlined in the Instructions to examiner. You should NOT READ the RATING OPTIONS to the patient/caregiver, because these are written in medical terminology. From the interview and probing, you will use your medical judgment to arrive at the best response.
+6. Patients may have co-morbidities and other medical conditions that can affect their function. You and the patient must rate the problem as it exists and do not attempt to separate elements due to Parkinson’s disease from other conditions.</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="mdsupdrs_1_psi" class="" for="">Primary source of information</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_psi}" type="radio" name1="mdsupdrs_1_psi" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">Patient</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_psi}" type="radio" name1="mdsupdrs_1_psi" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Caregiver</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_psi}" type="radio" name1="mdsupdrs_1_psi" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> Patient and Caregiver in Equal Proportion</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="mdsupdrs_headline4" class="instruction">To be read to the patient: I am going to ask you six questions about behaviors that you may or may not experience. Some questions concern common problems and some concern uncommon ones. If you have a problem in one of the areas, please choose the best response that describes how you have felt MOST OF THE TIME during the PAST WEEK. If you are not bothered by a problem, you can simply respond NO. I am trying to be thorough, so I may ask questions that have nothing to do with you.</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-header move-up-header" >
+                <label id="mdsupdrs_1_1" class="header-label">Cognitive Impairment</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="mdsupdrs_1_1_instruction" class="instruction">Instructions to examiner: Consider all types of altered level of cognitive function including cognitive slowing, impaired reasoning, memory loss, deficits in attention and orientation. Rate their impact on activities of daily living as perceived by the patient and/or caregiver.
+Instructions to patient [and caregiver]: Over the past week have you had problems remembering things, following conversations, paying attention, thinking clearly, or finding your way around the house or in town? [If yes, examiner asks patient or caregiver to elaborate and probes for information.]</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="mdsupdrs_1_1_selection" class="" for=""></label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_1_selection}" type="radio" name1="mdsupdrs_1_1_selection" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">0 Normal</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_1_selection}" type="radio" name1="mdsupdrs_1_1_selection" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 1 Slight</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_1_selection}" type="radio" name1="mdsupdrs_1_1_selection" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 2 Mild</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_1_selection}" type="radio" name1="mdsupdrs_1_1_selection" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 3 Moderate</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_1_selection}" type="radio" name1="mdsupdrs_1_1_selection" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 4 Severe</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-header move-up-header" >
+                <label id="mdsupdrs_1_2" class="header-label">Hallucinations and Psychosis</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="mdsupdrs_1_2_instruction" class="instruction">Instructions to examiner: Consider both illusions (misinterpretations of real stimuli) and hallucinations (spontaneous false sensations). Consider all major sensory domains (visual, auditory, tactile, olfactory and gustatory). Determine presence of unformed (for example sense of presence or fleeting false impressions) as well as formed (fully developed and detailed) sensations. Rate the patient’s insight into hallucinations and identify delusions and psychotic thinking.
+Instructions to patient [and caregiver]: Over the past week have you seen, heard, smelled or felt things that were not really there? [If yes, examiner asks patient or caregiver to elaborate and probes for information.]</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="mdsupdrs_1_2_selection" class="" for=""></label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_2_selection}" type="radio" name1="mdsupdrs_1_2_selection" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">0 Normal</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_2_selection}" type="radio" name1="mdsupdrs_1_2_selection" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 1 Slight</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_2_selection}" type="radio" name1="mdsupdrs_1_2_selection" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 2 Mild</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_2_selection}" type="radio" name1="mdsupdrs_1_2_selection" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 3 Moderate</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_2_selection}" type="radio" name1="mdsupdrs_1_2_selection" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 4 Severe</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-header move-up-header" >
+                <label id="mdsupdrs_1_3" class="header-label">Depressed Mood</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="mdsupdrs_1_3_instruction" class="instruction">Instructions to examiner: Consider low mood, sadness, hopelessness, feelings of emptiness or loss of enjoyment. Determine their presence and duration over the past week and rate their interference with the patient’s ability to carry out daily routines and engage in social interactions.
+Instructions to patient [and caregiver]: Over the past week have you felt low, sad, hopeless or unable to enjoy things? If yes, was this feeling for longer than one day at a time? Did it make it difficult for you carry out your usual activities or to be with people? [If yes, examiner asks patient or caregiver to elaborate and probes for information.]</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="mdsupdrs_1_3_selection" class="" for=""></label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_3_selection}" type="radio" name1="mdsupdrs_1_3_selection" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">0 Normal</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_3_selection}" type="radio" name1="mdsupdrs_1_3_selection" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 1 Slight</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_3_selection}" type="radio" name1="mdsupdrs_1_3_selection" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 2 Mild</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_3_selection}" type="radio" name1="mdsupdrs_1_3_selection" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 3 Moderate</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_3_selection}" type="radio" name1="mdsupdrs_1_3_selection" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 4 Severe</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-header move-up-header" >
+                <label id="mdsupdrs_1_4" class="header-label">Anxious Mood</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="mdsupdrs_1_4_instruction" class="instruction">Instructions to examiner: Determine nervous, tense, worried or anxious feelings (including panic attacks) over the past week and rate their duration and interference with the patient’s ability to carry out daily routines and engage in social interactions.
+Instructions to patient [and caregiver]: Over the past week have you felt nervous, worried or tense? If yes, was this feeling for longer than one day at a time? Did it make it difficult for you to follow your usual activities or to be with other people? [If yes, examiner asks patient or caregiver to elaborate and probes for information.]</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="mdsupdrs_1_4_selection" class="" for=""></label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_4_selection}" type="radio" name1="mdsupdrs_1_4_selection" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">0 Normal</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_4_selection}" type="radio" name1="mdsupdrs_1_4_selection" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 1 Slight</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_4_selection}" type="radio" name1="mdsupdrs_1_4_selection" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 2 Mild</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_4_selection}" type="radio" name1="mdsupdrs_1_4_selection" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 3 Moderate</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_4_selection}" type="radio" name1="mdsupdrs_1_4_selection" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 4 Severe</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-header move-up-header" >
+                <label id="mdsupdrs_1_5" class="header-label">Apathy</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="mdsupdrs_1_5_instruction" class="instruction">Instructions to examiner: Consider level of spontaneous activity, assertiveness, motivation and initiative and rate the impact of reduced levels on performance of daily routines and social interactions. Here the examiner should attempt to distinguish between apathy and similar symptoms that are best explained by depression.
+Instructions to patient [and caregiver]: Over the past week, have you felt indifferent to doing activities
+or being with people? [If yes, examiner asks patient or caregiver to elaborate and probes for information.]</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="mdsupdrs_1_5_selection" class="" for=""></label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_5_selection}" type="radio" name1="mdsupdrs_1_5_selection" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">0 Normal</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_5_selection}" type="radio" name1="mdsupdrs_1_5_selection" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 1 Slight</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_5_selection}" type="radio" name1="mdsupdrs_1_5_selection" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 2 Mild</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_5_selection}" type="radio" name1="mdsupdrs_1_5_selection" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 3 Moderate</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_5_selection}" type="radio" name1="mdsupdrs_1_5_selection" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 4 Severe</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-header move-up-header" >
+                <label id="mdsupdrs_1_6" class="header-label">Features of Dopamine Dysregulation Syndrome</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="mdsupdrs_1_6_instruction" class="instruction">Instructions to examiner: Consider involvement in a variety of activities including atypical or excessive gambling (e.g. casinos or lottery tickets), atypical or excessive sexual drive or interests (e.g., unusual interest in pornography, masturbation, sexual demands on partner), other repetitive activities (e.g. hobbies, dismantling objects, sorting or organizing), or taking extra non-prescribed medication for non-physical reasons (i.e., addictive behavior). Rate the impact of such abnormal activities/behaviors on the patient’s personal life and on his family and social relations (including need to borrow money or other financial difficulties like withdrawal of credit cards, major family conflicts, lost time from work, or missed meals or sleep because of the activity).
+Instructions to patient [and caregiver]: Over the past week, have you had unusually strong urges that are hard to control? Do you feel driven to do or think about something and find it hard to stop? [Give patient examples such as gambling, cleaning, using the computer, taking extra medicine, obsessing about food or sex, all depending on the patients.]</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="mdsupdrs_1_6_selection" class="" for=""></label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_6_selection}" type="radio" name1="mdsupdrs_1_6_selection" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">0 Normal</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_6_selection}" type="radio" name1="mdsupdrs_1_6_selection" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 1 Slight</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_6_selection}" type="radio" name1="mdsupdrs_1_6_selection" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 2 Mild</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_6_selection}" type="radio" name1="mdsupdrs_1_6_selection" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 3 Moderate</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Mdsupdrs_1_6_selection}" type="radio" name1="mdsupdrs_1_6_selection" value="5"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> 4 Severe</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label id="mdsupdrs_part_ia_copyright" class="instruction">Last updated August 13, 2019 | Copyright © 2008 International Parkinson and Movement Disorder Society. All rights reserved. Modified and used with permission of MDS.
+This scale may not be copied, distributed or otherwise used in whole or in part without prior written consent of the International Parkinson and Movement Disorder Society.</label>
+              </div>
+            </div>          </div>
+        </form>
+<div id="upload-progress" style='display:none'><div class="progress-bar-1" style="display:none"></div></div> <!-- Progress bar added -->    <div class="selectedDrogsChildren">
+                    <span th:each="formChild: ${formD}"
+                          th:text="${formChild.name}"
+                          th:class="${formChild.name}"
+                          style="display:none;"
+                    ></span>
+    </div>
+
+            </div>
+    </div>
+  </div>
+</div>
+
+<script  type="text/javascript">
+function __main__() {
+minimum_part_filled_out();
+    } __main__(); 
+
+</script>
+</body>
+</html>

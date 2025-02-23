@@ -1,0 +1,38 @@
+.modal-container {
+    margin-top: -85px;
+    position: relative;
+    z-index: 9999;
+    margin-left: 700px;
+}
+.view-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+.not {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 235px;
+    height:60px; /* Increased height to accommodate the content */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    display: flex; /* Added to enable flexbox layout */
+    justify-content: space-between; /* Added to distribute content evenly */
+    align-items: center;
+}
+.not p {
+    margin: 5px 0;
+    font-size: 12px; /* Adjust the font size as needed */
+}
+.close {
+    background-color: #ccc;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}

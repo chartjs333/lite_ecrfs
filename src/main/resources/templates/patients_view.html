@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html>
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+  <body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+      <div class="row">
+        <div class="small-12 columns"><h5>All Patients</h5></div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 columns">
+          <table style="width: 100%">
+            <thead>
+            <tr>
+              <th style="text-align: left">Meta Analysis<a href="meta_analyses/new"> <i class="fi-plus"></i></a></th>
+              <th style="text-align: left">Study</th>
+              <th style="text-align: left">Patient</th>
+              <th style="text-align: left">destroy</th>
+            </tr>
+            </thead>
+            <tbody id="patients_list">
+			    <div th:each="record : ${records}">
+		            <div th:switch="${record.type}">
+					  <th:block th:case="metaAnalyse">
+						<div th:include="fragments/fragment_all_patients :: metaAnalyse"></div>
+					  </th:block>
+					  <th:block th:case="study">
+						<div th:include="fragments/fragment_all_patients :: study"></div>
+					  </th:block>
+					  <th:block th:case="patient">
+						<div th:include="fragments/fragment_all_patients :: patient"></div>
+					  </th:block>
+					</div>
+			    </div>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row"><div class="small-12 columns" id="patients_pages">  <div class="pagination-centered">
+    <ul class="pagination">
+
+
+          <li class="current">
+  <a data-remote="true" href="#">1</a>
+</li>
+
+          <li class="">
+  <a rel="next" data-remote="true" href="patients/page?page=2">2</a>
+</li>
+
+          <li class="">
+  <a data-remote="true" href="patients/page?page=3">3</a>
+</li>
+
+          <li class="">
+  <a data-remote="true" href="patients/page?page=4">4</a>
+</li>
+
+      <li>
+  <a rel="next" data-remote="true" href="patients/page?page=2">Next &rsaquo;</a>
+</li>
+
+      <li>
+  <a data-remote="true" href="patients/page?page=4">Last page &raquo;</a>
+</li>
+
+    </ul>
+  </div>
+</div></div>
+
+      <p style="margin-bottom: 0.55em;"></p>
+    </div>
+	  <div th:include="fragments/layout :: pageBottom">
+	  </div>
+
+  </body>
+</html>

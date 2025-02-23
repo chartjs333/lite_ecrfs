@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    ...
+  </head>
+  <body>
+  	<div th:fragment="surveyOtherText(javaField, name)">
+		<label style='display: inline-block; width: 50px;' th:text="${name}">Other</label><br/>
+                                                                    <input id="${javaField}" onchange="waschanged = true;"
+                                                                    class="survey-input antwort-35 offenes-textfeld" th:field="*{__${javaField}__}"
+                                                                    onkeypress="return disableEnterKey(event)" maxlength="50"/>  	
+  	</div>
+    <div th:fragment="surveyCheckboxWithoutText(javaChkBxField, name)">
+	    <input type="checkbox" class="radio custom-input js-custom-input" th:id="${javaChkBxField}" th:field="*{__${javaChkBxField}__}" onchange='waschanged = true;'/>&nbsp;<label style='display: inline-block; width: 150px;' th:text="${name}">Clinical diagnosis</label><br/> 
+    </div>
+    <div th:fragment="surveyCheckboxWithoutTextLargeName(javaChkBxField, name)">
+	    <input type="checkbox" class="radio custom-input js-custom-input" th:id="${javaChkBxField}" th:field="*{__${javaChkBxField}__}" onchange='waschanged = true;'/>&nbsp;<label style='display: inline-block; width: 250px;' th:text="${name}">Clinical diagnosis</label><br/> 
+    </div>
+    <div th:fragment="surveyCheckboxWithoutTextLargeName2(javaChkBxField, name, name0)">
+    	<div style="vertical-align: top">
+	    <input type="checkbox" class="radio custom-input js-custom-input" th:id="${javaChkBxField}" th:field="*{__${javaChkBxField}__}" onchange='waschanged = true;'/>&nbsp;<label style='width: 350px;' th:text="${name}">Clinical diagnosis</label><br/><label style='width: 350px;' th:text="${name0}">Clinical diagnosis</label>
+	    </div> 
+    </div>
+    <div th:fragment="surveyCheckbox(javaField, javaChkBxField, name)">
+    <input type="checkbox" class="radio custom-input js-custom-input" th:id="${javaChkBxField}" th:field="*{__${javaChkBxField}__}" th:onchange="'waschanged = true;document.getElementById(\'' + ${javaField} + '\').disabled = !document.getElementById(\'' + ${javaChkBxField} + '\').checked;'"/>&nbsp;<label style="display: inline-block; width: 50px;" th:text="${name}">MADRS</label> 
+	             <input placeholder="score" onchange="waschanged = true;" type="number"  th:if="*{__${javaChkBxField}__ != null}"
+                                                                    class="survey-input input-small-number2 antwort-35 offenes-textfeld" th:field="*{__${javaField}__}"
+                                                                    onkeypress="return disableEnterKey(event)" min="0" max="999"/>
+                 <input placeholder="score" onchange="waschanged = true;" type="number"  th:if="*{__${javaChkBxField}__ == null}"
+                                                                    class="survey-input input-small-number2 antwort-35 offenes-textfeld" th:field="*{__${javaField}__}"
+                                                                    onkeypress="return disableEnterKey(event)" min="0" max="999" disabled="disabled"/>                                                   
+                                                                    <br/>
+    </div>
+    <div th:fragment="surveyCheckboxLongText(javaField, javaChkBxField, name)">
+    <input type="checkbox" class="radio custom-input js-custom-input" th:id="${javaChkBxField}" th:field="*{__${javaChkBxField}__}" th:onchange="'waschanged = true;document.getElementById(\'' + ${javaField} + '\').disabled = !document.getElementById(\'' + ${javaChkBxField} + '\').checked;'"/>&nbsp;<label style="display: inline-block; width: 150px;" th:text="${name}">MADRS</label> 
+	             <input placeholder="score" onchange="waschanged = true;" type="number"  th:if="*{__${javaChkBxField}__ != null}"
+                                                                    class="survey-input input-small-number2 antwort-35 offenes-textfeld" th:field="*{__${javaField}__}"
+                                                                    onkeypress="return disableEnterKey(event)" min="0" max="999"/>
+                 <input placeholder="score" onchange="waschanged = true;" type="number"  th:if="*{__${javaChkBxField}__ == null}"
+                                                                    class="survey-input input-small-number2 antwort-35 offenes-textfeld" th:field="*{__${javaField}__}"
+                                                                    onkeypress="return disableEnterKey(event)" min="0" max="999" disabled="disabled"/>                                                   
+                                                                    <br/>
+    </div>
+    <div th:fragment="surveyCheckboxLongTextPercentile(javaField, javaChkBxField, name)">
+    <input type="checkbox" class="radio custom-input js-custom-input" th:id="${javaChkBxField}" th:field="*{__${javaChkBxField}__}" th:onchange="'waschanged = true;document.getElementById(\'' + ${javaField} + '\').disabled = !document.getElementById(\'' + ${javaChkBxField} + '\').checked;'"/>&nbsp;<label style="display: inline-block; width: 150px;" th:text="${name}">MADRS</label> 
+	             <input placeholder="percentile" onchange="waschanged = true;" type="number"  th:if="*{__${javaChkBxField}__ != null}"
+                                                                    class="survey-input input-small-number2 antwort-35 offenes-textfeld" th:field="*{__${javaField}__}"
+                                                                    onkeypress="return disableEnterKey(event)" min="0" max="999"/>
+                 <input placeholder="percentile" onchange="waschanged = true;" type="number"  th:if="*{__${javaChkBxField}__ == null}"
+                                                                    class="survey-input input-small-number2 antwort-35 offenes-textfeld" th:field="*{__${javaField}__}"
+                                                                    onkeypress="return disableEnterKey(event)" min="0" max="999" disabled="disabled"/>                                                   
+                                                                    <br/>
+    </div>
+    <div th:fragment="surveyCheckboxTypeText(javaField, javaChkBxField, name)">
+    <input type="checkbox" class="radio custom-input js-custom-input" th:id="${javaChkBxField}" th:field="*{__${javaChkBxField}__}" th:onchange="'waschanged = true;document.getElementById(\'' + ${javaField} + '\').disabled = !document.getElementById(\'' + ${javaChkBxField} + '\').checked;'"/>&nbsp;<label style="display: inline-block; width: 50px;" th:text="${name}">MADRS</label> 
+	             <input placeholder="" onchange="waschanged = true;"  th:if="*{__${javaChkBxField}__ != null}"
+                                                                    class="survey-input input-small-number2 antwort-35 offenes-textfeld" th:field="*{__${javaField}__}"
+                                                                    onkeypress="return disableEnterKey(event)" maxlength="50"/>
+                 <input placeholder="" onchange="waschanged = true;" th:if="*{__${javaChkBxField}__ == null}"
+                                                                    class="survey-input input-small-number2 antwort-35 offenes-textfeld" th:field="*{__${javaField}__}"
+                                                                    onkeypress="return disableEnterKey(event)" maxlength="50" disabled="disabled"/>                                                   
+                                                                    <br/>
+    </div>
+    <div th:fragment="showHideCheckbox(javaChkBxField, divId, name)">
+    <input th:field="*{__${javaChkBxField}__}" type="checkbox" th:onchange="'waschanged = true; document.getElementsByName(\'' + ${divId} + '\')[0].style.display = checked ? \'block\' : \'none\';'"/><label style='display: inline-block; width: 250px;' th:text="${name}">Other</label>
+    </div>
+    <div th:fragment="surveyYesNoNotAvailable(javaField, name)"><label style='display: inline-block; width: 250px;' th:text="${name}">Other</label><br/>
+<label
+                    class="custom-input-wrapper custom-radio-wrapper" data-title="--"><input type="radio" onchange="waschanged = true;"
+                                                                                             class="radio custom-input js-custom-input"
+		                                                                                              th:field="*{__${javaField}__}" 
+                                                                                             value="yes"/>yes<span
+                    class="custom-input-icon"></span></label>
+<label
+                    class="custom-input-wrapper custom-radio-wrapper" data-title="--"><input type="radio" onchange="waschanged = true;"
+                                                                                             class="radio custom-input js-custom-input"
+		                                                                                              th:field="*{__${javaField}__}" 
+                                                                                             value="no"/>no<span
+                    class="custom-input-icon"></span></label>
+<label
+                    class="custom-input-wrapper custom-radio-wrapper" data-title="--"><input type="radio" onchange="waschanged = true;"
+                                                                                             class="radio custom-input js-custom-input"
+		                                                                                              th:field="*{__${javaField}__}" 
+                                                                                             value="not available"/>not available<span
+                    class="custom-input-icon"></span></label>
+    </div>
+    <div th:fragment="race(javaField, javaChkBxField, divId, hint)">
+            <div th:style="*{__${javaChkBxField}__ == true ? '' : 'display:none'}" th:name="${divId}">
+					<div style="margin-top:5px;"><i th:text="${hint}"></i></div>
+					<label style='display: inline-block; width: 100px;'>Please specify:</label>
+		            <input type="text" class="survey-input2 antwort-35 offenes-textfeld" onchange="waschanged = true;" th:field="*{__${javaField}__}" maxlength="50"/>
+            </div><!-- do the same for the rest..... -->
+    </div>
+    <div th:fragment="other(javaField, javaFieldOther, condition, divId)">
+            <div th:style="*{__${javaField}__ == 'Other' ? '' : 'display:none'}" th:name="${divId}">
+					<label style='display: inline-block; width: 100px;'>Please specify:</label>
+		            <input type="text" class="survey-input2 antwort-35 offenes-textfeld" onchange="waschanged = true;" th:field="*{__${javaFieldOther}__}" maxlength="50"/>
+            </div><!-- do the same for the rest..... -->
+    </div>
+  </body>
+</html>

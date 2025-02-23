@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+<div class="row">
+  <div class="small-12 text-left columns">
+    <h5 style="margin-bottom:10px;" th:text="'Overview of ' + ${overview.benign_studies == false ? 'included' : 'excluded'} + ' studies for ' + ${overview.disease.abbreviation} + '-' + ${overview.gene.name} + ':'"></h5>
+  </div>
+</div>
+<div class="row" th:if="${not #strings.isEmpty(overview.empty_data_msg)}">
+  <div class="small-12 text-center columns" th:text="${overview.empty_data_msg}">
+  </div>
+</div>
+<form th:object="${overview}" th:unless="${overview.studies} == null">
+<div class="row" th:with="ww=${overview.figures_available == false &amp;&amp; overview.benigns_available == false &amp;&amp; map_data == null ? 12 : ((overview.figures_available == false &amp;&amp; overview.benigns_available == false) || map_data == null ? 6 : 4)}">
+  <div th:class="${'small-' + 12 +' columns'}"   th:if="${overview.hide_filters} == false">
+    <button name="action" type="submit" class="button secondary radius expand" th:value="plot" onclick="this.form.target='_blank';this.blur();" style="margin-bottom: 40px;">
+    Click here for summary of patients' characteristics
+</button>
+  </div>
+  <div th:class="${'small-' + ww +' columns'}" th:if="${overview.figures_available || overview.benigns_available} == false">
+<button name="action" type="submit" class="button secondary radius expand" value="plot_genetic" onclick="this.form.target='_blank';this.blur();" style="margin-bottom: 40px;" th:if="${overview.figures_available} == true">
+    Click here for summary of genetic findings
+</button>
+<button name="action" type="button" class="button secondary radius expand" value="plot_genetic" th:onclick="${'location.href=''/d/' + disease.id + '/gu/' + gene.id + ''';this.blur();'}" style="margin-bottom: 40px;" th:if="${overview.benigns_available == true  &amp;&amp; overview.figures_available == false}">
+    Click here for a list of presumably benign variants
+</button>
+  </div>
+  <div th:class="${'small-' + ww +' columns'}" th:if="${map_data} != null">
+<button name="action" type="submit" class="button secondary radius expand" value="plot_map" onclick="this.form.target='_blank';this.blur();" style="margin-bottom: 40px;">
+    Click here to show world map of all countries
+</button>
+  </div>
+</div>
+	<div class="row" th:if="${overview.hide_filters} == false">
+	  <div class="small-12 medium-7 text-left columns">
+	    <div class="row collapse">
+	      <div class="small-2 columns">
+	        <span class="prefix button secondary radius disabled"
+	              style="height:29px !important; line-height:17px !important;">Filter for</span>
+	      </div>
+	      <div th:class="*{filter_by_aao} == false ? 'small-8 columns end' : 'small-8 columns'">
+			<select id="fc" th:field="${overview.fc}" onchange="reload_the_filter(this);">
+			  <option th:each="filter, _indx : *{filter_criterion}" 
+			          th:value="${_indx.index}" 
+			          th:text="${filter}"></option>
+			</select>
+		  </div>      
+	      <div class="small-2 columns" th:if="*{filter_by_aao}">
+	        <select th:field="${overview.aao}" onchange="reload_the_filter(this);">
+			  <option th:each="i: ${overview.aaoRange}"
+			          th:value="${i}" 
+			          th:text="${i}"></option>
+	        </select>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="small-12 medium-5 text-center columns" th:if="${false}">
+	    <div class="row collapse">
+	      <div class="small-2 columns">
+	        <span class="prefix button secondary radius disabled has-tip tip-top" data-tooltip="data-tooltip"
+	              aria-haspopup="true" title="Display can be filtered for mutations or pathogenicity group. Multiple mutations/mutation classes can be chosen by mouse-click on all variables of interest."
+	              style="height:29px !important; line-height:17px !important; font-weight: 400;">
+	          carrying
+	        </span>
+	      </div>
+	      <div class="small-10 columns">
+	        <select id="mu[]" th:field="${overview.mu}" multiple="true" class="chzn_select" onchange="reload_the_filter(this);" th:attr="data-placeholder=${overview.filter_mutations_placeholder}">
+			  <option th:each="opt, _indx: *{filtered_mutations}"
+			          th:value="${_indx.index}" 
+			          th:text="${opt}"></option>
+	        </select>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<!-- Здесь распологается jexcel table -->
+<div class="row" th:if="${overview.studies} != null">
+  <div class="small-12 columns"  style="overflow:scroll" id="mytable">
+  </div>
+</div>
+  <script>
+  var headers = [];
+  var colWidths = [];
+  var columns = [];
+  var data2 = [];
+  </script>
+  <script th:inline="javascript" th:if="${#strings.contains(#strings.trim(d[0]), '*')}" th:each="d, idx1:${overview.studies}">
+/*<![CDATA[*/
+
+  /*[# ]*/
+        headers.push(/*[[${d[0]}]]*/);
+        colWidths.push(200);
+        columns.push({ type: 'text' });
+  /*[/]*/
+
+/*]]>*/
+  </script>
+  
+    <th:block th:if="${idx.index} != 0" 
+      	th:each="m, idx: ${overview.studies[0]}">
+      		<script>
+      			var line = [];
+      		</script>
+      	    <script th:inline="javascript" th:each="d, idx1:${overview.studies}">
+      	    	line.push(/*[[${d[idx.index]}]]*/);
+      	    </script>
+      		<script>
+      			console.log(line);
+      			data2.push(line);
+      		</script>
+  </th:block>
+  
+   <script>
+ 
+  var table2 = jexcel(document.getElementById('mytable'), {
+    data:data2,
+    colHeaders: headers,
+    colWidths: colWidths,
+    columns: columns,
+    rowResize:true,
+    about:''
+});
+  </script>
+  
+
+<!--  -->
+<div class="row" th:if="${overview.studies} != null">
+  <div class="small-12 columns"  style="overflow:scroll">
+    <table style="width:100%;">
+      <thead th:if="${overview.designs} != null">
+        <tr th:each="design: ${overview.designs}">
+          <th th:width="${design.width != -99 ? '' : design.width}" th:style="text-align: ${design.style};" th:each="m, idx: ${overview.studies[0]}">
+            <span data-tooltip="data-tooltip" th:aria-haspopup="${design.aria_haspopup}" th:class="${design.htmlClass}"
+                  th:title="${design.title}" th:text="${design.text}">
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <thead th:if="${overview.designs} == null and ${overview.unpublished_gene} == true">
+        <tr>
+          <th style="text-align: center"
+          th:text="${#strings.substring(d[0], 0, #strings.indexOf(d[0],'*'))}" 
+          th:if="${#strings.contains(#strings.trim(d[0]), '*')}" th:each="d, idx1:${overview.studies}">
+            <span data-tooltip="data-tooltip" aria-haspopup="tooltip-ji4pps981" th:class="has-tip tip-top radius"
+                  th:title="${d[0]}" th:text="">
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <thead th:if="${overview.unpublished_gene} == false">
+      <div th:include="fragments/common :: publishedOverviewTableHeader"></div>
+      </thead>
+      
+      <tbody id="stud">
+      	<tr 
+      	th:if="${idx.index} != 0" 
+      	th:each="m, idx: ${overview.studies[0]}">
+      	    <th:block th:each="d, idx1:${overview.studies}">
+	      		<td th:style="${idx1.index &gt; 1 and idx1.index &lt; 100 ? 'text-align:center; vertical-align:center;' : ''}" th:if="${overview.unpublished_gene and !(d[idx.index] instanceof T(net.mdsgene.admin.tags.CustomTag)) and #strings.contains(#strings.trim(d[0]), '*')}" ><span th:text="${d[idx.index]}" th:name="${#strings.substring(d[0], 0, #strings.indexOf(d[0],'*'))}" th:attr="data-hint=${d[idx.index]}"></span></td>
+	      		<td th:style="${idx1.index &gt; 1 and idx1.index &lt; 10 ? 'text-align:center; vertical-align:center;' : ''}" th:if="${!overview.unpublished_gene and !(d[idx.index] instanceof T(net.mdsgene.admin.tags.CustomTag)) and #strings.contains(#strings.trim(d[0]), '*')}" th:text="${d[idx.index]}"></td>
+	      		<td th:if="${(d[idx.index] instanceof T(net.mdsgene.admin.tags.ArrayLinksTag)) and #strings.contains(#strings.trim(d[0]), '*')}">
+	      			<th:block th:each="d1,idx2:${d[idx.index]}">
+		      			<th:block th:if="${d1.myIndex == 4}" th:utext="'&lt;span class=\'hide\' id=\'study_view_row-' + ${idx.index} + '\'&gt;'" /> 
+	      				<span th:text="${d1.prefix}" th:unless="${d1.prefix == null}"></span><a th:text="${d1.body}" th:href="${d1.href}" data-reveal-ajax="true" data-reveal-id="global_modal_dialog"></a><span th:text="${d1.postfix}" th:unless="${d1.postfix == null}"></span><br/>
+						<th:block th:if="${d1.myIndex > 2 and d1.myIndex == d1.linkGroupsCount}" th:utext="'&lt;/span&gt;'" />
+						<a th:if="${d1.myIndex > 3 and d1.myIndex == d1.linkGroupsCount}" th:onclick="'show_more_or_less(this,\'study_view_row-' + ${idx.index} + '\')'" th:text="'Show more (+' + ${d1.linkGroupsCount-3} + ')'">Show more (+x)</a>
+	      			</th:block>
+	      		</td>
+	      		<td th:if="${(d[idx.index] instanceof T(net.mdsgene.admin.tags.LinkToTag)) and #strings.contains(#strings.trim(d[0]), '*')}">
+	    				<a th:text="${d[idx.index].body}" th:href="${d[idx.index].href}"></a>
+	      		</td>  
+      	    </th:block>
+      	</tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row" th:if="${overview.current_page} != -1 and ${overview.total_count} > 10">
+  <div class="small-12 columns">
+      <div class="pagination-centered">
+    <ul class="pagination">
+    <li>
+  <a  th:href="'/d/' + ${overview.disease.id} + (${overview.unpublished_gene} == false ? '/g/' : '/gu/') + ${overview.gene.id} + '?p=1' + ${overview.paginationAppender}" th:if="${overview.current_page &gt; 1}">&#x00AB; First page</a>
+</li>
+<li>
+  <a rel="prev" th:href="'/d/' + ${overview.disease.id} + (${overview.unpublished_gene} == false ? '/g/' : '/gu/') + ${overview.gene.id} + '?p=' +  (${overview.current_page}-1) + ${overview.paginationAppender}" th:if="${overview.current_page &gt; 1}">&#x2039; Previous</a>
+</li>
+            <li class="unavailable" th:if="(${overview.current_page} - ${overview.limit_value}) &gt; 0">
+  <a href="#">&#x2026;</a>
+</li>    
+          <li th:class="${i} == ${overview.current_page} ? 'current' : ''" th:each="i: ${#numbers.sequence(1, overview.total_pages)}" th:if= "${i} &gt; (${overview.current_page} - ${overview.limit_value}) and ${i} &lt; (${overview.current_page} + ${overview.limit_value})">
+  <a href="#" th:text="${i}" th:href="${i} != ${overview.current_page} ? '/d/' + ${overview.disease.id} + (${overview.unpublished_gene} == false ? '/g/' : '/gu/') + ${overview.gene.id} + '?p=' +  ${i}  + ${overview.paginationAppender}: '#'"></a>
+</li>
+          <li class="unavailable"  th:if="(${overview.current_page} + ${overview.limit_value}) &lt; (${overview.total_pages} + 1)">
+  <a href="#">&#x2026;</a>
+</li>
+
+      <li>
+  <a rel="next" th:href="'/d/' + ${overview.disease.id} + (${overview.unpublished_gene} == false ? '/g/' : '/gu/') + ${overview.gene.id} + '?p=' +  (${overview.current_page}+1) + ${overview.paginationAppender}" th:if="${overview.current_page &lt; overview.total_pages}">Next &#x203A;</a>
+</li>
+
+      <li>
+  <a th:href="'/d/' + ${overview.disease.id} + (${overview.unpublished_gene} == false ? '/g/' : '/gu/') + ${overview.gene.id} + '?p=' +  ${overview.total_pages} + ${overview.paginationAppender}" th:if="${overview.current_page &lt; overview.total_pages}">Last page &#x00BB;</a>
+</li>
+
+        <li class="">
+          <a th:href="'/d/' + ${overview.disease.id} + (${overview.unpublished_gene} == false ? '/g/' : '/gu/') + ${overview.gene.id} + '?p=-1' + ${overview.paginationAppender}">Show all studies on one page</a>
+        </li>
+    </ul>
+  </div>
+
+  </div>
+</div>
+</form>
+<div style="padding-bottom: 0.4em;"></div>
+</div>
+<div th:include="fragments/layout :: pageBottom"></div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+</body>
+<script>
+$('span[name=cDNA],span[name=Reference],span[name=Protein1],span[name=Alias1]').each(function() {
+	if ($(this).text().length > 15) $(this).text($(this).text().substring(0,15) + '...');
+});
+</script>
+</html>

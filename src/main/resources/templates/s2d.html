@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+<p style="margin-bottom: 2.15em;"></p>
+        <p style="margin-bottom: 2.15em;"></p>
+      <div class="row">
+  <div class="small-12 text-left columns">
+    <h5 style="margin-bottom:10px;">Select signs and symptoms present in your patient:</h5>
+  </div>
+</div>
+<form onreset="force_reset();" action="/s2d" accept-charset="UTF-8" th:object="${s2d}"><input name="utf8" type="hidden" value="&#x2713;" />
+<div class="row">
+  <div class="small-12 columns">
+    <fieldset style="padding-top: 5px; margin-top: 0px; padding-bottom: 0px;">
+      <legend>Age at onset</legend>
+      <div class="row">
+        <div class="small-3 medium-2 columns">
+          <input type="number" th:field="${s2d.aao}" class="radius" size="3" maxlength="3" step="1" min="0" max="150" />
+        </div>
+        <div class="small-9 medium-10 columns">
+          <label class="left inline" for="aao">years</label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<th:block th:each="instance0 : ${s2d.grouped_ss}">
+<th:block th:each="instance : ${instance0}">
+    <div class="row">
+	<div class="small-12 columns">
+		<fieldset style="padding-top: 5px; margin-top: 0px; padding-bottom: 0px;">
+
+			<legend th:text="${instance.key}"></legend>
+			<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+
+				<th:block th:each="checkbox : ${instance.value}">
+				<li class="sas_block_grid_el">
+					<div class="row">
+						<div class="small-1 columns">
+							<input type="checkbox" th:field="${s2d.selectedSs}" th:value="${checkbox.id}" />
+						</div>
+						<div th:for="${#ids.prev('selectedSs')}" class="small-11 columns">
+							<label th:text="${checkbox.signName}">Heating</label>
+						</div>
+					</div>
+				</li>
+				</th:block>
+			</ul>
+		</fieldset>
+	</div>
+    </div>
+</th:block>    
+</th:block>
+
+  <div style="padding-bottom: 0.7em;"></div>
+  <div class="row">
+    <div class="small-12 medium-6 text-center columns">
+      <button name="infer" type="submit" class="button secondary radius expand" id="infer" value="t">
+      Click here to see possible diagnoses
+</button>    </div>
+    <div class="small-12 medium-6 text-center columns">
+      <input type="reset" name="commit" value="Reset" class="button secondary radius expand" data-disable-with="Reset" />
+    </div>
+  </div>
+</form><div style="padding-bottom: 0.4em;"></div>
+      <p style="margin-bottom: 0.55em;"></p>
+    </div>
+    <div class="row">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

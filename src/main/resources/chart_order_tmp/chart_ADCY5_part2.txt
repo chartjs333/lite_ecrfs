@@ -1,0 +1,2 @@
+cognitive_impairment_HP:0100543	delayed_speech_and_language_development_HP:0000750	dev_regression_sympt	developmental_regression_HP:0002376	seizures_HP:0001250	global_developmental_delay_HP:0001263	anarthria_HP:0002425	tics_HP:0100033	mild_global_developmental_delay_HP:0011342
+1	2	3	3	4	5	6	7	8

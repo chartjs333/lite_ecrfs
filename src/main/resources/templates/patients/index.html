@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+<p style="margin-bottom: 2.15em;"></p>
+<div class="row">
+	<div class="small-12 text-left columns">
+		<h5>
+			<a target="_blank" th:href="${study_link_to.href}" th:text="${study_link_to.body}"></a>: Overview of all reported <span th:text="${disease.abbreviation}"></span>-<span th:text="${gene.name}"></span> patients
+		</h5>
+	</div>
+</div>
+<p style="margin-bottom: 10px;"></p>
+<div class="row">
+	<div class="small-12 columns">
+		<table style="width: 100%;">
+			<thead>
+				<tr>
+					<th style="text-align: center;"><span aria-haspopup="true"
+						class="has-tip tip-top radius" data-tooltip=""
+						title="Yes = the first examined patient per family, or, if not applicable, the patient with the largest amount of phenotypic information available. No = a family member in addition to the index patient.">
+							Index patient</span></th>
+					<th style="text-align: center;" width="50"><span
+						aria-haspopup="true" class="has-tip tip-top radius"
+						data-tooltip=""
+						title="Sex of the respective patient as reported in the study.">Sex</span></th>
+					<th style="text-align: center;" width="81"><span
+						aria-haspopup="true" class="has-tip tip-top radius"
+						data-tooltip=""
+						title="A = Asian; AM = Native American; B = Arab; C = Caucasian; D = African descent; H = Hispanic; I = Indian; JA = Jewish Askhenazi; JO = Jewish non-Askhenazi/mixed/other; O = other/mixed.">
+							Ethnicity</span></th>
+					<th style="text-align: center;" width="81"><span
+						aria-haspopup="true" class="has-tip tip-top radius"
+						data-tooltip=""
+						title="The country from which the family and/or the patient originates from. Note that country names have been abbreviated according to the official 3-letter codes recommended by the International Organization for Standardization.">
+							Country of origin</span></th>
+					<th style="text-align: center;" width="50"><span
+						aria-haspopup="true" class="has-tip tip-top radius"
+						data-tooltip="" title="Age at onset.">AAO</span></th>
+					<th style="text-align: center;" width="50"><span
+						aria-haspopup="true" class="has-tip tip-top radius"
+						data-tooltip="" title="Age at exam.">AAE</span></th>						
+					<th style="text-align: center;" width="81"><span
+						aria-haspopup="true" class="has-tip tip-top radius"
+						data-tooltip=""
+						title="Yes = The disease is present in at least two individuals per family regardless of the degree of relatedness. No = Only one family member is known to be affected in the respective family.">
+							Family history</span></th>
+					<th style="text-align: center;" width="210"><span
+						aria-haspopup="true" class="has-tip tip-top radius"
+						data-tooltip=""
+						title="List of signs and symptoms manifesting at the beginning as well as during the course of the disease.">
+							Symptoms</span></th>
+					<th style="text-align: center;" width="210"><span
+						aria-haspopup="true" class="has-tip tip-top radius"
+						data-tooltip=""
+						title="Signs and symptoms manifesting at the beginning of the disease.">
+							Initial symptoms</span></th>
+					<th style="text-align: center;" width="244"><span
+						aria-haspopup="true" class="has-tip tip-top radius"
+						data-tooltip=""
+						title="Mutations reported in the respective study. Hom = homozygous, het = heterozygous, comp. het = compound heterozygous. For comp. het. mutations, both mutations are listed (if the second mutation is located in another gene, the gene name precedes the mutation ID). Only mutations classified as “possibly”, “probably”, or “definitively pathogenic” according to the scoring scheme implemented in MDSGene are listed here (see Methods).">
+							Reported mutations</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="patient, idx1: ${patients}">
+					<td style="text-align: center;"><div th:include="fragments/fragment_studies_helper :: render_indexp(pid='patient')"></div></td>
+					<td style="text-align: center;"><div th:include="fragments/fragment_studies_helper :: coerce_sex(pid='patient')"></div></td>
+					<td style="text-align: center;"><div th:include="fragments/fragment_studies_helper :: humanize_ethnicity(pid='patient')"></div></td>
+					<td style="text-align: center;"><div th:include="fragments/fragment_studies_helper :: render_country(pid='patient')"></div></td>
+					<td style="text-align: center;"><div th:include="fragments/fragment_studies_helper :: render_aao(pid='patient')"></div></td>
+					<td style="text-align: center;"><div th:include="fragments/fragment_studies_helper :: render_aae(pid='patient')"></div></td>
+					<td style="text-align: center;"><div th:include="fragments/fragment_studies_helper :: humanize_family_history(pid='patient')"></div></td>
+					<td style="text-align: center;">
+		          		<div th:include="fragments/common :: collapsableNG(javaField=*{__${'study_symptoms_sas_' + patient.id}__}, idPref='sas', idIndex='*{__${patient.id}__}')"></div>	
+		          	</td>
+					<td style="text-align: center;">
+		          		<div th:include="fragments/common :: collapsableNG(javaField=*{__${'study_symptoms_isas_' + patient.id}__},  idPref='isas', idIndex='*{__${patient.id}__}')"></div>	
+					</td>
+					<td style="text-align: center;">
+					<div th:include="fragments/common :: collapsableLinks(javaField=*{__${'fetch_mutations_' + patient.id}__},  idPref='mutations', idIndex='*{__${patient.id}__}')"></div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="row" th:if="${paginator.current_page} != -1 and ${paginator.totalCount} > 10">
+  <div class="small-12 columns">
+      <div class="pagination-centered">
+    <ul class="pagination">
+    <li>
+  <a  th:href="'/patients?p=1' + ${paginator.appender}" th:if="${paginator.current_page &gt; 1}">&#x00AB; First page</a>
+</li>
+<li>
+  <a rel="prev" th:href="'/patients?p=' +  (${paginator.current_page}-1)  + ${paginator.appender}" th:if="${paginator.current_page &gt; 1}">&#x2039; Previous</a>
+</li>
+            <li class="unavailable" th:if="(${paginator.current_page} - ${paginator.limit_value}) &gt; 0">
+  <a href="#">&#x2026;</a>
+</li>  
+<!-- pagination part begin -->  
+<li th:class="${i} == ${paginator.current_page} ? 'current' : ''" th:each="i: ${#numbers.sequence(1, paginator.totalPages)}" th:if= "${i} &gt; (${paginator.current_page} - ${paginator.limit_value}) and ${i} &lt; (${paginator.current_page} + ${paginator.limit_value})">
+  <a href="#" th:text="${i}" th:href="${i} != ${paginator.current_page} ? '/patients?p=' +  ${i}  + ${paginator.appender}: '#'"></a>
+</li>
+<!-- pagination part end -->  
+          <li class="unavailable"  th:if="(${paginator.current_page} + ${paginator.limit_value}) &lt; (${paginator.totalPages} + 1)">
+  <a href="#">&#x2026;</a>
+</li>
+
+      <li>
+  <a rel="next" th:href="'/patients?p=' +  (${paginator.current_page}+1) + ${paginator.appender}" th:if="${paginator.current_page &lt; paginator.totalPages}">Next &#x203A;</a>
+</li>
+
+      <li>
+  <a th:href="'/patients?p=' +  ${paginator.totalPages}  + ${paginator.appender}" th:if="${paginator.current_page &lt; paginator.totalPages}">Last page &#x00BB;</a>
+</li>
+        <li class="">
+          <a th:href="'/patients?p=-1'  + ${paginator.appender}">Show all patients</a>
+        </li>
+
+    </ul>
+  </div>
+
+  </div>
+</div>
+      <p style="margin-bottom: 0.55em;"></p>      
+	  <!-- End -->      
+    </div>
+    <div class="row">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

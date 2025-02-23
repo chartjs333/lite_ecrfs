@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    ...
+  </head>
+  <body>
+  <div th:fragment="collapsable2(javaField, idPref, idIndex)">
+	<span th:text="${javaField}">
+  test
+     </span>
+	</div>  
+  <div th:fragment="collapsable(javaField, idPref, idIndex)">
+	<th:block th:each="d1,idx2:${javaField}">
+	    <th:block th:if="${d1.myIndex == 4}" th:utext="'&lt;span class=\'hide\' id=\'' + ${idPref} + '-' + ${idIndex} + '\'&gt;'" /> 
+      	<span th:text="${d1.body}" th:unless="${d1.body == null}"></span><span th:text="${d1.postfix}" th:unless="${d1.postfix == null}"></span><br/>
+		<th:block th:if="${d1.myIndex > 2 and d1.myIndex == d1.linkGroupsCount}" th:utext="'&lt;/span&gt;'" />
+		<a th:if="${d1.myIndex > 3 and d1.myIndex == d1.linkGroupsCount}" th:onclick="'show_more_or_less(this,\'' + ${idPref} + '-' + ${idIndex} + '\')'" th:text="'Show more (+' + ${d1.linkGroupsCount-3} + ')'">Show more (+x)</a>
+     </th:block>
+  </div>
+  <div th:fragment="collapsableNG(javaField, idPref, idIndex)">
+  	<span th:if="${javaField == null or javaField.size() == 0}">n.a.</span>
+	<th:block th:each="d1,idx2:${javaField}">
+	    <th:block th:if="${d1.myIndex == 4}" th:utext="'&lt;span class=\'hide\' id=\'' + ${idPref} + '-' + ${idIndex} + '\'&gt;'" /> 
+      	<span th:text="${d1.body}" th:unless="${d1.body == null}"></span><span th:text="${d1.postfix}" th:unless="${d1.postfix == null}"></span><br/>
+		<th:block th:if="${d1.myIndex > 2 and d1.myIndex == d1.linkGroupsCount}" th:utext="'&lt;/span&gt;'" />
+		<a th:if="${d1.myIndex > 3 and d1.myIndex == d1.linkGroupsCount}" th:onclick="'show_more_or_less(this,\'' + ${idPref} + '-' + ${idIndex} + '\')'" th:text="'Show more (+' + ${d1.linkGroupsCount-3} + ')'">Show more (+x)</a>
+     </th:block>
+  </div>  
+  <div th:fragment="collapsableLinks(javaField, idPref, idIndex)">
+	<th:block th:each="d1,idx2:${javaField}">
+	    <th:block th:if="${d1.myIndex == 4}" th:utext="'&lt;span class=\'hide\' id=\'' + ${idPref} + '-' + ${idIndex} + '\'&gt;'" /> 
+      	<span th:text="${d1.prefix}" th:unless="${d1.prefix == null}"></span><a th:text="${d1.body}" th:href="${d1.href}" data-reveal-ajax="true" data-reveal-id="global_modal_dialog"></a><span th:text="${d1.postfix}" th:unless="${d1.postfix == null}"></span><br/>
+		<th:block th:if="${d1.myIndex > 2 and d1.myIndex == d1.linkGroupsCount}" th:utext="'&lt;/span&gt;'" />
+		<a th:if="${d1.myIndex > 3 and d1.myIndex == d1.linkGroupsCount}" th:onclick="'show_more_or_less(this,\'' + ${idPref} + '-' + ${idIndex} + '\')'" th:text="'Show more (+' + ${d1.linkGroupsCount-3} + ')'">Show more (+x)</a>
+     </th:block>
+  </div>
+  <!-- d-it is the list of the mutations) -->
+  <div th:fragment="reported_mutations(d)">
+     		<td th:if="${d instanceof T(net.mdsgene.admin.tags.ArrayLinksTag))}" >
+     			<th:block th:each="d1,idx2:d}">
+      			<th:block th:if="${d1.myIndex == 4}" th:utext="'&lt;span class=\'hide\' id=\'study_view_row-' + ${idx.index} + '\'&gt;'" /> 
+     				<span th:text="${d1.prefix}" th:unless="${d1.prefix == null}"></span><a th:text="${d1.body}" th:href="${d1.href}" data-reveal-ajax="true" data-reveal-id="global_modal_dialog"></a><span th:text="${d1.postfix}" th:unless="${d1.postfix == null}"></span><br/>
+				<th:block th:if="${d1.myIndex > 2 and d1.myIndex == d1.linkGroupsCount}" th:utext="'&lt;/span&gt;'" /> 
+				<a th:if="${d1.myIndex > 3 and d1.myIndex == d1.linkGroupsCount}" th:onclick="'show_more_or_less(this,\'study_view_row-' + ${idx.index} + '\')'" th:text="'Show more (+' + ${d1.linkGroupsCount-3} + ')'">Show more (+x)</a>
+     			</th:block>
+     		</td>
+     		<td th:if="${d instanceof T(net.mdsgene.admin.tags.LinkToTag))}">
+   				<a th:text="${d.body}" th:href="${d.href}"></a>
+     		</td>  
+  </div>
+  <div th:fragment="publishedOverviewTableHeader">
+<thead>
+        <tr>
+          <th width="150" style="text-align: left;">
+            <span data-tooltip="" aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Details on the patients reported in the respective publication and eligible for inclusion in MDSGene can be found following the hyperlink underlying the study name.">
+              Study
+            </span>
+          </th>
+          <th width="105">
+            <span data-tooltip="" aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Indicates whether mutations were tested using a family-based approach, a mutational screen of unrelated patients (and controls) or another, e.g. mixed, design.">
+              Study design
+            </span>
+          </th>
+          <th>
+            <span data-tooltip="" aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Number of patients reported in the study that were eligible for inclusion in MDSGene. For details on inclusion criteria, please see the MDSGene Methods section.">
+              N cases
+            </span>
+          </th>
+          <th>
+            <span data-tooltip="" aria-haspopup="true" class="has-tip tip-top radius"
+                  title="A = Asian; AM = Native American; B = Arab; C = Caucasian; D = African descent; H = Hispanic; I = Indian; JA = Jewish Askhenazi; JO = Jewish non-Askhenazi/mixed/other; O = other/mixed.">
+              Ethnicities
+            </span>
+          </th>
+          <th width="78">
+            <span data-tooltip="" aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Proportion of male patients of the respective study included in MDSGene.">
+              Sex<br/>(% <span style="font-size: 16px;">&#9794;</span>)
+            </span>
+          </th>
+          <th width="111">
+            <span data-tooltip="" aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Mean age at onset and standard deviation.">
+              Mean AAO (+/- SD)
+            </span>
+          </th>
+          <th th:unless="${overview.gene.name == 'TAF1'}">
+            <span data-tooltip="" aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Mutations reported in the respective study. Hom = homozygous, het = heterozygous, comp. het = compound heterozygous. For comp. het. mutations, both mutations are listed (if the second mutation is located in another gene, the gene name precedes the mutation ID). Only mutations classified as “possibly”, “probably”, or “definitively pathogenic” according to the scoring scheme implemented in MDSGene are listed here (see Methods).">
+              Reported mutations
+            </span>
+          </th>
+        </tr>
+      </thead>  
+  </div>
+  
+  </body>
+</html>  

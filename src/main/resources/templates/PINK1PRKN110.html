@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title> Family History Dementia</title>
+<!-- css files -->
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
+<link rel="stylesheet" type="text/css" href="../fonts/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/registration-style.css"/>
+<link rel="stylesheet" type="text/css" href="../css/elements.css"/>
+<!-- Bootstrap Timepicker CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../css/check-ecrf-minimal.css"/>
+<!-- jquery library --> 
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script> 
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/survey.js"></script>
+<!-- Bootstrap Timepicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../js/check-ecrf-minimal.js"></script>
+<script  type="text/javascript">
+$(document).ready(function(){     $('.timepicker').timepicker({
+        showInputs: false,
+        showMeridian: false
+    });});
+</script>
+<style>
+#logo {
+    display: block;
+    margin: auto;
+}
+.minimal-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.core-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-group.has-minimal > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.form-group.has-core > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.progress .progress-bar {
+    background-image: linear-gradient(to bottom, #E07800 0, #E07800 100%) !important;
+}
+.survey-button {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Arial',Arial,sans-serif;
+    line-height: 1.55;
+    font-weight: 600;
+    border-width: 2px;
+    border-radius: 6px;
+    background-color: #3A91B6;
+    background-position: center center;
+    border-color: #3A91B6;
+    border-style: solid;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.has-minimal .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.has-core .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+
+
+.header-label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subheader {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.move-up-first-header {
+    margin-top: 70px;
+}
+
+
+.move-down-header {
+    margin-bottom: 35px;
+}
+
+
+.move-up-header {
+    margin-top: 55px;
+}
+
+
+.move-down-subheader {
+    margin-bottom: 10px;
+}
+
+
+.move-up-subheader {
+    margin-top: 40px;
+}
+
+.move-up-yes-no {
+    margin-top: 5px;
+}
+
+.move-down-yes-no {
+    margin-bottom: 30px;
+}
+
+.move-down-text {
+    margin-bottom: 30px;
+}
+
+h4 {
+    line-height: 1.78;
+    margin: 0 auto;
+    width: 70%;
+    margin-bottom: 40px;
+}
+
+.active-tab {
+    background-color: #23527c!important;
+    color: #fff!important;
+}
+
+.less-bold-left-justified {
+    text-align: left!important;
+    /*padding-left: 30px!important;*/
+    color: #000; /* replace it with your color code */
+    font-size: 20px; /* adjust based on your needs */
+    font-weight: normal; /* Use 'bold' for bold font, 'normal' for less bold  */
+}
+
+nav.navbar-nav {
+    margin-bottom: 50px;
+}
+
+.instruction {
+    font-weight: normal;
+}
+
+.nav-justified {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.specific-list li {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.specific-list input[type="radio"] {
+    margin-right: 5px;
+}
+
+.specific-list label {
+    display: flex;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot');
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.completed {
+     color: green;
+ }
+.uncompleted {
+    color: red;
+}
+
+</style>
+</head>
+
+<body>
+<img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database" src="../assets/fmjfox.png" />
+<div class="registration-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+<div style="font-size: 18px;color: #8a6d3b; background-color: antiquewhite; border: burlywood 3px solid;border-radius: 5px;">
+    <div style="padding: 10px 10px 0px">
+        Data entered into this eCRF are automatically saved
+    </div>
+    <div style="padding: 0px 10px 10px">
+        The contributor will also be able to return at a future date to view
+        and/or edit the eCRF should new information regarding the patient/family become available
+    </div>
+</div>
+        <br/>
+        <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+          <span style="color: #133957" th:text="${'Local ID: ' + centerId}" th:if="${centerId}"></span><br/>
+          <span style="color: #133957" th:text="${'Project ID: ' + projectId}" th:if="${projectId}"></span>
+</div>
+        <form accept-charset="UTF-8" class="registration-form onlyForm" method="post" th:object="${formObj}" th:id="${formObj.surveyTwoId}" >
+<input type='hidden' id="filling_status" th:field="${formObj.fillingStatus}"/><div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">        <div class="top-box text-left">
+          <h2 class="title">Family History Dementia</h2>
+        </div>  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%;background-image: linear-gradient(to bottom,#33A371 0,#33A371 100%)">
+      <span class="sr-only">0% Complete</span>
+    </div>
+  </div>
+	<div class="alert alert-warning" role="alert">
+  	   <strong>Warning:</strong> The minimal dataset is not complete yet. Please be reminded that to complete the minimal dataset is mandatory in order to have samples processed for analysis. Please continue or come back when you can complete at least the minimal dataset.
+	</div>
+</div>          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-first-header move-down-header" >
+                <label id="instructions" class="instruction">Instructions: Completion of the following questions will capture people in your family with and without dementia. Please indicate the number of relatives (living or deceased) for each family type listed below and the number of these relatives who have or had dementia. 
+For example, if you have two maternal aunts and one has dementia, enter “2” in the Number of Family Members box and enter “1” in the Number with dementia box. If you have 2 full brothers and 2 full sisters and none have dementia, enter “2” in the Number of Family Members box for each family type and “0” in the Number with dementia box. If you are unsure if the listed relative had dementia, please add a “0” to the Number with dementia box.</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="fhd_1" class="" for="">1. Do you have any known family history of dementia?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_1}" type="radio" name1="fhd_1" value="0"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">no</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_1}" type="radio" name1="fhd_1" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> yes</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+                <label id="fhd_broth_fm_headline" class="subheader">Full Brothers</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_broth_fm" class="">Number of Family Members</label>
+                <input type="number" class="form-control" id="fhd_broth_fm"  th:field="${formObj.Fhd_broth_fm}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_broth_fm___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_broth_pd" class="">Number with dementia</label>
+                <input type="number" class="form-control" id="fhd_broth_pd"  th:field="${formObj.Fhd_broth_pd}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_broth_pd___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+                <label id="fhd_sis_fm_headline" class="subheader">Full Sisters</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_sis_fm" class="">Number of Family Members</label>
+                <input type="number" class="form-control" id="fhd_sis_fm"  th:field="${formObj.Fhd_sis_fm}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_sis_fm___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_sis_fm_pd" class="">Number with dementia</label>
+                <input type="number" class="form-control" id="fhd_sis_fm_pd"  th:field="${formObj.Fhd_sis_fm_pd}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_sis_fm_pd___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+                <label id="fhd_mhsib_fm_headline" class="subheader">Maternal Half Siblings</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_mhsib_fm" class="">Number of Family Members</label>
+                <input type="number" class="form-control" id="fhd_mhsib_fm"  th:field="${formObj.Fhd_mhsib_fm}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_mhsib_fm___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_mhsib_fm_pd" class="">Number with dementia</label>
+                <input type="number" class="form-control" id="fhd_mhsib_fm_pd"  th:field="${formObj.Fhd_mhsib_fm_pd}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_mhsib_fm_pd___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+                <label id="fhd_phsib_fm_headline" class="subheader">Paternal Half Siblings</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_phsib_fm" class="">Number of Family Members</label>
+                <input type="number" class="form-control" id="fhd_phsib_fm"  th:field="${formObj.Fhd_phsib_fm}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_phsib_fm___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_phsib_fm_pd" class="">Number with dementia</label>
+                <input type="number" class="form-control" id="fhd_phsib_fm_pd"  th:field="${formObj.Fhd_phsib_fm_pd}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_phsib_fm_pd___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+                <label id="fhd_mau_fm_headline" class="subheader">Maternal Aunts and Uncles</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_mau_fm" class="">Number of Family Members</label>
+                <input type="number" class="form-control" id="fhd_mau_fm"  th:field="${formObj.Fhd_mau_fm}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_mau_fm___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_mau_fm_pd" class="">Number with dementia</label>
+                <input type="number" class="form-control" id="fhd_mau_fm_pd"  th:field="${formObj.Fhd_mau_fm_pd}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_mau_fm_pd___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+                <label id="fhd_pau_fm_headline" class="subheader">Paternal Aunts and Uncles</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_pau_fm" class="">Number of Family Members</label>
+                <input type="number" class="form-control" id="fhd_pau_fm"  th:field="${formObj.Fhd_pau_fm}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_pau_fm___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_pau_fm_pd" class="">Number with dementia</label>
+                <input type="number" class="form-control" id="fhd_pau_fm_pd"  th:field="${formObj.Fhd_pau_fm_pd}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_pau_fm_pd___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+                <label id="fhd_mcou_fm_headline" class="subheader">Maternal Cousins</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_mcou_fm" class="">Number of Family Members</label>
+                <input type="number" class="form-control" id="fhd_mcou_fm"  th:field="${formObj.Fhd_mcou_fm}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_mcou_fm___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_mcou_fm_pd" class="">Number with dementia</label>
+                <input type="number" class="form-control" id="fhd_mcou_fm_pd"  th:field="${formObj.Fhd_mcou_fm_pd}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_mcou_fm_pd___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+                <label id="fhd_pcou_fm_headline" class="subheader">Paternal Cousins</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_pcou_fm" class="">Number of Family Members</label>
+                <input type="number" class="form-control" id="fhd_pcou_fm"  th:field="${formObj.Fhd_pcou_fm}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_pcou_fm___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_pcou_fm_pd" class="">Number with dementia</label>
+                <input type="number" class="form-control" id="fhd_pcou_fm_pd"  th:field="${formObj.Fhd_pcou_fm_pd}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_pcou_fm_pd___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+                <label id="fhd_kids_fm_headline" class="subheader">Children</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_kids_fm" class="">Number of Family Members</label>
+                <input type="number" class="form-control" id="fhd_kids_fm"  th:field="${formObj.Fhd_kids_fm}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_kids_fm___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="fhd_kids_fm_pd" class="">Number with dementia</label>
+                <input type="number" class="form-control" id="fhd_kids_fm_pd"  th:field="${formObj.Fhd_kids_fm_pd}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
+<p id="fhd_kids_fm_pd___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+                <label id="fhd_2" class="subheader">2. Do any of these family members have Parkinson's Disease or Parkinsonism?</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label namelabel="fhd_moth_headline" class="" for="">Biological Mother</label>
+                
+		<ul class="listing minimal-radio ">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_moth_headline}" type="radio" name1="fhd_moth_headline" value="0"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">no</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_moth_headline}" type="radio" name1="fhd_moth_headline" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> yes</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label namelabel="fhd_fath_headline" class="" for="">Biological Father</label>
+                
+		<ul class="listing minimal-radio ">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_fath_headline}" type="radio" name1="fhd_fath_headline" value="0"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">no</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_fath_headline}" type="radio" name1="fhd_fath_headline" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> yes</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label namelabel="fhd_mgrm_headlie" class="" for="">Maternal Grandmother</label>
+                
+		<ul class="listing minimal-radio ">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_mgrm_headlie}" type="radio" name1="fhd_mgrm_headlie" value="0"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">no</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_mgrm_headlie}" type="radio" name1="fhd_mgrm_headlie" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> yes</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label namelabel="fhd_mgrf_headline" class="" for="">Maternal Grandfather</label>
+                
+		<ul class="listing minimal-radio ">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_mgrf_headline}" type="radio" name1="fhd_mgrf_headline" value="0"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">no</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_mgrf_headline}" type="radio" name1="fhd_mgrf_headline" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> yes</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label namelabel="fhd_pgrm_headline" class="" for="">Paternal Grandmother</label>
+                
+		<ul class="listing minimal-radio ">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_pgrm_headline}" type="radio" name1="fhd_pgrm_headline" value="0"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">no</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_pgrm_headline}" type="radio" name1="fhd_pgrm_headline" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> yes</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label namelabel="fhd_pgrf_headline" class="" for="">Paternal Grandfather</label>
+                
+		<ul class="listing minimal-radio ">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_pgrf_headline}" type="radio" name1="fhd_pgrf_headline" value="0"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">no</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_pgrf_headline}" type="radio" name1="fhd_pgrf_headline" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> yes</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="fhd_other" class="" for="">3. Do you have a more distant relative not listed above who has/had dementia?</label>
+                
+		<ul class="listing minimal-radio move-up-yes-no move-down-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_other}" type="radio" name1="fhd_other" value="0"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">no</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Fhd_other}" type="radio" name1="fhd_other" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> yes</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-text" >
+                <label for="fhd_other_who" class="">Please indicate the degree of relationship</label>
+                <input type="text" class="form-control" id="fhd_other_who"  th:field="${formObj.Fhd_other_who}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+        </form>
+<div id="upload-progress" style='display:none'><div class="progress-bar-1" style="display:none"></div></div> <!-- Progress bar added -->    <div class="selectedDrogsChildren">
+                    <span th:each="formChild: ${formD}"
+                          th:text="${formChild.name}"
+                          th:class="${formChild.name}"
+                          style="display:none;"
+                    ></span>
+    </div>
+
+            </div>
+    </div>
+  </div>
+</div>
+
+<script  type="text/javascript">
+function __main__() {
+//begin fhd_broth_fm_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_broth_fm_headline",true,"null",null);  
+else hide("fhd_broth_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_broth_fm_headline",false,"null",null); 
+ else  hide("fhd_broth_fm_headline",false); 
+  } else hide("fhd_broth_fm_headline",false); 
+ } 
+//end fhd_broth_fm_headline
+//begin fhd_broth_fm
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_broth_fm",true,"null",null);  
+else hide("fhd_broth_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_broth_fm",false,"null",null); 
+ else  hide("fhd_broth_fm",false); 
+  } else hide("fhd_broth_fm",false); 
+ } 
+//end fhd_broth_fm
+//begin fhd_broth_pd
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_broth_pd",true,"null",null);  
+else hide("fhd_broth_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_broth_pd",false,"null",null); 
+ else  hide("fhd_broth_pd",false); 
+  } else hide("fhd_broth_pd",false); 
+ } 
+//end fhd_broth_pd
+//begin fhd_sis_fm_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_sis_fm_headline",true,"null",null);  
+else hide("fhd_sis_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_sis_fm_headline",false,"null",null); 
+ else  hide("fhd_sis_fm_headline",false); 
+  } else hide("fhd_sis_fm_headline",false); 
+ } 
+//end fhd_sis_fm_headline
+//begin fhd_sis_fm
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_sis_fm",true,"null",null);  
+else hide("fhd_sis_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_sis_fm",false,"null",null); 
+ else  hide("fhd_sis_fm",false); 
+  } else hide("fhd_sis_fm",false); 
+ } 
+//end fhd_sis_fm
+//begin fhd_sis_fm_pd
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_sis_fm_pd",true,"null",null);  
+else hide("fhd_sis_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_sis_fm_pd",false,"null",null); 
+ else  hide("fhd_sis_fm_pd",false); 
+  } else hide("fhd_sis_fm_pd",false); 
+ } 
+//end fhd_sis_fm_pd
+//begin fhd_mhsib_fm_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mhsib_fm_headline",true,"null",null);  
+else hide("fhd_mhsib_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mhsib_fm_headline",false,"null",null); 
+ else  hide("fhd_mhsib_fm_headline",false); 
+  } else hide("fhd_mhsib_fm_headline",false); 
+ } 
+//end fhd_mhsib_fm_headline
+//begin fhd_mhsib_fm
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mhsib_fm",true,"null",null);  
+else hide("fhd_mhsib_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mhsib_fm",false,"null",null); 
+ else  hide("fhd_mhsib_fm",false); 
+  } else hide("fhd_mhsib_fm",false); 
+ } 
+//end fhd_mhsib_fm
+//begin fhd_mhsib_fm_pd
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mhsib_fm_pd",true,"null",null);  
+else hide("fhd_mhsib_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mhsib_fm_pd",false,"null",null); 
+ else  hide("fhd_mhsib_fm_pd",false); 
+  } else hide("fhd_mhsib_fm_pd",false); 
+ } 
+//end fhd_mhsib_fm_pd
+//begin fhd_phsib_fm_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_phsib_fm_headline",true,"null",null);  
+else hide("fhd_phsib_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_phsib_fm_headline",false,"null",null); 
+ else  hide("fhd_phsib_fm_headline",false); 
+  } else hide("fhd_phsib_fm_headline",false); 
+ } 
+//end fhd_phsib_fm_headline
+//begin fhd_phsib_fm
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_phsib_fm",true,"null",null);  
+else hide("fhd_phsib_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_phsib_fm",false,"null",null); 
+ else  hide("fhd_phsib_fm",false); 
+  } else hide("fhd_phsib_fm",false); 
+ } 
+//end fhd_phsib_fm
+//begin fhd_phsib_fm_pd
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_phsib_fm_pd",true,"null",null);  
+else hide("fhd_phsib_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_phsib_fm_pd",false,"null",null); 
+ else  hide("fhd_phsib_fm_pd",false); 
+  } else hide("fhd_phsib_fm_pd",false); 
+ } 
+//end fhd_phsib_fm_pd
+//begin fhd_mau_fm_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mau_fm_headline",true,"null",null);  
+else hide("fhd_mau_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mau_fm_headline",false,"null",null); 
+ else  hide("fhd_mau_fm_headline",false); 
+  } else hide("fhd_mau_fm_headline",false); 
+ } 
+//end fhd_mau_fm_headline
+//begin fhd_mau_fm
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mau_fm",true,"null",null);  
+else hide("fhd_mau_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mau_fm",false,"null",null); 
+ else  hide("fhd_mau_fm",false); 
+  } else hide("fhd_mau_fm",false); 
+ } 
+//end fhd_mau_fm
+//begin fhd_mau_fm_pd
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mau_fm_pd",true,"null",null);  
+else hide("fhd_mau_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mau_fm_pd",false,"null",null); 
+ else  hide("fhd_mau_fm_pd",false); 
+  } else hide("fhd_mau_fm_pd",false); 
+ } 
+//end fhd_mau_fm_pd
+//begin fhd_pau_fm_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pau_fm_headline",true,"null",null);  
+else hide("fhd_pau_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pau_fm_headline",false,"null",null); 
+ else  hide("fhd_pau_fm_headline",false); 
+  } else hide("fhd_pau_fm_headline",false); 
+ } 
+//end fhd_pau_fm_headline
+//begin fhd_pau_fm
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pau_fm",true,"null",null);  
+else hide("fhd_pau_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pau_fm",false,"null",null); 
+ else  hide("fhd_pau_fm",false); 
+  } else hide("fhd_pau_fm",false); 
+ } 
+//end fhd_pau_fm
+//begin fhd_pau_fm_pd
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pau_fm_pd",true,"null",null);  
+else hide("fhd_pau_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pau_fm_pd",false,"null",null); 
+ else  hide("fhd_pau_fm_pd",false); 
+  } else hide("fhd_pau_fm_pd",false); 
+ } 
+//end fhd_pau_fm_pd
+//begin fhd_mcou_fm_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mcou_fm_headline",true,"null",null);  
+else hide("fhd_mcou_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mcou_fm_headline",false,"null",null); 
+ else  hide("fhd_mcou_fm_headline",false); 
+  } else hide("fhd_mcou_fm_headline",false); 
+ } 
+//end fhd_mcou_fm_headline
+//begin fhd_mcou_fm
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mcou_fm",true,"null",null);  
+else hide("fhd_mcou_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mcou_fm",false,"null",null); 
+ else  hide("fhd_mcou_fm",false); 
+  } else hide("fhd_mcou_fm",false); 
+ } 
+//end fhd_mcou_fm
+//begin fhd_mcou_fm_pd
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mcou_fm_pd",true,"null",null);  
+else hide("fhd_mcou_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mcou_fm_pd",false,"null",null); 
+ else  hide("fhd_mcou_fm_pd",false); 
+  } else hide("fhd_mcou_fm_pd",false); 
+ } 
+//end fhd_mcou_fm_pd
+//begin fhd_pcou_fm_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pcou_fm_headline",true,"null",null);  
+else hide("fhd_pcou_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pcou_fm_headline",false,"null",null); 
+ else  hide("fhd_pcou_fm_headline",false); 
+  } else hide("fhd_pcou_fm_headline",false); 
+ } 
+//end fhd_pcou_fm_headline
+//begin fhd_pcou_fm
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pcou_fm",true,"null",null);  
+else hide("fhd_pcou_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pcou_fm",false,"null",null); 
+ else  hide("fhd_pcou_fm",false); 
+  } else hide("fhd_pcou_fm",false); 
+ } 
+//end fhd_pcou_fm
+//begin fhd_pcou_fm_pd
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pcou_fm_pd",true,"null",null);  
+else hide("fhd_pcou_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pcou_fm_pd",false,"null",null); 
+ else  hide("fhd_pcou_fm_pd",false); 
+  } else hide("fhd_pcou_fm_pd",false); 
+ } 
+//end fhd_pcou_fm_pd
+//begin fhd_kids_fm_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_kids_fm_headline",true,"null",null);  
+else hide("fhd_kids_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_kids_fm_headline",false,"null",null); 
+ else  hide("fhd_kids_fm_headline",false); 
+  } else hide("fhd_kids_fm_headline",false); 
+ } 
+//end fhd_kids_fm_headline
+//begin fhd_kids_fm
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_kids_fm",true,"null",null);  
+else hide("fhd_kids_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_kids_fm",false,"null",null); 
+ else  hide("fhd_kids_fm",false); 
+  } else hide("fhd_kids_fm",false); 
+ } 
+//end fhd_kids_fm
+//begin fhd_kids_fm_pd
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_kids_fm_pd",true,"null",null);  
+else hide("fhd_kids_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_kids_fm_pd",false,"null",null); 
+ else  hide("fhd_kids_fm_pd",false); 
+  } else hide("fhd_kids_fm_pd",false); 
+ } 
+//end fhd_kids_fm_pd
+//begin fhd_2
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_2",true,"null",null);  
+else hide("fhd_2",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_2",false,"null",null); 
+ else  hide("fhd_2",false); 
+  } else hide("fhd_2",false); 
+ } 
+//end fhd_2
+//begin fhd_moth_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_moth_headline",true,"null",null);  
+else hide("fhd_moth_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_moth_headline",false,"null",null); 
+ else  hide("fhd_moth_headline",false); 
+  } else hide("fhd_moth_headline",false); 
+ } 
+//end fhd_moth_headline
+//begin fhd_fath_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_fath_headline",true,"null",null);  
+else hide("fhd_fath_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_fath_headline",false,"null",null); 
+ else  hide("fhd_fath_headline",false); 
+  } else hide("fhd_fath_headline",false); 
+ } 
+//end fhd_fath_headline
+//begin fhd_mgrm_headlie
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mgrm_headlie",true,"null",null);  
+else hide("fhd_mgrm_headlie",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mgrm_headlie",false,"null",null); 
+ else  hide("fhd_mgrm_headlie",false); 
+  } else hide("fhd_mgrm_headlie",false); 
+ } 
+//end fhd_mgrm_headlie
+//begin fhd_mgrf_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mgrf_headline",true,"null",null);  
+else hide("fhd_mgrf_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mgrf_headline",false,"null",null); 
+ else  hide("fhd_mgrf_headline",false); 
+  } else hide("fhd_mgrf_headline",false); 
+ } 
+//end fhd_mgrf_headline
+//begin fhd_pgrm_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pgrm_headline",true,"null",null);  
+else hide("fhd_pgrm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pgrm_headline",false,"null",null); 
+ else  hide("fhd_pgrm_headline",false); 
+  } else hide("fhd_pgrm_headline",false); 
+ } 
+//end fhd_pgrm_headline
+//begin fhd_pgrf_headline
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pgrf_headline",true,"null",null);  
+else hide("fhd_pgrf_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pgrf_headline",false,"null",null); 
+ else  hide("fhd_pgrf_headline",false); 
+  } else hide("fhd_pgrf_headline",false); 
+ } 
+//end fhd_pgrf_headline
+//begin fhd_other
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_other",true,"null",null);  
+else hide("fhd_other",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_other",false,"null",null); 
+ else  hide("fhd_other",false); 
+  } else hide("fhd_other",false); 
+ } 
+//end fhd_other
+//begin fhd_other_who
+//condition display only if "yes" is checked in item "fhd_1"
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_other_who",true,"null",null);  
+else hide("fhd_other_who",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_other_who",false,"null",null); 
+ else  hide("fhd_other_who",false); 
+  } else hide("fhd_other_who",false); 
+ } 
+//end fhd_other_who
+minimum_part_filled_out();
+    } __main__(); 
+$('#fhd_1,input[name="fhd_1"]').on('change', function() {if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_broth_fm_headline",true,"null",null);  
+else hide("fhd_broth_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_broth_fm_headline",false,"null",null); 
+ else  hide("fhd_broth_fm_headline",false); 
+  } else hide("fhd_broth_fm_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_broth_fm",true,"null",null);  
+else hide("fhd_broth_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_broth_fm",false,"null",null); 
+ else  hide("fhd_broth_fm",false); 
+  } else hide("fhd_broth_fm",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_broth_pd",true,"null",null);  
+else hide("fhd_broth_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_broth_pd",false,"null",null); 
+ else  hide("fhd_broth_pd",false); 
+  } else hide("fhd_broth_pd",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_sis_fm_headline",true,"null",null);  
+else hide("fhd_sis_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_sis_fm_headline",false,"null",null); 
+ else  hide("fhd_sis_fm_headline",false); 
+  } else hide("fhd_sis_fm_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_sis_fm",true,"null",null);  
+else hide("fhd_sis_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_sis_fm",false,"null",null); 
+ else  hide("fhd_sis_fm",false); 
+  } else hide("fhd_sis_fm",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_sis_fm_pd",true,"null",null);  
+else hide("fhd_sis_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_sis_fm_pd",false,"null",null); 
+ else  hide("fhd_sis_fm_pd",false); 
+  } else hide("fhd_sis_fm_pd",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mhsib_fm_headline",true,"null",null);  
+else hide("fhd_mhsib_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mhsib_fm_headline",false,"null",null); 
+ else  hide("fhd_mhsib_fm_headline",false); 
+  } else hide("fhd_mhsib_fm_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mhsib_fm",true,"null",null);  
+else hide("fhd_mhsib_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mhsib_fm",false,"null",null); 
+ else  hide("fhd_mhsib_fm",false); 
+  } else hide("fhd_mhsib_fm",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mhsib_fm_pd",true,"null",null);  
+else hide("fhd_mhsib_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mhsib_fm_pd",false,"null",null); 
+ else  hide("fhd_mhsib_fm_pd",false); 
+  } else hide("fhd_mhsib_fm_pd",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_phsib_fm_headline",true,"null",null);  
+else hide("fhd_phsib_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_phsib_fm_headline",false,"null",null); 
+ else  hide("fhd_phsib_fm_headline",false); 
+  } else hide("fhd_phsib_fm_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_phsib_fm",true,"null",null);  
+else hide("fhd_phsib_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_phsib_fm",false,"null",null); 
+ else  hide("fhd_phsib_fm",false); 
+  } else hide("fhd_phsib_fm",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_phsib_fm_pd",true,"null",null);  
+else hide("fhd_phsib_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_phsib_fm_pd",false,"null",null); 
+ else  hide("fhd_phsib_fm_pd",false); 
+  } else hide("fhd_phsib_fm_pd",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mau_fm_headline",true,"null",null);  
+else hide("fhd_mau_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mau_fm_headline",false,"null",null); 
+ else  hide("fhd_mau_fm_headline",false); 
+  } else hide("fhd_mau_fm_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mau_fm",true,"null",null);  
+else hide("fhd_mau_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mau_fm",false,"null",null); 
+ else  hide("fhd_mau_fm",false); 
+  } else hide("fhd_mau_fm",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mau_fm_pd",true,"null",null);  
+else hide("fhd_mau_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mau_fm_pd",false,"null",null); 
+ else  hide("fhd_mau_fm_pd",false); 
+  } else hide("fhd_mau_fm_pd",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pau_fm_headline",true,"null",null);  
+else hide("fhd_pau_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pau_fm_headline",false,"null",null); 
+ else  hide("fhd_pau_fm_headline",false); 
+  } else hide("fhd_pau_fm_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pau_fm",true,"null",null);  
+else hide("fhd_pau_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pau_fm",false,"null",null); 
+ else  hide("fhd_pau_fm",false); 
+  } else hide("fhd_pau_fm",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pau_fm_pd",true,"null",null);  
+else hide("fhd_pau_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pau_fm_pd",false,"null",null); 
+ else  hide("fhd_pau_fm_pd",false); 
+  } else hide("fhd_pau_fm_pd",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mcou_fm_headline",true,"null",null);  
+else hide("fhd_mcou_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mcou_fm_headline",false,"null",null); 
+ else  hide("fhd_mcou_fm_headline",false); 
+  } else hide("fhd_mcou_fm_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mcou_fm",true,"null",null);  
+else hide("fhd_mcou_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mcou_fm",false,"null",null); 
+ else  hide("fhd_mcou_fm",false); 
+  } else hide("fhd_mcou_fm",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mcou_fm_pd",true,"null",null);  
+else hide("fhd_mcou_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mcou_fm_pd",false,"null",null); 
+ else  hide("fhd_mcou_fm_pd",false); 
+  } else hide("fhd_mcou_fm_pd",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pcou_fm_headline",true,"null",null);  
+else hide("fhd_pcou_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pcou_fm_headline",false,"null",null); 
+ else  hide("fhd_pcou_fm_headline",false); 
+  } else hide("fhd_pcou_fm_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pcou_fm",true,"null",null);  
+else hide("fhd_pcou_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pcou_fm",false,"null",null); 
+ else  hide("fhd_pcou_fm",false); 
+  } else hide("fhd_pcou_fm",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pcou_fm_pd",true,"null",null);  
+else hide("fhd_pcou_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pcou_fm_pd",false,"null",null); 
+ else  hide("fhd_pcou_fm_pd",false); 
+  } else hide("fhd_pcou_fm_pd",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_kids_fm_headline",true,"null",null);  
+else hide("fhd_kids_fm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_kids_fm_headline",false,"null",null); 
+ else  hide("fhd_kids_fm_headline",false); 
+  } else hide("fhd_kids_fm_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_kids_fm",true,"null",null);  
+else hide("fhd_kids_fm",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_kids_fm",false,"null",null); 
+ else  hide("fhd_kids_fm",false); 
+  } else hide("fhd_kids_fm",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_kids_fm_pd",true,"null",null);  
+else hide("fhd_kids_fm_pd",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_kids_fm_pd",false,"null",null); 
+ else  hide("fhd_kids_fm_pd",false); 
+  } else hide("fhd_kids_fm_pd",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_2",true,"null",null);  
+else hide("fhd_2",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_2",false,"null",null); 
+ else  hide("fhd_2",false); 
+  } else hide("fhd_2",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_moth_headline",true,"null",null);  
+else hide("fhd_moth_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_moth_headline",false,"null",null); 
+ else  hide("fhd_moth_headline",false); 
+  } else hide("fhd_moth_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_fath_headline",true,"null",null);  
+else hide("fhd_fath_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_fath_headline",false,"null",null); 
+ else  hide("fhd_fath_headline",false); 
+  } else hide("fhd_fath_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mgrm_headlie",true,"null",null);  
+else hide("fhd_mgrm_headlie",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mgrm_headlie",false,"null",null); 
+ else  hide("fhd_mgrm_headlie",false); 
+  } else hide("fhd_mgrm_headlie",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_mgrf_headline",true,"null",null);  
+else hide("fhd_mgrf_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_mgrf_headline",false,"null",null); 
+ else  hide("fhd_mgrf_headline",false); 
+  } else hide("fhd_mgrf_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pgrm_headline",true,"null",null);  
+else hide("fhd_pgrm_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pgrm_headline",false,"null",null); 
+ else  hide("fhd_pgrm_headline",false); 
+  } else hide("fhd_pgrm_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_pgrf_headline",true,"null",null);  
+else hide("fhd_pgrf_headline",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_pgrf_headline",false,"null",null); 
+ else  hide("fhd_pgrf_headline",false); 
+  } else hide("fhd_pgrf_headline",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_other",true,"null",null);  
+else hide("fhd_other",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_other",false,"null",null); 
+ else  hide("fhd_other",false); 
+  } else hide("fhd_other",false); 
+ } 
+if (length("fhd_1") > 0 ? isvisible("fhd_1", true) : false )  
+{ if (check("fhd_1","yes"))  
+ show("fhd_other_who",true,"null",null);  
+else hide("fhd_other_who",true);  
+} else { 
+if (isvisible2("fhd_1", false)) { 
+ if (check2("fhd_1","yes")) 
+  show("fhd_other_who",false,"null",null); 
+ else  hide("fhd_other_who",false); 
+  } else hide("fhd_other_who",false); 
+ } 
+});
+
+</script>
+</body>
+</html>

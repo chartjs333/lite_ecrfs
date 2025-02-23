@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1>Upload your symptoms excel file for check</h1>
+<div th:if="${message}">
+    <h2 th:text="${message}"/>
+</div>
+<form method="POST" action="/uploadSymptomExcelFile" enctype="multipart/form-data">
+	Choose the excel file : <br/>
+    <input type="file" name="file" /> (only xlsx files are supported)<br/> 
+    
+    <br/>
+    
+    <input type="submit" value="Check it out!" /><br/>
+    Note*:  You can find the format of your file by looking at the file name extension - the characters to the right of the dot in the file name. <br/>
+    If your file has an xls format, open it in excel, then save as - save excel file as an excel file in "XLSX" format.<br/>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+  <th th:fragment="overviewTitle"  th:with="design" th:width="${design.width}" th:style="${design.style}">
+     <span data-tooltip="" th:aria-haspopup="${design.aria_haspopup}" th:class="${design.class}" data-selector="tooltip-ji48w2og1" aria-describedby="tooltip-ji48w2og1" th:title="${design.title}" th:text="${design.text}">
+       ...
+     </span>
+   </th>
+<!-- 
+    <div th:fragment="study">
+<tr>
+  <td>
+    <a th:href="T(org.apache.commons.lang3.math.NumberUtils).compare(study.id)}+', '+${study.issue_year}",
+    patients_index_selected_path(study: study.id, disease: @disease.id, gene: @gene.id)
+  td
+    = humanize_design study.design
+  td[style="text-align:center; vertical-align:center;"]
+    = humanize_age_limit study.lower_age_limit, study.upper_age_limit
+  td[style="text-align:center; vertical-align:center;"]
+    = study.n_cases.to_s
+  td[style="text-align:center; vertical-align:center;"]
+    = humanize_ethnicities study.examined_ethnicities
+  td[style="text-align:center; vertical-align:center;"]
+    = male_sex_percentage study.who
+  td[style="text-align:center; vertical-align:center;"]
+    = aggregate_aao_stddev study.who
+  td
+    = list_variations study.who, study.id
+    </div>
+     -->
+  </body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <!-- Title -->
+        <p style="margin-bottom: 2.15em;"></p>
+      <div class="row">
+  <div class="small-12 text-left columns" >
+    <h5 th:text="${overview.disease.abbreviation} + '-' + ${overview.gene.name} + ' Data summary (filter: All)'" th:if="${humanized_filter == 'All'}" th1:if="${'показывать если вубранно все'}">
+      DYT-NGX: Data summary <!--<br/>-->(filter: females only)
+    </h5>
+    <h5 th:text="${overview.disease.abbreviation} + '-' + ${overview.gene.name} + ' Data summary ' + ${humanized_filter} " th:if="${humanized_filter != 'All'}" th1:if="${'показывать если вубранно все'}">
+      DYT-NGX: Data summary <!--<br/>-->(filter: females only)
+    </h5>    
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <ul class="small-block-grid-1 medium-block-grid-2">
+    <li style="align-items: center;">
+            	<h5 style="width: 100%;text-align: center">PD+</h5>
+    </li>            	
+    <li style="align-items: center;">
+            	<h5 style="width: 100%;text-align: center">PD-</h5>
+    </li>            	
+    </ul>
+    <ul class="small-block-grid-1 medium-block-grid-2">
+    <li style="align-items: center;">
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <th width="50%" style="text-align: left;">
+            <span title="" class="has-tip tip-top radius" aria-haspopup="true" aria-describedby="tooltip-k61zydac0" data-tooltip="asdasda" data-selector="tooltip-k61zydac0" th:if="${#httpServletRequest.queryString.contains('fc1=0')}">
+              Gene
+            </span>
+          </th>
+          <th width="50%">
+            <span title="" class="has-tip tip-top radius" aria-haspopup="true" aria-describedby="tooltip-k61zydac2" data-tooltip="" data-selector="tooltip-k61zydac2"  th:if="${#httpServletRequest.queryString.contains('fc1=0')}">
+              N cases
+            </span>
+          </th>
+        </tr>
+      </thead>  
+      <tbody id="stud">
+      	<tr th:each="line: ${subjects_per_gene}" th1:each="строка: ${таблица}" th:if="${#httpServletRequest.queryString.contains('fc1=0')}">
+      		<td th:text="${line[0]}" th1:text="${ген}">
+      		</td>  
+      		<td style="text-align: center;" th:text="${line[1]}" th1:text="${колличество}">
+      		</td>
+      	</tr>
+      	<tr>
+      		<td style="text-align: center" colspan="2" th:text="${'Total number of subjects: ' + subjects_per_gene_total}" th1:text="${общее_колличество_пациентов_с_известным_субект_про_ген}">
+      		</td>
+      	</tr>
+      </tbody>
+    </table>
+    </li>            	
+    <li>
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <th width="50%" style="text-align: left;">
+            <span title="" class="has-tip tip-top radius" aria-haspopup="true" aria-describedby="tooltip-k61zydac0" data-tooltip="asdasda" data-selector="tooltip-k61zydac0"  th:if="${#httpServletRequest.queryString.contains('fc1=0')}">
+              Gene
+            </span>
+          </th>
+          <th width="50%" >
+            <span title="" class="has-tip tip-top radius" aria-haspopup="true" aria-describedby="tooltip-k61zydac2" data-tooltip="" data-selector="tooltip-k61zydac2"  th:if="${#httpServletRequest.queryString.contains('fc1=0')}">
+              N cases
+            </span>
+          </th>
+        </tr>
+      </thead>  
+      <tbody id="stud">
+      	<tr th:each="line: ${subjects_per_gene_healthy}" th1:each="строка: ${таблица}" th:if="${#httpServletRequest.queryString.contains('fc1=0')}">
+      		<td th:text="${line[0]}" th1:text="${ген}">
+      		</td>  
+      		<td style="text-align: center;" th:text="${line[1]}" th1:text="${колличество}">
+      		</td>
+      	</tr>
+      	<tr>
+      		<td style="text-align: center" colspan="2" th:text="${'Total number of subjects: ' + subjects_per_gene_total_healthy}" th1:text="${общее_колличество_пациентов_с_известным_субект_про_ген}">
+      		 
+      		</td>
+      		
+      	</tr>
+      </tbody>
+    </table>
+    </li>            	
+    </ul> 
+    <ul class="small-block-grid-1 medium-block-grid-2" th:if="${humanized_filter != 'All' and !#httpServletRequest.queryString.contains('fc1=0') and !#httpServletRequest.queryString.contains('fc1=8')}">
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: frequency_of_mutations('frequency_of_mutations', 'Frequency_of_mutations','subjects_per_gene_total')"></th:block>
+    </li>            	
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: frequency_of_mutations('frequency_of_mutations_healthy', 'Frequency_of_mutations','subjects_per_gene_total_healthy')"></th:block>
+    </li>
+    </ul>  
+<!--    <ul class="small-block-grid-1 medium-block-grid-2">-->
+<!--    <li>-->
+<!--            	<th:block th:include="fragments/fragment_studies_helper :: pie_chart('race_all', 'Race')"></th:block>-->
+<!--    </li>            	-->
+<!--    <li>-->
+<!--            	<th:block th:include="fragments/fragment_studies_helper :: pie_chart('race_all_healthy', 'Race')"></th:block>-->
+<!--    </li>            	-->
+<!--    </ul>-->
+    <ul class="small-block-grid-1 medium-block-grid-2">
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: pie_chart('ethnicity_all', 'Ethnicity')"></th:block>
+    </li>            	
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: pie_chart('ethnicity_all_healthy', 'Ethnicity')"></th:block>            	
+    </li>            	
+    </ul>
+    <ul class="small-block-grid-1 medium-block-grid-2">
+    <li>
+            	<!-- 
+            	<div th:include="fragments/fragment_studies_helper :: pie_chart('diagnosed_with_pd', 'Diagnosed_with_PD')"></div>
+            	-->
+            	<th:block th:include="fragments/fragment_studies_helper :: pie_chart('family_history', 'Family_history')"></th:block>
+    </li>            	
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: pie_chart('family_history_healthy', 'Family_history')"></th:block>
+    </li>            	
+    </ul>
+    <ul class="small-block-grid-1 medium-block-grid-2">
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: pie_chart_no_missing_data('data_already_been_published', 'Data_already_published')"></th:block>
+    </li>            	
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: pie_chart_no_missing_data('data_already_been_published_healthy', 'Data_already_published')"></th:block>
+    </li>            	
+    </ul>
+    <ul class="small-block-grid-1 medium-block-grid-2">
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: aao_chart('aao', 'Distribution_of_age_at_onset')"></th:block>
+    </li>            	
+    </ul>
+    <ul class="small-block-grid-1 medium-block-grid-2" th:if="${#strings.contains(humanized_filter,'GBA') == false}">
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: pie_chart_no_missing_data('type_of_mutation', 'Type_of_mutation')"></th:block>
+    </li>            	
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: pie_chart_no_missing_data('type_of_mutation_healthy', 'Type_of_mutation')"></th:block>
+    </li>            	
+    </ul>
+    <ul class="small-block-grid-1 medium-block-grid-2" th:if="${#strings.contains(humanized_filter,'GBA') == false}">
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: pie_chart_no_missing_data_with_long_hint('digenic_cases', 'Digenic_cases')"></th:block>
+    </li>            	
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: pie_chart_no_missing_data_with_long_hint('digenic_cases_healthy', 'Digenic_cases')"></th:block>
+    </li>            	
+    </ul>
+    <ul class="small-block-grid-1 medium-block-grid-2">
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: column_chart('availability_of_clinical_scales', 'Availability_of_clinical_scales')"></th:block>
+    </li>            	
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: column_chart('availability_of_clinical_scales_healthy', 'Availability_of_clinical_scales')"></th:block>
+    </li>            	
+    </ul>
+    <ul class="small-block-grid-1 medium-block-grid-2">
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: column_chart('availability_of_other_data', 'Availability_of_other_data')"></th:block>
+    </li>            	
+    <li>
+            	<th:block th:include="fragments/fragment_studies_helper :: column_chart('availability_of_other_data_healthy', 'Availability_of_other_data')"></th:block>
+    </li>            	
+    </ul>
+    <ul class="small-block-grid-1 medium-block-grid-2" th:if="${false}">
+    <li>
+            	<div th:include="fragments/fragment_studies_helper :: column_chart('availability_of_biospecimen', 'Availability_of_biospecimen')"></div>
+    </li>            	
+    <li>
+            	<div th:include="fragments/fragment_studies_helper :: column_chart('ethics_approval', 'Ethics_approval')"></div>
+    </li>            	
+    </ul>    
+  </div>
+</div>
+
+      <p style="margin-bottom: 0.55em;"></p>
+    </div>
+    <div class="row">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          Â© University of LÃ¼beck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

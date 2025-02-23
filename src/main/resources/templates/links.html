@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTop">
+	  </div>
+      <p></p>
+      <!-- Title -->
+<div class="row"><div class="small-12 text-left columns"><h5>Conferences where you can find us</h5></div></div><div class="row"><div class="small-12 text-justify columns"><p>March 7-9, 2019:&#160;<a href="https://www.dpg-akbont-kongress-2019.de/" target="_blank">Deutscher Kongress für Parkinson und Bewegungsstörungen</a> in Düsseldorf, Germany.</p><p>May 8-11, 2016:&#160;<a href="https://www.treatment-of-dystonia.org/" target="_blank">4th International congress of Dystonia on Treatment of Dystonia</a> in Hannover, Germany.</p><p>June 16-19, 2019:&#160;<a href="https://www.iaprd-world-congress.com/" target="_blank">World congress on Parkinson´s Disease and related disorders</a> in Montreal, Canada.</p><p>September 22-26, 2019:&#160;<a href="https://www.mdscongress.org/Congress-2018/All-Congress-Sites.htm" target="_blank">International Congress of Parkinson's Disease and Movement Disorders</a> in Nice, France.</p><p>October 13-15, 2019:&#160;<a href="https://2018.myana.org/future-meeting-dates" target="_blank">144th Annual Meeting of the American Neurological Association (ANA)</a> in St. Louis, USA.</p><p>Find more relevant conferences:&#160;<a href="https://www.movementdisorders.org/MDS/2018-2019-Conference-Calendar.htm" target="_blank">MDS conference calendar</a></p></div></div><p style="margin-bottom: 1.3em;"></p>
+	  <!-- End -->      
+    </div>
+    <div class="row">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>
+

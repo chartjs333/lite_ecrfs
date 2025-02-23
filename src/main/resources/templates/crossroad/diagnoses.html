@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MDSGene</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+<div id="wrap-everything">
+<div th:include="fragments/layout :: pageTop">
+</div>
+<p></p>
+<th:block th:unless="${possible_diagnoses == null}">
+<div class="row">
+  <div class="small-12 text-left columns">
+    <h5>Movement disorders that show overlap with the selected signs and symptoms:</h5>
+  </div>
+</div>
+<p style="margin-bottom:10px;"></p>
+<div class="row">
+  <div class="small-12 columns" style="overflow:scroll">
+    <table style="width:100%; margin-bottom: 1.65rem;">
+      <thead>
+        <tr>
+          <th id="dia" rowspan="2" width="106">
+            <span data-tooltip="data-tooltip1" aria-haspopup="true" class="has-tip tip-top radius" 
+                  title="Lists of all possible diagnoses based on the combination of signs and symptoms selected on the previous webpage. The nomenclature follows the recent recommendations of the MDS Task Force of Genetic Nomenclature in Movement Disorders (see Methods). This list is sorted by the extent of overlap between selected and previously reported signs and symptoms as displayed in the following columns. Specifically, the order of this list is defined by i) decreasing number of overlapping signs/symptoms, ii) increasing number of previously reported but not selected signs/symptoms, and iii) increasing number of selected but not previously reported signs/symptoms.">
+              Diagnosis
+            </span>
+          </th>
+          <th id="nca" rowspan="2" width="53">
+            <span data-tooltip="data-tooltip2" aria-haspopup="true" class="has-tip tip-top radius"
+                  title="The number of all patients included in MDSGene for whom the respective diagnosis was reported.">
+              N<br/>cases
+            </span>
+          </th>
+          <th id="aao" rowspan="2" width="110">
+            <span data-tooltip="data-tooltip3" aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Displays the mean age at onset and its range for the patients with the respective diagnosis included in MDSGene.">
+              AAO
+            </span>
+          </th>
+          <th id="sig" colspan="3" style="border-bottom: 0 none;">Signs and symptoms</th>
+          <th id="mut" rowspan="2">
+            <span data-tooltip="data-tooltip4" aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Mutations reported in the respective study. Hom = homozygous, het = heterozygous, comp. het = compound heterozygous. For comp. het. mutations, both mutations are listed (if the second mutation is located in another gene, the gene name precedes the mutation ID). Only mutations classified as “possibly”, “probably”, or “definitively pathogenic” according to the scoring scheme implemented in MDSGene are listed here (see Methods).">
+              Reported mutations
+            </span>
+          </th>
+        </tr>
+        <tr>
+          <th id="sboth" headers="sig" style="border-left: 0 none;" width="20.4%">
+            <span data-tooltip="data-tooltip5" aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Signs and symptoms that you selected selected on the previous webpage and that have also been reported previously for patients with the respective disease included in MDSGene.">
+              selected and previously reported
+            </span>
+          </th>
+          <th id="slit" headers="sig" width="20.4%">
+            <span data-tooltip="data-tooltip6" aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Signs and symptoms that have been reported previously for patients with the respective disease included in MDSGene. However, you did not select these signs and symptoms on the previous webpage.">
+              previously reported but not selected
+            </span>
+          </th>
+          <th id="spat" headers="sig" width="20.4%">
+            <span data-tooltip="data-tooltip7" aria-haspopup="true" class="has-tip tip-top radius"
+                  title="Signs and symptoms that you selected on the previous webpage. However, they have been reported previously for patients with the respective disease included in MDSGene.">
+              selected but not previously reported
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      <th:block th:each="_pd, _index: ${possible_diagnoses}">
+        <tr>
+          <td headers="dia" style="text-align:center;">
+          	<a th:text="${_pd.diagnosis.body}" th:href="${_pd.diagnosis.href}"></a>
+          </td>
+          <td headers="nca" style="text-align:center;" th:text="${_pd.n_cases}"></td>
+          <td headers="aao" style="text-align:center;">
+            <span th:text="${_pd.aao.left}"></span><br/><div style="white-space: nowrap;"><span th:text="${'(' + _pd.aao.middle + ' - ' + _pd.aao.right + ')'}"></span></div>
+          </td>
+          <td headers="sboth sig" style="text-align:center;">
+          	<div th:include="fragments/common :: collapsable(javaField=${_pd.ss_selected_and_previously_reported}, idPref='diagnosis_sympt_persentage_pd_intersec_sboth', idIndex=${_index})"></div>	
+          </td>
+          <td headers="slit sig" style="text-align:center;">
+          	<div th:include="fragments/common :: collapsable(javaField=${_pd.ss_previously_reported_but_not_selected}, idPref='diagnosis_sympt_persentage_pd_rcot_patient_slit', idIndex=${_index})"></div>
+          </td>
+          <td headers="spat sig" style="text-align:center;">
+          	<div th:include="fragments/common :: collapsable(javaField=${_pd.ss_selected_but_not_previously_reported}, idPref='diagnosis_sympt_persentage_pd_rcot_database_spat', idIndex=${_index})"></div>
+		  </td>
+          <td headers="mut" style="text-align:center;">
+          	<div th:include="fragments/common :: collapsableLinks(javaField=${_pd.reported_mutations}, idPref='mutations', idIndex=${_index})"></div>
+          </td>
+        </tr>
+      </th:block>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row" th:unless="${imp_d == null}">
+  <div class="small-12 text-left columns">
+    <h5>
+      None of the selected signs and symptoms has been recorded in MDSGene for the following heritable
+      movement disorders:
+    </h5>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 text-left columns">
+    <ul class="inline-list" style="margin-left: 0px; margin-bottom: 0px; padding-bottom: 15px; font-size: 0.875rem;">
+    <th:block th:each="_id, _index: ${imp_d}">
+    <li>
+      <a th:text="${_id.body}" th:href="${_id.href}"></a>
+    </li>
+    <li class="divider" th:unless="${_index == _index.count-1}"></li>
+  	</th:block>
+    </ul>
+  </div>
+</div>
+<div style="padding-bottom: 0.4em;"></div>
+</th:block>
+</div>
+<div th:include="fragments/layout :: pageBottom"></div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+    <div th:fragment="updateDOE" class="modal fade" id="updateModalDOE" tabindex="-1" aria-labelledby="update-date-of-enrollmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Date of Enrolment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="message"></div>
+                    <form th:action="@{'/survey/' + ${user_id} + '/update-date-of-enrollment'}" th:object="${updateSurveyRequest}" id="update-date-of-enrollment_form" method="post">
+                        <div class="form-group">
+                            <label>Date of Enrolment:</label>
+                            <div class="input-group date" data-target-input="nearest">
+                                <input id="dateOfEnrolment" name="dateOfEnrollment" type="text" class="form-control datetimepicker-input" data-target="#dateOfEnrolment"/>
+                                <div class="input-group-append" data-target="#dateOfEnrolment" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success btn-ok">Update</button>
+                </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Navigation Bar</title>
+</head>
+<body>
+<th:block th:fragment="bottombar(navbarNumber)">
+    <nav class="nav-justified" style="font-size: 22px; font-weight: bold; display: flex; justify-content: space-between;">
+        <!-- Block 1 (0-2) -->
+        <!-- if navbarNumber is 1 -->
+        <th:block th:if="${navbarNumber == 1}">
+        <a th:href="@{'/in-ex/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center; margin-left:auto;">Next</a>
+        </th:block>
+
+
+        <!-- Block 1 (1-3) -->
+        <!-- if navbarNumber is 2 -->
+        <th:block th:if="${navbarNumber == 2}">
+        <a th:href="@{'/informed-consent/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/biomaterials/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 2 (2-4) -->
+        <!-- if navbarNumber is 3 -->
+        <th:block th:if="${navbarNumber == 3}">
+        <a th:href="@{'/in-ex/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/csf/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 3 (3-5) -->
+        <!-- if navbarNumber is 4 -->
+        <th:block th:if="${navbarNumber == 4}">
+        <a th:href="@{'/biomaterials/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/imaging/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 4 (4-6) -->
+        <!-- if navbarNumber is 5 -->
+        <th:block th:if="${navbarNumber == 5}">
+        <a th:href="@{'/csf/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/med-history/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 5 (5-7) -->
+        <!-- if navbarNumber is 6 -->
+        <th:block th:if="${navbarNumber == 6}">
+        <a th:href="@{'/imaging/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/fh/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 6 (6-8) -->
+        <!-- if navbarNumber is 7 -->
+        <th:block th:if="${navbarNumber == 7}">
+        <a th:href="@{'/med-history/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/demographics/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 7 (7-9) -->
+        <!-- if navbarNumber is 8 -->
+        <th:block th:if="${navbarNumber == 8}">
+        <a th:href="@{'/fh/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/ledd/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 8 (8-10) -->
+        <!-- if navbarNumber is 9 -->
+        <th:block th:if="${navbarNumber == 9}">
+        <a th:href="@{'/demographics/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/treatments/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 9 (9-11) -->
+        <!-- if navbarNumber is 10 -->
+        <th:block th:if="${navbarNumber == 10}">
+        <a th:href="@{'/ledd/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/exam/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 10 (10-12) -->
+        <!-- if navbarNumber is 11 -->
+        <th:block th:if="${navbarNumber == 11}">
+        <a th:href="@{'/treatments/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/vital-signs/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 11 (11-13) -->
+        <!-- if navbarNumber is 12 -->
+        <th:block th:if="${navbarNumber == 12}">
+        <a th:href="@{'/exam/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/pd-history/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 12 (12-14) -->
+        <!-- if navbarNumber is 13 -->
+        <th:block th:if="${navbarNumber == 13}">
+        <a th:href="@{'/vital-signs/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/mdsupdrs-i/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 13 (13-15) -->
+        <!-- if navbarNumber is 14 -->
+        <th:block th:if="${navbarNumber == 14}">
+        <a th:href="@{'/pd-history/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/mdsupdrs-pat-i-ii/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 14 (14-16) -->
+        <!-- if navbarNumber is 15 -->
+        <th:block th:if="${navbarNumber == 15}">
+        <a th:href="@{'/mdsupdrs-i/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/mdsupdrs-iii/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 15 (15-17) -->
+        <!-- if navbarNumber is 16 -->
+        <th:block th:if="${navbarNumber == 16}">
+        <a th:href="@{'/mdsupdrs-pat-i-ii/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/mdsupdrs-iv/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 16 (16-18) -->
+        <!-- if navbarNumber is 17 -->
+        <th:block th:if="${navbarNumber == 17}">
+        <a th:href="@{'/mdsupdrs-iii/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/moca/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 17 (17-19) -->
+        <!-- if navbarNumber is 18 -->
+        <th:block th:if="${navbarNumber == 18}">
+        <a th:href="@{'/mdsupdrs-iv/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/upsit/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 18 (18-20) -->
+        <!-- if navbarNumber is 19 -->
+        <th:block th:if="${navbarNumber == 19}">
+        <a th:href="@{'/moca/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/rbd/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 19 (19-21) -->
+        <!-- if navbarNumber is 20 -->
+        <th:block th:if="${navbarNumber == 20}">
+        <a th:href="@{'/upsit/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/quip/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 20 (20-22) -->
+        <!-- if navbarNumber is 21 -->
+        <th:block th:if="${navbarNumber == 21}">
+        <a th:href="@{'/rbd/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/ess/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 21 (21-23) -->
+        <!-- if navbarNumber is 22 -->
+        <th:block th:if="${navbarNumber == 22}">
+        <a th:href="@{'/quip/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/gds/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 22 (22-24) -->
+        <!-- if navbarNumber is 23 -->
+        <th:block th:if="${navbarNumber == 23}">
+        <a th:href="@{'/ess/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/stai-s/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 23 (23-25) -->
+        <!-- if navbarNumber is 24 -->
+        <th:block th:if="${navbarNumber == 24}">
+        <a th:href="@{'/gds/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/stai-t/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 24 (24-26) -->
+        <!-- if navbarNumber is 25 -->
+        <th:block th:if="${navbarNumber == 25}">
+        <a th:href="@{'/stai-s/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/scopa-aut/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+        <!-- Block 25 (25-27) -->
+        <!-- if navbarNumber is 26 -->
+        <th:block th:if="${navbarNumber == 26}">
+        <a th:href="@{'/stai-t/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Prev</a>
+        <a th:href="@{'/additional-url/' + ${surveyTwoId}}"  class="nav-link less-bold-left-justified" style="width:30%; height:50px; display:flex; align-items:center; justify-content:center;">Next</a>
+        </th:block>
+
+    </nav>
+</th:block>
+</body>
+</html>

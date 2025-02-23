@@ -1,0 +1,2960 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title> Olfactory Testing UPSIT</title>
+<!-- css files -->
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
+<link rel="stylesheet" type="text/css" href="../fonts/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/registration-style.css"/>
+<link rel="stylesheet" type="text/css" href="../css/elements.css"/>
+<!-- Bootstrap Timepicker CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../css/check-ecrf-minimal.css"/>
+<!-- jquery library --> 
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script> 
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/survey.js"></script>
+<!-- Bootstrap Timepicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../js/check-ecrf-minimal.js"></script>
+<script  type="text/javascript">
+$(document).ready(function(){     $('.timepicker').timepicker({
+        showInputs: false,
+        showMeridian: false
+    });});
+</script>
+<style>
+#logo {
+    display: block;
+    margin: auto;
+}
+.minimal-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.core-radio {
+    color: #E07800;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.form-group.has-minimal > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.form-group.has-core > label {
+    color: #263C49;
+    /* You can add any other CSS properties here to style the label. */
+}
+.progress .progress-bar {
+    background-image: linear-gradient(to bottom, #E07800 0, #E07800 100%) !important;
+}
+.survey-button {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Arial',Arial,sans-serif;
+    line-height: 1.55;
+    font-weight: 600;
+    border-width: 2px;
+    border-radius: 6px;
+    background-color: #3A91B6;
+    background-position: center center;
+    border-color: #3A91B6;
+    border-style: solid;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.has-minimal .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+.has-core .form-control {
+    border-color: #E07800;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .025), 2px 2px 1px 0px rgba(224,120,0, 0.25);
+}
+
+
+.header-label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subheader {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.move-up-first-header {
+    margin-top: 70px;
+}
+
+
+.move-down-header {
+    margin-bottom: 35px;
+}
+
+
+.move-up-header {
+    margin-top: 55px;
+}
+
+
+.move-down-subheader {
+    margin-bottom: 10px;
+}
+
+
+.move-up-subheader {
+    margin-top: 40px;
+}
+
+.move-up-yes-no {
+    margin-top: 5px;
+}
+
+.move-down-yes-no {
+    margin-bottom: 30px;
+}
+
+.move-down-text {
+    margin-bottom: 30px;
+}
+
+h4 {
+    line-height: 1.78;
+    margin: 0 auto;
+    width: 70%;
+    margin-bottom: 40px;
+}
+
+.active-tab {
+    background-color: #23527c!important;
+    color: #fff!important;
+}
+
+.less-bold-left-justified {
+    text-align: left!important;
+    /*padding-left: 30px!important;*/
+    color: #000; /* replace it with your color code */
+    font-size: 20px; /* adjust based on your needs */
+    font-weight: normal; /* Use 'bold' for bold font, 'normal' for less bold  */
+}
+
+nav.navbar-nav {
+    margin-bottom: 50px;
+}
+
+.instruction {
+    font-weight: normal;
+}
+
+.nav-justified {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.specific-list li {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.specific-list input[type="radio"] {
+    margin-right: 5px;
+}
+
+.specific-list label {
+    display: flex;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot');
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.completed {
+     color: green;
+ }
+.uncompleted {
+    color: red;
+}
+
+</style>
+</head>
+
+<body>
+<img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database" src="../assets/fmjfox.png" />
+<div class="registration-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+<div style="font-size: 18px;color: #8a6d3b; background-color: antiquewhite; border: burlywood 3px solid;border-radius: 5px;">
+    <div style="padding: 10px 10px 0px">
+        Data entered into this eCRF are automatically saved
+    </div>
+    <div style="padding: 0px 10px 10px">
+        The contributor will also be able to return at a future date to view
+        and/or edit the eCRF should new information regarding the patient/family become available
+    </div>
+</div>
+        <br/>
+        <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
+          <span style="color: #133957" th:text="${'Local ID: ' + centerId}" th:if="${centerId}"></span><br/>
+          <span style="color: #133957" th:text="${'Project ID: ' + projectId}" th:if="${projectId}"></span>
+</div>
+        <form accept-charset="UTF-8" class="registration-form onlyForm" method="post" th:object="${formObj}" th:id="${formObj.surveyTwoId}" >
+<input type='hidden' id="filling_status" th:field="${formObj.fillingStatus}"/><div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">        <div class="top-box text-left">
+          <h2 class="title">Olfactory Testing</h2>
+        </div>  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%;background-image: linear-gradient(to bottom,#33A371 0,#33A371 100%)">
+      <span class="sr-only">0% Complete</span>
+    </div>
+  </div>
+	<div class="alert alert-warning" role="alert">
+  	   <strong>Warning:</strong> The minimal dataset is not complete yet. Please be reminded that to complete the minimal dataset is mandatory in order to have samples processed for analysis. Please continue or come back when you can complete at least the minimal dataset.
+	</div>
+</div>          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-up-first-header move-down-header" >
+                <label namelabel="smell" class="" for="">Which smell test did you use?</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Smell}" type="radio" name1="smell" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">UPSIT</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Smell}" type="radio" name1="smell" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> OSIT-J</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Smell}" type="radio" name1="smell" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> TIBSIT</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+                <label id="headline_1" class="subheader">UPSIT</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_ex" class="" for="">UPSIT completed</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_ex}" type="radio" name1="upsit_ex" value="0"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">yes</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_ex}" type="radio" name1="upsit_ex" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-text" >
+                <label for="upsit_lang" class="">language</label>
+                <input type="text" class="form-control" id="upsit_lang"  th:field="${formObj.Upsit_lang}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_1" class="" for="">1. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_1}" type="radio" name1="upsit_1" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_1}" type="radio" name1="upsit_1" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_1}" type="radio" name1="upsit_1" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_1}" type="radio" name1="upsit_1" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_2" class="" for="">2. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_2}" type="radio" name1="upsit_2" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_2}" type="radio" name1="upsit_2" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_2}" type="radio" name1="upsit_2" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_2}" type="radio" name1="upsit_2" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_3" class="" for="">3. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_3}" type="radio" name1="upsit_3" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_3}" type="radio" name1="upsit_3" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_3}" type="radio" name1="upsit_3" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_3}" type="radio" name1="upsit_3" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_4" class="" for="">4. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_4}" type="radio" name1="upsit_4" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_4}" type="radio" name1="upsit_4" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_4}" type="radio" name1="upsit_4" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_4}" type="radio" name1="upsit_4" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_5" class="" for="">5. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_5}" type="radio" name1="upsit_5" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_5}" type="radio" name1="upsit_5" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_5}" type="radio" name1="upsit_5" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_5}" type="radio" name1="upsit_5" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_6" class="" for="">6. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_6}" type="radio" name1="upsit_6" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_6}" type="radio" name1="upsit_6" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_6}" type="radio" name1="upsit_6" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_6}" type="radio" name1="upsit_6" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_7" class="" for="">7. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_7}" type="radio" name1="upsit_7" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_7}" type="radio" name1="upsit_7" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_7}" type="radio" name1="upsit_7" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_7}" type="radio" name1="upsit_7" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_8" class="" for="">8. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_8}" type="radio" name1="upsit_8" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_8}" type="radio" name1="upsit_8" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_8}" type="radio" name1="upsit_8" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_8}" type="radio" name1="upsit_8" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_9" class="" for="">9. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_9}" type="radio" name1="upsit_9" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_9}" type="radio" name1="upsit_9" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_9}" type="radio" name1="upsit_9" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_9}" type="radio" name1="upsit_9" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_10" class="" for="">10. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_10}" type="radio" name1="upsit_10" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_10}" type="radio" name1="upsit_10" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_10}" type="radio" name1="upsit_10" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_10}" type="radio" name1="upsit_10" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_11" class="" for="">11. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_11}" type="radio" name1="upsit_11" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_11}" type="radio" name1="upsit_11" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_11}" type="radio" name1="upsit_11" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_11}" type="radio" name1="upsit_11" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_12" class="" for="">12. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_12}" type="radio" name1="upsit_12" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_12}" type="radio" name1="upsit_12" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_12}" type="radio" name1="upsit_12" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_12}" type="radio" name1="upsit_12" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_13" class="" for="">13. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_13}" type="radio" name1="upsit_13" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_13}" type="radio" name1="upsit_13" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_13}" type="radio" name1="upsit_13" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_13}" type="radio" name1="upsit_13" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_14" class="" for="">14. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_14}" type="radio" name1="upsit_14" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_14}" type="radio" name1="upsit_14" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_14}" type="radio" name1="upsit_14" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_14}" type="radio" name1="upsit_14" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_15" class="" for="">15. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_15}" type="radio" name1="upsit_15" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_15}" type="radio" name1="upsit_15" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_15}" type="radio" name1="upsit_15" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_15}" type="radio" name1="upsit_15" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_16" class="" for="">16. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_16}" type="radio" name1="upsit_16" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_16}" type="radio" name1="upsit_16" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_16}" type="radio" name1="upsit_16" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_16}" type="radio" name1="upsit_16" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_17" class="" for="">17. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_17}" type="radio" name1="upsit_17" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_17}" type="radio" name1="upsit_17" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_17}" type="radio" name1="upsit_17" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_17}" type="radio" name1="upsit_17" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_18" class="" for="">18. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_18}" type="radio" name1="upsit_18" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_18}" type="radio" name1="upsit_18" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_18}" type="radio" name1="upsit_18" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_18}" type="radio" name1="upsit_18" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_19" class="" for="">19. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_19}" type="radio" name1="upsit_19" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_19}" type="radio" name1="upsit_19" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_19}" type="radio" name1="upsit_19" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_19}" type="radio" name1="upsit_19" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_20" class="" for="">20. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_20}" type="radio" name1="upsit_20" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_20}" type="radio" name1="upsit_20" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_20}" type="radio" name1="upsit_20" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_20}" type="radio" name1="upsit_20" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_21" class="" for="">21. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_21}" type="radio" name1="upsit_21" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_21}" type="radio" name1="upsit_21" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_21}" type="radio" name1="upsit_21" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_21}" type="radio" name1="upsit_21" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_22" class="" for="">22. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_22}" type="radio" name1="upsit_22" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_22}" type="radio" name1="upsit_22" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_22}" type="radio" name1="upsit_22" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_22}" type="radio" name1="upsit_22" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_23" class="" for="">23. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_23}" type="radio" name1="upsit_23" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_23}" type="radio" name1="upsit_23" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_23}" type="radio" name1="upsit_23" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_23}" type="radio" name1="upsit_23" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_24" class="" for="">24. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_24}" type="radio" name1="upsit_24" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_24}" type="radio" name1="upsit_24" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_24}" type="radio" name1="upsit_24" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_24}" type="radio" name1="upsit_24" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_25" class="" for="">25. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_25}" type="radio" name1="upsit_25" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_25}" type="radio" name1="upsit_25" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_25}" type="radio" name1="upsit_25" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_25}" type="radio" name1="upsit_25" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_26" class="" for="">26. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_26}" type="radio" name1="upsit_26" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_26}" type="radio" name1="upsit_26" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_26}" type="radio" name1="upsit_26" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_26}" type="radio" name1="upsit_26" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_27" class="" for="">27. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_27}" type="radio" name1="upsit_27" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_27}" type="radio" name1="upsit_27" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_27}" type="radio" name1="upsit_27" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_27}" type="radio" name1="upsit_27" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_28" class="" for="">28. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_28}" type="radio" name1="upsit_28" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_28}" type="radio" name1="upsit_28" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_28}" type="radio" name1="upsit_28" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_28}" type="radio" name1="upsit_28" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_29" class="" for="">29. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_29}" type="radio" name1="upsit_29" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_29}" type="radio" name1="upsit_29" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_29}" type="radio" name1="upsit_29" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_29}" type="radio" name1="upsit_29" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_30" class="" for="">30. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_30}" type="radio" name1="upsit_30" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_30}" type="radio" name1="upsit_30" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_30}" type="radio" name1="upsit_30" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_30}" type="radio" name1="upsit_30" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_31" class="" for="">31. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_31}" type="radio" name1="upsit_31" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_31}" type="radio" name1="upsit_31" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_31}" type="radio" name1="upsit_31" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_31}" type="radio" name1="upsit_31" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_32" class="" for="">32. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_32}" type="radio" name1="upsit_32" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_32}" type="radio" name1="upsit_32" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_32}" type="radio" name1="upsit_32" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_32}" type="radio" name1="upsit_32" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_33" class="" for="">33. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_33}" type="radio" name1="upsit_33" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_33}" type="radio" name1="upsit_33" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_33}" type="radio" name1="upsit_33" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_33}" type="radio" name1="upsit_33" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_34" class="" for="">34. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_34}" type="radio" name1="upsit_34" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_34}" type="radio" name1="upsit_34" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_34}" type="radio" name1="upsit_34" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_34}" type="radio" name1="upsit_34" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_35" class="" for="">35. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_35}" type="radio" name1="upsit_35" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_35}" type="radio" name1="upsit_35" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_35}" type="radio" name1="upsit_35" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_35}" type="radio" name1="upsit_35" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_36" class="" for="">36. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_36}" type="radio" name1="upsit_36" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_36}" type="radio" name1="upsit_36" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_36}" type="radio" name1="upsit_36" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_36}" type="radio" name1="upsit_36" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_37" class="" for="">37. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_37}" type="radio" name1="upsit_37" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_37}" type="radio" name1="upsit_37" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_37}" type="radio" name1="upsit_37" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_37}" type="radio" name1="upsit_37" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_38" class="" for="">38. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_38}" type="radio" name1="upsit_38" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_38}" type="radio" name1="upsit_38" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_38}" type="radio" name1="upsit_38" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_38}" type="radio" name1="upsit_38" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_39" class="" for="">39. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_39}" type="radio" name1="upsit_39" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_39}" type="radio" name1="upsit_39" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_39}" type="radio" name1="upsit_39" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_39}" type="radio" name1="upsit_39" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="upsit_40" class="" for="">40. This odor smells most like...</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_40}" type="radio" name1="upsit_40" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">A</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_40}" type="radio" name1="upsit_40" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> B</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_40}" type="radio" name1="upsit_40" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> C</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Upsit_40}" type="radio" name1="upsit_40" value="4"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> D</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+                <label id="headline_2" class="subheader">TIBSIT</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="tibsit_sc" class="">Score</label>
+                <input type="number" class="form-control" id="tibsit_sc"  th:field="${formObj.Tibsit_sc}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="tibsit_cat" class="" for="">Category</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Tibsit_cat}" type="radio" name1="tibsit_cat" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">normosmia</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Tibsit_cat}" type="radio" name1="tibsit_cat" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> hyposmia</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Tibsit_cat}" type="radio" name1="tibsit_cat" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> anosmia</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-subheader move-up-subheader" >
+                <label id="headline_3" class="subheader">OSITJ</label>
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal move-down-yes-no" >
+                <label for="ositj_sc" class="">Score</label>
+                <input type="number" class="form-control" id="ositj_sc"  th:field="${formObj.Ositj_sc}"  placeholder=""  onchange="minimum_part_filled_out()" />
+              </div>
+            </div>          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group has-minimal " >
+                <label namelabel="ositj_cat" class="" for="">Category</label>
+                
+		<ul class="listing minimal-radio move-down-yes-no move-up-yes-no">
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ositj_cat}" type="radio" name1="ositj_cat" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;">normal</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ositj_cat}" type="radio" name1="ositj_cat" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> mild hyposmia</span>   
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ositj_cat}" type="radio" name1="ositj_cat" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> severe hyposmia</span>   
+				 </label>
+            </li>
+		</ul>
+              </div>
+            </div>
+          </div>
+        </form>
+<div id="upload-progress" style='display:none'><div class="progress-bar-1" style="display:none"></div></div> <!-- Progress bar added -->    <div class="selectedDrogsChildren">
+                    <span th:each="formChild: ${formD}"
+                          th:text="${formChild.name}"
+                          th:class="${formChild.name}"
+                          style="display:none;"
+                    ></span>
+    </div>
+
+            </div>
+    </div>
+  </div>
+</div>
+
+<script  type="text/javascript">
+function __main__() {
+//begin upsit_lang
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_lang",true,"null",null);
+else hide("upsit_lang",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_lang",false,"null",null);
+ else  hide("upsit_lang",false);
+  } else hide("upsit_lang",false);
+ }
+//end upsit_lang
+//begin upsit_1
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_1",true,"null",null);
+else hide("upsit_1",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_1",false,"null",null);
+ else  hide("upsit_1",false);
+  } else hide("upsit_1",false);
+ }
+//end upsit_1
+//begin upsit_2
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_2",true,"null",null);
+else hide("upsit_2",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_2",false,"null",null);
+ else  hide("upsit_2",false);
+  } else hide("upsit_2",false);
+ }
+//end upsit_2
+//begin upsit_3
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_3",true,"null",null);
+else hide("upsit_3",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_3",false,"null",null);
+ else  hide("upsit_3",false);
+  } else hide("upsit_3",false);
+ }
+//end upsit_3
+//begin upsit_4
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_4",true,"null",null);
+else hide("upsit_4",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_4",false,"null",null);
+ else  hide("upsit_4",false);
+  } else hide("upsit_4",false);
+ }
+//end upsit_4
+//begin upsit_5
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_5",true,"null",null);
+else hide("upsit_5",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_5",false,"null",null);
+ else  hide("upsit_5",false);
+  } else hide("upsit_5",false);
+ }
+//end upsit_5
+//begin upsit_6
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_6",true,"null",null);
+else hide("upsit_6",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_6",false,"null",null);
+ else  hide("upsit_6",false);
+  } else hide("upsit_6",false);
+ }
+//end upsit_6
+//begin upsit_7
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_7",true,"null",null);
+else hide("upsit_7",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_7",false,"null",null);
+ else  hide("upsit_7",false);
+  } else hide("upsit_7",false);
+ }
+//end upsit_7
+//begin upsit_8
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_8",true,"null",null);
+else hide("upsit_8",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_8",false,"null",null);
+ else  hide("upsit_8",false);
+  } else hide("upsit_8",false);
+ }
+//end upsit_8
+//begin upsit_9
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_9",true,"null",null);
+else hide("upsit_9",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_9",false,"null",null);
+ else  hide("upsit_9",false);
+  } else hide("upsit_9",false);
+ }
+//end upsit_9
+//begin upsit_10
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_10",true,"null",null);
+else hide("upsit_10",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_10",false,"null",null);
+ else  hide("upsit_10",false);
+  } else hide("upsit_10",false);
+ }
+//end upsit_10
+//begin upsit_11
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_11",true,"null",null);
+else hide("upsit_11",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_11",false,"null",null);
+ else  hide("upsit_11",false);
+  } else hide("upsit_11",false);
+ }
+//end upsit_11
+//begin upsit_12
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_12",true,"null",null);
+else hide("upsit_12",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_12",false,"null",null);
+ else  hide("upsit_12",false);
+  } else hide("upsit_12",false);
+ }
+//end upsit_12
+//begin upsit_13
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_13",true,"null",null);
+else hide("upsit_13",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_13",false,"null",null);
+ else  hide("upsit_13",false);
+  } else hide("upsit_13",false);
+ }
+//end upsit_13
+//begin upsit_14
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_14",true,"null",null);
+else hide("upsit_14",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_14",false,"null",null);
+ else  hide("upsit_14",false);
+  } else hide("upsit_14",false);
+ }
+//end upsit_14
+//begin upsit_15
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_15",true,"null",null);
+else hide("upsit_15",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_15",false,"null",null);
+ else  hide("upsit_15",false);
+  } else hide("upsit_15",false);
+ }
+//end upsit_15
+//begin upsit_16
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_16",true,"null",null);
+else hide("upsit_16",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_16",false,"null",null);
+ else  hide("upsit_16",false);
+  } else hide("upsit_16",false);
+ }
+//end upsit_16
+//begin upsit_17
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_17",true,"null",null);
+else hide("upsit_17",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_17",false,"null",null);
+ else  hide("upsit_17",false);
+  } else hide("upsit_17",false);
+ }
+//end upsit_17
+//begin upsit_18
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_18",true,"null",null);
+else hide("upsit_18",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_18",false,"null",null);
+ else  hide("upsit_18",false);
+  } else hide("upsit_18",false);
+ }
+//end upsit_18
+//begin upsit_19
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_19",true,"null",null);
+else hide("upsit_19",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_19",false,"null",null);
+ else  hide("upsit_19",false);
+  } else hide("upsit_19",false);
+ }
+//end upsit_19
+//begin upsit_20
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_20",true,"null",null);
+else hide("upsit_20",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_20",false,"null",null);
+ else  hide("upsit_20",false);
+  } else hide("upsit_20",false);
+ }
+//end upsit_20
+//begin upsit_21
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_21",true,"null",null);
+else hide("upsit_21",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_21",false,"null",null);
+ else  hide("upsit_21",false);
+  } else hide("upsit_21",false);
+ }
+//end upsit_21
+//begin upsit_22
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_22",true,"null",null);
+else hide("upsit_22",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_22",false,"null",null);
+ else  hide("upsit_22",false);
+  } else hide("upsit_22",false);
+ }
+//end upsit_22
+//begin upsit_23
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_23",true,"null",null);
+else hide("upsit_23",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_23",false,"null",null);
+ else  hide("upsit_23",false);
+  } else hide("upsit_23",false);
+ }
+//end upsit_23
+//begin upsit_24
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_24",true,"null",null);
+else hide("upsit_24",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_24",false,"null",null);
+ else  hide("upsit_24",false);
+  } else hide("upsit_24",false);
+ }
+//end upsit_24
+//begin upsit_25
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_25",true,"null",null);
+else hide("upsit_25",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_25",false,"null",null);
+ else  hide("upsit_25",false);
+  } else hide("upsit_25",false);
+ }
+//end upsit_25
+//begin upsit_26
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_26",true,"null",null);
+else hide("upsit_26",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_26",false,"null",null);
+ else  hide("upsit_26",false);
+  } else hide("upsit_26",false);
+ }
+//end upsit_26
+//begin upsit_27
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_27",true,"null",null);
+else hide("upsit_27",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_27",false,"null",null);
+ else  hide("upsit_27",false);
+  } else hide("upsit_27",false);
+ }
+//end upsit_27
+//begin upsit_28
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_28",true,"null",null);
+else hide("upsit_28",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_28",false,"null",null);
+ else  hide("upsit_28",false);
+  } else hide("upsit_28",false);
+ }
+//end upsit_28
+//begin upsit_29
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_29",true,"null",null);
+else hide("upsit_29",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_29",false,"null",null);
+ else  hide("upsit_29",false);
+  } else hide("upsit_29",false);
+ }
+//end upsit_29
+//begin upsit_30
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_30",true,"null",null);
+else hide("upsit_30",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_30",false,"null",null);
+ else  hide("upsit_30",false);
+  } else hide("upsit_30",false);
+ }
+//end upsit_30
+//begin upsit_31
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_31",true,"null",null);
+else hide("upsit_31",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_31",false,"null",null);
+ else  hide("upsit_31",false);
+  } else hide("upsit_31",false);
+ }
+//end upsit_31
+//begin upsit_32
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_32",true,"null",null);
+else hide("upsit_32",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_32",false,"null",null);
+ else  hide("upsit_32",false);
+  } else hide("upsit_32",false);
+ }
+//end upsit_32
+//begin upsit_33
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_33",true,"null",null);
+else hide("upsit_33",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_33",false,"null",null);
+ else  hide("upsit_33",false);
+  } else hide("upsit_33",false);
+ }
+//end upsit_33
+//begin upsit_34
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_34",true,"null",null);
+else hide("upsit_34",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_34",false,"null",null);
+ else  hide("upsit_34",false);
+  } else hide("upsit_34",false);
+ }
+//end upsit_34
+//begin upsit_35
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_35",true,"null",null);
+else hide("upsit_35",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_35",false,"null",null);
+ else  hide("upsit_35",false);
+  } else hide("upsit_35",false);
+ }
+//end upsit_35
+//begin upsit_36
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_36",true,"null",null);
+else hide("upsit_36",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_36",false,"null",null);
+ else  hide("upsit_36",false);
+  } else hide("upsit_36",false);
+ }
+//end upsit_36
+//begin upsit_37
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_37",true,"null",null);
+else hide("upsit_37",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_37",false,"null",null);
+ else  hide("upsit_37",false);
+  } else hide("upsit_37",false);
+ }
+//end upsit_37
+//begin upsit_38
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_38",true,"null",null);
+else hide("upsit_38",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_38",false,"null",null);
+ else  hide("upsit_38",false);
+  } else hide("upsit_38",false);
+ }
+//end upsit_38
+//begin upsit_39
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_39",true,"null",null);
+else hide("upsit_39",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_39",false,"null",null);
+ else  hide("upsit_39",false);
+  } else hide("upsit_39",false);
+ }
+//end upsit_39
+//begin upsit_40
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_40",true,"null",null);
+else hide("upsit_40",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_40",false,"null",null);
+ else  hide("upsit_40",false);
+  } else hide("upsit_40",false);
+ }
+//end upsit_40
+//begin headline_2
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("headline_2",true,"null",null);
+else hide("headline_2",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("headline_2",false,"null",null);
+ else  hide("headline_2",false);
+  } else hide("headline_2",false);
+ }
+//end headline_2
+//begin tibsit_sc
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("tibsit_sc",true,"null",null);
+else hide("tibsit_sc",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("tibsit_sc",false,"null",null);
+ else  hide("tibsit_sc",false);
+  } else hide("tibsit_sc",false);
+ }
+//end tibsit_sc
+//begin tibsit_cat
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("tibsit_cat",true,"null",null);
+else hide("tibsit_cat",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("tibsit_cat",false,"null",null);
+ else  hide("tibsit_cat",false);
+  } else hide("tibsit_cat",false);
+ }
+//end tibsit_cat
+//begin headline_3
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("headline_3",true,"null",null);
+else hide("headline_3",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("headline_3",false,"null",null);
+ else  hide("headline_3",false);
+  } else hide("headline_3",false);
+ }
+//end headline_3
+//begin ositj_sc
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("ositj_sc",true,"null",null);
+else hide("ositj_sc",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("ositj_sc",false,"null",null);
+ else  hide("ositj_sc",false);
+  } else hide("ositj_sc",false);
+ }
+//end ositj_sc
+//begin ositj_cat
+//condition display only if "yes" is checked in item "upsit_ex"
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("ositj_cat",true,"null",null);
+else hide("ositj_cat",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("ositj_cat",false,"null",null);
+ else  hide("ositj_cat",false);
+  } else hide("ositj_cat",false);
+ }
+//end ositj_cat
+minimum_part_filled_out();
+    } __main__(); 
+$('#upsit_ex,input[name="upsit_ex"]').on('change', function() {if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_lang",true,"null",null);
+else hide("upsit_lang",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_lang",false,"null",null);
+ else  hide("upsit_lang",false);
+  } else hide("upsit_lang",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_1",true,"null",null);
+else hide("upsit_1",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_1",false,"null",null);
+ else  hide("upsit_1",false);
+  } else hide("upsit_1",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_2",true,"null",null);
+else hide("upsit_2",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_2",false,"null",null);
+ else  hide("upsit_2",false);
+  } else hide("upsit_2",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_3",true,"null",null);
+else hide("upsit_3",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_3",false,"null",null);
+ else  hide("upsit_3",false);
+  } else hide("upsit_3",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_4",true,"null",null);
+else hide("upsit_4",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_4",false,"null",null);
+ else  hide("upsit_4",false);
+  } else hide("upsit_4",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_5",true,"null",null);
+else hide("upsit_5",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_5",false,"null",null);
+ else  hide("upsit_5",false);
+  } else hide("upsit_5",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_6",true,"null",null);
+else hide("upsit_6",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_6",false,"null",null);
+ else  hide("upsit_6",false);
+  } else hide("upsit_6",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_7",true,"null",null);
+else hide("upsit_7",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_7",false,"null",null);
+ else  hide("upsit_7",false);
+  } else hide("upsit_7",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_8",true,"null",null);
+else hide("upsit_8",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_8",false,"null",null);
+ else  hide("upsit_8",false);
+  } else hide("upsit_8",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_9",true,"null",null);
+else hide("upsit_9",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_9",false,"null",null);
+ else  hide("upsit_9",false);
+  } else hide("upsit_9",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_10",true,"null",null);
+else hide("upsit_10",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_10",false,"null",null);
+ else  hide("upsit_10",false);
+  } else hide("upsit_10",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_11",true,"null",null);
+else hide("upsit_11",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_11",false,"null",null);
+ else  hide("upsit_11",false);
+  } else hide("upsit_11",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_12",true,"null",null);
+else hide("upsit_12",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_12",false,"null",null);
+ else  hide("upsit_12",false);
+  } else hide("upsit_12",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_13",true,"null",null);
+else hide("upsit_13",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_13",false,"null",null);
+ else  hide("upsit_13",false);
+  } else hide("upsit_13",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_14",true,"null",null);
+else hide("upsit_14",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_14",false,"null",null);
+ else  hide("upsit_14",false);
+  } else hide("upsit_14",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_15",true,"null",null);
+else hide("upsit_15",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_15",false,"null",null);
+ else  hide("upsit_15",false);
+  } else hide("upsit_15",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_16",true,"null",null);
+else hide("upsit_16",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_16",false,"null",null);
+ else  hide("upsit_16",false);
+  } else hide("upsit_16",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_17",true,"null",null);
+else hide("upsit_17",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_17",false,"null",null);
+ else  hide("upsit_17",false);
+  } else hide("upsit_17",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_18",true,"null",null);
+else hide("upsit_18",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_18",false,"null",null);
+ else  hide("upsit_18",false);
+  } else hide("upsit_18",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_19",true,"null",null);
+else hide("upsit_19",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_19",false,"null",null);
+ else  hide("upsit_19",false);
+  } else hide("upsit_19",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_20",true,"null",null);
+else hide("upsit_20",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_20",false,"null",null);
+ else  hide("upsit_20",false);
+  } else hide("upsit_20",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_21",true,"null",null);
+else hide("upsit_21",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_21",false,"null",null);
+ else  hide("upsit_21",false);
+  } else hide("upsit_21",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_22",true,"null",null);
+else hide("upsit_22",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_22",false,"null",null);
+ else  hide("upsit_22",false);
+  } else hide("upsit_22",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_23",true,"null",null);
+else hide("upsit_23",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_23",false,"null",null);
+ else  hide("upsit_23",false);
+  } else hide("upsit_23",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_24",true,"null",null);
+else hide("upsit_24",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_24",false,"null",null);
+ else  hide("upsit_24",false);
+  } else hide("upsit_24",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_25",true,"null",null);
+else hide("upsit_25",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_25",false,"null",null);
+ else  hide("upsit_25",false);
+  } else hide("upsit_25",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_26",true,"null",null);
+else hide("upsit_26",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_26",false,"null",null);
+ else  hide("upsit_26",false);
+  } else hide("upsit_26",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_27",true,"null",null);
+else hide("upsit_27",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_27",false,"null",null);
+ else  hide("upsit_27",false);
+  } else hide("upsit_27",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_28",true,"null",null);
+else hide("upsit_28",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_28",false,"null",null);
+ else  hide("upsit_28",false);
+  } else hide("upsit_28",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_29",true,"null",null);
+else hide("upsit_29",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_29",false,"null",null);
+ else  hide("upsit_29",false);
+  } else hide("upsit_29",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_30",true,"null",null);
+else hide("upsit_30",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_30",false,"null",null);
+ else  hide("upsit_30",false);
+  } else hide("upsit_30",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_31",true,"null",null);
+else hide("upsit_31",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_31",false,"null",null);
+ else  hide("upsit_31",false);
+  } else hide("upsit_31",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_32",true,"null",null);
+else hide("upsit_32",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_32",false,"null",null);
+ else  hide("upsit_32",false);
+  } else hide("upsit_32",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_33",true,"null",null);
+else hide("upsit_33",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_33",false,"null",null);
+ else  hide("upsit_33",false);
+  } else hide("upsit_33",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_34",true,"null",null);
+else hide("upsit_34",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_34",false,"null",null);
+ else  hide("upsit_34",false);
+  } else hide("upsit_34",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_35",true,"null",null);
+else hide("upsit_35",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_35",false,"null",null);
+ else  hide("upsit_35",false);
+  } else hide("upsit_35",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_36",true,"null",null);
+else hide("upsit_36",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_36",false,"null",null);
+ else  hide("upsit_36",false);
+  } else hide("upsit_36",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_37",true,"null",null);
+else hide("upsit_37",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_37",false,"null",null);
+ else  hide("upsit_37",false);
+  } else hide("upsit_37",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_38",true,"null",null);
+else hide("upsit_38",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_38",false,"null",null);
+ else  hide("upsit_38",false);
+  } else hide("upsit_38",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_39",true,"null",null);
+else hide("upsit_39",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_39",false,"null",null);
+ else  hide("upsit_39",false);
+  } else hide("upsit_39",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("upsit_40",true,"null",null);
+else hide("upsit_40",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("upsit_40",false,"null",null);
+ else  hide("upsit_40",false);
+  } else hide("upsit_40",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("headline_2",true,"null",null);
+else hide("headline_2",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("headline_2",false,"null",null);
+ else  hide("headline_2",false);
+  } else hide("headline_2",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("tibsit_sc",true,"null",null);
+else hide("tibsit_sc",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("tibsit_sc",false,"null",null);
+ else  hide("tibsit_sc",false);
+  } else hide("tibsit_sc",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("tibsit_cat",true,"null",null);
+else hide("tibsit_cat",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("tibsit_cat",false,"null",null);
+ else  hide("tibsit_cat",false);
+  } else hide("tibsit_cat",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("headline_3",true,"null",null);
+else hide("headline_3",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("headline_3",false,"null",null);
+ else  hide("headline_3",false);
+  } else hide("headline_3",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("ositj_sc",true,"null",null);
+else hide("ositj_sc",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("ositj_sc",false,"null",null);
+ else  hide("ositj_sc",false);
+  } else hide("ositj_sc",false);
+ }
+if (length("upsit_ex") > 0 ? isvisible("upsit_ex", true) : false )
+{ if (check("upsit_ex","yes"))
+ show("ositj_cat",true,"null",null);
+else hide("ositj_cat",true);
+} else {
+if (isvisible2("upsit_ex", false)) {
+ if (check2("upsit_ex","yes"))
+  show("ositj_cat",false,"null",null);
+ else  hide("ositj_cat",false);
+  } else hide("ositj_cat",false);
+ }
+});
+
+</script>
+</body>
+</html>

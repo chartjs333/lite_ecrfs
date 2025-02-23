@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html>
+<head th:include="fragments/layout :: headerFragmentPlusThree">
+<title id="pageTitle">MDSGene</title>
+<!-- other elements you want to reference in your layout -->
+</head>
+<body>
+	<div id="wrap-everything">
+		<div th:include="fragments/layout :: pageTopPlusOne(more='../../')"></div>
+		<p></p>
+		<!-- Title -->
+		<div class="row">
+			<div class="small-12 columns">
+				<h5>All Patients</h5>
+			</div>
+		</div>
+		<form class="new_study" id="new_study" enctype="multipart/form-data"  th:object="${meta_analyses}"  th:action="@{/study/new}"
+			accept-charset="UTF-8" method="post">
+			<input name="utf8" type="hidden" value="✓"/><input
+				type="hidden" name="authenticity_token"
+				value="BjRj/Ecv7OfmYwlk3VFSskA6+XbfUIG+ni46jX7lLkRp09c4MiGynzbcxRzlev4JKI4E1lKh2hZkr7/Bq0QVRg=="/>
+			<div class="row">
+				<div class="small-12 columns">
+					<div class="progress small-12 secondary radius">
+						<span class="meter" style="width: 26%"></span>
+					</div>
+				</div>
+			</div>
+			<div th:include="fragments/messages :: errorMsg">
+			</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div id="meta_field_search_performed_by"></div>
+				</div>
+				<div class="small-3 columns">
+					<div id="meta_field_searched_at"></div>
+				</div>
+				<div class="small-3 columns">
+					<div id="meta_field_search_term"></div>
+				</div>
+				<div class="small-3 columns">
+					<div id="meta_field_comment"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<div class="row">
+						<div class="small-4 columns">
+							<div class="required">
+								<label for="study_pubmed_id">Pubmed</label>
+							</div>
+							<input placeholder="This study's Pubmed-ID"
+								onblur="check_pubmed()" type="number" name="study[pubmed_id]"
+								id="study_pubmed_id"/>
+						</div>
+						<div class="small-4 columns">
+							<div class="required">
+								<label for="study_design">Design</label>
+							</div>
+							<select name="study[design]" id="study_design"><option
+									value="">-</option>
+								<option value="case_report_series">case_report_series</option>
+								<option value="mutational_screen">mutational_screen</option>
+								<option value="family_study">family_study</option>
+								<option value="sib_pair_study">sib_pair_study</option>
+								<option value="other">other</option></select>
+						</div>
+						<div class="small-4 columns">
+							<label for="study_lower_age_limit">Lower age limit</label><input
+								type="number" name="study[lower_age_limit]"
+								id="study_lower_age_limit"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-4 columns">
+							<label for="study_upper_age_limit">Upper age limit</label><input
+								type="number" name="study[upper_age_limit]"
+								id="study_upper_age_limit"/>
+						</div>
+						<div class="small-4 columns">
+							<label for="study_genetic_methods">Genetic methods</label><input
+								type="text" name="study[genetic_methods]"
+								id="study_genetic_methods"/>
+						</div>
+						<div class="small-4 columns">
+							<label for="study_comment">Comment</label>
+							<textarea name="study[comment]" id="study_comment"></textarea>
+							<input type="hidden" value="13" name="study[meta_analysis_id]"
+								id="study_meta_analysis_id"/>
+						</div>
+					</div>
+					<h5 style="float: left">Paper and other Documents *&nbsp;</h5>
+					<span aria-haspopup="true" class="has-tip tip-top radius"
+						data-tooltip="" data-selector="tooltip-jg6nw50w0"
+						aria-describedby="tooltip-jg6nw50w0" title=""><i
+						class="fi-info"></i></span>
+					<div id="paper_files" style="clear: both">
+						<div class="links">
+							<a class="button secondary radius add_fields"
+								onclick="setTimeout(function(){fix_placeholders()}, 200);"
+								data-association="paper" data-associations="papers"
+								data-association-insertion-template="&lt;div class=&quot;nested-fields&quot;&gt;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;small-4 columns&quot;&gt;&lt;label for=&quot;study_papers_attributes_new_papers_description&quot;&gt;Description&lt;/label&gt;&lt;textarea placeholder=&quot;Main Paper&quot; name=&quot;study[papers_attributes][new_papers][description]&quot; id=&quot;study_papers_attributes_new_papers_description&quot;&gt;
+&lt;/textarea&gt;&lt;/div&gt;&lt;div class=&quot;small-5 columns&quot;&gt;&lt;label for=&quot;study_papers_attributes_new_papers_paper&quot;&gt;Document&lt;/label&gt;&lt;input type=&quot;file&quot; name=&quot;study[papers_attributes][new_papers][paper_file]&quot; id=&quot;study_papers_attributes_new_papers_paper_file&quot; /&gt;&lt;/div&gt;&lt;div class=&quot;small-3 columns&quot;&gt;&lt;input type=&quot;hidden&quot; name=&quot;study[papers_attributes][new_papers][_destroy]&quot; id=&quot;study_papers_attributes_new_papers__destroy&quot; value=&quot;false&quot; /&gt;&lt;a class=&quot;button secondary radius remove_fields dynamic&quot; onclick=&quot;setTimeout(function(){fix_placeholders()}, 200);&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fi-minus&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;"
+								href="#"><i class="fi-plus"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<input type="submit" name="commit" value="Create Study"
+						class="button secondary radius expand"
+						data-disable-with="Create Study"/>
+				</div>
+			</div>
+		</form>
+		<p style="margin-bottom: 0.55em;"></p>
+	</div>
+	<div th:include="fragments/layout :: pageBottom"></div>
+</body>
+</html>

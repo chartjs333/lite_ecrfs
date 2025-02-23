@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"><![endif]-->
+<html  xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org">
+  <head th:include="fragments/layout :: headerFragment">
+    <title id="pageTitle">MJFF Screening Questions</title>
+    <!-- other elements you want to reference in your layout -->
+  </head>
+<body>
+<input name="utf8" type="hidden" value="&#x2713;" />
+    <div id="wrap-everything">
+	  <div th:include="fragments/layout :: pageTopSurvey">
+	  </div>
+      <p></p>
+      <!-- Title -->
+<form accept-charset="UTF-8" th:object="${gsfs}" method="post" th:if="${gsfs != null}">
+<p style="margin-bottom: 1.14em;" th:if="${collected != null}"></p>
+<div class="row" th:if="${collected != null}">
+	<div class="small-12 text-justify columns">
+		<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+			<li style="text-align: center;"><h5 th:text="${collected}"></h5></li>
+			<li> <br/>	</li>
+		</ul>
+	</div>
+</div>
+<p style="margin-bottom: 1.14em;" th:if="${collected == null}"></p>
+<div class="row" th:if="${collected == null}">
+	<div class="small-12 text-justify columns">
+		<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+			<li style="text-align: center;"><h5>Please press ‘done’ to save your data.</h5></li>
+			<li> <br/>	</li>
+		</ul>
+	</div>
+</div>
+<button name="action" class="button secondary radius expand" style="margin-bottom: 40px;" onclick="this.blur();" type="submit" value="plot">
+    Done
+</button>   
+<p style="margin-bottom: 1.14em;"></p>
+		<th:block th:include="fragments/fnSurvey :: freeText(javaField='nameOfInvestigator', name='Name of investigator')"></th:block>
+<p style="margin-bottom: 1.14em;"></p>
+		<th:block th:include="fragments/fnSurvey :: surveyYesNoSQ(javaField='shareDna', name='Would you be willing to share DNA of any of the cases in Step 2 of the MJFF Global Genetic PD Project?')"></th:block>
+<p style="margin-bottom: 1.14em;"></p>
+		<th:block th:include="fragments/fnSurvey :: freeNumber(javaField='casesToShare', name='For how many cases would you be willing to share samples?')"></th:block>
+<p style="margin-bottom: 1.14em;"></p>
+		<th:block th:include="fragments/fnSurvey :: freeText(javaField='whenToShare', name='When would you be able to share these?')"></th:block>		
+<p style="margin-bottom: 1.14em;"></p>
+		<div class="row">
+			<div class="small-12 text-justify columns">
+				<ul class="no-bullet" style="padding-left: 16px; font-size: 14px;">
+					<li>Would you agree for us to perform any of the following?</li>
+					<li>
+						<th:block th:include="fragments/fnSurvey :: surveyCheckbox(javaChkBxField='agreeToResequenceTheMutation', name='to resequence the mutation')"></th:block>
+						<th:block th:include="fragments/fnSurvey :: surveyCheckbox(javaChkBxField='agreeToIdentifyModifiers',     name='to run a chip to identify possible duplicate cases')"></th:block>
+						<th:block th:include="fragments/fnSurvey :: surveyCheckbox(javaChkBxField='agreeToRunChip',               name='to identify possible genetic modifiers of penetrance or phenotypic expression using the chip data')"></th:block>
+					</li>
+				</ul>
+			</div>
+		</div>
+<p style="margin-bottom: 1.14em;"></p>
+		<th:block th:include="fragments/fnSurvey :: surveyYesNoSQ(javaField='needNewIrb', name='Will you need a new IRB?')"></th:block>
+<p style="margin-bottom: 1.14em;"></p>
+		<th:block th:include="fragments/fnSurvey :: freeText(javaField='specify', name='Please specify:')"></th:block>		
+<p style="margin-bottom: 2.5em;"></p>
+<p style="margin-bottom: 0.55em;"></p>  
+<button name="action" class="button secondary radius expand" style="margin-bottom: 40px;" onclick="this.blur();" type="submit" value="plot">
+    Done
+</button>    
+</form>	
+<h5 th:if="${gsfs == null}">Invalid URL</h5>	
+	  <!-- End -->      
+    </div>
+    <div class="row" th:if="false">
+      <div class="small-12 text-center columns" id="footer-copyright">
+          © University of Lübeck. Last updated on <span th:text="${@environment.getProperty('version.info')}"></span> 
+      </div>
+    </div>
+    <div id="global_modal_dialog" class="reveal-modal medium" data-reveal="data-reveal"></div>
+    <noscript>
+      <div id="noscript-warning">
+        MDSGene works best with JavaScript enabled. Please follow
+        <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/" style="color: #FFFFFF; text-decoration:underline;">
+          these instructions
+        </a> to activate JavaScript in your web browser.
+      </div>
+    </noscript>
+  </body>
+</html>

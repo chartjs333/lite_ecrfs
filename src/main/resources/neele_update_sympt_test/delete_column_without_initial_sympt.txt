@@ -1,0 +1,2 @@
+a_sympt	b_sympt	initial_sympt1	initial_sympt2	initial_sympt3
+-99	-99	-99	-99	-99

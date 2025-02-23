@@ -1,0 +1,216 @@
+.btn-primary {
+    color: #fff;
+    background-color: #8C4E9F;
+    border-color: #8C4E9F;
+    box-shadow: none;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #8C4E9F;
+    border-color: #8C4E9F;
+    box-shadow: none;
+}
+.btn-primary-view {
+    color: #fff !important;
+    background-color: #8C4E9F !important;
+    border-color: #8C4E9F !important;
+    box-shadow: none;
+    font-size: 10px !important;
+}
+.page-link{
+    color: #fff !important;
+    background-color: #35A270!important;
+    border-color: #35A270!important;
+}
+.add-customers-btn{
+    color: #fff !important;
+    background-color: red!important;
+    border-color: red!important;
+    box-shadow: none;
+    font-size: 10px!important;
+
+
+}
+.customer-btn{
+    color: #fff !important;
+    background-color: #35A270!important;
+    border-color: #35A270!important;
+    box-shadow: none;
+    font-size: 10px!important;
+}
+.customer-btn:hover{
+    color: #fff;
+    background-color: #35A270!important;
+    border-color: #35A270!important;
+    box-shadow: none;
+}
+.edit-template{
+    color: #fff;
+    background-color: #35A270;
+    border-color: #35A270;
+    box-shadow: none;
+}
+.form-control-sm {
+    height: calc(1.8125rem + 2px);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding: 0.25rem 0.5rem;
+    border-radius:2px 6px;
+    border-color: #8C4E9F ;
+}
+.provider{
+    border-color: #8C4E9F ;
+width: 200px;
+}
+.os-content{
+    background-color: #00202C!important;
+    border-color: #00202C!important;
+}
+
+.btn-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    padding: 15px;
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    color: #000;
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+    border: 0;
+    border-radius: 0.375rem;
+    opacity: .5;
+}
+#remove {
+    background-color: darkred;
+}
+#marker{
+    width: 900px;
+    height: 300px;
+    border-color: #35A270;
+
+}
+#edit-marker{
+    width: 900px;
+    height: 300px;
+    border-color: #35A270;
+}
+.half {
+    width: 40%;
+    padding: 0px;
+    margin-left: 0px;
+}
+
+.half2 {
+    width: 40%;
+    margin-left: 3%;
+    height: 200%;
+
+
+}
+.right-div {
+    width: 70%;
+    height: 70px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.left-div{
+    height: 70px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.delete-btn{
+    bagraund-color:red;
+    border-color:red;
+    color:white;
+    font-size: 10px !important;
+}
+.half0 {
+    display: flex;
+}
+.btn {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 12px;
+    text-decoration: none;
+    background-color: #f5f5f5;
+    color: #333;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn.btn-primary-view {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #ebebeb;
+}
+/*popUp*/
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    margin-top: 75px;
+    height: 300px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+.modal-content-not {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 13px;
+    margin-top: 75px;
+    height: 60px;
+    border: 1px solid #888;
+    width: 100%; /* Could be more or less, depending on screen size */
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-not {
+    margin-left: 80%;
+    display: none;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+#modal-text{
+    height: 300px;
+}
+
+#del{
+    width: 80px;
+
+    background-color: red;
+    border-color: red;
+    color:white;
+}
+.del{
+    width: 90px;
+    margin-top: 232px;
+    margin-left: 480px;
+}
+.cancel{
+
+height: 30px;
+    width: 90px;
+    margin-top: -30px;
+}
