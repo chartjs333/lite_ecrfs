@@ -460,323 +460,311 @@ public class PINK1PRKN130 implements java.io.Serializable {
         this.scopaauta = scopaauta;
     }
 
-	/**
-	 * Метод возвращает статус заполненности формы:
-	 * - blue: если ни одно рабочее поле (без заголовков) не заполнено;
-	 * - red: если тест не проводился (scopaaut_ex == "2");
-	 * - green: если тест проведён (scopaaut_ex == "1") и все обязательные рабочие поля заполнены,
-	 * - orange: если тест проведён, но отсутствуют обязательные поля.
-	 */
-	public String getStatusColor() {
-		if (areAllWorkingFieldsEmpty()) {
-			log.info("Все рабочие поля пусты → blue");
-			return "blue";
-		}
-		if ("2".equalsIgnoreCase(scopaaut_ex)) {
-			log.info("scopaaut_ex == '2' → тест не проводился → red");
-			return "red";
-		}
-		if ("1".equalsIgnoreCase(scopaaut_ex)) {
-			if (areAllWorkingFieldsCompleted()) {
-				log.info("Все обязательные рабочие поля заполнены → green");
-				return "green";
-			} else {
-				log.info("Некоторые обязательные рабочие поля не заполнены → orange");
-				return "orange";
-			}
-		}
-		log.info("Рабочие поля заполнены частично → orange");
-		return "orange";
-	}
+    /**
+     * Метод возвращает статус заполненности формы:
+     * - blue: если ни одно рабочее поле (без заголовков) не заполнено;
+     * - red: если тест не проводился (scopaaut_ex == "2");
+     * - green: если тест проведён (scopaaut_ex == "1") и все обязательные рабочие поля заполнены,
+     * - orange: если тест проведён, но отсутствуют обязательные поля.
+     */
+    public String getStatusColor() {
+        if (areAllWorkingFieldsEmpty()) {
+            log.info("Все рабочие поля пусты → blue");
+            return "blue";
+        }
+        if ("2".equalsIgnoreCase(scopaaut_ex)) {
+            log.info("scopaaut_ex == '2' → тест не проводился → red");
+            return "red";
+        }
+        if ("1".equalsIgnoreCase(scopaaut_ex)) {
+            if (areAllWorkingFieldsCompleted()) {
+                log.info("Все обязательные рабочие поля заполнены → green");
+                return "green";
+            } else {
+                log.info("Некоторые обязательные рабочие поля не заполнены → orange");
+                return "orange";
+            }
+        }
+        log.info("Рабочие поля заполнены частично → orange");
+        return "orange";
+    }
 
-	/**
-	 * Проверяет, что все рабочие поля (без заголовков) пусты.
-	 * Для зависимых полей:
-	 * - Если scopaaut23a == "1", то scopaaut23a1 должна быть пустой.
-	 * - Если scopaaut26a == "1", то scopaaut26a1 должна быть пустой.
-	 * - Если scopaaut26b == "1", то scopaaut26b1 должна быть пустой.
-	 * - Если scopaaut26c == "1", то scopaaut26c1 должна быть пустой.
-	 */
-	private boolean areAllWorkingFieldsEmpty() {
-		boolean baseEmpty = isEmpty(surveyTwoId)
-				&& isEmpty(fillingStatus)
-				&& isEmpty(scopaaut_ex)
-				&& isEmpty(scopaaut1)
-				&& isEmpty(scopaaut2)
-				&& isEmpty(scopaaut3)
-				&& isEmpty(scopaaut4)
-				&& isEmpty(scopaaut5)
-				&& isEmpty(scopaaut6)
-				&& isEmpty(scopaaut7)
-				&& isEmpty(scopaaut8)
-				&& isEmpty(scopaaut9)
-				&& isEmpty(scopaaut10)
-				&& isEmpty(scopaaut11)
-				&& isEmpty(scopaaut12)
-				&& isEmpty(scopaaut13)
-				&& isEmpty(scopaaut14)
-				&& isEmpty(scopaaut15)
-				&& isEmpty(scopaaut16)
-				&& isEmpty(scopaaut17)
-				&& isEmpty(scopaaut18)
-				&& isEmpty(scopaaut19)
-				&& isEmpty(scopaaut20)
-				&& isEmpty(scopaaut21)
-				&& isEmpty(scopaaut22)
-				&& isEmpty(scopaaut23)
-				&& isEmpty(scopaaut24)
-				&& isEmpty(scopaaut25);
-		// Зависимые проверки:
-		boolean dep23Empty = true;
-		if (!isEmpty(scopaaut23a)) {
-			dep23Empty = "1".equals(scopaaut23a) ? isEmpty(scopaaut23a1) : false;
-		}
-		boolean dep26aEmpty = true;
-		if (!isEmpty(scopaaut26a)) {
-			dep26aEmpty = "1".equals(scopaaut26a) ? isEmpty(scopaaut26a1) : false;
-		}
-		boolean dep26bEmpty = true;
-		if (!isEmpty(scopaaut26b)) {
-			dep26bEmpty = "1".equals(scopaaut26b) ? isEmpty(scopaaut26b1) : false;
-		}
-		boolean dep26cEmpty = true;
-		if (!isEmpty(scopaaut26c)) {
-			dep26cEmpty = "1".equals(scopaaut26c) ? isEmpty(scopaaut26c1) : false;
-		}
-		boolean dep26dEmpty = true;
-		if (!isEmpty(scopaaut26d)) {
-			dep26dEmpty = "1".equals(scopaaut26d) ? isEmpty(scopaaut26d1) : false;
-		}
-		return baseEmpty && dep23Empty && dep26aEmpty && dep26bEmpty && dep26cEmpty && dep26dEmpty;
-	}
+    /**
+     * Проверяет, что все рабочие поля (без заголовков) пусты.
+     * Для зависимых полей:
+     * - Если scopaaut23a == "1", то scopaaut23a1 должна быть пустой.
+     * - Если scopaaut26a == "1", то scopaaut26a1 должна быть пустой.
+     * - Если scopaaut26b == "1", то scopaaut26b1 должна быть пустой.
+     * - Если scopaaut26c == "1", то scopaaut26c1 должна быть пустой.
+     */
+    private boolean areAllWorkingFieldsEmpty() {
+        boolean baseEmpty = isEmpty(scopaaut_ex)
+                && isEmpty(scopaaut1)
+                && isEmpty(scopaaut2)
+                && isEmpty(scopaaut3)
+                && isEmpty(scopaaut4)
+                && isEmpty(scopaaut5)
+                && isEmpty(scopaaut6)
+                && isEmpty(scopaaut7)
+                && isEmpty(scopaaut8)
+                && isEmpty(scopaaut9)
+                && isEmpty(scopaaut10)
+                && isEmpty(scopaaut11)
+                && isEmpty(scopaaut12)
+                && isEmpty(scopaaut13)
+                && isEmpty(scopaaut14)
+                && isEmpty(scopaaut15)
+                && isEmpty(scopaaut16)
+                && isEmpty(scopaaut17)
+                && isEmpty(scopaaut18)
+                && isEmpty(scopaaut19)
+                && isEmpty(scopaaut20)
+                && isEmpty(scopaaut21)
+                && isEmpty(scopaaut22)
+                && isEmpty(scopaaut23)
+                && isEmpty(scopaaut24)
+                && isEmpty(scopaaut25);
+        // Зависимые проверки:
+        boolean dep23Empty = true;
+        if (!isEmpty(scopaaut23a)) {
+            dep23Empty = "1".equals(scopaaut23a) ? isEmpty(scopaaut23a1) : false;
+        }
+        boolean dep26aEmpty = true;
+        if (!isEmpty(scopaaut26a)) {
+            dep26aEmpty = "1".equals(scopaaut26a) ? isEmpty(scopaaut26a1) : false;
+        }
+        boolean dep26bEmpty = true;
+        if (!isEmpty(scopaaut26b)) {
+            dep26bEmpty = "1".equals(scopaaut26b) ? isEmpty(scopaaut26b1) : false;
+        }
+        boolean dep26cEmpty = true;
+        if (!isEmpty(scopaaut26c)) {
+            dep26cEmpty = "1".equals(scopaaut26c) ? isEmpty(scopaaut26c1) : false;
+        }
+        boolean dep26dEmpty = true;
+        if (!isEmpty(scopaaut26d)) {
+            dep26dEmpty = "1".equals(scopaaut26d) ? isEmpty(scopaaut26d1) : false;
+        }
+        return baseEmpty && dep23Empty && dep26aEmpty && dep26bEmpty && dep26cEmpty && dep26dEmpty;
+    }
 
-	/**
-	 * Проверяет, что все обязательные рабочие поля заполнены.
-	 * Для зависимых полей:
-	 * - Если scopaaut23a == "1", то scopaaut23a1 должно быть заполнено.
-	 * - Если scopaaut26a == "1", то scopaaut26a1 должно быть заполнено.
-	 * - Если scopaaut26b == "1", то scopaaut26b1 должно быть заполнено.
-	 * - Если scopaaut26c == "1", то scopaaut26c1 должно быть заполнено.
-	 * - Если scopaaut26d == "1", то scopaaut26d1 должно быть заполнено.
-	 */
-	private boolean areAllWorkingFieldsCompleted() {
-		boolean complete = true;
-		if (isEmpty(surveyTwoId)) {
-			log.info("Поле surveyTwoId не заполнено");
-			complete = false;
-		}
-		if (isEmpty(fillingStatus)) {
-			log.info("Поле fillingStatus не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut_ex)) {
-			log.info("Поле scopaaut_ex не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut1)) {
-			log.info("Поле scopaaut1 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut2)) {
-			log.info("Поле scopaaut2 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut3)) {
-			log.info("Поле scopaaut3 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut4)) {
-			log.info("Поле scopaaut4 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut5)) {
-			log.info("Поле scopaaut5 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut6)) {
-			log.info("Поле scopaaut6 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut7)) {
-			log.info("Поле scopaaut7 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut8)) {
-			log.info("Поле scopaaut8 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut9)) {
-			log.info("Поле scopaaut9 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut10)) {
-			log.info("Поле scopaaut10 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut11)) {
-			log.info("Поле scopaaut11 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut12)) {
-			log.info("Поле scopaaut12 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut13)) {
-			log.info("Поле scopaaut13 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut14)) {
-			log.info("Поле scopaaut14 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut15)) {
-			log.info("Поле scopaaut15 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut16)) {
-			log.info("Поле scopaaut16 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut17)) {
-			log.info("Поле scopaaut17 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut18)) {
-			log.info("Поле scopaaut18 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut19)) {
-			log.info("Поле scopaaut19 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut20)) {
-			log.info("Поле scopaaut20 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut21)) {
-			log.info("Поле scopaaut21 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut22)) {
-			log.info("Поле scopaaut22 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut23)) {
-			log.info("Поле scopaaut23 не заполнено");
-			complete = false;
-		}
-		// Зависимое поле scopaaut23a и scopaaut23a1
-		if (isEmpty(scopaaut23a)) {
-			log.info("Поле scopaaut23a не заполнено");
-			complete = false;
-		} else if ("1".equals(scopaaut23a)) {
-			if (isEmpty(scopaaut23a1)) {
-				log.info("Поле scopaaut23a1 не заполнено, хотя scopaaut23a == \"1\"");
-				complete = false;
-			}
-		}
-		if (isEmpty(scopaaut24)) {
-			log.info("Поле scopaaut24 не заполнено");
-			complete = false;
-		}
-		if (isEmpty(scopaaut25)) {
-			log.info("Поле scopaaut25 не заполнено");
-			complete = false;
-		}
-		// Зависимое поле scopaaut26a и scopaaut26a1
-		if (isEmpty(scopaaut26a)) {
-			log.info("Поле scopaaut26a не заполнено");
-			complete = false;
-		} else if ("1".equals(scopaaut26a)) {
-			if (isEmpty(scopaaut26a1)) {
-				log.info("Поле scopaaut26a1 не заполнено, хотя scopaaut26a == \"1\"");
-				complete = false;
-			}
-		}
-		// Зависимое поле scopaaut26b и scopaaut26b1
-		if (isEmpty(scopaaut26b)) {
-			log.info("Поле scopaaut26b не заполнено");
-			complete = false;
-		} else if ("1".equals(scopaaut26b)) {
-			if (isEmpty(scopaaut26b1)) {
-				log.info("Поле scopaaut26b1 не заполнено, хотя scopaaut26b == \"1\"");
-				complete = false;
-			}
-		}
-		// Зависимое поле scopaaut26c и scopaaut26c1
-		if (isEmpty(scopaaut26c)) {
-			log.info("Поле scopaaut26c не заполнено");
-			complete = false;
-		} else if ("1".equals(scopaaut26c)) {
-			if (isEmpty(scopaaut26c1)) {
-				log.info("Поле scopaaut26c1 не заполнено, хотя scopaaut26c == \"1\"");
-				complete = false;
-			}
-		}
-		// Зависимое поле scopaaut26d и scopaaut26d1
-		if (isEmpty(scopaaut26d)) {
-			log.info("Поле scopaaut26d не заполнено");
-			complete = false;
-		} else if ("1".equals(scopaaut26d)) {
-			if (isEmpty(scopaaut26d1)) {
-				log.info("Поле scopaaut26d1 не заполнено, хотя scopaaut26d == \"1\"");
-				complete = false;
-			}
-		}
-		if (isEmpty(scopaauta)) {
-			log.info("Поле scopaauta не заполнено");
-			complete = false;
-		}
-		return complete;
-	}
+    /**
+     * Проверяет, что все обязательные рабочие поля заполнены.
+     * Для зависимых полей:
+     * - Если scopaaut23a == "1", то scopaaut23a1 должно быть заполнено.
+     * - Если scopaaut26a == "1", то scopaaut26a1 должно быть заполнено.
+     * - Если scopaaut26b == "1", то scopaaut26b1 должно быть заполнено.
+     * - Если scopaaut26c == "1", то scopaaut26c1 должно быть заполнено.
+     * - Если scopaaut26d == "1", то scopaaut26d1 должно быть заполнено.
+     */
+    private boolean areAllWorkingFieldsCompleted() {
+        boolean complete = true;
+        if (isEmpty(scopaaut_ex)) {
+            log.info("Поле scopaaut_ex не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut1)) {
+            log.info("Поле scopaaut1 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut2)) {
+            log.info("Поле scopaaut2 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut3)) {
+            log.info("Поле scopaaut3 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut4)) {
+            log.info("Поле scopaaut4 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut5)) {
+            log.info("Поле scopaaut5 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut6)) {
+            log.info("Поле scopaaut6 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut7)) {
+            log.info("Поле scopaaut7 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut8)) {
+            log.info("Поле scopaaut8 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut9)) {
+            log.info("Поле scopaaut9 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut10)) {
+            log.info("Поле scopaaut10 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut11)) {
+            log.info("Поле scopaaut11 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut12)) {
+            log.info("Поле scopaaut12 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut13)) {
+            log.info("Поле scopaaut13 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut14)) {
+            log.info("Поле scopaaut14 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut15)) {
+            log.info("Поле scopaaut15 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut16)) {
+            log.info("Поле scopaaut16 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut17)) {
+            log.info("Поле scopaaut17 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut18)) {
+            log.info("Поле scopaaut18 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut19)) {
+            log.info("Поле scopaaut19 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut20)) {
+            log.info("Поле scopaaut20 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut21)) {
+            log.info("Поле scopaaut21 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut22)) {
+            log.info("Поле scopaaut22 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut23)) {
+            log.info("Поле scopaaut23 не заполнено");
+            complete = false;
+        }
+        // Зависимое поле scopaaut23a и scopaaut23a1
+        if (isEmpty(scopaaut23a)) {
+            log.info("Поле scopaaut23a не заполнено");
+            complete = false;
+        } else if ("1".equals(scopaaut23a)) {
+            if (isEmpty(scopaaut23a1)) {
+                log.info("Поле scopaaut23a1 не заполнено, хотя scopaaut23a == \"1\"");
+                complete = false;
+            }
+        }
+        if (isEmpty(scopaaut24)) {
+            log.info("Поле scopaaut24 не заполнено");
+            complete = false;
+        }
+        if (isEmpty(scopaaut25)) {
+            log.info("Поле scopaaut25 не заполнено");
+            complete = false;
+        }
+        // Зависимое поле scopaaut26a и scopaaut26a1
+        if (isEmpty(scopaaut26a)) {
+            log.info("Поле scopaaut26a не заполнено");
+            complete = false;
+        } else if ("1".equals(scopaaut26a)) {
+            if (isEmpty(scopaaut26a1)) {
+                log.info("Поле scopaaut26a1 не заполнено, хотя scopaaut26a == \"1\"");
+                complete = false;
+            }
+        }
+        // Зависимое поле scopaaut26b и scopaaut26b1
+        if (isEmpty(scopaaut26b)) {
+            log.info("Поле scopaaut26b не заполнено");
+            complete = false;
+        } else if ("1".equals(scopaaut26b)) {
+            if (isEmpty(scopaaut26b1)) {
+                log.info("Поле scopaaut26b1 не заполнено, хотя scopaaut26b == \"1\"");
+                complete = false;
+            }
+        }
+        // Зависимое поле scopaaut26c и scopaaut26c1
+        if (isEmpty(scopaaut26c)) {
+            log.info("Поле scopaaut26c не заполнено");
+            complete = false;
+        } else if ("1".equals(scopaaut26c)) {
+            if (isEmpty(scopaaut26c1)) {
+                log.info("Поле scopaaut26c1 не заполнено, хотя scopaaut26c == \"1\"");
+                complete = false;
+            }
+        }
+        // Зависимое поле scopaaut26d и scopaaut26d1
+        if (isEmpty(scopaaut26d)) {
+            log.info("Поле scopaaut26d не заполнено");
+            complete = false;
+        } else if ("1".equals(scopaaut26d)) {
+            if (isEmpty(scopaaut26d1)) {
+                log.info("Поле scopaaut26d1 не заполнено, хотя scopaaut26d == \"1\"");
+                complete = false;
+            }
+        }
+        if (isEmpty(scopaauta)) {
+            log.info("Поле scopaauta не заполнено");
+            complete = false;
+        }
+        return complete;
+    }
 
-	/**
-	 * Проверяет, что хотя бы одно рабочее поле заполнено.
-	 */
-	private boolean isAtLeastOneFieldCompleted() {
-		return !isEmpty(surveyTwoId)
-				|| !isEmpty(fillingStatus)
-				|| !isEmpty(scopaaut_ex)
-				|| !isEmpty(scopaaut1)
-				|| !isEmpty(scopaaut2)
-				|| !isEmpty(scopaaut3)
-				|| !isEmpty(scopaaut4)
-				|| !isEmpty(scopaaut5)
-				|| !isEmpty(scopaaut6)
-				|| !isEmpty(scopaaut7)
-				|| !isEmpty(scopaaut8)
-				|| !isEmpty(scopaaut9)
-				|| !isEmpty(scopaaut10)
-				|| !isEmpty(scopaaut11)
-				|| !isEmpty(scopaaut12)
-				|| !isEmpty(scopaaut13)
-				|| !isEmpty(scopaaut14)
-				|| !isEmpty(scopaaut15)
-				|| !isEmpty(scopaaut16)
-				|| !isEmpty(scopaaut17)
-				|| !isEmpty(scopaaut18)
-				|| !isEmpty(scopaaut19)
-				|| !isEmpty(scopaaut20)
-				|| !isEmpty(scopaaut21)
-				|| !isEmpty(scopaaut22)
-				|| !isEmpty(scopaaut23)
-				|| !isEmpty(scopaaut23a)
-				|| !isEmpty(scopaaut23a1)
-				|| !isEmpty(scopaaut24)
-				|| !isEmpty(scopaaut25)
-				|| !isEmpty(scopaaut26a)
-				|| !isEmpty(scopaaut26a1)
-				|| !isEmpty(scopaaut26b)
-				|| !isEmpty(scopaaut26b1)
-				|| !isEmpty(scopaaut26c)
-				|| !isEmpty(scopaaut26c1)
-				|| !isEmpty(scopaaut26d)
-				|| !isEmpty(scopaaut26d1)
-				|| !isEmpty(scopaauta);
-	}
+    /**
+     * Проверяет, что хотя бы одно рабочее поле заполнено.
+     */
+    private boolean isAtLeastOneFieldCompleted() {
+        return !isEmpty(scopaaut_ex)
+                || !isEmpty(scopaaut1)
+                || !isEmpty(scopaaut2)
+                || !isEmpty(scopaaut3)
+                || !isEmpty(scopaaut4)
+                || !isEmpty(scopaaut5)
+                || !isEmpty(scopaaut6)
+                || !isEmpty(scopaaut7)
+                || !isEmpty(scopaaut8)
+                || !isEmpty(scopaaut9)
+                || !isEmpty(scopaaut10)
+                || !isEmpty(scopaaut11)
+                || !isEmpty(scopaaut12)
+                || !isEmpty(scopaaut13)
+                || !isEmpty(scopaaut14)
+                || !isEmpty(scopaaut15)
+                || !isEmpty(scopaaut16)
+                || !isEmpty(scopaaut17)
+                || !isEmpty(scopaaut18)
+                || !isEmpty(scopaaut19)
+                || !isEmpty(scopaaut20)
+                || !isEmpty(scopaaut21)
+                || !isEmpty(scopaaut22)
+                || !isEmpty(scopaaut23)
+                || !isEmpty(scopaaut23a)
+                || !isEmpty(scopaaut23a1)
+                || !isEmpty(scopaaut24)
+                || !isEmpty(scopaaut25)
+                || !isEmpty(scopaaut26a)
+                || !isEmpty(scopaaut26a1)
+                || !isEmpty(scopaaut26b)
+                || !isEmpty(scopaaut26b1)
+                || !isEmpty(scopaaut26c)
+                || !isEmpty(scopaaut26c1)
+                || !isEmpty(scopaaut26d)
+                || !isEmpty(scopaaut26d1)
+                || !isEmpty(scopaauta);
+    }
 
 	private boolean isEmpty(String value) {
-		return value == null || value.trim().isEmpty();
+		return value == null || value.trim().isEmpty() || value.trim().equals("-");
 	}
 }
 

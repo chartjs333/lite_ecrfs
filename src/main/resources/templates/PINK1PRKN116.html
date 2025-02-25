@@ -226,7 +226,33 @@ nav.navbar-nav {
 
 <body>
 <img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database" src="../assets/fmjfox.png" />
-<div class="registration-page">
+<!-- Кнопка возврата на landing-page -->
+<nav style="margin: 20px 0; text-align: center;">
+    <button id="backToLanding" class="btn btn-secondary">Back to Patient eCRFs</button>
+</nav>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+var surveyId = /*[[${#uris.escapeQueryParam(surveyId)}]]*/ '0';
+$("#backToLanding").click(function(){
+    // Создаем динамическую форму для отправки POST-запроса
+    var form = document.createElement("form");
+    form.method = "post";
+    form.action = "../survey/" + surveyId; // убедитесь, что URL корректный
+    form.target = "landing-page_" + surveyId;
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+    
+    // Переключаемся на окно лендинга по target
+    var landingWindow = window.open("", form.target);
+    if (landingWindow) {
+        landingWindow.focus();
+    }
+    // Пытаемся закрыть текущее окно (закроется, если оно было открыто скриптом)
+    window.close();
+});
+/*]]>*/</script><div class="registration-page">
   <div class="container">
     <div class="row">
       <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">
@@ -257,13 +283,13 @@ nav.navbar-nav {
 	</div>
 </div>          <div class="row">
             <div class="col-sm-12">
-              <div class="form-group has-extended move-up-first-header move-down-header" >
+              <div class="form-group has-minimal move-up-first-header move-down-header" >
                 <label id="pd_date_symp" class="">1. Date of first symptoms onset (per the participant)</label>
               </div>
             </div>          </div>
           <div class="row">
 			<div class="col-sm-2">
-              <div class="form-group has-extended  move-down-text" >
+              <div class="form-group has-minimal  move-down-text" >
                 <label for="sel1" class="">Year</label>
                 <select class="form-control" id="pd_date_symp_year" th:field="${formObj.Pd_date_symp_year}" onchange="minimum_part_filled_out()" >
                   <option th:selected="${(formObj.Pd_date_symp_year == '-')}" value='-'>-</option>
@@ -395,7 +421,7 @@ nav.navbar-nav {
                 </select>
               </div>
             </div>			<div class="col-sm-2">
-              <div class="form-group has-extended  move-down-text" >
+              <div class="form-group has-minimal  move-down-text" >
                 <label for="sel1" class="">Month</label>
                 <select class="form-control" id="pd_date_symp_month" th:field="${formObj.Pd_date_symp_month}" onchange="minimum_part_filled_out()" >
                   <option th:selected="${(formObj.Pd_date_symp_month == '-')}" value='-'>-</option>
@@ -414,7 +440,7 @@ nav.navbar-nav {
                 </select>
               </div>
             </div>			<div class="col-sm-2">
-              <div class="form-group has-extended  move-down-text" >
+              <div class="form-group has-minimal  move-down-text" >
                 <label for="sel1" class="">Day</label>
                 <select class="form-control" id="pd_date_symp_day" th:field="${formObj.Pd_date_symp_day}" onchange="minimum_part_filled_out()" >
                   <option th:selected="${(formObj.Pd_date_symp_day == '-')}" value='-'>-</option>
@@ -452,7 +478,7 @@ nav.navbar-nav {
                 </select>
               </div>
             </div>            <div class="col-sm-12">
-              <div class="form-group has-extended move-down-text" >
+              <div class="form-group has-minimal move-down-text" >
                 <label for="pd_date_diag" class="">2. Age at onset</label>
                 <input type="number" class="form-control" id="pd_date_diag"  th:field="${formObj.Pd_date_diag}"  placeholder=""  onchange="minimum_part_filled_out()"  onkeyup="checkValue(this.id, '0-99')" onkeydown="checkValue(this.id, '0-99')"/>
 <p id="pd_date_diag___error_msg" style="display: none; color: red;">Error: number is out of range!</p>
@@ -460,13 +486,13 @@ nav.navbar-nav {
             </div>          </div>
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group has-extended " >
+              <div class="form-group has-minimal " >
                 <label id="pd_date_diag" class="">3. Date of Parkinson's disease diagnosis</label>
               </div>
             </div>          </div>
           <div class="row">
 			<div class="col-sm-2">
-              <div class="form-group has-extended  move-down-text" >
+              <div class="form-group has-minimal  move-down-text" >
                 <label for="sel1" class="">Year</label>
                 <select class="form-control" id="pd_date_diag_year" th:field="${formObj.Pd_date_diag_year}" onchange="minimum_part_filled_out()" >
                   <option th:selected="${(formObj.Pd_date_diag_year == '-')}" value='-'>-</option>
@@ -598,7 +624,7 @@ nav.navbar-nav {
                 </select>
               </div>
             </div>			<div class="col-sm-2">
-              <div class="form-group has-extended  move-down-text" >
+              <div class="form-group has-minimal  move-down-text" >
                 <label for="sel1" class="">Month</label>
                 <select class="form-control" id="pd_date_diag_month" th:field="${formObj.Pd_date_diag_month}" onchange="minimum_part_filled_out()" >
                   <option th:selected="${(formObj.Pd_date_diag_month == '-')}" value='-'>-</option>
@@ -617,7 +643,7 @@ nav.navbar-nav {
                 </select>
               </div>
             </div>			<div class="col-sm-2">
-              <div class="form-group has-extended  move-down-text" >
+              <div class="form-group has-minimal  move-down-text" >
                 <label for="sel1" class="">Day</label>
                 <select class="form-control" id="pd_date_diag_day" th:field="${formObj.Pd_date_diag_day}" onchange="minimum_part_filled_out()" >
                   <option th:selected="${(formObj.Pd_date_diag_day == '-')}" value='-'>-</option>
@@ -655,13 +681,13 @@ nav.navbar-nav {
                 </select>
               </div>
             </div>            <div class="col-sm-12">
-              <div class="form-group has-extended subheader" >
+              <div class="form-group has-minimal subheader" >
                 <label id="pd" class="">4. Were the following symptoms present at the time of diagnosis:</label>
               </div>
             </div>          </div>
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group has-extended " >
+              <div class="form-group has-minimal " >
                 <label namelabel="pd_rigid_onset" class="" for="">a. Rigidity</label>
                 
 		<ul class="listing mininal-radio move-down-yes-no move-up-yes-no">
@@ -689,7 +715,7 @@ nav.navbar-nav {
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group has-extended " >
+              <div class="form-group has-minimal " >
                 <label namelabel="pd_brady_onset" class="" for="">b. Bradykinesia</label>
                 
 		<ul class="listing mininal-radio move-down-yes-no move-up-yes-no">
@@ -717,7 +743,7 @@ nav.navbar-nav {
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group has-extended " >
+              <div class="form-group has-minimal " >
                 <label namelabel="pd_postinstab_onset" class="" for="">c. Postural instability</label>
                 
 		<ul class="listing mininal-radio move-down-yes-no move-up-yes-no">
@@ -745,7 +771,7 @@ nav.navbar-nav {
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group has-extended " >
+              <div class="form-group has-minimal " >
                 <label namelabel="pd_resttremor_onset" class="" for="">d. Rest tremor</label>
                 
 		<ul class="listing mininal-radio move-down-yes-no move-up-yes-no">
@@ -773,7 +799,7 @@ nav.navbar-nav {
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group has-extended " >
+              <div class="form-group has-minimal " >
                 <label namelabel="pd_other_onset" class="" for="">e. Other</label>
                 
 		<ul class="listing mininal-radio move-down-yes-no move-up-yes-no">
@@ -801,14 +827,14 @@ nav.navbar-nav {
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group has-extended move-down-text" >
+              <div class="form-group has-minimal move-down-text" >
                 <label for="pd_other_onset_yes" class="">If yes, please specify</label>
                 <input type="text" class="form-control" id="pd_other_onset_yes"  th:field="${formObj.Pd_other_onset_yes}"  placeholder=""  onchange="minimum_part_filled_out()" />
               </div>
             </div>          </div>
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group has-extended " >
+              <div class="form-group has-minimal " >
                 <label namelabel="pd_side_onset" class="" for="">5. Side predominantly affected at onset</label>
                 
 		<ul class="listing mininal-radio move-down-yes-no move-up-yes-no">

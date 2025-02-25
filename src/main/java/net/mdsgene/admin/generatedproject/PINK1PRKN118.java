@@ -257,7 +257,7 @@ public class PINK1PRKN118 implements java.io.Serializable {
 	}
 
 	public String getStatusColor() {
-		// Проверяем, заполнены ли все поля
+		// Проверяем, заполнены ли все обязательные поля
 		boolean allCompleted = areAllFieldsCompleted();
 
 		if (allCompleted) {
@@ -267,66 +267,63 @@ public class PINK1PRKN118 implements java.io.Serializable {
 		} else {
 			return "blue"; // Ни одно поле не заполнено
 		}
-}
+	}
 
 	private boolean areAllFieldsCompleted() {
-		// Проверяем, заполнены ли все поля
-		return !isEmpty(this.surveyTwoId) &&
-				!isEmpty(this.fillingStatus) &&
-				!isEmpty(this.mdsupdrspat1_10) &&
-				!isEmpty(this.mdsupdrspat1_11) &&
-				!isEmpty(this.mdsupdrspat1_12) &&
-				!isEmpty(this.mdsupdrspat1_13) &&
-				!isEmpty(this.mdsupdrspat1_7) &&
-				!isEmpty(this.mdsupdrspat1_8) &&
-				!isEmpty(this.mdsupdrspat1_9) &&
-				!isEmpty(this.mdsupdrspat2_1) &&
-				!isEmpty(this.mdsupdrspat2_10) &&
-				!isEmpty(this.mdsupdrspat2_11) &&
-				!isEmpty(this.mdsupdrspat2_12) &&
-				!isEmpty(this.mdsupdrspat2_13) &&
-				!isEmpty(this.mdsupdrspat2_2) &&
-				!isEmpty(this.mdsupdrspat2_3) &&
-				!isEmpty(this.mdsupdrspat2_4) &&
-				!isEmpty(this.mdsupdrspat2_5) &&
-				!isEmpty(this.mdsupdrspat2_6) &&
-				!isEmpty(this.mdsupdrspat2_7) &&
-				!isEmpty(this.mdsupdrspat2_8) &&
-				!isEmpty(this.mdsupdrspat2_9) &&
-				!isEmpty(this.mdsupdrspat_psi);
+		// Проверяем, что все обязательные поля заполнены
+		return isFieldCompleted(this.mdsupdrspat1_10) &&
+				isFieldCompleted(this.mdsupdrspat1_11) &&
+				isFieldCompleted(this.mdsupdrspat1_12) &&
+				isFieldCompleted(this.mdsupdrspat1_13) &&
+				isFieldCompleted(this.mdsupdrspat1_7) &&
+				isFieldCompleted(this.mdsupdrspat1_8) &&
+				isFieldCompleted(this.mdsupdrspat1_9) &&
+				isFieldCompleted(this.mdsupdrspat2_1) &&
+				isFieldCompleted(this.mdsupdrspat2_10) &&
+				isFieldCompleted(this.mdsupdrspat2_11) &&
+				isFieldCompleted(this.mdsupdrspat2_12) &&
+				isFieldCompleted(this.mdsupdrspat2_13) &&
+				isFieldCompleted(this.mdsupdrspat2_2) &&
+				isFieldCompleted(this.mdsupdrspat2_3) &&
+				isFieldCompleted(this.mdsupdrspat2_4) &&
+				isFieldCompleted(this.mdsupdrspat2_5) &&
+				isFieldCompleted(this.mdsupdrspat2_6) &&
+				isFieldCompleted(this.mdsupdrspat2_7) &&
+				isFieldCompleted(this.mdsupdrspat2_8) &&
+				isFieldCompleted(this.mdsupdrspat2_9) &&
+				isFieldCompleted(this.mdsupdrspat_psi);
 	}
 
 	private boolean isAtLeastOneFieldCompleted() {
 		// Проверяем, заполнено ли хотя бы одно поле
-		return !isEmpty(this.surveyTwoId) ||
-				!isEmpty(this.fillingStatus) ||
-				!isEmpty(this.mdsupdrspat1_10) ||
-				!isEmpty(this.mdsupdrspat1_11) ||
-				!isEmpty(this.mdsupdrspat1_12) ||
-				!isEmpty(this.mdsupdrspat1_13) ||
-				!isEmpty(this.mdsupdrspat1_7) ||
-				!isEmpty(this.mdsupdrspat1_8) ||
-				!isEmpty(this.mdsupdrspat1_9) ||
-				!isEmpty(this.mdsupdrspat2_1) ||
-				!isEmpty(this.mdsupdrspat2_10) ||
-				!isEmpty(this.mdsupdrspat2_11) ||
-				!isEmpty(this.mdsupdrspat2_12) ||
-				!isEmpty(this.mdsupdrspat2_13) ||
-				!isEmpty(this.mdsupdrspat2_2) ||
-				!isEmpty(this.mdsupdrspat2_3) ||
-				!isEmpty(this.mdsupdrspat2_4) ||
-				!isEmpty(this.mdsupdrspat2_5) ||
-				!isEmpty(this.mdsupdrspat2_6) ||
-				!isEmpty(this.mdsupdrspat2_7) ||
-				!isEmpty(this.mdsupdrspat2_8) ||
-				!isEmpty(this.mdsupdrspat2_9) ||
-				!isEmpty(this.mdsupdrspat_psi);
+		return isFieldCompleted(this.mdsupdrspat1_10) ||
+				isFieldCompleted(this.mdsupdrspat1_11) ||
+				isFieldCompleted(this.mdsupdrspat1_12) ||
+				isFieldCompleted(this.mdsupdrspat1_13) ||
+				isFieldCompleted(this.mdsupdrspat1_7) ||
+				isFieldCompleted(this.mdsupdrspat1_8) ||
+				isFieldCompleted(this.mdsupdrspat1_9) ||
+				isFieldCompleted(this.mdsupdrspat2_1) ||
+				isFieldCompleted(this.mdsupdrspat2_10) ||
+				isFieldCompleted(this.mdsupdrspat2_11) ||
+				isFieldCompleted(this.mdsupdrspat2_12) ||
+				isFieldCompleted(this.mdsupdrspat2_13) ||
+				isFieldCompleted(this.mdsupdrspat2_2) ||
+				isFieldCompleted(this.mdsupdrspat2_3) ||
+				isFieldCompleted(this.mdsupdrspat2_4) ||
+				isFieldCompleted(this.mdsupdrspat2_5) ||
+				isFieldCompleted(this.mdsupdrspat2_6) ||
+				isFieldCompleted(this.mdsupdrspat2_7) ||
+				isFieldCompleted(this.mdsupdrspat2_8) ||
+				isFieldCompleted(this.mdsupdrspat2_9) ||
+				isFieldCompleted(this.mdsupdrspat_psi);
 	}
 
-	private boolean isEmpty(String value) {
-		// Проверяем, является ли строка пустой или null
-		return value == null || value.trim().isEmpty();
+	private boolean isFieldCompleted(String field) {
+		// Проверяем, что поле не равно null и не пустое
+		return field != null && !field.trim().isEmpty() && !field.trim().equals("-");
 	}
+
 }
 
 

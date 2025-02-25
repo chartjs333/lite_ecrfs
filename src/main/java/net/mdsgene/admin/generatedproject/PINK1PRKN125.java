@@ -227,14 +227,6 @@ public class PINK1PRKN125 implements java.io.Serializable {
 	 */
 	private boolean areAllFieldsCompleted() {
 		boolean complete = true;
-		if (isEmpty(this.surveyTwoId)) {
-			System.out.println("Поле surveyTwoId не заполнено");
-			complete = false;
-		}
-		if (isEmpty(this.fillingStatus)) {
-			System.out.println("Поле fillingStatus не заполнено");
-			complete = false;
-		}
 		if (isEmpty(this.quip_ex)) {
 			System.out.println("Поле quip_ex не заполнено");
 			complete = false;
@@ -302,9 +294,7 @@ public class PINK1PRKN125 implements java.io.Serializable {
 	 * Проверяет, что хотя бы одно обязательное поле заполнено (без учета headline-полей).
 	 */
 	private boolean isAtLeastOneFieldCompleted() {
-		return !isEmpty(this.surveyTwoId)
-				|| !isEmpty(this.fillingStatus)
-				|| !isEmpty(this.quip_ex)
+		return !isEmpty(this.quip_ex)
 				|| !isEmpty(this.quip_gamb1)
 				|| !isEmpty(this.quip_gamb2)
 				|| !isEmpty(this.quip_buy1)
@@ -323,7 +313,7 @@ public class PINK1PRKN125 implements java.io.Serializable {
 
 	/** Возвращает true, если значение null или состоит только из пробелов. */
 	private boolean isEmpty(String value) {
-		return value == null || value.trim().isEmpty();
+		return value == null || value.trim().isEmpty() || value.trim().equals("-");
 	}
 
 }

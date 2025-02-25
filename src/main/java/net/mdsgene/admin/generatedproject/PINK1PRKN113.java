@@ -270,10 +270,7 @@ public class PINK1PRKN113 implements java.io.Serializable {
 	}
 
 	private boolean areAllFieldsCompleted() {
-		// Основные поля, которые всегда проверяются
-		boolean mainFieldsCompleted = !isEmpty(this.surveyTwoId) &&
-				!isEmpty(this.fillingStatus) &&
-				!isEmpty(this.exam_abd) &&
+		boolean mainFieldsCompleted = !isEmpty(this.exam_abd) &&
 				!isEmpty(this.exam_cardio) &&
 				!isEmpty(this.exam_ears) &&
 				!isEmpty(this.exam_eyes) &&
@@ -284,7 +281,6 @@ public class PINK1PRKN113 implements java.io.Serializable {
 				!isEmpty(this.exam_psych) &&
 				!isEmpty(this.exam_skin);
 
-		// Проверяем дополнительные поля, если соответствующие основные поля равны "abnormal"
 		boolean conditionalFieldsCompleted = true;
 
 		if ("abnormal".equalsIgnoreCase(this.exam_abd)) {
@@ -319,13 +315,10 @@ public class PINK1PRKN113 implements java.io.Serializable {
 		}
 
 		return mainFieldsCompleted && conditionalFieldsCompleted;
-}
+	}
 
 	private boolean isAtLeastOneFieldCompleted() {
-		// Проверяем, заполнено ли хотя бы одно из основных полей
-		boolean mainFieldsCompleted = !isEmpty(this.surveyTwoId) ||
-				!isEmpty(this.fillingStatus) ||
-				!isEmpty(this.exam_abd) ||
+		boolean mainFieldsCompleted = !isEmpty(this.exam_abd) ||
 				!isEmpty(this.exam_cardio) ||
 				!isEmpty(this.exam_ears) ||
 				!isEmpty(this.exam_eyes) ||
@@ -336,7 +329,6 @@ public class PINK1PRKN113 implements java.io.Serializable {
 				!isEmpty(this.exam_psych) ||
 				!isEmpty(this.exam_skin);
 
-		// Проверяем, заполнено ли хотя бы одно из дополнительных полей, если соответствующие основные поля равны "abnormal"
 		boolean conditionalFieldsCompleted = false;
 
 		if ("abnormal".equalsIgnoreCase(this.exam_abd)) {
@@ -374,8 +366,8 @@ public class PINK1PRKN113 implements java.io.Serializable {
 	}
 
 	private boolean isEmpty(String value) {
-		// Проверяем, является ли строка пустой или null
-		return value == null || value.trim().isEmpty();
+		// Если значение равно null, пустое или содержит только "-", считаем его незаполненным
+		return value == null || value.trim().isEmpty() || value.trim().equals("-");
 	}
 }
 

@@ -234,7 +234,33 @@ nav.navbar-nav {
 
 <body>
 <img border="0" id="logo" name="logo" alt="Movement Disorder Society Genetic mutation database" src="../assets/fmjfox.png" />
-<div class="registration-page">
+<!-- Кнопка возврата на landing-page -->
+<nav style="margin: 20px 0; text-align: center;">
+    <button id="backToLanding" class="btn btn-secondary">Back to Patient eCRFs</button>
+</nav>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+var surveyId = /*[[${#uris.escapeQueryParam(surveyId)}]]*/ '0';
+$("#backToLanding").click(function(){
+    // Создаем динамическую форму для отправки POST-запроса
+    var form = document.createElement("form");
+    form.method = "post";
+    form.action = "../survey/" + surveyId; // убедитесь, что URL корректный
+    form.target = "landing-page_" + surveyId;
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+    
+    // Переключаемся на окно лендинга по target
+    var landingWindow = window.open("", form.target);
+    if (landingWindow) {
+        landingWindow.focus();
+    }
+    // Пытаемся закрыть текущее окно (закроется, если оно было открыто скриптом)
+    window.close();
+});
+/*]]>*/</script><div class="registration-page">
   <div class="container">
     <div class="row">
       <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0 col-lg-12">

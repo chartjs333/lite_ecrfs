@@ -336,213 +336,108 @@ public class PINK1PRKN121 implements java.io.Serializable {
 		this.moca_year = moca_year;
 	}
 
+
 	public String getStatusColor() {
-		// 1) Если объект не инициализирован (null), считаем, что форма не начата -> "blue"
-		if (this == null) {
-			System.out.println("Объект PINK1PRKN121 не инициализирован");
-			return "blue";
-		}
+		boolean allCompleted = areAllFieldsCompleted();
 
-		// 2) Проверка: если все потенциальные (не headline) поля пусты -> "blue"
-		if (areAllPotentialFieldsEmpty()) {
-			System.out.println("Все поля (кроме headline) пусты => форма не начата");
-			return "blue";
-		}
-
-		// 3) Если moca_ex == "1", считаем, что тест не проводился -> "red"
-		if ("1".equals(moca_ex)) {
-			System.out.println("moca_ex == '1' (тест не проводился)");
-			return "red";
-		}
-
-		// 4) Если moca_ex == "0", считаем, что тест проводился -> проверяем обязательные поля
-		if ("0".equals(moca_ex)) {
-			if (areAllRequiredWhenYesFilled()) {
-				System.out.println("Все обязательные поля заполнены => green");
-				return "green";
-			} else {
-				System.out.println("Не все обязательные поля заполнены => orange");
-				return "orange";
+		if (allCompleted) {
+			// 3) Если moca_ex == "1", считаем, что тест не проводился -> "red"
+			if ("1".equals(moca_ex)) {
+				System.out.println("moca_ex == '1' (тест не проводился)");
+				return "red";
 			}
+			return "green"; // Все обязательные поля заполнены
+		} else if (isAtLeastOneFieldCompleted()) {
+			return "orange"; // Некоторые поля заполнены, но не все
+		} else {
+			return "blue"; // Ни одно поле не заполнено
 		}
-
-		// 5) Иначе (moca_ex не '0' и не '1', но есть данные) => "orange"
-		System.out.println("moca_ex имеет неизвестное значение, но форма частично заполнена => orange");
-		return "orange";
 	}
 
-	/**
-	 * Проверяем, что все поля, требующие ввода (кроме headline), пусты.
-	 * Если всё пусто -> форма не начата (blue).
-	 */
-	private boolean areAllPotentialFieldsEmpty() {
-		// Исключаем headline-поля:
-		// executive_headline, vis_sk_headline, naming_headline, attention_headline,
-		// language_headline, del_rec_headline, orientation_headline, moca_date
-		// не включаем их в проверки.
+	private boolean areAllFieldsCompleted() {
+		// Проверяем, что все обязательные поля заполнены
+		boolean mainFieldsCompleted = !isEmpty(this.moca_ex);
 
-		// Проверяем только «настоящие» поля, где пользователь вводит ответы:
-		return isEmpty(moca_ex)
-				&& isEmpty(moca_tm)
-				&& isEmpty(moca_cube)
-				&& isEmpty(moca_clock_cont)
-				&& isEmpty(moca_clock_num)
-				&& isEmpty(moca_clock_hands)
-				&& isEmpty(moca_lio)
-				&& isEmpty(moca_rhino)
-				&& isEmpty(moca_camel)
-				&& isEmpty(moca_fw)
-				&& isEmpty(moca_bw)
-				&& isEmpty(moca_vig)
-				&& isEmpty(moca_ser7)
-				&& isEmpty(moca_rep)
-				&& isEmpty(moca_flu_num)
-				&& isEmpty(moca_flu_sc)
-				&& isEmpty(moca_face)
-				&& isEmpty(moca_velvet)
-				&& isEmpty(moca_church)
-				&& isEmpty(moca_daisy)
-				&& isEmpty(moca_red)
-				// moca_date исключили по вашему списку (headline)
-				&& isEmpty(moca_year)
-				&& isEmpty(moca_month)
-				&& isEmpty(moca_day)
-				&& isEmpty(moca_place)
-				&& isEmpty(moca_city)
-				&& isEmpty(moca_total)
-				&& isEmpty(moca_limit);
+		// Если moca_ex равно "yes", проверяем дополнительные поля
+		if ("yes".equalsIgnoreCase(this.moca_ex)) {
+			boolean conditionalFieldsCompleted = !isEmpty(this.moca_bw) &&
+					!isEmpty(this.moca_camel) &&
+					!isEmpty(this.moca_church) &&
+					!isEmpty(this.moca_city) &&
+					!isEmpty(this.moca_clock_cont) &&
+					!isEmpty(this.moca_clock_hands) &&
+					!isEmpty(this.moca_clock_num) &&
+					!isEmpty(this.moca_cube) &&
+					!isEmpty(this.moca_daisy) &&
+					!isEmpty(this.moca_day) &&
+					!isEmpty(this.moca_face) &&
+					!isEmpty(this.moca_flu_num) &&
+					!isEmpty(this.moca_flu_sc) &&
+					!isEmpty(this.moca_fw) &&
+					!isEmpty(this.moca_limit) &&
+					!isEmpty(this.moca_lio) &&
+					!isEmpty(this.moca_month) &&
+					!isEmpty(this.moca_place) &&
+					!isEmpty(this.moca_red) &&
+					!isEmpty(this.moca_rep) &&
+					!isEmpty(this.moca_rhino) &&
+					!isEmpty(this.moca_ser7) &&
+					!isEmpty(this.moca_tm) &&
+					!isEmpty(this.moca_total) &&
+					!isEmpty(this.moca_velvet) &&
+					!isEmpty(this.moca_vig) &&
+					!isEmpty(this.moca_year);
+
+			return mainFieldsCompleted && conditionalFieldsCompleted;
+		}
+
+		return mainFieldsCompleted;
 	}
 
-	/**
-	 * Проверяем, что все «минимальные» обязательные поля заполнены (не headline),
-	 * если moca_ex = "0" (тест проводился).
-	 * Если находим хотя бы одно пустое – возвращаем false.
-	 */
-	private boolean areAllRequiredWhenYesFilled() {
-		// Опять же исключаем headline-поля, в т.ч. moca_date, если вы указали его как headline.
-		// Если же вам нужно учитывать moca_date как обязательное, верните его в проверку.
+	private boolean isAtLeastOneFieldCompleted() {
+		// Проверяем, заполнено ли хотя бы одно поле
+		boolean mainFieldsCompleted = !isEmpty(this.moca_ex);
 
-		// Пример логики: если поле пустое -> выводим в лог, что именно пустое, и возвращаем false.
+		if ("yes".equalsIgnoreCase(this.moca_ex)) {
+			boolean conditionalFieldsCompleted = !isEmpty(this.moca_bw) ||
+					!isEmpty(this.moca_camel) ||
+					!isEmpty(this.moca_church) ||
+					!isEmpty(this.moca_city) ||
+					!isEmpty(this.moca_clock_cont) ||
+					!isEmpty(this.moca_clock_hands) ||
+					!isEmpty(this.moca_clock_num) ||
+					!isEmpty(this.moca_cube) ||
+					!isEmpty(this.moca_daisy) ||
+					!isEmpty(this.moca_day) ||
+					!isEmpty(this.moca_face) ||
+					!isEmpty(this.moca_flu_num) ||
+					!isEmpty(this.moca_flu_sc) ||
+					!isEmpty(this.moca_fw) ||
+					!isEmpty(this.moca_limit) ||
+					!isEmpty(this.moca_lio) ||
+					!isEmpty(this.moca_month) ||
+					!isEmpty(this.moca_place) ||
+					!isEmpty(this.moca_red) ||
+					!isEmpty(this.moca_rep) ||
+					!isEmpty(this.moca_rhino) ||
+					!isEmpty(this.moca_ser7) ||
+					!isEmpty(this.moca_tm) ||
+					!isEmpty(this.moca_total) ||
+					!isEmpty(this.moca_velvet) ||
+					!isEmpty(this.moca_vig) ||
+					!isEmpty(this.moca_year);
 
-		if (!isFilled(moca_tm)) {
-			System.out.println("Поле moca_tm не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_cube)) {
-			System.out.println("Поле moca_cube не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_clock_cont)) {
-			System.out.println("Поле moca_clock_cont не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_clock_num)) {
-			System.out.println("Поле moca_clock_num не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_clock_hands)) {
-			System.out.println("Поле moca_clock_hands не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_lio)) {
-			System.out.println("Поле moca_lio не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_rhino)) {
-			System.out.println("Поле moca_rhino не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_camel)) {
-			System.out.println("Поле moca_camel не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_fw)) {
-			System.out.println("Поле moca_fw не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_bw)) {
-			System.out.println("Поле moca_bw не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_vig)) {
-			System.out.println("Поле moca_vig не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_ser7)) {
-			System.out.println("Поле moca_ser7 не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_rep)) {
-			System.out.println("Поле moca_rep не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_flu_sc)) {
-			System.out.println("Поле moca_flu_sc не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_face)) {
-			System.out.println("Поле moca_face не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_velvet)) {
-			System.out.println("Поле moca_velvet не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_church)) {
-			System.out.println("Поле moca_church не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_daisy)) {
-			System.out.println("Поле moca_daisy не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_red)) {
-			System.out.println("Поле moca_red не заполнено");
-			return false;
-		}
-		// moca_date исключено, т.к. по вашему списку оно headline
-		if (!isFilled(moca_year)) {
-			System.out.println("Поле moca_year не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_month)) {
-			System.out.println("Поле moca_month не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_day)) {
-			System.out.println("Поле moca_day не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_place)) {
-			System.out.println("Поле moca_place не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_city)) {
-			System.out.println("Поле moca_city не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_total)) {
-			System.out.println("Поле moca_total не заполнено");
-			return false;
-		}
-		if (!isFilled(moca_limit)) {
-			System.out.println("Поле moca_limit не заполнено");
-			return false;
+			return mainFieldsCompleted || conditionalFieldsCompleted;
 		}
 
-		// Если дошли сюда, все перечисленные поля заполнены
-		return true;
+		return mainFieldsCompleted;
 	}
 
-	/** Является ли поле пустым (null или только пробелы)? */
-	private boolean isEmpty(String val) {
-		return (val == null || val.trim().isEmpty());
+	private boolean isEmpty(String value) {
+		// Если значение null, пустое или равно "-", считаем его незаполненным
+		return value == null || value.trim().isEmpty() || value.trim().equals("-");
 	}
 
-	/** Является ли поле «заполненным» (не null, не пустое)? */
-	private boolean isFilled(String val) {
-		return !isEmpty(val);
-	}
 
 }
 

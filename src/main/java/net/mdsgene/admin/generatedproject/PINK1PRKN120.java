@@ -140,37 +140,34 @@ public class PINK1PRKN120 implements java.io.Serializable {
 	}
 
 	private boolean areAllFieldsCompleted() {
-		// Проверяем заполненность всех полей
-		return !isEmpty(this.surveyTwoId) &&
-				!isEmpty(this.fillingStatus) &&
-				!isEmpty(this.hoehnyahr) &&
-				!isEmpty(this.mdsupdrs_4_c_mf) &&
-				!isEmpty(this.mdsupdrs_4_fi_d) &&
-				!isEmpty(this.mdsupdrs_4_fi_f) &&
-				!isEmpty(this.mdsupdrs_4_posd) &&
-				!isEmpty(this.mdsupdrs_4_ts_d) &&
-				!isEmpty(this.mdsupdrs_4_ts_os) &&
-				!isEmpty(this.schwab_engl_adl);
+		// Проверяем, что все обязательные поля заполнены
+		return isFieldCompleted(this.hoehnyahr) &&
+				isFieldCompleted(this.mdsupdrs_4_c_mf) &&
+				isFieldCompleted(this.mdsupdrs_4_fi_d) &&
+				isFieldCompleted(this.mdsupdrs_4_fi_f) &&
+				isFieldCompleted(this.mdsupdrs_4_posd) &&
+				isFieldCompleted(this.mdsupdrs_4_ts_d) &&
+				isFieldCompleted(this.mdsupdrs_4_ts_os) &&
+				isFieldCompleted(this.schwab_engl_adl);
 	}
 
 	private boolean isAtLeastOneFieldCompleted() {
 		// Проверяем, заполнено ли хотя бы одно поле
-		return !isEmpty(this.surveyTwoId) ||
-				!isEmpty(this.fillingStatus) ||
-				!isEmpty(this.hoehnyahr) ||
-				!isEmpty(this.mdsupdrs_4_c_mf) ||
-				!isEmpty(this.mdsupdrs_4_fi_d) ||
-				!isEmpty(this.mdsupdrs_4_fi_f) ||
-				!isEmpty(this.mdsupdrs_4_posd) ||
-				!isEmpty(this.mdsupdrs_4_ts_d) ||
-				!isEmpty(this.mdsupdrs_4_ts_os) ||
-				!isEmpty(this.schwab_engl_adl);
-}
-
-	private boolean isEmpty(String value) {
-		// Проверяем, является ли строка пустой или null
-		return value == null || value.trim().isEmpty();
+		return isFieldCompleted(this.hoehnyahr) ||
+				isFieldCompleted(this.mdsupdrs_4_c_mf) ||
+				isFieldCompleted(this.mdsupdrs_4_fi_d) ||
+				isFieldCompleted(this.mdsupdrs_4_fi_f) ||
+				isFieldCompleted(this.mdsupdrs_4_posd) ||
+				isFieldCompleted(this.mdsupdrs_4_ts_d) ||
+				isFieldCompleted(this.mdsupdrs_4_ts_os) ||
+				isFieldCompleted(this.schwab_engl_adl);
 	}
+
+	private boolean isFieldCompleted(String field) {
+		// Поле считается заполненным, если оно не null и не пустое
+		return field != null && !field.trim().isEmpty() && !field.trim().equals("-");
+	}
+
 }
 
 //green if all items completed, orange if some but not all, blue if none are completed

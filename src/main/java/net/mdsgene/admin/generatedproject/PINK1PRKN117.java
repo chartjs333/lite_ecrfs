@@ -117,7 +117,7 @@ public class PINK1PRKN117 implements java.io.Serializable {
 	}
 
 	public String getStatusColor() {
-		// Проверяем, заполнены ли все поля
+		// Проверяем, заполнены ли все обязательные поля
 		boolean allCompleted = areAllFieldsCompleted();
 
 		if (allCompleted) {
@@ -127,38 +127,33 @@ public class PINK1PRKN117 implements java.io.Serializable {
 		} else {
 			return "blue"; // Ни одно поле не заполнено
 		}
-}
+	}
 
 	private boolean areAllFieldsCompleted() {
-		// Проверяем заполненность всех полей
-		return !isEmpty(this.surveyTwoId) &&
-				!isEmpty(this.fillingStatus) &&
-				!isEmpty(this.mdsupdrs_1_1_selection) &&
-				!isEmpty(this.mdsupdrs_1_2_selection) &&
-				!isEmpty(this.mdsupdrs_1_3_selection) &&
-				!isEmpty(this.mdsupdrs_1_4_selection) &&
-				!isEmpty(this.mdsupdrs_1_5_selection) &&
-				!isEmpty(this.mdsupdrs_1_6_selection) &&
-				!isEmpty(this.mdsupdrs_1_psi);
+		return isFieldCompleted(this.mdsupdrs_1_1_selection) &&
+				isFieldCompleted(this.mdsupdrs_1_2_selection) &&
+				isFieldCompleted(this.mdsupdrs_1_3_selection) &&
+				isFieldCompleted(this.mdsupdrs_1_4_selection) &&
+				isFieldCompleted(this.mdsupdrs_1_5_selection) &&
+				isFieldCompleted(this.mdsupdrs_1_6_selection) &&
+				isFieldCompleted(this.mdsupdrs_1_psi);
 	}
 
 	private boolean isAtLeastOneFieldCompleted() {
-		// Проверяем, заполнено ли хотя бы одно поле
-		return !isEmpty(this.surveyTwoId) ||
-				!isEmpty(this.fillingStatus) ||
-				!isEmpty(this.mdsupdrs_1_1_selection) ||
-				!isEmpty(this.mdsupdrs_1_2_selection) ||
-				!isEmpty(this.mdsupdrs_1_3_selection) ||
-				!isEmpty(this.mdsupdrs_1_4_selection) ||
-				!isEmpty(this.mdsupdrs_1_5_selection) ||
-				!isEmpty(this.mdsupdrs_1_6_selection) ||
-				!isEmpty(this.mdsupdrs_1_psi);
+		return isFieldCompleted(this.mdsupdrs_1_1_selection) ||
+				isFieldCompleted(this.mdsupdrs_1_2_selection) ||
+				isFieldCompleted(this.mdsupdrs_1_3_selection) ||
+				isFieldCompleted(this.mdsupdrs_1_4_selection) ||
+				isFieldCompleted(this.mdsupdrs_1_5_selection) ||
+				isFieldCompleted(this.mdsupdrs_1_6_selection) ||
+				isFieldCompleted(this.mdsupdrs_1_psi);
 	}
 
-	private boolean isEmpty(String value) {
-		// Проверяем, является ли строка пустой или null
-		return value == null || value.trim().isEmpty();
+	private boolean isFieldCompleted(String field) {
+		// Проверяем, что поле не равно null, не пустое и не содержит "-"
+		return field != null && !field.trim().isEmpty() && !field.trim().equals("-");
 	}
+
 }
 
 

@@ -289,9 +289,7 @@ public class PINK1PRKN129 implements java.io.Serializable {
 	 * Проверяет, что все рабочие поля (исключая поле-заголовок stait1_instruction) пусты.
 	 */
 	private boolean areAllFieldsEmpty() {
-		return isEmpty(surveyTwoId)
-				&& isEmpty(fillingStatus)
-				&& isEmpty(stait_ex)
+		return isEmpty(stait_ex)
 				&& isEmpty(stait1)
 				&& isEmpty(stait2)
 				&& isEmpty(stait3)
@@ -320,14 +318,6 @@ public class PINK1PRKN129 implements java.io.Serializable {
 	 */
 	private boolean areAllFieldsCompleted() {
 		boolean complete = true;
-		if (isEmpty(surveyTwoId)) {
-			System.out.println("Поле surveyTwoId не заполнено");
-			complete = false;
-		}
-		if (isEmpty(fillingStatus)) {
-			System.out.println("Поле fillingStatus не заполнено");
-			complete = false;
-		}
 		if (isEmpty(stait_ex)) {
 			System.out.println("Поле stait_ex не заполнено");
 			complete = false;
@@ -341,27 +331,27 @@ public class PINK1PRKN129 implements java.io.Serializable {
 			complete = false;
 		}
 		if (isEmpty(stait3)) {
-			System.out.println("Поле stait3 не заполнено");
+			System.out.println("Поле стait3 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stait4)) {
-			System.out.println("Поле stait4 не заполнено");
+			System.out.println("Поле стait4 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stait5)) {
-			System.out.println("Поле stait5 не заполнено");
+			System.out.println("Поле стait5 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stait6)) {
-			System.out.println("Поле stait6 не заполнено");
+			System.out.println("Поле стait6 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stait7)) {
-			System.out.println("Поле stait7 не заполнено");
+			System.out.println("Поле стait7 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stait8)) {
-			System.out.println("Поле stait8 не заполнено");
+			System.out.println("Поле стait8 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stait9)) {
@@ -419,9 +409,7 @@ public class PINK1PRKN129 implements java.io.Serializable {
 	 * Проверяет, что хотя бы одно рабочее поле заполнено (без учета stait1_instruction).
 	 */
 	private boolean isAtLeastOneFieldCompleted() {
-		return !isEmpty(surveyTwoId)
-				|| !isEmpty(fillingStatus)
-				|| !isEmpty(stait_ex)
+		return !isEmpty(stait_ex)
 				|| !isEmpty(stait1)
 				|| !isEmpty(stait2)
 				|| !isEmpty(stait3)
@@ -446,7 +434,7 @@ public class PINK1PRKN129 implements java.io.Serializable {
 
 	/** Возвращает true, если строка null или состоит только из пробелов */
 	private boolean isEmpty(String value) {
-		return value == null || value.trim().isEmpty();
+		return value == null || value.trim().isEmpty() || value.trim().equals("-");
 	}
 }
 

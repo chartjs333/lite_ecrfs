@@ -330,12 +330,7 @@ public class PINK1PRKN19 implements java.io.Serializable {
 	}
 
 	private boolean areAllFieldsCompleted() {
-		// Основные поля, которые всегда проверяются
-		boolean mainFieldsCompleted = !isEmpty(this.surveyTwoId) &&
-				!isEmpty(this.fillingStatus) &&
-				!isEmpty(this.fam_hist);
-
-		// Если fam_hist равно "yes", проверяем дополнительные поля
+		boolean mainFieldsCompleted = !isEmpty(this.fam_hist);
 		if ("yes".equalsIgnoreCase(this.fam_hist)) {
 			boolean conditionalFieldsCompleted = !isEmpty(this.fh_broth_fm) &&
 					!isEmpty(this.fh_broth_pd) &&
@@ -363,21 +358,13 @@ public class PINK1PRKN19 implements java.io.Serializable {
 					!isEmpty(this.fh_phsib_pd) &&
 					!isEmpty(this.fh_sis_fm) &&
 					!isEmpty(this.fh_sis_pd);
-
 			return mainFieldsCompleted && conditionalFieldsCompleted;
 		}
-
-		// Если fam_hist не равно "yes", проверяем только основные поля
 		return mainFieldsCompleted;
 	}
 
 	private boolean isAtLeastOneFieldCompleted() {
-		// Проверяем, заполнено ли хотя бы одно из основных полей
-		boolean mainFieldsCompleted = !isEmpty(this.surveyTwoId) ||
-				!isEmpty(this.fillingStatus) ||
-				!isEmpty(this.fam_hist);
-
-		// Если fam_hist равно "yes", проверяем также дополнительные поля
+		boolean mainFieldsCompleted = !isEmpty(this.fam_hist);
 		if ("yes".equalsIgnoreCase(this.fam_hist)) {
 			boolean conditionalFieldsCompleted = !isEmpty(this.fh_broth_fm) ||
 					!isEmpty(this.fh_broth_pd) ||
@@ -405,17 +392,13 @@ public class PINK1PRKN19 implements java.io.Serializable {
 					!isEmpty(this.fh_phsib_pd) ||
 					!isEmpty(this.fh_sis_fm) ||
 					!isEmpty(this.fh_sis_pd);
-
 			return mainFieldsCompleted || conditionalFieldsCompleted;
 		}
-
-		// Если fam_hist не равно "yes", проверяем только основные поля
 		return mainFieldsCompleted;
 	}
 
 	private boolean isEmpty(String value) {
-		// Проверяем, является ли строка пустой или null
-		return value == null || value.trim().isEmpty();
+		return value == null || value.trim().isEmpty() || value.trim().equals("-");
 	}
 }
 

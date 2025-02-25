@@ -160,40 +160,33 @@ public class PINK1PRKN114 implements java.io.Serializable {
 }
 
 	private boolean areAllFieldsCompleted() {
-		// Проверяем, заполнены ли все поля
-		return !isEmpty(this.surveyTwoId) &&
-				!isEmpty(this.fillingStatus) &&
-				!isEmpty(this.vital_arm) &&
-				!isEmpty(this.vital_bp_sta_lower) &&
-				!isEmpty(this.vital_bp_sta_upper) &&
-				!isEmpty(this.vital_bp_sup_lower) &&
-				!isEmpty(this.vital_bp_sup_upper) &&
-				!isEmpty(this.vital_height) &&
-				!isEmpty(this.vital_hr_sta) &&
-				!isEmpty(this.vital_hr_sup) &&
-				!isEmpty(this.vital_temp) &&
-				!isEmpty(this.vital_weight);
+    return isFieldCompleted(this.vital_arm) &&
+           isFieldCompleted(this.vital_bp_sta_lower) &&
+           isFieldCompleted(this.vital_bp_sta_upper) &&
+           isFieldCompleted(this.vital_bp_sup_lower) &&
+           isFieldCompleted(this.vital_bp_sup_upper) &&
+           isFieldCompleted(this.vital_height) &&
+           isFieldCompleted(this.vital_hr_sta) &&
+           isFieldCompleted(this.vital_hr_sup) &&
+           isFieldCompleted(this.vital_temp) &&
+           isFieldCompleted(this.vital_weight);
 	}
 
 	private boolean isAtLeastOneFieldCompleted() {
-		// Проверяем, заполнено ли хотя бы одно поле
-		return !isEmpty(this.surveyTwoId) ||
-				!isEmpty(this.fillingStatus) ||
-				!isEmpty(this.vital_arm) ||
-				!isEmpty(this.vital_bp_sta_lower) ||
-				!isEmpty(this.vital_bp_sta_upper) ||
-				!isEmpty(this.vital_bp_sup_lower) ||
-				!isEmpty(this.vital_bp_sup_upper) ||
-				!isEmpty(this.vital_height) ||
-				!isEmpty(this.vital_hr_sta) ||
-				!isEmpty(this.vital_hr_sup) ||
-				!isEmpty(this.vital_temp) ||
-				!isEmpty(this.vital_weight);
+    return isFieldCompleted(this.vital_arm) ||
+           isFieldCompleted(this.vital_bp_sta_lower) ||
+           isFieldCompleted(this.vital_bp_sta_upper) ||
+           isFieldCompleted(this.vital_bp_sup_lower) ||
+           isFieldCompleted(this.vital_bp_sup_upper) ||
+           isFieldCompleted(this.vital_height) ||
+           isFieldCompleted(this.vital_hr_sta) ||
+           isFieldCompleted(this.vital_hr_sup) ||
+           isFieldCompleted(this.vital_temp) ||
+           isFieldCompleted(this.vital_weight);
 	}
 
-	private boolean isEmpty(String value) {
-		// Проверяем, является ли строка пустой или null
-		return value == null || value.trim().isEmpty();
+private boolean isFieldCompleted(String field) {
+    return field != null && !field.trim().isEmpty() && !field.trim().equals("-");
 	}
 }
 

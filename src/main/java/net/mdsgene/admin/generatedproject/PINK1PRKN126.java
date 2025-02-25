@@ -180,9 +180,7 @@ public class PINK1PRKN126 implements java.io.Serializable {
 	 * пусты. Если все пусты – форма не начата → "blue".
 	 */
 	private boolean areAllFieldsEmpty() {
-		return isEmpty(surveyTwoId)
-				&& isEmpty(fillingStatus)
-				&& isEmpty(ess_ex)
+		return isEmpty(ess_ex)
 				&& isEmpty(essa)
 				&& isEmpty(ess1)
 				&& isEmpty(ess2)
@@ -199,14 +197,6 @@ public class PINK1PRKN126 implements java.io.Serializable {
 	 */
 	private boolean areAllFieldsCompleted() {
 		boolean complete = true;
-		if (isEmpty(surveyTwoId)) {
-			System.out.println("Поле surveyTwoId не заполнено");
-			complete = false;
-		}
-		if (isEmpty(fillingStatus)) {
-			System.out.println("Поле fillingStatus не заполнено");
-			complete = false;
-		}
 		if (isEmpty(ess_ex)) {
 			System.out.println("Поле ess_ex не заполнено");
 			complete = false;
@@ -254,9 +244,7 @@ public class PINK1PRKN126 implements java.io.Serializable {
 	 * Проверяет, что хотя бы одно рабочее поле заполнено (без учета заголовков).
 	 */
 	private boolean isAtLeastOneFieldCompleted() {
-		return !isEmpty(surveyTwoId)
-				|| !isEmpty(fillingStatus)
-				|| !isEmpty(ess_ex)
+		return !isEmpty(ess_ex)
 				|| !isEmpty(essa)
 				|| !isEmpty(ess1)
 				|| !isEmpty(ess2)
@@ -270,7 +258,7 @@ public class PINK1PRKN126 implements java.io.Serializable {
 
 	/** Возвращает true, если строка пуста (null или только пробелы) */
 	private boolean isEmpty(String value) {
-		return value == null || value.trim().isEmpty();
+		return value == null || value.trim().isEmpty() || value.trim().equals("-");
 	}
 
 }

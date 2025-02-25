@@ -182,12 +182,16 @@ public class PINK1PRKN122 implements java.io.Serializable {
 		return true;
 	}
 
-	/** Проверяет, что строка val пустая (null или только пробелы). */
+	/**
+	 * Проверяет, что строка val пустая (null или только пробелы).
+	 */
 	private boolean isEmpty(String val) {
-		return (val == null || val.trim().isEmpty());
+		return (val == null || val.trim().isEmpty()) || "-".equals(val.trim());
 	}
 
-	/** Проверяет, что строка val не пустая. */
+	/**
+	 * Проверяет, что строка val не пустая.
+	 */
 	private boolean isFilled(String val) {
 		return !isEmpty(val);
 	}

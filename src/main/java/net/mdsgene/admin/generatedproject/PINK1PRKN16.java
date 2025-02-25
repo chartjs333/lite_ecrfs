@@ -205,7 +205,7 @@ public class PINK1PRKN16 implements java.io.Serializable {
 
 	private boolean isFieldCompleted(String field) {
 		// Проверяем, что поле не равно null и не пустое
-		return field != null && !field.isEmpty();
+		return field != null && !field.trim().isEmpty() && !"-".equals(field.trim());
 	}
 
 	private boolean shouldDisplayField(String fieldName) {

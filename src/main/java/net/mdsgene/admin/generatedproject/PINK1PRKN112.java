@@ -979,7 +979,7 @@ public class PINK1PRKN112 implements java.io.Serializable {
 
 	private boolean isEmpty(String value) {
 		// Проверяем, является ли строка пустой или null
-		return value == null || value.trim().isEmpty();
+		return value == null || value.trim().isEmpty() || value.trim().equals("-");
 	}
 }
 

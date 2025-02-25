@@ -290,9 +290,7 @@ public class PINK1PRKN128 implements java.io.Serializable {
 	 * Проверяет, что все рабочие поля (без учета поля-заголовка stais_instruction) пусты.
 	 */
 	private boolean areAllFieldsEmpty() {
-		return isEmpty(surveyTwoId)
-				&& isEmpty(fillingStatus)
-				&& isEmpty(stais_ex)
+		return isEmpty(stais_ex)
 				&& isEmpty(stais1)
 				&& isEmpty(stais2)
 				&& isEmpty(stais3)
@@ -322,14 +320,6 @@ public class PINK1PRKN128 implements java.io.Serializable {
 	private boolean areAllFieldsCompleted() {
 		boolean complete = true;
 
-		if (isEmpty(surveyTwoId)) {
-			System.out.println("Поле surveyTwoId не заполнено");
-			complete = false;
-		}
-		if (isEmpty(fillingStatus)) {
-			System.out.println("Поле fillingStatus не заполнено");
-			complete = false;
-		}
 		if (isEmpty(stais_ex)) {
 			System.out.println("Поле stais_ex не заполнено");
 			complete = false;
@@ -375,43 +365,43 @@ public class PINK1PRKN128 implements java.io.Serializable {
 			complete = false;
 		}
 		if (isEmpty(stais11)) {
-			System.out.println("Поле stais11 не заполнено");
+			System.out.println("Поле стais11 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stais12)) {
-			System.out.println("Поле stais12 не заполнено");
+			System.out.println("Поле стais12 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stais13)) {
-			System.out.println("Поле stais13 не заполнено");
+			System.out.println("Поле стais13 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stais14)) {
-			System.out.println("Поле stais14 не заполнено");
+			System.out.println("Поле стais14 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stais15)) {
-			System.out.println("Поле stais15 не заполнено");
+			System.out.println("Поле стais15 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stais16)) {
-			System.out.println("Поле stais16 не заполнено");
+			System.out.println("Поле стais16 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stais17)) {
-			System.out.println("Поле stais17 не заполнено");
+			System.out.println("Поле стais17 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stais18)) {
-			System.out.println("Поле stais18 не заполнено");
+			System.out.println("Поле стais18 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stais19)) {
-			System.out.println("Поле stais19 не заполнено");
+			System.out.println("Поле стais19 не заполнено");
 			complete = false;
 		}
 		if (isEmpty(stais20)) {
-			System.out.println("Поле stais20 не заполнено");
+			System.out.println("Поле стais20 не заполнено");
 			complete = false;
 		}
 
@@ -422,9 +412,7 @@ public class PINK1PRKN128 implements java.io.Serializable {
 	 * Проверяет, что хотя бы одно рабочее поле заполнено (без учета stais_instruction).
 	 */
 	private boolean isAtLeastOneFieldCompleted() {
-		return !isEmpty(surveyTwoId)
-				|| !isEmpty(fillingStatus)
-				|| !isEmpty(stais_ex)
+		return !isEmpty(stais_ex)
 				|| !isEmpty(stais1)
 				|| !isEmpty(stais2)
 				|| !isEmpty(stais3)
@@ -449,7 +437,7 @@ public class PINK1PRKN128 implements java.io.Serializable {
 
 	/** Возвращает true, если строка равна null или состоит только из пробелов */
 	private boolean isEmpty(String value) {
-		return value == null || value.trim().isEmpty();
+		return value == null || value.trim().isEmpty() || value.trim().equals("-");
 	}
 }
 

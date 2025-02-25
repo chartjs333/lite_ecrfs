@@ -200,89 +200,44 @@ public class PINK1PRKN115 implements java.io.Serializable {
 	}
 
 	private boolean areAllFieldsCompleted() {
-		// Основные поля, которые всегда проверяются
-		boolean mainFieldsCompleted = !isEmpty(this.surveyTwoId) &&
-				!isEmpty(this.fillingStatus) &&
-				!isEmpty(this.n_exam_coor) &&
-				!isEmpty(this.n_exam_cranial) &&
-				!isEmpty(this.n_exam_gait) &&
-				!isEmpty(this.n_exam_mental) &&
-				!isEmpty(this.n_exam_motor) &&
-				!isEmpty(this.n_exam_reflex) &&
-				!isEmpty(this.n_exam_sens);
-
-		// Проверяем дополнительные поля, если соответствующие основные поля равны "abnormal"
-		boolean conditionalFieldsCompleted = true;
-
-		if ("abnormal".equalsIgnoreCase(this.n_exam_coor)) {
-			conditionalFieldsCompleted &= !isEmpty(this.n_exam_coor_abn);
-		}
-		if ("abnormal".equalsIgnoreCase(this.n_exam_cranial)) {
-			conditionalFieldsCompleted &= !isEmpty(this.n_exam_cranial_abn);
-		}
-		if ("abnormal".equalsIgnoreCase(this.n_exam_gait)) {
-			conditionalFieldsCompleted &= !isEmpty(this.n_exam_gait_abn);
-		}
-		if ("abnormal".equalsIgnoreCase(this.n_exam_mental)) {
-			conditionalFieldsCompleted &= !isEmpty(this.n_exam_mental_abn);
-		}
-		if ("abnormal".equalsIgnoreCase(this.n_exam_motor)) {
-			conditionalFieldsCompleted &= !isEmpty(this.n_exam_motor_abn);
-}
-		if ("abnormal".equalsIgnoreCase(this.n_exam_reflex)) {
-			conditionalFieldsCompleted &= !isEmpty(this.n_exam_reflex_abn);
-		}
-		if ("abnormal".equalsIgnoreCase(this.n_exam_sens)) {
-			conditionalFieldsCompleted &= !isEmpty(this.n_exam_sens_abn);
-		}
-
-		return mainFieldsCompleted && conditionalFieldsCompleted;
+    return isFieldCompleted(this.n_exam_coor) &&
+           isFieldCompleted(this.n_exam_cranial) &&
+           isFieldCompleted(this.n_exam_gait) &&
+           isFieldCompleted(this.n_exam_mental) &&
+           isFieldCompleted(this.n_exam_motor) &&
+           isFieldCompleted(this.n_exam_reflex) &&
+           isFieldCompleted(this.n_exam_sens) &&
+           // Проверка дополнительных полей, если "abnormal" выбрано
+           (!"abnormal".equalsIgnoreCase(this.n_exam_coor) || isFieldCompleted(this.n_exam_coor_abn)) &&
+           (!"abnormal".equalsIgnoreCase(this.n_exam_cranial) || isFieldCompleted(this.n_exam_cranial_abn)) &&
+           (!"abnormal".equalsIgnoreCase(this.n_exam_gait) || isFieldCompleted(this.n_exam_gait_abn)) &&
+           (!"abnormal".equalsIgnoreCase(this.n_exam_mental) || isFieldCompleted(this.n_exam_mental_abn)) &&
+           (!"abnormal".equalsIgnoreCase(this.n_exam_motor) || isFieldCompleted(this.n_exam_motor_abn)) &&
+           (!"abnormal".equalsIgnoreCase(this.n_exam_reflex) || isFieldCompleted(this.n_exam_reflex_abn)) &&
+           (!"abnormal".equalsIgnoreCase(this.n_exam_sens) || isFieldCompleted(this.n_exam_sens_abn));
 	}
 
 	private boolean isAtLeastOneFieldCompleted() {
-		// Проверяем, заполнено ли хотя бы одно из основных полей
-		boolean mainFieldsCompleted = !isEmpty(this.surveyTwoId) ||
-				!isEmpty(this.fillingStatus) ||
-				!isEmpty(this.n_exam_coor) ||
-				!isEmpty(this.n_exam_cranial) ||
-				!isEmpty(this.n_exam_gait) ||
-				!isEmpty(this.n_exam_mental) ||
-				!isEmpty(this.n_exam_motor) ||
-				!isEmpty(this.n_exam_reflex) ||
-				!isEmpty(this.n_exam_sens);
-
-		// Проверяем, заполнено ли хотя бы одно из дополнительных полей, если соответствующие основные поля равны "abnormal"
-		boolean conditionalFieldsCompleted = false;
-
-		if ("abnormal".equalsIgnoreCase(this.n_exam_coor)) {
-			conditionalFieldsCompleted |= !isEmpty(this.n_exam_coor_abn);
-		}
-		if ("abnormal".equalsIgnoreCase(this.n_exam_cranial)) {
-			conditionalFieldsCompleted |= !isEmpty(this.n_exam_cranial_abn);
-		}
-		if ("abnormal".equalsIgnoreCase(this.n_exam_gait)) {
-			conditionalFieldsCompleted |= !isEmpty(this.n_exam_gait_abn);
-		}
-		if ("abnormal".equalsIgnoreCase(this.n_exam_mental)) {
-			conditionalFieldsCompleted |= !isEmpty(this.n_exam_mental_abn);
-		}
-		if ("abnormal".equalsIgnoreCase(this.n_exam_motor)) {
-			conditionalFieldsCompleted |= !isEmpty(this.n_exam_motor_abn);
-		}
-		if ("abnormal".equalsIgnoreCase(this.n_exam_reflex)) {
-			conditionalFieldsCompleted |= !isEmpty(this.n_exam_reflex_abn);
-		}
-		if ("abnormal".equalsIgnoreCase(this.n_exam_sens)) {
-			conditionalFieldsCompleted |= !isEmpty(this.n_exam_sens_abn);
+    return isFieldCompleted(this.n_exam_coor) ||
+           isFieldCompleted(this.n_exam_cranial) ||
+           isFieldCompleted(this.n_exam_gait) ||
+           isFieldCompleted(this.n_exam_mental) ||
+           isFieldCompleted(this.n_exam_motor) ||
+           isFieldCompleted(this.n_exam_reflex) ||
+           isFieldCompleted(this.n_exam_sens) ||
+           isFieldCompleted(this.n_exam_coor_abn) ||
+           isFieldCompleted(this.n_exam_cranial_abn) ||
+           isFieldCompleted(this.n_exam_gait_abn) ||
+           isFieldCompleted(this.n_exam_mental_abn) ||
+           isFieldCompleted(this.n_exam_motor_abn) ||
+           isFieldCompleted(this.n_exam_reflex_abn) ||
+           isFieldCompleted(this.n_exam_sens_abn);
 		}
 
-		return mainFieldsCompleted || conditionalFieldsCompleted;
+private boolean isFieldCompleted(String value) {
+    return value != null && !value.trim().isEmpty() && !value.trim().equals("-");
 	}
 
-	private boolean isEmpty(String value) {
-		// Проверяем, является ли строка пустой или null
-		return value == null || value.trim().isEmpty();
-	}
 }
 
 //green if all items completed, orange if some but not all, blue if none are completed

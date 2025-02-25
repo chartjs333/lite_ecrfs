@@ -451,120 +451,44 @@ public class PINK1PRKN119 implements java.io.Serializable {
 	}
 
 	private boolean areAllFieldsCompleted() {
-		// Основные поля, которые всегда проверяются
-		boolean mainFieldsCompleted = !isEmpty(this.surveyTwoId) &&
-				!isEmpty(this.fillingStatus) &&
-				!isEmpty(this.mdsupdrs_3_ac) &&
-				!isEmpty(this.mdsupdrs_3_bb) &&
-				!isEmpty(this.mdsupdrs_3_c_rtm) &&
-				!isEmpty(this.mdsupdrs_3_clinstat) &&
-				!isEmpty(this.mdsupdrs_3_dk_e) &&
-				!isEmpty(this.mdsupdrs_3_f_gait) &&
-				!isEmpty(this.mdsupdrs_3_fac) &&
-				!isEmpty(this.mdsupdrs_3_ft_l) &&
-				!isEmpty(this.mdsupdrs_3_ft_r) &&
-				!isEmpty(this.mdsupdrs_3_gait) &&
-				!isEmpty(this.mdsupdrs_3_hm_l) &&
-				!isEmpty(this.mdsupdrs_3_hm_r) &&
-				!isEmpty(this.mdsupdrs_3_ktm_l) &&
-				!isEmpty(this.mdsupdrs_3_ktm_r) &&
-				!isEmpty(this.mdsupdrs_3_la_l) &&
-				!isEmpty(this.mdsupdrs_3_la_r) &&
-				!isEmpty(this.mdsupdrs_3_on) &&
-				!isEmpty(this.mdsupdrs_3_p) &&
-				!isEmpty(this.mdsupdrs_3_pdmed) &&
-				!isEmpty(this.mdsupdrs_3_pm_l) &&
-				!isEmpty(this.mdsupdrs_3_pm_r) &&
-				!isEmpty(this.mdsupdrs_3_ps) &&
-				!isEmpty(this.mdsupdrs_3_ptm_l) &&
-				!isEmpty(this.mdsupdrs_3_ptm_r) &&
-				!isEmpty(this.mdsupdrs_3_rd_lle) &&
-				!isEmpty(this.mdsupdrs_3_rd_lue) &&
-				!isEmpty(this.mdsupdrs_3_rd_n) &&
-				!isEmpty(this.mdsupdrs_3_rd_rle) &&
-				!isEmpty(this.mdsupdrs_3_rd_rue) &&
-				!isEmpty(this.mdsupdrs_3_rtm_lj) &&
-				!isEmpty(this.mdsupdrs_3_rtm_lle) &&
-				!isEmpty(this.mdsupdrs_3_rtm_lue) &&
-				!isEmpty(this.mdsupdrs_3_rtm_rle) &&
-				!isEmpty(this.mdsupdrs_3_rtm_rue) &&
-				!isEmpty(this.mdsupdrs_3_spe) &&
-				!isEmpty(this.mdsupdrs_3_tt_l) &&
-				!isEmpty(this.mdsupdrs_3_tt_r);
-
-		// Проверяем условные поля, если их условия выполнены
-		boolean conditionalFieldsCompleted = true;
-
-		if ("Yes".equalsIgnoreCase(this.mdsupdrs_3_dk_e)) {
-			conditionalFieldsCompleted &= !isEmpty(this.mdsupdrs_3_dk_e_r);
-		}
-
-		if ("Yes".equalsIgnoreCase(this.mdsupdrs_3_on)) {
-			conditionalFieldsCompleted &= !isEmpty(this.mdsupdrs_3_on_min);
-		}
-
-		return mainFieldsCompleted && conditionalFieldsCompleted;
+		return isFieldCompleted(this.mdsupdrs_3_ac) &&
+				isFieldCompleted(this.mdsupdrs_3_bb) &&
+				isFieldCompleted(this.mdsupdrs_3_c_rtm) &&
+				isFieldCompleted(this.mdsupdrs_3_clinstat) &&
+				isFieldCompleted(this.mdsupdrs_3_dk_e) &&
+				(shouldDisplayField("mdsupdrs_3_dk_e_r") ? isFieldCompleted(this.mdsupdrs_3_dk_e_r) : true) &&
+				isFieldCompleted(this.mdsupdrs_3_f_gait) &&
+				isFieldCompleted(this.mdsupdrs_3_fac) &&
+				isFieldCompleted(this.mdsupdrs_3_ft_l) &&
+				isFieldCompleted(this.mdsupdrs_3_ft_r) &&
+				isFieldCompleted(this.mdsupdrs_3_gait);
 	}
 
 	private boolean isAtLeastOneFieldCompleted() {
-		// Проверяем, заполнено ли хотя бы одно из основных полей
-		boolean mainFieldsCompleted = !isEmpty(this.surveyTwoId) ||
-				!isEmpty(this.fillingStatus) ||
-				!isEmpty(this.mdsupdrs_3_ac) ||
-				!isEmpty(this.mdsupdrs_3_bb) ||
-				!isEmpty(this.mdsupdrs_3_c_rtm) ||
-				!isEmpty(this.mdsupdrs_3_clinstat) ||
-				!isEmpty(this.mdsupdrs_3_dk_e) ||
-				!isEmpty(this.mdsupdrs_3_f_gait) ||
-				!isEmpty(this.mdsupdrs_3_fac) ||
-				!isEmpty(this.mdsupdrs_3_ft_l) ||
-				!isEmpty(this.mdsupdrs_3_ft_r) ||
-				!isEmpty(this.mdsupdrs_3_gait) ||
-				!isEmpty(this.mdsupdrs_3_hm_l) ||
-				!isEmpty(this.mdsupdrs_3_hm_r) ||
-				!isEmpty(this.mdsupdrs_3_ktm_l) ||
-				!isEmpty(this.mdsupdrs_3_ktm_r) ||
-				!isEmpty(this.mdsupdrs_3_la_l) ||
-				!isEmpty(this.mdsupdrs_3_la_r) ||
-				!isEmpty(this.mdsupdrs_3_on) ||
-				!isEmpty(this.mdsupdrs_3_p) ||
-				!isEmpty(this.mdsupdrs_3_pdmed) ||
-				!isEmpty(this.mdsupdrs_3_pm_l) ||
-				!isEmpty(this.mdsupdrs_3_pm_r) ||
-				!isEmpty(this.mdsupdrs_3_ps) ||
-				!isEmpty(this.mdsupdrs_3_ptm_l) ||
-				!isEmpty(this.mdsupdrs_3_ptm_r) ||
-				!isEmpty(this.mdsupdrs_3_rd_lle) ||
-				!isEmpty(this.mdsupdrs_3_rd_lue) ||
-				!isEmpty(this.mdsupdrs_3_rd_n) ||
-				!isEmpty(this.mdsupdrs_3_rd_rle) ||
-				!isEmpty(this.mdsupdrs_3_rd_rue) ||
-				!isEmpty(this.mdsupdrs_3_rtm_lj) ||
-				!isEmpty(this.mdsupdrs_3_rtm_lle) ||
-				!isEmpty(this.mdsupdrs_3_rtm_lue) ||
-				!isEmpty(this.mdsupdrs_3_rtm_rle) ||
-				!isEmpty(this.mdsupdrs_3_rtm_rue) ||
-				!isEmpty(this.mdsupdrs_3_spe) ||
-				!isEmpty(this.mdsupdrs_3_tt_l) ||
-				!isEmpty(this.mdsupdrs_3_tt_r);
-
-		// Проверяем условные поля, если их условия выполнены
-		boolean conditionalFieldsCompleted = false;
-
-		if ("Yes".equalsIgnoreCase(this.mdsupdrs_3_dk_e)) {
-			conditionalFieldsCompleted |= !isEmpty(this.mdsupdrs_3_dk_e_r);
-}
-
-		if ("Yes".equalsIgnoreCase(this.mdsupdrs_3_on)) {
-			conditionalFieldsCompleted |= !isEmpty(this.mdsupdrs_3_on_min);
-		}
-
-		return mainFieldsCompleted || conditionalFieldsCompleted;
+		return isFieldCompleted(this.mdsupdrs_3_ac) ||
+				isFieldCompleted(this.mdsupdrs_3_bb) ||
+				isFieldCompleted(this.mdsupdrs_3_c_rtm) ||
+				isFieldCompleted(this.mdsupdrs_3_clinstat) ||
+				isFieldCompleted(this.mdsupdrs_3_dk_e) ||
+				isFieldCompleted(this.mdsupdrs_3_dk_e_r) ||
+				isFieldCompleted(this.mdsupdrs_3_f_gait) ||
+				isFieldCompleted(this.mdsupdrs_3_fac) ||
+				isFieldCompleted(this.mdsupdrs_3_ft_l) ||
+				isFieldCompleted(this.mdsupdrs_3_ft_r) ||
+				isFieldCompleted(this.mdsupdrs_3_gait);
 	}
 
-	private boolean isEmpty(String value) {
-		// Проверяем, является ли строка пустой или null
-		return value == null || value.trim().isEmpty();
+	private boolean isFieldCompleted(String field) {
+		return field != null && !field.trim().isEmpty() && !field.trim().equals("-");
+	}
+
+	private boolean shouldDisplayField(String fieldName) {
+		switch (fieldName) {
+			case "mdsupdrs_3_dk_e_r":
+				return "yes".equalsIgnoreCase(this.mdsupdrs_3_dk_e);
+			default:
+				return true;
+		}
 	}
 }
 

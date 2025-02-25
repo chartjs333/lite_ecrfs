@@ -1148,15 +1148,12 @@ public class PINK1PRKN18 implements java.io.Serializable {
 
 
 	public String getStatusColor() {
-		// Проверяем, заполнены ли все обязательные поля
-		boolean allCompleted = areAllFieldsCompleted();
-
-		if (allCompleted) {
-			return "green"; // Все поля заполнены
-		} else if (isAtLeastOneFieldCompleted()) {
-			return "orange"; // Некоторые поля заполнены
-		} else {
+		if (!isAtLeastOneFieldCompleted()) {
 			return "blue"; // Ни одно поле не заполнено
+		} else if (areAllFieldsCompleted()) {
+			return "green"; // Все заполнены (с учетом выбранных групп)
+		} else {
+			return "orange"; // Частично заполнено
 		}
 	}
 
@@ -1253,7 +1250,7 @@ public class PINK1PRKN18 implements java.io.Serializable {
 
 	private boolean isFieldCompleted(String field) {
 		// Проверяем, что поле не равно null и не пустое
-		return field != null && !field.isEmpty();
+		return field != null && !field.isEmpty() && !"-".equals(field);
 	}
 
 	private String getFieldValue(String fieldName) {

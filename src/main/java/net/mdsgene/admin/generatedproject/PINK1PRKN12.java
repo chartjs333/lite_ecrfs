@@ -486,81 +486,6 @@ public class PINK1PRKN12 implements java.io.Serializable {
 		}
 	}
 
-	private String checkGroupCompletion(String[] fields) {
-		int completedCount = 0;
-		int totalFields = 0;
-
-		for (String field : fields) {
-			if (shouldDisplayField(field)) { // Проверяем, должно ли поле отображаться
-				totalFields++;
-				//field приходит название поля, а не значение можешь получить значение поля через рефлексию
-				String value = null;
-				try {
-					value = (String) this.getClass().getDeclaredField(field).get(this);
-				} catch (IllegalAccessException | NoSuchFieldException e) {
-					e.printStackTrace();
-				}
-				if (value != null && !value.isEmpty()) {
-					completedCount++;
-				}
-			}
-		}
-
-		if (totalFields == 0) {
-			return "blue"; // Если нет полей для отображения
-		} else if (completedCount == totalFields) {
-			return "green"; // Все поля заполнены
-		} else if (completedCount > 0) {
-			return "orange"; // Некоторые поля заполнены
-		} else {
-			return "blue"; // Ни одно поле не заполнено
-		}
-	}
-
-	private boolean shouldDisplayField(String fieldName) {
-		// Логика проверки, должно ли поле отображаться на основе @Condition
-		switch (fieldName) {
-			case "PPMI_ID":
-            return "1".equals(this.ppmi_part); // Поле PPMI_ID отображается только если ppmi_part = "1" (yes)
-			case "ex_hc_ex":
-			case "ex_hc_monogenic":
-			case "ex_hc_mri_neuro":
-			case "ex_hc_neuro":
-			case "in_hc_age":
-			case "in_hc_ic":
-			case "in_hc_match":
-				return "healthy control".equals(this.in_cat); // Поля отображаются только для healthy control
-			case "ex_ipd_ex":
-			case "ex_ipd_monogenic":
-			case "ex_ipd_symptomatic":
-			case "ex_ipd_var":
-			case "in_ipd_age":
-			case "in_ipd_dx":
-			case "in_ipd_ic":
-			case "in_ipd_match":
-				return "individual with iPD".equals(this.in_cat); // Поля отображаются только для iPD
-			case "ex_mitopd_ex":
-			case "ex_mitopd_symptomatic":
-				return "individual with PD and at least one pathogenic variant in PRKN".equals(this.in_cat) ||
-						"individual with PD and at least one pathogenic variant in PINK1".equals(this.in_cat); // Поля отображаются для PD с PRKN/PINK1
-			case "ex_unaff_ex":
-			case "ex_unaff_mri_neuro":
-			case "ex_unaff_neuro":
-			case "in_pink1unaff_age":
-			case "in_pink1unaff_ic":
-			case "in_pink1unaff_pathvar":
-			case "in_pink1unaff_var":
-			case "in_prknunaff_age":
-			case "in_prknunaff_ic":
-			case "in_prknunaff_pathvar":
-			case "in_prknunaff_var":
-				return "unaffected individual with at least one pathogenic variant in PRKN".equals(this.in_cat) ||
-						"unaffected individual with at least one pathogenic variant in PINK1".equals(this.in_cat); // Поля отображаются для Non-manifesting carriers
-			default:
-				return true; // По умолчанию поле отображается
-		}
-	}
-
 	private String[] getPdPrknPink1Fields() {
 		return new String[]{
 				"ex_mitopd_ex",
@@ -618,6 +543,78 @@ public class PINK1PRKN12 implements java.io.Serializable {
 				"in_hc_match"
 		};
 	}
+
+	private String checkGroupCompletion(String[] fields) {
+		int completedCount = 0;
+		int totalFields = fields.length;
+
+		for (String field : fields) {
+			if (isFieldCompleted(getFieldValue(field))) {
+				completedCount++;
+			}
+		}
+
+		if (totalFields == 0) {
+			return "blue"; // Если нет полей для отображения
+		} else if (completedCount == totalFields) {
+			return "green"; // Все поля заполнены
+		} else if (completedCount > 0) {
+			return "orange"; // Хотя бы одно поле заполнено
+		} else {
+			return "blue"; // Ни одно поле не заполнено
+		}
+	}
+
+	private boolean isFieldCompleted(String field) {
+		// Проверяем, что поле не пустое
+		return field != null && !field.trim().isEmpty() && !field.trim().equals("-");
+	}
+
+	private String getFieldValue(String fieldName) {
+		// Возвращает значение поля без использования рефлексии
+		switch (fieldName) {
+			case "ex_mitopd_ex": return this.ex_mitopd_ex;
+			case "ex_mitopd_symptomatic": return this.ex_mitopd_symptomatic;
+			case "in_pink1pd_age": return this.in_pink1pd_age;
+			case "in_pink1pd_dx": return this.in_pink1pd_dx;
+			case "in_pink1pd_ic": return this.in_pink1pd_ic;
+			case "in_pink1pd_pathvar": return this.in_pink1pd_pathvar;
+			case "in_pink1pd_var": return this.in_pink1pd_var;
+			case "in_prknpd_age": return this.in_prknpd_age;
+			case "in_prknpd_dx": return this.in_prknpd_dx;
+			case "in_prknpd_ic": return this.in_prknpd_ic;
+			case "in_prknpd_pathvar": return this.in_prknpd_pathvar;
+			case "in_prknpd_var": return this.in_prknpd_var;
+			case "ex_ipd_ex": return this.ex_ipd_ex;
+			case "ex_ipd_monogenic": return this.ex_ipd_monogenic;
+			case "ex_ipd_symptomatic": return this.ex_ipd_symptomatic;
+			case "ex_ipd_var": return this.ex_ipd_var;
+			case "in_ipd_age": return this.in_ipd_age;
+			case "in_ipd_dx": return this.in_ipd_dx;
+			case "in_ipd_ic": return this.in_ipd_ic;
+			case "in_ipd_match": return this.in_ipd_match;
+			case "ex_unaff_ex": return this.ex_unaff_ex;
+			case "ex_unaff_mri_neuro": return this.ex_unaff_mri_neuro;
+			case "ex_unaff_neuro": return this.ex_unaff_neuro;
+			case "in_pink1unaff_age": return this.in_pink1unaff_age;
+			case "in_pink1unaff_ic": return this.in_pink1unaff_ic;
+			case "in_pink1unaff_pathvar": return this.in_pink1unaff_pathvar;
+			case "in_pink1unaff_var": return this.in_pink1unaff_var;
+			case "in_prknunaff_age": return this.in_prknunaff_age;
+			case "in_prknunaff_ic": return this.in_prknunaff_ic;
+			case "in_prknunaff_pathvar": return this.in_prknunaff_pathvar;
+			case "in_prknunaff_var": return this.in_prknunaff_var;
+			case "ex_hc_ex": return this.ex_hc_ex;
+			case "ex_hc_monogenic": return this.ex_hc_monogenic;
+			case "ex_hc_mri_neuro": return this.ex_hc_mri_neuro;
+			case "ex_hc_neuro": return this.ex_hc_neuro;
+			case "in_hc_age": return this.in_hc_age;
+			case "in_hc_ic": return this.in_hc_ic;
+			case "in_hc_match": return this.in_hc_match;
+			default: return null;
+		}
+	}
+
 }
 
 

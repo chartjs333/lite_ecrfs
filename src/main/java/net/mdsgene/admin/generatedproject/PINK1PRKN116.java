@@ -200,65 +200,56 @@ public class PINK1PRKN116 implements java.io.Serializable {
 	}
 
 	private boolean areAllFieldsCompleted() {
-		// Основные поля, которые всегда проверяются
-		boolean mainFieldsCompleted = !isEmpty(this.surveyTwoId) &&
-				!isEmpty(this.fillingStatus) &&
-				!isEmpty(this.pd_brady_onset) &&
-				!isEmpty(this.pd_date_diag) &&
-				!isEmpty(this.pd_date_diag_day) &&
-				!isEmpty(this.pd_date_diag_month) &&
-				!isEmpty(this.pd_date_diag_year) &&
-				!isEmpty(this.pd_date_symp_day) &&
-				!isEmpty(this.pd_date_symp_month) &&
-				!isEmpty(this.pd_date_symp_year) &&
-				!isEmpty(this.pd_other_onset) &&
-				!isEmpty(this.pd_postinstab_onset) &&
-				!isEmpty(this.pd_resttremor_onset) &&
-				!isEmpty(this.pd_rigid_onset) &&
-				!isEmpty(this.pd_side_onset);
-
-		// Если pd_other_onset равно "yes", проверяем дополнительное поле
-		if ("1".equalsIgnoreCase(this.pd_other_onset)) {
-			boolean conditionalFieldCompleted = !isEmpty(this.pd_other_onset_yes);
-			return mainFieldsCompleted && conditionalFieldCompleted;
-		}
-
-		// Если pd_other_onset не равно "yes", проверяем только основные поля
-		return mainFieldsCompleted;
+		// Проверяем, что все обязательные поля заполнены
+		return isFieldCompleted(this.pd_brady_onset) &&
+				isFieldCompleted(this.pd_date_diag) &&
+				isFieldCompleted(this.pd_date_diag_day) &&
+				isFieldCompleted(this.pd_date_diag_month) &&
+				isFieldCompleted(this.pd_date_diag_year) &&
+				isFieldCompleted(this.pd_date_symp_day) &&
+				isFieldCompleted(this.pd_date_symp_month) &&
+				isFieldCompleted(this.pd_date_symp_year) &&
+				isFieldCompleted(this.pd_other_onset) &&
+				(shouldDisplayField("pd_other_onset_yes") ? isFieldCompleted(this.pd_other_onset_yes) : true) &&
+				isFieldCompleted(this.pd_postinstab_onset) &&
+				isFieldCompleted(this.pd_resttremor_onset) &&
+				isFieldCompleted(this.pd_rigid_onset) &&
+				isFieldCompleted(this.pd_side_onset);
 	}
 
 	private boolean isAtLeastOneFieldCompleted() {
-		// Проверяем, заполнено ли хотя бы одно из основных полей
-		boolean mainFieldsCompleted = !isEmpty(this.surveyTwoId) ||
-				!isEmpty(this.fillingStatus) ||
-				!isEmpty(this.pd_brady_onset) ||
-				!isEmpty(this.pd_date_diag) ||
-				!isEmpty(this.pd_date_diag_day) ||
-				!isEmpty(this.pd_date_diag_month) ||
-				!isEmpty(this.pd_date_diag_year) ||
-				!isEmpty(this.pd_date_symp_day) ||
-				!isEmpty(this.pd_date_symp_month) ||
-				!isEmpty(this.pd_date_symp_year) ||
-				!isEmpty(this.pd_other_onset) ||
-				!isEmpty(this.pd_postinstab_onset) ||
-				!isEmpty(this.pd_resttremor_onset) ||
-				!isEmpty(this.pd_rigid_onset) ||
-				!isEmpty(this.pd_side_onset);
+		// Проверяем, заполнено ли хотя бы одно поле
+		return isFieldCompleted(this.pd_brady_onset) ||
+				isFieldCompleted(this.pd_date_diag) ||
+				isFieldCompleted(this.pd_date_diag_day) ||
+				isFieldCompleted(this.pd_date_diag_month) ||
+				isFieldCompleted(this.pd_date_diag_year) ||
+				isFieldCompleted(this.pd_date_symp_day) ||
+				isFieldCompleted(this.pd_date_symp_month) ||
+				isFieldCompleted(this.pd_date_symp_year) ||
+				isFieldCompleted(this.pd_other_onset) ||
+				isFieldCompleted(this.pd_other_onset_yes) ||
+				isFieldCompleted(this.pd_postinstab_onset) ||
+				isFieldCompleted(this.pd_resttremor_onset) ||
+				isFieldCompleted(this.pd_rigid_onset) ||
+				isFieldCompleted(this.pd_side_onset);
+	}
 
-		// Если pd_other_onset равно "yes", проверяем также дополнительное поле
-		if ("1".equalsIgnoreCase(this.pd_other_onset)) {
-			boolean conditionalFieldCompleted = !isEmpty(this.pd_other_onset_yes);
-			return mainFieldsCompleted || conditionalFieldCompleted;
+	private boolean isFieldCompleted(String field) {
+		// Проверяем, что поле не равно null и не пустое
+		return field != null && !field.trim().isEmpty() && !field.trim().equals("-");
+	}
+
+	private boolean shouldDisplayField(String fieldName) {
+		// Определяем, нужно ли отображать поле
+		switch (fieldName) {
+			case "pd_other_onset_yes":
+				return "yes".equalsIgnoreCase(this.pd_other_onset);
+			default:
+				return true;
 		}
-
-		// Если pd_other_onset не равно "yes", проверяем только основные поля
-		return mainFieldsCompleted;
 	}
 
-	private boolean isEmpty(String value) {
-		// Проверяем, является ли строка пустой или null
-		return value == null || value.trim().isEmpty();
-	}
+
 }
-
 

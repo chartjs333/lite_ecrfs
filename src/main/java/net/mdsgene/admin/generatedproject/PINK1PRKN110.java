@@ -317,7 +317,6 @@ public class PINK1PRKN110 implements java.io.Serializable {
 	}
 
 	public String getStatusColor() {
-		// Проверяем, заполнены ли все обязательные поля
 		boolean allCompleted = areAllFieldsCompleted();
 
 		if (allCompleted) {
@@ -330,93 +329,91 @@ public class PINK1PRKN110 implements java.io.Serializable {
 	}
 
 	private boolean areAllFieldsCompleted() {
-		// Основные поля, которые всегда проверяются
-		boolean mainFieldsCompleted = !isEmpty(this.surveyTwoId) &&
-				!isEmpty(this.fillingStatus) &&
-				!isEmpty(this.fhd_1);
+		// Проверяем только основное поле
+		boolean mainFieldsCompleted = !isEmpty(this.fhd_1);
 
 		// Если fhd_1 равно "yes", проверяем дополнительные поля
 		if ("1".equalsIgnoreCase(this.fhd_1)) {
-			boolean conditionalFieldsCompleted = !isEmpty(this.fhd_broth_fm) &&
-					!isEmpty(this.fhd_broth_pd) &&
-					!isEmpty(this.fhd_fath_headline) &&
-					!isEmpty(this.fhd_kids_fm) &&
-					!isEmpty(this.fhd_kids_fm_pd) &&
-					!isEmpty(this.fhd_mau_fm) &&
-					!isEmpty(this.fhd_mau_fm_pd) &&
-					!isEmpty(this.fhd_mcou_fm) &&
-					!isEmpty(this.fhd_mcou_fm_pd) &&
-					!isEmpty(this.fhd_mgrf_headline) &&
-					!isEmpty(this.fhd_mgrm_headlie) &&
-					!isEmpty(this.fhd_mhsib_fm) &&
-					!isEmpty(this.fhd_mhsib_fm_pd) &&
-					!isEmpty(this.fhd_moth_headline) &&
-					!isEmpty(this.fhd_other) &&
-					!isEmpty(this.fhd_other_who) &&
-					!isEmpty(this.fhd_pau_fm) &&
-					!isEmpty(this.fhd_pau_fm_pd) &&
-					!isEmpty(this.fhd_pcou_fm) &&
-					!isEmpty(this.fhd_pcou_fm_pd) &&
-					!isEmpty(this.fhd_pgrf_headline) &&
-					!isEmpty(this.fhd_pgrm_headline) &&
-					!isEmpty(this.fhd_phsib_fm) &&
-					!isEmpty(this.fhd_phsib_fm_pd) &&
-					!isEmpty(this.fhd_sis_fm) &&
-					!isEmpty(this.fhd_sis_fm_pd);
-
-			return mainFieldsCompleted && conditionalFieldsCompleted;
+			return mainFieldsCompleted && areConditionalFieldsCompleted();
 		}
 
-		// Если fhd_1 не равно "yes", проверяем только основные поля
 		return mainFieldsCompleted;
+	}
+
+	private boolean areConditionalFieldsCompleted() {
+		// Проверяем, что все зависимые поля заполнены
+		return !isEmpty(this.fhd_broth_fm) &&
+				!isEmpty(this.fhd_broth_pd) &&
+				!isEmpty(this.fhd_fath_headline) &&
+				!isEmpty(this.fhd_kids_fm) &&
+				!isEmpty(this.fhd_kids_fm_pd) &&
+				!isEmpty(this.fhd_mau_fm) &&
+				!isEmpty(this.fhd_mau_fm_pd) &&
+				!isEmpty(this.fhd_mcou_fm) &&
+				!isEmpty(this.fhd_mcou_fm_pd) &&
+				!isEmpty(this.fhd_mgrf_headline) &&
+				!isEmpty(this.fhd_mgrm_headlie) &&
+				!isEmpty(this.fhd_mhsib_fm) &&
+				!isEmpty(this.fhd_mhsib_fm_pd) &&
+				!isEmpty(this.fhd_moth_headline) &&
+				!isEmpty(this.fhd_other) &&
+				!isEmpty(this.fhd_other_who) &&
+				!isEmpty(this.fhd_pau_fm) &&
+				!isEmpty(this.fhd_pau_fm_pd) &&
+				!isEmpty(this.fhd_pcou_fm) &&
+				!isEmpty(this.fhd_pcou_fm_pd) &&
+				!isEmpty(this.fhd_pgrf_headline) &&
+				!isEmpty(this.fhd_pgrm_headline) &&
+				!isEmpty(this.fhd_phsib_fm) &&
+				!isEmpty(this.fhd_phsib_fm_pd) &&
+				!isEmpty(this.fhd_sis_fm) &&
+				!isEmpty(this.fhd_sis_fm_pd);
 	}
 
 	private boolean isAtLeastOneFieldCompleted() {
-		// Проверяем, заполнено ли хотя бы одно из основных полей
-		boolean mainFieldsCompleted = !isEmpty(this.surveyTwoId) ||
-				!isEmpty(this.fillingStatus) ||
-				!isEmpty(this.fhd_1);
+		// Проверяем только основное поле
+		boolean mainFieldsCompleted = !isEmpty(this.fhd_1);
 
-		// Если fhd_1 равно "yes", проверяем также дополнительные поля
-		if ("1".equalsIgnoreCase(this.fhd_1)) {
-			boolean conditionalFieldsCompleted = !isEmpty(this.fhd_broth_fm) ||
-					!isEmpty(this.fhd_broth_pd) ||
-					!isEmpty(this.fhd_fath_headline) ||
-					!isEmpty(this.fhd_kids_fm) ||
-					!isEmpty(this.fhd_kids_fm_pd) ||
-					!isEmpty(this.fhd_mau_fm) ||
-					!isEmpty(this.fhd_mau_fm_pd) ||
-					!isEmpty(this.fhd_mcou_fm) ||
-					!isEmpty(this.fhd_mcou_fm_pd) ||
-					!isEmpty(this.fhd_mgrf_headline) ||
-					!isEmpty(this.fhd_mgrm_headlie) ||
-					!isEmpty(this.fhd_mhsib_fm) ||
-					!isEmpty(this.fhd_mhsib_fm_pd) ||
-					!isEmpty(this.fhd_moth_headline) ||
-					!isEmpty(this.fhd_other) ||
-					!isEmpty(this.fhd_other_who) ||
-					!isEmpty(this.fhd_pau_fm) ||
-					!isEmpty(this.fhd_pau_fm_pd) ||
-					!isEmpty(this.fhd_pcou_fm) ||
-					!isEmpty(this.fhd_pcou_fm_pd) ||
-					!isEmpty(this.fhd_pgrf_headline) ||
-					!isEmpty(this.fhd_pgrm_headline) ||
-					!isEmpty(this.fhd_phsib_fm) ||
-					!isEmpty(this.fhd_phsib_fm_pd) ||
-					!isEmpty(this.fhd_sis_fm) ||
-					!isEmpty(this.fhd_sis_fm_pd);
+		// Проверяем зависимые поля, если fhd_1 равно "yes"
+		boolean conditionalFieldsCompleted = "1".equalsIgnoreCase(this.fhd_1) && isAnyConditionalFieldCompleted();
 
-			return mainFieldsCompleted || conditionalFieldsCompleted;
-		}
+		return mainFieldsCompleted || conditionalFieldsCompleted;
+	}
 
-		// Если fhd_1 не равно "yes", проверяем только основные поля
-		return mainFieldsCompleted;
+	private boolean isAnyConditionalFieldCompleted() {
+		// Проверяем, заполнено ли хотя бы одно из зависимых полей
+		return !isEmpty(this.fhd_broth_fm) ||
+				!isEmpty(this.fhd_broth_pd) ||
+				!isEmpty(this.fhd_fath_headline) ||
+				!isEmpty(this.fhd_kids_fm) ||
+				!isEmpty(this.fhd_kids_fm_pd) ||
+				!isEmpty(this.fhd_mau_fm) ||
+				!isEmpty(this.fhd_mau_fm_pd) ||
+				!isEmpty(this.fhd_mcou_fm) ||
+				!isEmpty(this.fhd_mcou_fm_pd) ||
+				!isEmpty(this.fhd_mgrf_headline) ||
+				!isEmpty(this.fhd_mgrm_headlie) ||
+				!isEmpty(this.fhd_mhsib_fm) ||
+				!isEmpty(this.fhd_mhsib_fm_pd) ||
+				!isEmpty(this.fhd_moth_headline) ||
+				!isEmpty(this.fhd_other) ||
+				!isEmpty(this.fhd_other_who) ||
+				!isEmpty(this.fhd_pau_fm) ||
+				!isEmpty(this.fhd_pau_fm_pd) ||
+				!isEmpty(this.fhd_pcou_fm) ||
+				!isEmpty(this.fhd_pcou_fm_pd) ||
+				!isEmpty(this.fhd_pgrf_headline) ||
+				!isEmpty(this.fhd_pgrm_headline) ||
+				!isEmpty(this.fhd_phsib_fm) ||
+				!isEmpty(this.fhd_phsib_fm_pd) ||
+				!isEmpty(this.fhd_sis_fm) ||
+				!isEmpty(this.fhd_sis_fm_pd);
 	}
 
 	private boolean isEmpty(String value) {
-		// Проверяем, является ли строка пустой или null
-		return value == null || value.trim().isEmpty();
+		return value == null || value.trim().isEmpty() || value.trim().equals("-");
 	}
+
 }
 
 

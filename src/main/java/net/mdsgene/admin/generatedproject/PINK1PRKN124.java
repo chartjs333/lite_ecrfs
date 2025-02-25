@@ -20,7 +20,7 @@ public class PINK1PRKN124 implements java.io.Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 
 
    private String surveyTwoId;
@@ -305,14 +305,6 @@ public class PINK1PRKN124 implements java.io.Serializable {
 	 */
 	private boolean areAllFieldsCompleted() {
 		boolean complete = true;
-		if (isEmpty(this.surveyTwoId)) {
-			System.out.println("Поле surveyTwoId не заполнено");
-			complete = false;
-		}
-		if (isEmpty(this.fillingStatus)) {
-			System.out.println("Поле fillingStatus не заполнено");
-			complete = false;
-		}
 		if (isEmpty(this.Rbdq_6_1)) {
 			System.out.println("Поле Rbdq_6_1 не заполнено");
 			complete = false;
@@ -412,9 +404,7 @@ public class PINK1PRKN124 implements java.io.Serializable {
 	 * Проверяет, заполнено ли хотя бы одно из обязательных полей (без заголовков).
 	 */
 	private boolean isAtLeastOneFieldCompleted() {
-		return !isEmpty(this.surveyTwoId)
-				|| !isEmpty(this.fillingStatus)
-				|| !isEmpty(this.Rbdq_6_1)
+		return !isEmpty(this.Rbdq_6_1)
 				|| !isEmpty(this.Rbdq_6_2)
 				|| !isEmpty(this.Rbdq_6_3)
 				|| !isEmpty(this.Rbdq_6_4)
@@ -441,7 +431,7 @@ public class PINK1PRKN124 implements java.io.Serializable {
 
 	/** Возвращает true, если значение null или состоит только из пробелов */
 	private boolean isEmpty(String value) {
-		return value == null || value.trim().isEmpty();
+		return value == null || value.trim().isEmpty() || value.trim().equals("-");
 	}
 
 }

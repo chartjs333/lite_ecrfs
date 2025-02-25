@@ -54,9 +54,9 @@
           <!-- Кнопки навигации -->
           <a
             class="nav-link"
-            th:style="'border-color:' + ${buttonColor[0]}+ '; background-color:' + ${buttonColor[0]}"
-            th:href="@{'../PINK1PRKN11/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
-            target="_blank"
+            th:style="'border-color:' + ${buttonColor[0]} + '; background-color:' + ${buttonColor[0]}"
+            th:href="@{'../PINK1PRKN11/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
+            th:attr="target='PINK1PRKN11_' + ${#uris.escapeQueryParam(surveyId)}"
             role="tab"
             aria-selected="true"
           >
@@ -65,7 +65,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[1]}+ '; background-color:' + ${buttonColor[1]}"
-            th:href="@{'../PINK1PRKN12/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN12/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -75,7 +75,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[2]}+ '; background-color:' + ${buttonColor[2]}"
-            th:href="@{'../PINK1PRKN13/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN13/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -85,7 +85,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[3]}+ '; background-color:' + ${buttonColor[3]}"
-            th:href="@{'../PINK1PRKN14/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN14/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -95,7 +95,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[4]}+ '; background-color:' + ${buttonColor[4]}"
-            th:href="@{'../PINK1PRKN15/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN15/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -105,7 +105,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[5]}+ '; background-color:' + ${buttonColor[5]}"
-            th:href="@{'../PINK1PRKN16/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN16/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -115,7 +115,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[6]}+ '; background-color:' + ${buttonColor[6]}"
-            th:href="@{'../PINK1PRKN17/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN17/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -125,7 +125,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[7]}+ '; background-color:' + ${buttonColor[7]}"
-            th:href="@{'../PINK1PRKN18/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN18/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -135,7 +135,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[8]}+ '; background-color:' + ${buttonColor[8]}"
-            th:href="@{'../PINK1PRKN19/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN19/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -145,7 +145,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[9]}+ '; background-color:' + ${buttonColor[9]}"
-            th:href="@{'../PINK1PRKN110/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN110/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -155,7 +155,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[10]}+ '; background-color:' + ${buttonColor[10]}"
-            th:href="@{'../PINK1PRKN111/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN111/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -165,7 +165,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[11]}+ '; background-color:' + ${buttonColor[11]}"
-            th:href="@{'../PINK1PRKN112/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN112/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -175,7 +175,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[12]}+ '; background-color:' + ${buttonColor[12]}"
-            th:href="@{'../PINK1PRKN113/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN113/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -185,7 +185,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[13]}+ '; background-color:' + ${buttonColor[13]}"
-            th:href="@{'../PINK1PRKN114/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN114/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -195,7 +195,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[14]}+ '; background-color:' + ${buttonColor[14]}"
-            th:href="@{'../PINK1PRKN115/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN115/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -205,7 +205,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[15]}+ '; background-color:' + ${buttonColor[15]}"
-            th:href="@{'../PINK1PRKN116/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN116/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -215,7 +215,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[16]}+ '; background-color:' + ${buttonColor[16]}"
-            th:href="@{'../PINK1PRKN117/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN117/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -225,7 +225,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[17]}+ '; background-color:' + ${buttonColor[17]}"
-            th:href="@{'../PINK1PRKN118/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN118/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -235,7 +235,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[18]}+ '; background-color:' + ${buttonColor[18]}"
-            th:href="@{'../PINK1PRKN119/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN119/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -245,7 +245,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[19]}+ '; background-color:' + ${buttonColor[19]}"
-            th:href="@{'../PINK1PRKN120/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN120/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -255,7 +255,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[20]}+ '; background-color:' + ${buttonColor[20]}"
-            th:href="@{'../PINK1PRKN121/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN121/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -265,7 +265,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[21]}+ '; background-color:' + ${buttonColor[21]}"
-            th:href="@{'../PINK1PRKN122/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN122/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -275,7 +275,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[22]}+ '; background-color:' + ${buttonColor[22]}"
-            th:href="@{'../PINK1PRKN123/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN123/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -285,7 +285,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[23]}+ '; background-color:' + ${buttonColor[23]}"
-            th:href="@{'../PINK1PRKN124/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN124/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -295,7 +295,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[24]}+ '; background-color:' + ${buttonColor[24]}"
-            th:href="@{'../PINK1PRKN125/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN125/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -305,7 +305,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[25]}+ '; background-color:' + ${buttonColor[25]}"
-            th:href="@{'../PINK1PRKN126/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN126/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -315,7 +315,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[26]}+ '; background-color:' + ${buttonColor[26]}"
-            th:href="@{'../PINK1PRKN127/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN127/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -325,7 +325,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[27]}+ '; background-color:' + ${buttonColor[27]}"
-            th:href="@{'../PINK1PRKN128/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN128/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -335,7 +335,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[28]}+ '; background-color:' + ${buttonColor[28]}"
-            th:href="@{'../PINK1PRKN129/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN129/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -345,7 +345,7 @@
           <a
             class="nav-link"
             th:style="'border-color:' + ${buttonColor[29]}+ '; background-color:' + ${buttonColor[29]}"
-            th:href="@{'../PINK1PRKN130/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)}}"
+            th:href="@{'../PINK1PRKN130/' + ${surveyTwoId} + '?centerId=' + ${#uris.escapeQueryParam(localId)} + '&amp;projectId=' + ${#uris.escapeQueryParam(projectId)} + '&amp;surveyId=' + ${#uris.escapeQueryParam(surveyId)}}"
             target="_blank"
             role="tab"
             aria-selected="false"
@@ -378,7 +378,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Скрытое поле для передачи идентификатора опроса -->
       <input type="hidden" id="surveyId" th:value="${surveyTwoId}" />
     </footer>

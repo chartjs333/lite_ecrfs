@@ -190,7 +190,7 @@ public class SurveyController {
         return ResponseEntity.ok(surveyService.getTrashSurveys(dataTable, user));
     }
 
-    @PostMapping(value = Routes.Survey.VIEW)
+    @RequestMapping(value = Routes.Survey.VIEW)
     public String view(@PathVariable("id") Long id, Model model) {
         UserSurveys surveyDetails = surveyService.getSurveyDetails(id);
         //check if surveyDetails is null
@@ -209,6 +209,7 @@ public class SurveyController {
             model.addAttribute("projectId_str", surveyDetails.getProjectId() == null ? "" : "Project ID: " + surveyDetails.getProjectId());
             model.addAttribute("localId", surveyDetails.getLocalId() == null ? "" : surveyDetails.getLocalId());
             model.addAttribute("projectId", surveyDetails.getProjectId() == null ? "" : surveyDetails.getProjectId());
+            model.addAttribute("surveyId", surveyDetails.getId());
             String[] ecrFsStatusColors = ecrfService.getECRFsStatusColors(surveyDetails.getSurveyId());
             model.addAttribute("buttonColor", ecrFsStatusColors);
             return Routes.LANDING_PAGE;

@@ -239,9 +239,7 @@ public class PINK1PRKN127 implements java.io.Serializable {
 	 * Проверяет, что все рабочие поля (исключая заголовок gds_headline2) пусты.
 	 */
 	private boolean areAllFieldsEmpty() {
-		return isEmpty(surveyTwoId)
-				&& isEmpty(fillingStatus)
-				&& isEmpty(gds_ex)
+		return isEmpty(gds_ex)
 				&& isEmpty(gds1)
 				&& isEmpty(gds2)
 				&& isEmpty(gds3)
@@ -265,14 +263,6 @@ public class PINK1PRKN127 implements java.io.Serializable {
 	 */
 	private boolean areAllFieldsCompleted() {
 		boolean complete = true;
-		if (isEmpty(surveyTwoId)) {
-			System.out.println("Поле surveyTwoId не заполнено");
-			complete = false;
-		}
-		if (isEmpty(fillingStatus)) {
-			System.out.println("Поле fillingStatus не заполнено");
-			complete = false;
-		}
 		if (isEmpty(gds_ex)) {
 			System.out.println("Поле gds_ex не заполнено");
 			complete = false;
@@ -344,9 +334,7 @@ public class PINK1PRKN127 implements java.io.Serializable {
 	 * Проверяет, что хотя бы одно рабочее поле заполнено.
 	 */
 	private boolean isAtLeastOneFieldCompleted() {
-		return !isEmpty(surveyTwoId)
-				|| !isEmpty(fillingStatus)
-				|| !isEmpty(gds_ex)
+		return !isEmpty(gds_ex)
 				|| !isEmpty(gds1)
 				|| !isEmpty(gds2)
 				|| !isEmpty(gds3)
@@ -366,7 +354,7 @@ public class PINK1PRKN127 implements java.io.Serializable {
 
 	/** Возвращает true, если строка равна null или состоит только из пробелов. */
 	private boolean isEmpty(String value) {
-		return value == null || value.trim().isEmpty();
+		return value == null || value.trim().isEmpty() || value.trim().equals("-");
 	}
 
 }

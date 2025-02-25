@@ -16,7 +16,9 @@ PINK1PRKN1Repository7 pink1prkn1repository;
     @GetMapping("/{surveyTwoId}")
     public String PINK1PRKN1(@PathVariable("surveyTwoId") String surveyTwoId,
                          @RequestParam("centerId") String centerId,
-                         @RequestParam("projectId") String projectId, ModelMap map) {
+                         @RequestParam("projectId") String projectId,
+                         @RequestParam("surveyId") String surveyId, // новый параметр
+                         ModelMap map) {
         if (!StringUtils.isEmpty(surveyTwoId) && ExcelToSurvey.checkKey(surveyTwoId)) {
 PINK1PRKN17  data_to_fill_in =pink1prkn1repository.findBySurveyTwoId(surveyTwoId);
            if (data_to_fill_in==null) {
@@ -27,6 +29,7 @@ PINK1PRKN17  data_to_fill_in =pink1prkn1repository.findBySurveyTwoId(surveyTwoId
                 map.addAttribute("formObj", data_to_fill_in);
                 map.addAttribute("centerId", centerId);
                 map.addAttribute("projectId", projectId);
+                map.addAttribute("surveyId", surveyId); // передаём surveyId на страницу
         return "PINK1PRKN17";
         }else {
         return "redirect:/";

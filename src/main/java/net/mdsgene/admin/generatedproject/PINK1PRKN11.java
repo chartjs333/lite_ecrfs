@@ -150,37 +150,50 @@ public class PINK1PRKN11 implements java.io.Serializable {
 	}
 
 	public String getStatusColor() {
-		// Проверяем, все ли поля заполнены
 		boolean allItemsCompleted = isAllItemsCompleted();
+		boolean atLeastOneCompleted = isAtLeastOneFieldCompleted();
 
-		// Проверяем значение поля ic_ex
 		if ("1".equals(this.ic_ex)) { // yes = 1
 			if (allItemsCompleted) {
 				return "green"; // Все поля заполнены и IC_EX=yes
 			} else {
 				return "orange"; // Не все поля заполнены, но IC_EX=yes
-		}
+			}
 		} else if ("2".equals(this.ic_ex)) { // no = 2
 			return "red"; // IC_EX=no
 		} else {
 			if (allItemsCompleted) {
 				return "green"; // Все поля заполнены, но IC_EX не указан
+			} else if (atLeastOneCompleted) {
+				return "orange"; // Некоторые поля заполнены, но не все
 			} else {
 				return "blue"; // Ни одно поле не заполнено
+			}
 		}
-	}
 	}
 
 	private boolean isAllItemsCompleted() {
-		return this.surveyTwoId != null && !this.surveyTwoId.isEmpty() &&
-				this.fillingStatus != null && !this.fillingStatus.isEmpty() &&
-				this.ic_date_day != null && !this.ic_date_day.isEmpty() &&
-				this.ic_date_month != null && !this.ic_date_month.isEmpty() &&
-				this.ic_date_year != null && !this.ic_date_year.isEmpty() &&
-				this.ic_version != null && !this.ic_version.isEmpty() &&
-				this.ic_version_date_day != null && !this.ic_version_date_day.isEmpty() &&
-				this.ic_version_date_month != null && !this.ic_version_date_month.isEmpty() &&
-				this.ic_version_date_year != null && !this.ic_version_date_year.isEmpty();
+		return isFieldCompleted(this.ic_date_day) &&
+				isFieldCompleted(this.ic_date_month) &&
+				isFieldCompleted(this.ic_date_year) &&
+				isFieldCompleted(this.ic_version) &&
+				isFieldCompleted(this.ic_version_date_day) &&
+				isFieldCompleted(this.ic_version_date_month) &&
+				isFieldCompleted(this.ic_version_date_year);
+	}
+
+	private boolean isAtLeastOneFieldCompleted() {
+		return isFieldCompleted(this.ic_date_day) ||
+				isFieldCompleted(this.ic_date_month) ||
+				isFieldCompleted(this.ic_date_year) ||
+				isFieldCompleted(this.ic_version) ||
+				isFieldCompleted(this.ic_version_date_day) ||
+				isFieldCompleted(this.ic_version_date_month) ||
+				isFieldCompleted(this.ic_version_date_year);
+	}
+
+	private boolean isFieldCompleted(String field) {
+		return field != null && !field.trim().isEmpty() && !field.trim().equals("-");
 	}
 
 }

@@ -800,9 +800,7 @@ public class PINK1PRKN123 implements java.io.Serializable {
 	 * Проверяет, что хотя бы одно рабочее поле заполнено (исключая headline_1, headline_2, headline_3).
 	 */
 	private boolean isAtLeastOneFieldCompleted() {
-		return !isEmpty(surveyTwoId)
-				|| !isEmpty(fillingStatus)
-				|| !isEmpty(smell)
+		return !isEmpty(smell)
 				|| !isEmpty(upsit_ex)
 				|| !isEmpty(upsit_lang)
 				|| !isEmpty(upsit_1)
@@ -851,11 +849,12 @@ public class PINK1PRKN123 implements java.io.Serializable {
 				|| !isEmpty(ositj_cat);
 	}
 
-	/** Возвращает true, если строка null или состоит только из пробелов */
-	private boolean isEmpty(String value) {
-		return value == null || value.trim().isEmpty();
+	/**
+	 * Проверяет, что строка val пустая (null или только пробелы).
+	 */
+	private boolean isEmpty(String val) {
+		return (val == null || val.trim().isEmpty()) || "-".equals(val.trim());
 	}
-
 
 }
 
