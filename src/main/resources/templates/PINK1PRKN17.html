@@ -449,19 +449,25 @@ $("#backToLanding").click(function(){
 		<ul class="listing core-radio move-down-yes-no move-up-yes-no">
             <li>
                 <label style="margin-left:10px;">
-                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Hand}" type="radio" name1="hand" value="0"  onchange="__main__(); minimum_part_filled_out(); " />
-                  <span class="padding-8" style="margin-left:5px;">right</span>   
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Hand}" type="radio" name1="hand" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> no</span>
 				 </label>
             </li>
             <li>
                 <label style="margin-left:10px;">
                   <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Hand}" type="radio" name1="hand" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
-                  <span class="padding-8" style="margin-left:5px;"> left</span>   
+                  <span class="padding-8" style="margin-left:5px;"> right</span>
 				 </label>
             </li>
             <li>
                 <label style="margin-left:10px;">
                   <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Hand}" type="radio" name1="hand" value="2"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <span class="padding-8" style="margin-left:5px;"> left</span>
+				 </label>
+            </li>
+            <li>
+                <label style="margin-left:10px;">
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Hand}" type="radio" name1="hand" value="3"  onchange="__main__(); minimum_part_filled_out(); " />
                   <span class="padding-8" style="margin-left:5px;"> mixed</span>   
 				 </label>
             </li>

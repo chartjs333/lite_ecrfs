@@ -5024,11 +5024,11 @@ $("#backToLanding").click(function(){
                 <label for="sel1" class="">Type of surgery</label>
                 <select class="form-control" id="surg_type" th:field="${formObj.Surg_type}" onchange="minimum_part_filled_out()" >
                   <option th:selected="${(formObj.Surg_type == '-')}" value='-'>-</option>
-                  <option th:selected="${(formObj.Surg_type == 'DBS (Deep Brain Stimulation)')}" value='DBS (Deep Brain Stimulation)'>DBS (Deep Brain Stimulation)</option>
-                  <option th:selected="${(formObj.Surg_type == 'Levodopa intestinal gel infusion')}" value='Levodopa intestinal gel infusion'>Levodopa intestinal gel infusion</option>
-                  <option th:selected="${(formObj.Surg_type == 'Focused Ultrasound')}" value='Focused Ultrasound'>Focused Ultrasound</option>
-                  <option th:selected="${(formObj.Surg_type == 'Other, please specify below')}" value='Other, please specify below'>Other, please specify below</option>
-                  <option th:selected="${(formObj.Surg_type == 'Unknown')}" value='Unknown'>Unknown</option>
+                  <option th:selected="${(formObj.Surg_type == 'DBS (Deep Brain Stimulation)=1')}" value='DBS (Deep Brain Stimulation)=1'>DBS (Deep Brain Stimulation)=1</option>
+                  <option th:selected="${(formObj.Surg_type == 'Levodopa intestinal gel infusion=2')}" value='Levodopa intestinal gel infusion=2'>Levodopa intestinal gel infusion=2</option>
+                  <option th:selected="${(formObj.Surg_type == 'Focused Ultrasound=5')}" value='Focused Ultrasound=5'>Focused Ultrasound=5</option>
+                  <option th:selected="${(formObj.Surg_type == 'Other, please specify below=3')}" value='Other, please specify below=3'>Other, please specify below=3</option>
+                  <option th:selected="${(formObj.Surg_type == 'Unknown=4')}" value='Unknown=4'>Unknown=4</option>
                 </select>
               </div>
             </div>          </div>
@@ -5057,11 +5057,11 @@ $("#backToLanding").click(function(){
                 <label for="sel1" class="">Location</label>
                 <select class="form-control" id="surg_loc" th:field="${formObj.Surg_loc}" onchange="minimum_part_filled_out()" >
                   <option th:selected="${(formObj.Surg_loc == '-')}" value='-'>-</option>
-                  <option th:selected="${(formObj.Surg_loc == 'Globus pallidus')}" value='Globus pallidus'>Globus pallidus</option>
-                  <option th:selected="${(formObj.Surg_loc == 'Subthalamic nucleus')}" value='Subthalamic nucleus'>Subthalamic nucleus</option>
-                  <option th:selected="${(formObj.Surg_loc == 'Other, please specify below')}" value='Other, please specify below'>Other, please specify below</option>
-                  <option th:selected="${(formObj.Surg_loc == 'Not applicable (e.g., for levodopa intestinal gel infusion)')}" value='Not applicable (e.g., for levodopa intestinal gel infusion)'>Not applicable (e.g., for levodopa intestinal gel infusion)</option>
-                  <option th:selected="${(formObj.Surg_loc == 'Unknown')}" value='Unknown'>Unknown</option>
+                  <option th:selected="${(formObj.Surg_loc == 'Globus pallidus=1')}" value='Globus pallidus=1'>Globus pallidus=1</option>
+                  <option th:selected="${(formObj.Surg_loc == 'Subthalamic nucleus=2')}" value='Subthalamic nucleus=2'>Subthalamic nucleus=2</option>
+                  <option th:selected="${(formObj.Surg_loc == 'Other, please specify below=3')}" value='Other, please specify below=3'>Other, please specify below=3</option>
+                  <option th:selected="${(formObj.Surg_loc == 'Not applicable (e.g., for levodopa intestinal gel infusion)=4')}" value='Not applicable (e.g., for levodopa intestinal gel infusion)=4'>Not applicable (e.g., for levodopa intestinal gel infusion)=4</option>
+                  <option th:selected="${(formObj.Surg_loc == 'Unknown=5')}" value='Unknown=5'>Unknown=5</option>
                 </select>
               </div>
             </div>            <div class="col-sm-12">

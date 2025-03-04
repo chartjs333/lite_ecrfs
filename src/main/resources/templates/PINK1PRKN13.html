@@ -722,13 +722,13 @@ $("#backToLanding").click(function(){
 		<ul class="listing core-radio move-up-yes-no move-down-yes-no">
             <li>
                 <label style="margin-left:10px;">
-                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ae_serious}" type="radio" name1="ae_serious" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ae_serious}" type="radio" name1="ae_serious" value="0"  onchange="__main__(); minimum_part_filled_out(); " />
                   <span class="padding-8" style="margin-left:5px;">yes</span>   
 				 </label>
             </li>
             <li>
                 <label style="margin-left:10px;">
-                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ae_serious}" type="radio" name1="ae_serious" value="2 "  onchange="__main__(); minimum_part_filled_out(); " />
+                  <input style="margin-left:5px;opacity:100!important;" th:field="${formObj.Ae_serious}" type="radio" name1="ae_serious" value="1"  onchange="__main__(); minimum_part_filled_out(); " />
                   <span class="padding-8" style="margin-left:5px;"> no</span>   
 				 </label>
             </li>
@@ -758,9 +758,10 @@ $("#backToLanding").click(function(){
                   <option th:selected="${(formObj.Ae_primout == '-')}" value='-'>-</option>
                   <option th:selected="${(formObj.Ae_primout == 'recovered or resolved=1')}" value='recovered or resolved=1'>recovered or resolved=1</option>
                   <option th:selected="${(formObj.Ae_primout == 'ongoing=2')}" value='ongoing=2'>ongoing=2</option>
-                  <option th:selected="${(formObj.Ae_primout == 'recovered or resolved with sequelae=3')}" value='recovered or resolved with sequelae=3'>recovered or resolved with sequelae=3</option>
-                  <option th:selected="${(formObj.Ae_primout == 'fatal=4')}" value='fatal=4'>fatal=4</option>
-                  <option th:selected="${(formObj.Ae_primout == 'unknown=5')}" value='unknown=5'>unknown=5</option>
+                  <option th:selected="${(formObj.Ae_primout == 'Change in AE characteristic=3')}" value='Change in AE characteristic=3'>Change in AE characteristic=3</option>
+                  <option th:selected="${(formObj.Ae_primout == 'recovered or resolved with sequelae=4')}" value='recovered or resolved with sequelae=4'>recovered or resolved with sequelae=4</option>
+                  <option th:selected="${(formObj.Ae_primout == 'fatal=5')}" value='fatal=5'>fatal=5</option>
+                  <option th:selected="${(formObj.Ae_primout == 'unknown=6')}" value='unknown=6'>unknown=6</option>
                 </select>
               </div>
             </div>          </div>

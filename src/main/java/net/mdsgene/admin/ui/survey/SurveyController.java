@@ -49,9 +49,11 @@ public class SurveyController {
     public String dashboard(Model model, Pageable pageable) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User loggedInUser = userDAO.findOneByUsername(authentication.getName());
-        // if user is not found, redirect to login page
         if (loggedInUser == null) {
             return "redirect:/user/sign_in";
+        }
+        if (!loggedInUser.isPasswordChanged()) {
+            return "redirect:/change-password";
         }
         int userId = loggedInUser.getId();
         Page<PINK1PRKN11> page = ecrfService.findAll(pageable);

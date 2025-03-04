@@ -939,17 +939,17 @@ public class PINK1PRKN14 implements java.io.Serializable {
 		// Логика проверки, должно ли поле отображаться на основе @Condition
 		switch (fieldName) {
 			case "biom_edta_q":
-				return "smaller amount collected".equals(this.biom_edta);
+				return "2".equals(this.biom_edta);
 			case "biom_pax_q":
-				return "smaller amount collected".equals(this.biom_pax);
+				return "2".equals(this.biom_pax);
 			case "biom_pbmcs_q":
-				return "smaller amount collected".equals(this.biom_pbmcs);
+				return "2".equals(this.biom_pbmcs);
 			case "biom_plasma_q":
-				return "smaller amount collected".equals(this.biom_plasma);
+				return "2".equals(this.biom_plasma);
 			case "biom_serum_q":
-				return "smaller amount collected".equals(this.biom_serum);
+				return "2".equals(this.biom_serum);
 			case "biom_urine_q":
-				return "smaller amount collected".equals(this.biom_urine);
+				return "2".equals(this.biom_urine);
 			default:
 				return true; // По умолчанию поле отображается
 		}
