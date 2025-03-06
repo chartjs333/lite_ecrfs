@@ -139,10 +139,10 @@ public class PINK1PRKN16 implements java.io.Serializable {
 	public String getStatusColor() {
 		// Проверяем, заполнены ли все обязательные поля
 		boolean allCompleted = areAllFieldsCompleted();
-		boolean imDatAvailable = "available".equals(this.im_dat);
-		boolean imMriAvailable = "available".equals(this.im_mri);
-		boolean imDatNotAvailable = "not available".equals(this.im_dat);
-		boolean imMriNotAvailable = "not available".equals(this.im_mri);
+		boolean imDatAvailable = "1".equals(this.im_dat);
+		boolean imMriAvailable = "1".equals(this.im_mri);
+		boolean imDatNotAvailable = "2".equals(this.im_dat); //not available should be fixed
+		boolean imMriNotAvailable = "0".equals(this.im_mri); //not available
 
 		// Проверяем условия для green
 		if (allCompleted || (imDatNotAvailable && imMriNotAvailable)) {
@@ -214,12 +214,12 @@ public class PINK1PRKN16 implements java.io.Serializable {
 			case "im_dat_day":
 			case "im_dat_month":
 			case "im_dat_year":
-				return "available".equals(this.im_dat);
+				return "1".equals(this.im_dat);
 			case "im_mri_day":
 			case "im_mri_month":
 			case "im_mri_year":
 			case "im_mridev":
-				return "available".equals(this.im_mri);
+				return "1".equals(this.im_mri);
 			default:
 				return true; // По умолчанию поле отображается
 		}

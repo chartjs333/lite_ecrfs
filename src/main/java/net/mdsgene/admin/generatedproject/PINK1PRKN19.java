@@ -331,7 +331,7 @@ public class PINK1PRKN19 implements java.io.Serializable {
 
 	private boolean areAllFieldsCompleted() {
 		boolean mainFieldsCompleted = !isEmpty(this.fam_hist);
-		if ("yes".equalsIgnoreCase(this.fam_hist)) {
+		if ("1".equalsIgnoreCase(this.fam_hist)) {
 			boolean conditionalFieldsCompleted = !isEmpty(this.fh_broth_fm) &&
 					!isEmpty(this.fh_broth_pd) &&
 					!isEmpty(this.fh_fath) &&
@@ -365,7 +365,7 @@ public class PINK1PRKN19 implements java.io.Serializable {
 
 	private boolean isAtLeastOneFieldCompleted() {
 		boolean mainFieldsCompleted = !isEmpty(this.fam_hist);
-		if ("yes".equalsIgnoreCase(this.fam_hist)) {
+		if ("1".equalsIgnoreCase(this.fam_hist)) {
 			boolean conditionalFieldsCompleted = !isEmpty(this.fh_broth_fm) ||
 					!isEmpty(this.fh_broth_pd) ||
 					!isEmpty(this.fh_fath) ||

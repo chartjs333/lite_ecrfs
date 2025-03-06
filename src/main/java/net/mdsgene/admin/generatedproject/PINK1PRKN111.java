@@ -1350,31 +1350,33 @@ public class PINK1PRKN111 implements java.io.Serializable {
 }
 
 	private boolean areAllSectionsCompleted() {
-		// Проверяем, заполнены ли все элементы в каждой секции
-		return isSectionCompleted(1) &&
-				isSectionCompleted(2) &&
-				isSectionCompleted(3) &&
-				isSectionCompleted(4) &&
-				isSectionCompleted(5) &&
-				isSectionCompleted(6) &&
-				isSectionCompleted(7) &&
-				isSectionCompleted(8) &&
-				isSectionCompleted(9) &&
-				isSectionCompleted(10);
+		boolean atLeastOneSectionExists = false;
+		
+		// Проверяем каждую секцию
+		for (int i = 1; i <= 10; i++) {
+			// Если секция не пустая (имеет хотя бы одно заполненное поле)
+			if (isSectionPartiallyCompleted(i)) {
+				atLeastOneSectionExists = true;
+				// Если секция не полностью заполнена, возвращаем false
+				if (!isSectionCompleted(i)) {
+					return false;
+				}
+			}
+		}
+		
+		// Возвращаем true только если есть хотя бы одна непустая секция
+		// и все непустые секции полностью заполнены
+		return atLeastOneSectionExists;
 	}
 
 	private boolean isAtLeastOneSectionPartiallyCompleted() {
 		// Проверяем, заполнена ли хотя бы одна секция частично
-		return isSectionPartiallyCompleted(1) ||
-				isSectionPartiallyCompleted(2) ||
-				isSectionPartiallyCompleted(3) ||
-				isSectionPartiallyCompleted(4) ||
-				isSectionPartiallyCompleted(5) ||
-				isSectionPartiallyCompleted(6) ||
-				isSectionPartiallyCompleted(7) ||
-				isSectionPartiallyCompleted(8) ||
-				isSectionPartiallyCompleted(9) ||
-				isSectionPartiallyCompleted(10);
+		for (int i = 1; i <= 10; i++) {
+			if (isSectionPartiallyCompleted(i)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private boolean isSectionCompleted(int sectionNumber) {

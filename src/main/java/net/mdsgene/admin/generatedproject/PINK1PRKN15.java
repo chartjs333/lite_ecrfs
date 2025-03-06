@@ -1,13 +1,17 @@
 package net.mdsgene.admin.generatedproject;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 import javax.persistence.*;
 @Entity
 @Table(name = "PINK1PRKN15", schema = "public")
 @Cacheable(false)
 public class PINK1PRKN15 implements java.io.Serializable {
 	@Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="PINK1PRKN15_id_seq")
-    @SequenceGenerator(name="PINK1PRKN15_id_seq", sequenceName="PINK1PRKN15_id_seq", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="PINK1PRKN15_id_seq")
+	@SequenceGenerator(name="PINK1PRKN15_id_seq", sequenceName="PINK1PRKN15_id_seq", allocationSize=1)
 	@Column(name = "id", unique = true, nullable = false, columnDefinition = "serial")
 	private int id;
 
@@ -20,30 +24,30 @@ public class PINK1PRKN15 implements java.io.Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
 
 
-   private String surveyTwoId;
 
-   @Column(name = "survey_two_id", nullable = true, columnDefinition = "varchar", length = 128)
-   public String getSurveyTwoId() {
-       return this.surveyTwoId;
-   }
+	private String surveyTwoId;
 
-   public void setSurveyTwoId(String surveyTwoId) {
-       this.surveyTwoId = surveyTwoId;
-   }
+	@Column(name = "survey_two_id", nullable = true, columnDefinition = "varchar", length = 128)
+	public String getSurveyTwoId() {
+		return this.surveyTwoId;
+	}
 
-   private String fillingStatus;
+	public void setSurveyTwoId(String surveyTwoId) {
+		this.surveyTwoId = surveyTwoId;
+	}
 
-   @Column(name = "filling_status", nullable = true, columnDefinition = "varchar", length = 128)
-   public String getFillingStatus() {
-       return this.fillingStatus;
-   }
+	private String fillingStatus;
 
-   public void setFillingStatus(String fillingStatus) {
-       this.fillingStatus = fillingStatus;
-   }
+	@Column(name = "filling_status", nullable = true, columnDefinition = "varchar", length = 128)
+	public String getFillingStatus() {
+		return this.fillingStatus;
+	}
+
+	public void setFillingStatus(String fillingStatus) {
+		this.fillingStatus = fillingStatus;
+	}
 
 	private String biom_csf;
 
@@ -557,141 +561,45 @@ public class PINK1PRKN15 implements java.io.Serializable {
 	}
 
 	public String getStatusColor() {
-		// Проверяем, заполнены ли все обязательные поля
-		boolean allCompleted = areAllFieldsCompleted();
-		boolean biomCsfLabCollected = "collected".equals(this.biom_csf_lab);
-		boolean biomCsfCollected = "collected".equals(this.biom_csf);
-		boolean biomCsfAeCollected = "collected".equals(this.biom_csf_ae);
-		boolean biomCsfAeNotCollected = "not collected".equals(this.biom_csf_ae);
+		List<String> conditionalFields = Arrays.asList(
+				biom_csf_aliq_time, biom_csf_aliq_tubes, biom_csf_blood,
+				biom_csf_centr_dur, biom_csf_centr_rate, biom_csf_centr_temp,
+				biom_csf_centr_time, biom_csf_comm, biom_csf_date_day,
+				biom_csf_date_month, biom_csf_date_year, biom_csf_fast,
+				biom_csf_fluor, biom_csf_food_date_day, biom_csf_food_date_month,
+				biom_csf_food_date_year, biom_csf_food_time, biom_csf_freeze_time,
+				biom_csf_iss, biom_csf_loc, biom_csf_method, biom_csf_needle,
+				biom_csf_pdmed, biom_csf_pdmed_date_day, biom_csf_pdmed_date_month,
+				biom_csf_pdmed_date_year, biom_csf_pdmed_time, biom_csf_pos,
+				biom_csf_spinefilm, biom_csf_stor, biom_csf_time,
+				biom_csf_vol_postspin, biom_csf_vol_prespin,
+				biom_csf_lab, biom_csf_ptt, biom_csf_ae // <-- добавлено
+		);
 
-		// Проверяем условия для green
-		if (allCompleted && biomCsfLabCollected && biomCsfCollected) {
-			if (biomCsfAeCollected) {
-				// Если biom_csf_ae = "collected", все связанные поля должны быть заполнены
-				if (areAllConditionalFieldsCompleted()) {
-					return "green";
-				}
-			} else if (biomCsfAeNotCollected) {
-				// Если biom_csf_ae = "not collected", все связанные поля могут быть пустыми
-				return "green";
+		List<String> allFields = Arrays.asList(
+				biom_csf, biom_csf_lab_rs
+		);
+
+		boolean allEmpty = Stream.concat(allFields.stream(), conditionalFields.stream())
+				.allMatch(f -> f == null || f.trim().isEmpty() || f.trim().equals("-"));
+
+		if (allEmpty) return "blue";
+
+		boolean mainFieldsCollected = "1".equals(biom_csf) && "1".equals(biom_csf_lab_rs);
+
+		if (mainFieldsCollected && isFieldCompleted(biom_csf_ae)) {
+			if ("1".equals(biom_csf_ae)) {
+				boolean allConditionalFilled = conditionalFields.stream().allMatch(this::isFieldCompleted);
+				return allConditionalFilled ? "green" : "orange";
 			}
+			return "green";
 		}
 
-		// Проверяем, заполнено ли хотя бы одно поле
-		if (isAtLeastOneFieldCompleted()) {
-			return "orange";
-		} else {
-			return "blue";
-		}
-}
-
-	private boolean areAllFieldsCompleted() {
-		// Проверяем, что все обязательные поля заполнены
-		return isFieldCompleted(this.biom_csf) &&
-				isFieldCompleted(this.biom_csf_lab) &&
-				isFieldCompleted(this.biom_csf_ae);
-	}
-
-	private boolean areAllConditionalFieldsCompleted() {
-		// Проверяем, что все связанные поля (с аннотацией @Condition) заполнены
-		return isFieldCompleted(this.biom_csf_aliq_time) &&
-				isFieldCompleted(this.biom_csf_aliq_tubes) &&
-				isFieldCompleted(this.biom_csf_blood) &&
-				isFieldCompleted(this.biom_csf_centr_dur) &&
-				isFieldCompleted(this.biom_csf_centr_rate) &&
-				isFieldCompleted(this.biom_csf_centr_temp) &&
-				isFieldCompleted(this.biom_csf_centr_time) &&
-				isFieldCompleted(this.biom_csf_comm) &&
-				isFieldCompleted(this.biom_csf_date_day) &&
-				isFieldCompleted(this.biom_csf_date_month) &&
-				isFieldCompleted(this.biom_csf_date_year) &&
-				isFieldCompleted(this.biom_csf_fast) &&
-				isFieldCompleted(this.biom_csf_fluor) &&
-				(shouldDisplayField("biom_csf_fluor_date_day") ? isFieldCompleted(this.biom_csf_fluor_date_day) : true) &&
-				(shouldDisplayField("biom_csf_fluor_date_month") ? isFieldCompleted(this.biom_csf_fluor_date_month) : true) &&
-				(shouldDisplayField("biom_csf_fluor_date_year") ? isFieldCompleted(this.biom_csf_fluor_date_year) : true) &&
-				isFieldCompleted(this.biom_csf_food_date_day) &&
-				isFieldCompleted(this.biom_csf_food_date_month) &&
-				isFieldCompleted(this.biom_csf_food_date_year) &&
-				isFieldCompleted(this.biom_csf_food_time) &&
-				isFieldCompleted(this.biom_csf_freeze_time) &&
-				isFieldCompleted(this.biom_csf_iss) &&
-				isFieldCompleted(this.biom_csf_loc) &&
-				isFieldCompleted(this.biom_csf_method) &&
-				isFieldCompleted(this.biom_csf_needle) &&
-				isFieldCompleted(this.biom_csf_pdmed) &&
-				isFieldCompleted(this.biom_csf_pdmed_date_day) &&
-				isFieldCompleted(this.biom_csf_pdmed_date_month) &&
-				isFieldCompleted(this.biom_csf_pdmed_date_year) &&
-				isFieldCompleted(this.biom_csf_pdmed_time) &&
-				isFieldCompleted(this.biom_csf_pos) &&
-				isFieldCompleted(this.biom_csf_stor) &&
-				(shouldDisplayField("biom_csf_stor_temp") ? isFieldCompleted(this.biom_csf_stor_temp) : true) &&
-				isFieldCompleted(this.biom_csf_time) &&
-				isFieldCompleted(this.biom_csf_vol_postspin) &&
-				isFieldCompleted(this.biom_csf_vol_prespin);
-	}
-
-	private boolean isAtLeastOneFieldCompleted() {
-		// Проверяем, заполнено ли хотя бы одно поле
-		return isFieldCompleted(this.biom_csf) ||
-				isFieldCompleted(this.biom_csf_lab) ||
-				isFieldCompleted(this.biom_csf_ae) ||
-				isFieldCompleted(this.biom_csf_aliq_time) ||
-				isFieldCompleted(this.biom_csf_aliq_tubes) ||
-				isFieldCompleted(this.biom_csf_blood) ||
-				isFieldCompleted(this.biom_csf_centr_dur) ||
-				isFieldCompleted(this.biom_csf_centr_rate) ||
-				isFieldCompleted(this.biom_csf_centr_temp) ||
-				isFieldCompleted(this.biom_csf_centr_time) ||
-				isFieldCompleted(this.biom_csf_comm) ||
-				isFieldCompleted(this.biom_csf_date_day) ||
-				isFieldCompleted(this.biom_csf_date_month) ||
-				isFieldCompleted(this.biom_csf_date_year) ||
-				isFieldCompleted(this.biom_csf_fast) ||
-				isFieldCompleted(this.biom_csf_fluor) ||
-				isFieldCompleted(this.biom_csf_fluor_date_day) ||
-				isFieldCompleted(this.biom_csf_fluor_date_month) ||
-				isFieldCompleted(this.biom_csf_fluor_date_year) ||
-				isFieldCompleted(this.biom_csf_food_date_day) ||
-				isFieldCompleted(this.biom_csf_food_date_month) ||
-				isFieldCompleted(this.biom_csf_food_date_year) ||
-				isFieldCompleted(this.biom_csf_food_time) ||
-				isFieldCompleted(this.biom_csf_freeze_time) ||
-				isFieldCompleted(this.biom_csf_iss) ||
-				isFieldCompleted(this.biom_csf_loc) ||
-				isFieldCompleted(this.biom_csf_method) ||
-				isFieldCompleted(this.biom_csf_needle) ||
-				isFieldCompleted(this.biom_csf_pdmed) ||
-				isFieldCompleted(this.biom_csf_pdmed_date_day) ||
-				isFieldCompleted(this.biom_csf_pdmed_date_month) ||
-				isFieldCompleted(this.biom_csf_pdmed_date_year) ||
-				isFieldCompleted(this.biom_csf_pdmed_time) ||
-				isFieldCompleted(this.biom_csf_pos) ||
-				isFieldCompleted(this.biom_csf_stor) ||
-				isFieldCompleted(this.biom_csf_stor_temp) ||
-				isFieldCompleted(this.biom_csf_time) ||
-				isFieldCompleted(this.biom_csf_vol_postspin) ||
-				isFieldCompleted(this.biom_csf_vol_prespin);
+		return "orange";
 	}
 
 	private boolean isFieldCompleted(String field) {
-		// Проверяем, что поле не равно null и не пустое
-		return field != null && !field.trim().isEmpty() && !field.trim().equals("-");
-	}
-
-	private boolean shouldDisplayField(String fieldName) {
-		// Логика проверки, должно ли поле отображаться на основе @Condition
-		switch (fieldName) {
-			case "biom_csf_fluor_date_day":
-			case "biom_csf_fluor_date_month":
-			case "biom_csf_fluor_date_year":
-				return "Yes".equals(this.biom_csf_fluor);
-			case "biom_csf_stor_temp":
-				return "freezer".equals(this.biom_csf_stor);
-			default:
-				return true; // По умолчанию поле отображается
-		}
+		return field != null && !field.trim().isEmpty() && !"-".equals(field.trim());
 	}
 }
 

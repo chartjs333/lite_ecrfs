@@ -517,16 +517,17 @@ public class PINK1PRKN123 implements java.io.Serializable {
 	}
 
 	public String getStatusColor() {
+
+		// Если тест не проводился – upsit_ex = "no" (без учета регистра) – возвращаем "red"
+		if ("1".equalsIgnoreCase(this.upsit_ex)) {
+			System.out.println("upsit_ex == 'no' → тест не проводился");
+			return "red";
+		}
+
 		// Если ни одно рабочее поле (без заголовков) не заполнено, считаем форму не начатой – "blue"
 		if (areAllFieldsEmpty()) {
 			System.out.println("Все рабочие поля (без headline) пусты");
 			return "blue";
-		}
-
-		// Если тест не проводился – upsit_ex = "no" (без учета регистра) – возвращаем "red"
-		if ("no".equalsIgnoreCase(this.upsit_ex)) {
-			System.out.println("upsit_ex == 'no' → тест не проводился");
-			return "red";
 		}
 
 		// Если все обязательные поля заполнены – возвращаем "green"

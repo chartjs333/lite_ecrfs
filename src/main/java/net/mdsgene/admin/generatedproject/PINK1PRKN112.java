@@ -767,219 +767,92 @@ public class PINK1PRKN112 implements java.io.Serializable {
 	}
 
 	public String getStatusColor() {
-		// Проверяем, заполнены ли все секции
+		// Проверяем, заполнены ли все непустые секции
 		boolean allSectionsCompleted = areAllSectionsCompleted();
 
 		if (allSectionsCompleted) {
-			return "green"; // Все секции заполнены
+			return "green"; // Все непустые секции полностью заполнены
 		} else if (isAtLeastOneSectionPartiallyCompleted()) {
 			return "orange"; // Некоторые секции заполнены частично
 		} else {
-			return "blue"; // Ни одна секция не заполнена
+			return "blue"; // Все секции пустые
 		}
-}
+	}
 
 	private boolean areAllSectionsCompleted() {
-		// Проверяем каждую секцию на полноту заполнения
-		return isSectionCompleted("med_1") &&
-				isSectionCompleted("med_2") &&
-				isSectionCompleted("med_3") &&
-				isSectionCompleted("med_4") &&
-				isSectionCompleted("med_5") &&
-				isSectionCompleted("med_6") &&
-				isSectionCompleted("med_7") &&
-				isSectionCompleted("med_8");
+		boolean atLeastOneSectionExists = false;
+		
+		// Проверяем каждую секцию (med_1 до med_8)
+		for (int i = 1; i <= 8; i++) {
+			// Если секция не пустая (имеет хотя бы одно заполненное поле)
+			if (isSectionPartiallyCompleted(i)) {
+				atLeastOneSectionExists = true;
+				// Если секция не полностью заполнена, возвращаем false
+				if (!isSectionCompleted(i)) {
+					return false;
+				}
+			}
+		}
+		
+		// Возвращаем true только если есть хотя бы одна непустая секция
+		// и все непустые секции полностью заполнены
+		return atLeastOneSectionExists;
 	}
 
 	private boolean isAtLeastOneSectionPartiallyCompleted() {
 		// Проверяем, заполнена ли хотя бы одна секция частично
-		return isSectionPartiallyCompleted("med_1") ||
-				isSectionPartiallyCompleted("med_2") ||
-				isSectionPartiallyCompleted("med_3") ||
-				isSectionPartiallyCompleted("med_4") ||
-				isSectionPartiallyCompleted("med_5") ||
-				isSectionPartiallyCompleted("med_6") ||
-				isSectionPartiallyCompleted("med_7") ||
-				isSectionPartiallyCompleted("med_8");
+		return  isSectionPartiallyCompleted(1) ||
+				isSectionPartiallyCompleted(2) ||
+				isSectionPartiallyCompleted(3) ||
+				isSectionPartiallyCompleted(4) ||
+				isSectionPartiallyCompleted(5) ||
+				isSectionPartiallyCompleted(6) ||
+				isSectionPartiallyCompleted(7) ||
+				isSectionPartiallyCompleted(8);
 	}
 
-	private boolean isSectionCompleted(String sectionPrefix) {
-		// Проверяем, заполнены ли все поля в секции
-		switch (sectionPrefix) {
-			case "med_1":
-				return !isEmpty(this.med_1_ind) &&
-						!isEmpty(this.med_1_name) &&
-						!isEmpty(this.med_1_ongoing) &&
-						!isEmpty(this.med_1_start_day) &&
-						!isEmpty(this.med_1_start_month) &&
-						!isEmpty(this.med_1_start_year) &&
-						!isEmpty(this.med_1_stop_day) &&
-						!isEmpty(this.med_1_stop_month) &&
-						!isEmpty(this.med_1_stop_year);
-			case "med_2":
-				return !isEmpty(this.med_2_ind) &&
-						!isEmpty(this.med_2_name) &&
-						!isEmpty(this.med_2_ongoing) &&
-						!isEmpty(this.med_2_start_day) &&
-						!isEmpty(this.med_2_start_month) &&
-						!isEmpty(this.med_2_start_year) &&
-						!isEmpty(this.med_2_stop_day) &&
-						!isEmpty(this.med_2_stop_month) &&
-						!isEmpty(this.med_2_stop_year);
-			case "med_3":
-				return !isEmpty(this.med_3_ind) &&
-						!isEmpty(this.med_3_name) &&
-						!isEmpty(this.med_3_ongoing) &&
-						!isEmpty(this.med_3_start_day) &&
-						!isEmpty(this.med_3_start_month) &&
-						!isEmpty(this.med_3_start_year) &&
-						!isEmpty(this.med_3_stop_day) &&
-						!isEmpty(this.med_3_stop_month) &&
-						!isEmpty(this.med_3_stop_year);
-			case "med_4":
-				return !isEmpty(this.med_4_ind) &&
-						!isEmpty(this.med_4_name) &&
-						!isEmpty(this.med_4_ongoing) &&
-						!isEmpty(this.med_4_start_day) &&
-						!isEmpty(this.med_4_start_month) &&
-						!isEmpty(this.med_4_start_year) &&
-						!isEmpty(this.med_4_stop_day) &&
-						!isEmpty(this.med_4_stop_month) &&
-						!isEmpty(this.med_4_stop_year);
-			case "med_5":
-				return !isEmpty(this.med_5_ind) &&
-						!isEmpty(this.med_5_name) &&
-						!isEmpty(this.med_5_ongoing) &&
-						!isEmpty(this.med_5_start_day) &&
-						!isEmpty(this.med_5_start_month) &&
-						!isEmpty(this.med_5_start_year) &&
-						!isEmpty(this.med_5_stop_day) &&
-						!isEmpty(this.med_5_stop_month) &&
-						!isEmpty(this.med_5_stop_year);
-			case "med_6":
-				return !isEmpty(this.med_6_ind) &&
-						!isEmpty(this.med_6_name) &&
-						!isEmpty(this.med_6_ongoing) &&
-						!isEmpty(this.med_6_start_day) &&
-						!isEmpty(this.med_6_start_month) &&
-						!isEmpty(this.med_6_start_year) &&
-						!isEmpty(this.med_6_stop_day) &&
-						!isEmpty(this.med_6_stop_month) &&
-						!isEmpty(this.med_6_stop_year);
-			case "med_7":
-				return !isEmpty(this.med_7_ind) &&
-						!isEmpty(this.med_7_name) &&
-						!isEmpty(this.med_7_ongoing) &&
-						!isEmpty(this.med_7_start_day) &&
-						!isEmpty(this.med_7_start_month) &&
-						!isEmpty(this.med_7_start_year) &&
-						!isEmpty(this.med_7_stop_day) &&
-						!isEmpty(this.med_7_stop_month) &&
-						!isEmpty(this.med_7_stop_year);
-			case "med_8":
-				return !isEmpty(this.med_8_ind) &&
-						!isEmpty(this.med_8_name) &&
-						!isEmpty(this.med_8_start_day) &&
-						!isEmpty(this.med_8_start_month) &&
-						!isEmpty(this.med_8_start_year) &&
-						!isEmpty(this.med_8_stop_day) &&
-						!isEmpty(this.med_8_stop_month) &&
-						!isEmpty(this.med_8_stop_year);
-			default:
-				return false;
+	private boolean isSectionCompleted(int sectionNumber) {
+		String prefix = "med_" + sectionNumber + "_";
+		
+		// Если секция начата (есть хотя бы одно заполненное поле),
+		// проверяем все обязательные поля этой секции
+		if (isSectionPartiallyCompleted(sectionNumber)) {
+			return isFieldCompleted(getFieldValue(prefix + "ind")) &&
+				   isFieldCompleted(getFieldValue(prefix + "name")) &&
+				   isFieldCompleted(getFieldValue(prefix + "ongoing")) &&
+				   isFieldCompleted(getFieldValue(prefix + "start_day")) &&
+				   isFieldCompleted(getFieldValue(prefix + "start_month")) &&
+				   isFieldCompleted(getFieldValue(prefix + "start_year"));
+		}
+		return true; // Пустая секция считается заполненной
+	}
+
+	private boolean isSectionPartiallyCompleted(int sectionNumber) {
+		String prefix = "med_" + sectionNumber + "_";
+		
+		// Проверяем наличие хотя бы одного заполненного поля в секции
+		return isFieldCompleted(getFieldValue(prefix + "ind")) ||
+			   isFieldCompleted(getFieldValue(prefix + "name")) ||
+			   isFieldCompleted(getFieldValue(prefix + "ongoing")) ||
+			   isFieldCompleted(getFieldValue(prefix + "start_day")) ||
+			   isFieldCompleted(getFieldValue(prefix + "start_month")) ||
+			   isFieldCompleted(getFieldValue(prefix + "start_year")) ||
+			   isFieldCompleted(getFieldValue(prefix + "stop_day")) ||
+			   isFieldCompleted(getFieldValue(prefix + "stop_month")) ||
+			   isFieldCompleted(getFieldValue(prefix + "stop_year"));
+	}
+
+	private String getFieldValue(String fieldName) {
+		try {
+			String getterName = "get" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+			return (String) getClass().getMethod(getterName).invoke(this);
+		} catch (Exception e) {
+			return null;
 		}
 	}
 
-	private boolean isSectionPartiallyCompleted(String sectionPrefix) {
-		// Проверяем, заполнена ли хотя бы одна часть секции
-		switch (sectionPrefix) {
-			case "med_1":
-				return !isEmpty(this.med_1_ind) ||
-						!isEmpty(this.med_1_name) ||
-						!isEmpty(this.med_1_ongoing) ||
-						!isEmpty(this.med_1_start_day) ||
-						!isEmpty(this.med_1_start_month) ||
-						!isEmpty(this.med_1_start_year) ||
-						!isEmpty(this.med_1_stop_day) ||
-						!isEmpty(this.med_1_stop_month) ||
-						!isEmpty(this.med_1_stop_year);
-			case "med_2":
-				return !isEmpty(this.med_2_ind) ||
-						!isEmpty(this.med_2_name) ||
-						!isEmpty(this.med_2_ongoing) ||
-						!isEmpty(this.med_2_start_day) ||
-						!isEmpty(this.med_2_start_month) ||
-						!isEmpty(this.med_2_start_year) ||
-						!isEmpty(this.med_2_stop_day) ||
-						!isEmpty(this.med_2_stop_month) ||
-						!isEmpty(this.med_2_stop_year);
-			case "med_3":
-				return !isEmpty(this.med_3_ind) ||
-						!isEmpty(this.med_3_name) ||
-						!isEmpty(this.med_3_ongoing) ||
-						!isEmpty(this.med_3_start_day) ||
-						!isEmpty(this.med_3_start_month) ||
-						!isEmpty(this.med_3_start_year) ||
-						!isEmpty(this.med_3_stop_day) ||
-						!isEmpty(this.med_3_stop_month) ||
-						!isEmpty(this.med_3_stop_year);
-			case "med_4":
-				return !isEmpty(this.med_4_ind) ||
-						!isEmpty(this.med_4_name) ||
-						!isEmpty(this.med_4_ongoing) ||
-						!isEmpty(this.med_4_start_day) ||
-						!isEmpty(this.med_4_start_month) ||
-						!isEmpty(this.med_4_start_year) ||
-						!isEmpty(this.med_4_stop_day) ||
-						!isEmpty(this.med_4_stop_month) ||
-						!isEmpty(this.med_4_stop_year);
-			case "med_5":
-				return !isEmpty(this.med_5_ind) ||
-						!isEmpty(this.med_5_name) ||
-						!isEmpty(this.med_5_ongoing) ||
-						!isEmpty(this.med_5_start_day) ||
-						!isEmpty(this.med_5_start_month) ||
-						!isEmpty(this.med_5_start_year) ||
-						!isEmpty(this.med_5_stop_day) ||
-						!isEmpty(this.med_5_stop_month) ||
-						!isEmpty(this.med_5_stop_year);
-			case "med_6":
-				return !isEmpty(this.med_6_ind) ||
-						!isEmpty(this.med_6_name) ||
-						!isEmpty(this.med_6_ongoing) ||
-						!isEmpty(this.med_6_start_day) ||
-						!isEmpty(this.med_6_start_month) ||
-						!isEmpty(this.med_6_start_year) ||
-						!isEmpty(this.med_6_stop_day) ||
-						!isEmpty(this.med_6_stop_month) ||
-						!isEmpty(this.med_6_stop_year);
-			case "med_7":
-				return !isEmpty(this.med_7_ind) ||
-						!isEmpty(this.med_7_name) ||
-						!isEmpty(this.med_7_ongoing) ||
-						!isEmpty(this.med_7_start_day) ||
-						!isEmpty(this.med_7_start_month) ||
-						!isEmpty(this.med_7_start_year) ||
-						!isEmpty(this.med_7_stop_day) ||
-						!isEmpty(this.med_7_stop_month) ||
-						!isEmpty(this.med_7_stop_year);
-			case "med_8":
-				return !isEmpty(this.med_8_ind) ||
-						!isEmpty(this.med_8_name) ||
-						!isEmpty(this.med_8_start_day) ||
-						!isEmpty(this.med_8_start_month) ||
-						!isEmpty(this.med_8_start_year) ||
-						!isEmpty(this.med_8_stop_day) ||
-						!isEmpty(this.med_8_stop_month) ||
-						!isEmpty(this.med_8_stop_year);
-			default:
-				return false;
-		}
-	}
-
-	private boolean isEmpty(String value) {
-		// Проверяем, является ли строка пустой или null
-		return value == null || value.trim().isEmpty() || value.trim().equals("-");
+	private boolean isFieldCompleted(String value) {
+		return value != null && !value.trim().isEmpty() && !value.trim().equals("-");
 	}
 }
 

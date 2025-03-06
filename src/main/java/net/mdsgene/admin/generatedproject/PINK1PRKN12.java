@@ -1,9 +1,18 @@
 package net.mdsgene.admin.generatedproject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Entity
 @Table(name = "PINK1PRKN12", schema = "public")
 @Cacheable(false)
 public class PINK1PRKN12 implements java.io.Serializable {
+	private static final Logger LOGGER = LoggerFactory.getLogger(PINK1PRKN12.class);
+
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="PINK1PRKN12_id_seq")
     @SequenceGenerator(name="PINK1PRKN12_id_seq", sequenceName="PINK1PRKN12_id_seq", allocationSize=1)
@@ -465,154 +474,122 @@ public class PINK1PRKN12 implements java.io.Serializable {
 		this.ppmi_part = ppmi_part;
 	}
 
+	/**
+	 * Determine the status color based on completion of required fields.
+	 * - If in_cat (group) is null, defaults to overall completion check (no crash).
+	 * - If any field (except surveyTwoId and fillingStatus) is filled, returns ORANGE.
+	 * - If all required fields for the selected group are filled, returns GREEN.
+	 * - If no fields are filled, returns BLUE.
+	 */
 	public String getStatusColor() {
+		LOGGER.info("Determining status color for PINK1PRKN12...");
 		if (this.in_cat == null) {
-			return "blue"; // Если in_cat не указан, считаем, что ни одно поле не заполнено
-		}
-
-		switch (this.in_cat) {
-			case "individual with PD and at least one pathogenic variant in PRKN":
-			case "individual with PD and at least one pathogenic variant in PINK1":
-				return checkGroupCompletion(getPdPrknPink1Fields());
-			case "individual with iPD":
-				return checkGroupCompletion(getIpdFields());
-			case "unaffected individual with at least one pathogenic variant in PRKN":
-			case "unaffected individual with at least one pathogenic variant in PINK1":
-				return checkGroupCompletion(getNonManifestingFields());
-			case "healthy control":
-				return checkGroupCompletion(getHealthyControlFields());
-			default:
-				return "blue"; // Если in_cat не соответствует ни одной группе
-		}
-	}
-
-	private String[] getPdPrknPink1Fields() {
-		return new String[]{
-				"ex_mitopd_ex",
-				"ex_mitopd_symptomatic",
-				"in_pink1pd_age",
-				"in_pink1pd_dx",
-				"in_pink1pd_ic",
-				"in_pink1pd_pathvar",
-				"in_pink1pd_var",
-				"in_prknpd_age",
-				"in_prknpd_dx",
-				"in_prknpd_ic",
-				"in_prknpd_pathvar",
-				"in_prknpd_var"
-		};
-	}
-
-	private String[] getIpdFields() {
-		return new String[]{
-				"ex_ipd_ex",
-				"ex_ipd_monogenic",
-				"ex_ipd_symptomatic",
-				"ex_ipd_var",
-				"in_ipd_age",
-				"in_ipd_dx",
-				"in_ipd_ic",
-				"in_ipd_match"
-		};
-	}
-
-	private String[] getNonManifestingFields() {
-		return new String[]{
-				"ex_unaff_ex",
-				"ex_unaff_mri_neuro",
-				"ex_unaff_neuro",
-				"in_pink1unaff_age",
-				"in_pink1unaff_ic",
-				"in_pink1unaff_pathvar",
-				"in_pink1unaff_var",
-				"in_prknunaff_age",
-				"in_prknunaff_ic",
-				"in_prknunaff_pathvar",
-				"in_prknunaff_var"
-		};
-	}
-
-	private String[] getHealthyControlFields() {
-		return new String[]{
-				"ex_hc_ex",
-				"ex_hc_monogenic",
-				"ex_hc_mri_neuro",
-				"ex_hc_neuro",
-				"in_hc_age",
-				"in_hc_ic",
-				"in_hc_match"
-		};
-	}
-
-	private String checkGroupCompletion(String[] fields) {
-		int completedCount = 0;
-		int totalFields = fields.length;
-
-		for (String field : fields) {
-			if (isFieldCompleted(getFieldValue(field))) {
-				completedCount++;
-			}
-		}
-
-		if (totalFields == 0) {
-			return "blue"; // Если нет полей для отображения
-		} else if (completedCount == totalFields) {
-			return "green"; // Все поля заполнены
-		} else if (completedCount > 0) {
-			return "orange"; // Хотя бы одно поле заполнено
+			LOGGER.info("in_cat (group) is null. Defaulting to overall completion check.");
 		} else {
-			return "blue"; // Ни одно поле не заполнено
+			LOGGER.info("Group (in_cat) selected: " + this.in_cat);
+		}
+
+		// Check all required fields for the specific group
+		boolean allGroupCompleted = true;
+		List<String> missingFields = new ArrayList<>();
+		if (this.in_cat == null) {
+			allGroupCompleted = false;
+		} else if ("healthy control".equals(this.in_cat)) {
+			if (!isFilled(this.ex_hc_ex)) { missingFields.add("ex_hc_ex"); allGroupCompleted = false; }
+			if (!isFilled(this.ex_hc_monogenic)) { missingFields.add("ex_hc_monogenic"); allGroupCompleted = false; }
+			if (!isFilled(this.ex_hc_mri_neuro)) { missingFields.add("ex_hc_mri_neuro"); allGroupCompleted = false; }
+			if (!isFilled(this.ex_hc_neuro)) { missingFields.add("ex_hc_neuro"); allGroupCompleted = false; }
+			if (!isFilled(this.in_hc_age)) { missingFields.add("in_hc_age"); allGroupCompleted = false; }
+			if (!isFilled(this.in_hc_ic)) { missingFields.add("in_hc_ic"); allGroupCompleted = false; }
+			if (!isFilled(this.in_hc_match)) { missingFields.add("in_hc_match"); allGroupCompleted = false; }
+		} else if ("individual with iPD".equals(this.in_cat)) {
+			if (!isFilled(this.ex_ipd_ex)) { missingFields.add("ex_ipd_ex"); allGroupCompleted = false; }
+			if (!isFilled(this.ex_ipd_monogenic)) { missingFields.add("ex_ipd_monogenic"); allGroupCompleted = false; }
+			if (!isFilled(this.ex_ipd_symptomatic)) { missingFields.add("ex_ipd_symptomatic"); allGroupCompleted = false; }
+			if (!isFilled(this.ex_ipd_var)) { missingFields.add("ex_ipd_var"); allGroupCompleted = false; }
+			if (!isFilled(this.in_ipd_age)) { missingFields.add("in_ipd_age"); allGroupCompleted = false; }
+			if (!isFilled(this.in_ipd_dx)) { missingFields.add("in_ipd_dx"); allGroupCompleted = false; }
+			if (!isFilled(this.in_ipd_ic)) { missingFields.add("in_ipd_ic"); allGroupCompleted = false; }
+			if (!isFilled(this.in_ipd_match)) { missingFields.add("in_ipd_match"); allGroupCompleted = false; }
+		} else if ("individual with PD and at least one pathogenic variant in PINK1".equals(this.in_cat)) {
+			if (!isFilled(this.ex_mitopd_ex)) { missingFields.add("ex_mitopd_ex"); allGroupCompleted = false; }
+			if (!isFilled(this.ex_mitopd_symptomatic)) { missingFields.add("ex_mitopd_symptomatic"); allGroupCompleted = false; }
+			if (!isFilled(this.in_pink1pd_age)) { missingFields.add("in_pink1pd_age"); allGroupCompleted = false; }
+			if (!isFilled(this.in_pink1pd_dx)) { missingFields.add("in_pink1pd_dx"); allGroupCompleted = false; }
+			if (!isFilled(this.in_pink1pd_ic)) { missingFields.add("in_pink1pd_ic"); allGroupCompleted = false; }
+			if (!isFilled(this.in_pink1pd_pathvar)) { missingFields.add("in_pink1pd_pathvar"); allGroupCompleted = false; }
+			if (!isFilled(this.in_pink1pd_var)) { missingFields.add("in_pink1pd_var"); allGroupCompleted = false; }
+		} else if ("individual with PD and at least one pathogenic variant in PRKN".equals(this.in_cat)) {
+			if (!isFilled(this.ex_mitopd_ex)) { missingFields.add("ex_mitopd_ex"); allGroupCompleted = false; }
+			if (!isFilled(this.ex_mitopd_symptomatic)) { missingFields.add("ex_mitopd_symptomatic"); allGroupCompleted = false; }
+			if (!isFilled(this.in_prknpd_age)) { missingFields.add("in_prknpd_age"); allGroupCompleted = false; }
+			if (!isFilled(this.in_prknpd_dx)) { missingFields.add("in_prknpd_dx"); allGroupCompleted = false; }
+			if (!isFilled(this.in_prknpd_ic)) { missingFields.add("in_prknpd_ic"); allGroupCompleted = false; }
+			if (!isFilled(this.in_prknpd_pathvar)) { missingFields.add("in_prknpd_pathvar"); allGroupCompleted = false; }
+			if (!isFilled(this.in_prknpd_var)) { missingFields.add("in_prknpd_var"); allGroupCompleted = false; }
+		} else if ("unaffected individual with at least one pathogenic variant in PINK1".equals(this.in_cat)) {
+			if (!isFilled(this.ex_unaff_ex)) { missingFields.add("ex_unaff_ex"); allGroupCompleted = false; }
+			if (!isFilled(this.ex_unaff_mri_neuro)) { missingFields.add("ex_unaff_mri_neuro"); allGroupCompleted = false; }
+			if (!isFilled(this.ex_unaff_neuro)) { missingFields.add("ex_unaff_neuro"); allGroupCompleted = false; }
+			if (!isFilled(this.in_pink1unaff_age)) { missingFields.add("in_pink1unaff_age"); allGroupCompleted = false; }
+			if (!isFilled(this.in_pink1unaff_ic)) { missingFields.add("in_pink1unaff_ic"); allGroupCompleted = false; }
+			if (!isFilled(this.in_pink1unaff_pathvar)) { missingFields.add("in_pink1unaff_pathvar"); allGroupCompleted = false; }
+			if (!isFilled(this.in_pink1unaff_var)) { missingFields.add("in_pink1unaff_var"); allGroupCompleted = false; }
+		} else if ("unaffected individual with at least one pathogenic variant in PRKN".equals(this.in_cat)) {
+			if (!isFilled(this.ex_unaff_ex)) { missingFields.add("ex_unaff_ex"); allGroupCompleted = false; }
+			if (!isFilled(this.ex_unaff_mri_neuro)) { missingFields.add("ex_unaff_mri_neuro"); allGroupCompleted = false; }
+			if (!isFilled(this.ex_unaff_neuro)) { missingFields.add("ex_unaff_neuro"); allGroupCompleted = false; }
+			if (!isFilled(this.in_prknunaff_age)) { missingFields.add("in_prknunaff_age"); allGroupCompleted = false; }
+			if (!isFilled(this.in_prknunaff_ic)) { missingFields.add("in_prknunaff_ic"); allGroupCompleted = false; }
+			if (!isFilled(this.in_prknunaff_pathvar)) { missingFields.add("in_prknunaff_pathvar"); allGroupCompleted = false; }
+			if (!isFilled(this.in_prknunaff_var)) { missingFields.add("in_prknunaff_var"); allGroupCompleted = false; }
+		} else {
+			// Unexpected category value
+			LOGGER.warn("Unknown in_cat value: " + this.in_cat);
+			allGroupCompleted = false;
+		}
+
+		if (!missingFields.isEmpty()) {
+			LOGGER.info("Missing required fields for group '" + (this.in_cat == null ? "none" : this.in_cat) + "': "
+					+ String.join(", ", missingFields));
+		}
+
+		// Check if any field (except surveyTwoId and fillingStatus) is completed
+		boolean anyFieldFilled = false;
+		if (isFilled(this.gp2_part) || isFilled(this.in_cat) || isFilled(this.ppmi_part) || isFilled(this.PPMI_ID) ||
+				isFilled(this.ex_hc_ex) || isFilled(this.ex_hc_monogenic) || isFilled(this.ex_hc_mri_neuro) || isFilled(this.ex_hc_neuro) ||
+				isFilled(this.ex_ipd_ex) || isFilled(this.ex_ipd_monogenic) || isFilled(this.ex_ipd_symptomatic) || isFilled(this.ex_ipd_var) ||
+				isFilled(this.ex_mitopd_ex) || isFilled(this.ex_mitopd_symptomatic) ||
+				isFilled(this.ex_unaff_ex) || isFilled(this.ex_unaff_mri_neuro) || isFilled(this.ex_unaff_neuro) ||
+				isFilled(this.in_hc_age) || isFilled(this.in_hc_ic) || isFilled(this.in_hc_match) ||
+				isFilled(this.in_ipd_age) || isFilled(this.in_ipd_dx) || isFilled(this.in_ipd_ic) || isFilled(this.in_ipd_match) ||
+				isFilled(this.in_pink1pd_age) || isFilled(this.in_pink1pd_dx) || isFilled(this.in_pink1pd_ic) || isFilled(this.in_pink1pd_pathvar) || isFilled(this.in_pink1pd_var) ||
+				isFilled(this.in_prknpd_age) || isFilled(this.in_prknpd_dx) || isFilled(this.in_prknpd_ic) || isFilled(this.in_prknpd_pathvar) || isFilled(this.in_prknpd_var) ||
+				isFilled(this.in_pink1unaff_age) || isFilled(this.in_pink1unaff_ic) || isFilled(this.in_pink1unaff_pathvar) || isFilled(this.in_pink1unaff_var) ||
+				isFilled(this.in_prknunaff_age) || isFilled(this.in_prknunaff_ic) || isFilled(this.in_prknunaff_pathvar) || isFilled(this.in_prknunaff_var)) {
+			anyFieldFilled = true;
+		}
+
+		if (anyFieldFilled && this.in_cat == null) {
+			LOGGER.info("Some fields are filled even though no group (in_cat) is selected.");
+		}
+
+		// Determine and return the status color
+		if (this.in_cat != null && allGroupCompleted) {
+			LOGGER.info("All required fields for group '" + this.in_cat + "' are completed. Status = GREEN.");
+			return "green";
+		} else if (anyFieldFilled) {
+			LOGGER.info("At least one field is filled, but not all required fields are complete. Status = ORANGE.");
+			return "orange";
+		} else {
+			LOGGER.info("No fields have been filled out. Status = BLUE.");
+			return "blue";
 		}
 	}
 
-	private boolean isFieldCompleted(String field) {
-		// Проверяем, что поле не пустое
-		return field != null && !field.trim().isEmpty() && !field.trim().equals("-");
-	}
-
-	private String getFieldValue(String fieldName) {
-		// Возвращает значение поля без использования рефлексии
-		switch (fieldName) {
-			case "ex_mitopd_ex": return this.ex_mitopd_ex;
-			case "ex_mitopd_symptomatic": return this.ex_mitopd_symptomatic;
-			case "in_pink1pd_age": return this.in_pink1pd_age;
-			case "in_pink1pd_dx": return this.in_pink1pd_dx;
-			case "in_pink1pd_ic": return this.in_pink1pd_ic;
-			case "in_pink1pd_pathvar": return this.in_pink1pd_pathvar;
-			case "in_pink1pd_var": return this.in_pink1pd_var;
-			case "in_prknpd_age": return this.in_prknpd_age;
-			case "in_prknpd_dx": return this.in_prknpd_dx;
-			case "in_prknpd_ic": return this.in_prknpd_ic;
-			case "in_prknpd_pathvar": return this.in_prknpd_pathvar;
-			case "in_prknpd_var": return this.in_prknpd_var;
-			case "ex_ipd_ex": return this.ex_ipd_ex;
-			case "ex_ipd_monogenic": return this.ex_ipd_monogenic;
-			case "ex_ipd_symptomatic": return this.ex_ipd_symptomatic;
-			case "ex_ipd_var": return this.ex_ipd_var;
-			case "in_ipd_age": return this.in_ipd_age;
-			case "in_ipd_dx": return this.in_ipd_dx;
-			case "in_ipd_ic": return this.in_ipd_ic;
-			case "in_ipd_match": return this.in_ipd_match;
-			case "ex_unaff_ex": return this.ex_unaff_ex;
-			case "ex_unaff_mri_neuro": return this.ex_unaff_mri_neuro;
-			case "ex_unaff_neuro": return this.ex_unaff_neuro;
-			case "in_pink1unaff_age": return this.in_pink1unaff_age;
-			case "in_pink1unaff_ic": return this.in_pink1unaff_ic;
-			case "in_pink1unaff_pathvar": return this.in_pink1unaff_pathvar;
-			case "in_pink1unaff_var": return this.in_pink1unaff_var;
-			case "in_prknunaff_age": return this.in_prknunaff_age;
-			case "in_prknunaff_ic": return this.in_prknunaff_ic;
-			case "in_prknunaff_pathvar": return this.in_prknunaff_pathvar;
-			case "in_prknunaff_var": return this.in_prknunaff_var;
-			case "ex_hc_ex": return this.ex_hc_ex;
-			case "ex_hc_monogenic": return this.ex_hc_monogenic;
-			case "ex_hc_mri_neuro": return this.ex_hc_mri_neuro;
-			case "ex_hc_neuro": return this.ex_hc_neuro;
-			case "in_hc_age": return this.in_hc_age;
-			case "in_hc_ic": return this.in_hc_ic;
-			case "in_hc_match": return this.in_hc_match;
-			default: return null;
-		}
+	/** Helper to check if a field value is filled (non-null and not empty). */
+	private boolean isFilled(String value) {
+		return value != null && !value.trim().isEmpty() && !value.trim().equals("-");
 	}
 
 }

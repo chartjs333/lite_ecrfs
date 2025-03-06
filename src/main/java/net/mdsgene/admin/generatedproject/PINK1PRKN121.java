@@ -355,50 +355,50 @@ public class PINK1PRKN121 implements java.io.Serializable {
 	}
 
 	private boolean areAllFieldsCompleted() {
-		// Проверяем, что все обязательные поля заполнены
 		boolean mainFieldsCompleted = !isEmpty(this.moca_ex);
 
-		// Если moca_ex равно "yes", проверяем дополнительные поля
-		if ("yes".equalsIgnoreCase(this.moca_ex)) {
-			boolean conditionalFieldsCompleted = !isEmpty(this.moca_bw) &&
-					!isEmpty(this.moca_camel) &&
-					!isEmpty(this.moca_church) &&
-					!isEmpty(this.moca_city) &&
-					!isEmpty(this.moca_clock_cont) &&
-					!isEmpty(this.moca_clock_hands) &&
-					!isEmpty(this.moca_clock_num) &&
-					!isEmpty(this.moca_cube) &&
-					!isEmpty(this.moca_daisy) &&
-					!isEmpty(this.moca_day) &&
-					!isEmpty(this.moca_face) &&
-					!isEmpty(this.moca_flu_num) &&
-					!isEmpty(this.moca_flu_sc) &&
-					!isEmpty(this.moca_fw) &&
-					!isEmpty(this.moca_limit) &&
-					!isEmpty(this.moca_lio) &&
-					!isEmpty(this.moca_month) &&
-					!isEmpty(this.moca_place) &&
-					!isEmpty(this.moca_red) &&
-					!isEmpty(this.moca_rep) &&
-					!isEmpty(this.moca_rhino) &&
-					!isEmpty(this.moca_ser7) &&
-					!isEmpty(this.moca_tm) &&
-					!isEmpty(this.moca_total) &&
-					!isEmpty(this.moca_velvet) &&
-					!isEmpty(this.moca_vig) &&
-					!isEmpty(this.moca_year);
+		// Если "yes", проверяем и остальные поля
+		if ("0".equalsIgnoreCase(this.moca_ex)) {
+			boolean conditionalFieldsCompleted = !isEmpty(this.moca_bw)
+					&& !isEmpty(this.moca_camel)
+					&& !isEmpty(this.moca_church)
+					&& !isEmpty(this.moca_city)
+					&& !isEmpty(this.moca_clock_cont)
+					&& !isEmpty(this.moca_clock_hands)
+					&& !isEmpty(this.moca_clock_num)
+					&& !isEmpty(this.moca_cube)
+					&& !isEmpty(this.moca_daisy)
+					&& !isEmpty(this.moca_day)
+					&& !isEmpty(this.moca_face)
+					&& !isEmpty(this.moca_flu_num)
+					&& !isEmpty(this.moca_flu_sc)
+					&& !isEmpty(this.moca_fw)
+					&& !isEmpty(this.moca_limit)
+					&& !isEmpty(this.moca_lio)
+					&& !isEmpty(this.moca_month)
+					&& !isEmpty(this.moca_place)
+					&& !isEmpty(this.moca_red)
+					&& !isEmpty(this.moca_rep)
+					&& !isEmpty(this.moca_rhino)
+					&& !isEmpty(this.moca_ser7)
+					&& !isEmpty(this.moca_tm)
+					&& !isEmpty(this.moca_total)
+					&& !isEmpty(this.moca_velvet)
+					&& !isEmpty(this.moca_vig)
+					&& !isEmpty(this.moca_year);
 
 			return mainFieldsCompleted && conditionalFieldsCompleted;
 		}
 
-		return mainFieldsCompleted;
+		// Если не "yes", считаем незавершённым (возвращаем false)
+		return false;
 	}
 
 	private boolean isAtLeastOneFieldCompleted() {
 		// Проверяем, заполнено ли хотя бы одно поле
 		boolean mainFieldsCompleted = !isEmpty(this.moca_ex);
 
-		if ("yes".equalsIgnoreCase(this.moca_ex)) {
+		if ("0".equalsIgnoreCase(this.moca_ex)) {
 			boolean conditionalFieldsCompleted = !isEmpty(this.moca_bw) ||
 					!isEmpty(this.moca_camel) ||
 					!isEmpty(this.moca_church) ||

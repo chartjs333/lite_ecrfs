@@ -757,7 +757,12 @@ public class PINK1PRKN14 implements java.io.Serializable {
 	}
 
 	public String getStatusColor() {
-		// Проверяем, заполнены ли все поля и нет ли "not collected" в биоматериалах
+        // First, check if no field is filled at all.
+        if (!isSomeFieldsCompleted()) {
+            return "blue"; // Ни одно поле не заполнено
+        }
+
+        // Then, check if all fields are completed and no biomaterial is "not collected"
 		boolean allCompleted = areAllFieldsCompleted();
 		boolean anyNotCollected = isAnyBiomaterialNotCollected();
 
@@ -772,6 +777,78 @@ public class PINK1PRKN14 implements java.io.Serializable {
 
 	private boolean areAllFieldsCompleted() {
 		// Проверяем, что все поля, которые должны отображаться, заполнены
+		if (!isFieldCompleted(this.biom_edta)) logField("biom_edta");
+		if (!isFieldCompleted(this.biom_edta_date_day)) logField("biom_edta_date_day");
+		if (!isFieldCompleted(this.biom_edta_date_month)) logField("biom_edta_date_month");
+		if (!isFieldCompleted(this.biom_edta_date_year)) logField("biom_edta_date_year");
+		if (!isFieldCompleted(this.biom_edta_freeze_date_day)) logField("biom_edta_freeze_date_day");
+		if (!isFieldCompleted(this.biom_edta_freeze_date_month)) logField("biom_edta_freeze_date_month");
+		if (!isFieldCompleted(this.biom_edta_freeze_date_year)) logField("biom_edta_freeze_date_year");
+		if (!isFieldCompleted(this.biom_edta_freeze_time)) logField("biom_edta_freeze_time");
+		if (shouldDisplayField("biom_edta_q") && !isFieldCompleted(this.biom_edta_q)) logField("biom_edta_q");
+		if (!isFieldCompleted(this.biom_edta_temp)) logField("biom_edta_temp");
+		if (!isFieldCompleted(this.biom_edta_time)) logField("biom_edta_time");
+		if (!isFieldCompleted(this.biom_fasting)) logField("biom_fasting");
+		if (!isFieldCompleted(this.biom_food_date_day)) logField("biom_food_date_day");
+		if (!isFieldCompleted(this.biom_food_date_month)) logField("biom_food_date_month");
+		if (!isFieldCompleted(this.biom_food_date_year)) logField("biom_food_date_year");
+		if (!isFieldCompleted(this.biom_food_time)) logField("biom_food_time");
+		if (!isFieldCompleted(this.biom_pax)) logField("biom_pax");
+		if (!isFieldCompleted(this.biom_pax_date_day)) logField("biom_pax_date_day");
+		if (!isFieldCompleted(this.biom_pax_date_month)) logField("biom_pax_date_month");
+		if (!isFieldCompleted(this.biom_pax_date_year)) logField("biom_pax_date_year");
+		if (!isFieldCompleted(this.biom_pax_freeze_time)) logField("biom_pax_freeze_time");
+		if (shouldDisplayField("biom_pax_q") && !isFieldCompleted(this.biom_pax_q)) logField("biom_pax_q");
+		if (!isFieldCompleted(this.biom_pax_temp)) logField("biom_pax_temp");
+		if (!isFieldCompleted(this.biom_pax_time)) logField("biom_pax_time");
+		if (!isFieldCompleted(this.biom_pax_time_date_day)) logField("biom_pax_time_date_day");
+		if (!isFieldCompleted(this.biom_pax_time_date_month)) logField("biom_pax_time_date_month");
+		if (!isFieldCompleted(this.biom_pax_time_date_year)) logField("biom_pax_time_date_year");
+		if (!isFieldCompleted(this.biom_pbmcs)) logField("biom_pbmcs");
+		if (!isFieldCompleted(this.biom_pbmcs_date_day)) logField("biom_pbmcs_date_day");
+		if (!isFieldCompleted(this.biom_pbmcs_date_month)) logField("biom_pbmcs_date_month");
+		if (!isFieldCompleted(this.biom_pbmcs_date_year)) logField("biom_pbmcs_date_year");
+		if (!isFieldCompleted(this.biom_pbmcs_freeze_date_day)) logField("biom_pbmcs_freeze_date_day");
+		if (!isFieldCompleted(this.biom_pbmcs_freeze_date_month)) logField("biom_pbmcs_freeze_date_month");
+		if (!isFieldCompleted(this.biom_pbmcs_freeze_date_year)) logField("biom_pbmcs_freeze_date_year");
+		if (!isFieldCompleted(this.biom_pbmcs_freeze_time)) logField("biom_pbmcs_freeze_time");
+		if (shouldDisplayField("biom_pbmcs_q") && !isFieldCompleted(this.biom_pbmcs_q)) logField("biom_pbmcs_q");
+		if (!isFieldCompleted(this.biom_pbmcs_temp)) logField("biom_pbmcs_temp");
+		if (!isFieldCompleted(this.biom_pbmcs_time)) logField("biom_pbmcs_time");
+		if (!isFieldCompleted(this.biom_pdmed)) logField("biom_pdmed");
+		if (!isFieldCompleted(this.biom_pdmed_date_day)) logField("biom_pdmed_date_day");
+		if (!isFieldCompleted(this.biom_pdmed_date_month)) logField("biom_pdmed_date_month");
+		if (!isFieldCompleted(this.biom_pdmed_date_year)) logField("biom_pdmed_date_year");
+		if (!isFieldCompleted(this.biom_pdmed_time)) logField("biom_pdmed_time");
+		if (!isFieldCompleted(this.biom_plasma)) logField("biom_plasma");
+		if (!isFieldCompleted(this.biom_plasma_date_day)) logField("biom_plasma_date_day");
+		if (!isFieldCompleted(this.biom_plasma_date_month)) logField("biom_plasma_date_month");
+		if (!isFieldCompleted(this.biom_plasma_date_year)) logField("biom_plasma_date_year");
+		if (!isFieldCompleted(this.biom_plasma_freeze_date_day)) logField("biom_plasma_freeze_date_day");
+		if (!isFieldCompleted(this.biom_plasma_freeze_date_month)) logField("biom_plasma_freeze_date_month");
+		if (!isFieldCompleted(this.biom_plasma_freeze_date_year)) logField("biom_plasma_freeze_date_year");
+		if (!isFieldCompleted(this.biom_plasma_freeze_time)) logField("biom_plasma_freeze_time");
+		if (shouldDisplayField("biom_plasma_q") && !isFieldCompleted(this.biom_plasma_q)) logField("biom_plasma_q");
+		if (!isFieldCompleted(this.biom_plasma_temp)) logField("biom_plasma_temp");
+		if (!isFieldCompleted(this.biom_plasma_time)) logField("biom_plasma_time");
+		if (!isFieldCompleted(this.biom_serum)) logField("biom_serum");
+		if (!isFieldCompleted(this.biom_serum_date_day)) logField("biom_serum_date_day");
+		if (!isFieldCompleted(this.biom_serum_date_month)) logField("biom_serum_date_month");
+		if (!isFieldCompleted(this.biom_serum_date_year)) logField("biom_serum_date_year");
+		if (!isFieldCompleted(this.biom_serum_freeze_date_day)) logField("biom_serum_freeze_date_day");
+		if (!isFieldCompleted(this.biom_serum_freeze_date_month)) logField("biom_serum_freeze_date_month");
+		if (!isFieldCompleted(this.biom_serum_freeze_date_year)) logField("biom_serum_freeze_date_year");
+		if (!isFieldCompleted(this.biom_serum_freeze_time)) logField("biom_serum_freeze_time");
+		if (shouldDisplayField("biom_serum_q") && !isFieldCompleted(this.biom_serum_q)) logField("biom_serum_q");
+		if (!isFieldCompleted(this.biom_serum_temp)) logField("biom_serum_temp");
+		if (!isFieldCompleted(this.biom_serum_time)) logField("biom_serum_time");
+		if (!isFieldCompleted(this.biom_urine)) logField("biom_urine");
+		if (!isFieldCompleted(this.biom_urine_date_day)) logField("biom_urine_date_day");
+		if (!isFieldCompleted(this.biom_urine_date_month)) logField("biom_urine_date_month");
+		if (!isFieldCompleted(this.biom_urine_date_year)) logField("biom_urine_date_year");
+		if (shouldDisplayField("biom_urine_q") && !isFieldCompleted(this.biom_urine_q)) logField("biom_urine_q");
+		if (!isFieldCompleted(this.biom_urine_time)) logField("biom_urine_time");
+
 		return isFieldCompleted(this.biom_edta) &&
 				isFieldCompleted(this.biom_edta_date_day) &&
 				isFieldCompleted(this.biom_edta_date_month) &&
@@ -845,14 +922,18 @@ public class PINK1PRKN14 implements java.io.Serializable {
 				isFieldCompleted(this.biom_urine_time);
 	}
 
+	private void logField(String fieldName) {
+		System.out.println("Field not completed: " + fieldName);
+	}
+
 	private boolean isAnyBiomaterialNotCollected() {
 		// Проверяем, есть ли хотя бы один биоматериал со значением "not collected"
-		return "not collected".equals(this.biom_edta) ||
-				"not collected".equals(this.biom_pax) ||
-				"not collected".equals(this.biom_pbmcs) ||
-				"not collected".equals(this.biom_plasma) ||
-				"not collected".equals(this.biom_serum) ||
-				"not collected".equals(this.biom_urine);
+		return !"1".equals(this.biom_edta) ||
+				!"1".equals(this.biom_pax) ||
+				!"1".equals(this.biom_pbmcs) ||
+				!"1".equals(this.biom_plasma) ||
+				!"1".equals(this.biom_serum) ||
+				!"1".equals(this.biom_urine);
 	}
 
 	private boolean isSomeFieldsCompleted() {

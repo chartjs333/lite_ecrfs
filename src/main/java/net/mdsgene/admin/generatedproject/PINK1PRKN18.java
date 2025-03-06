@@ -1,10 +1,21 @@
 package net.mdsgene.admin.generatedproject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.Field;
 import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
+
+
 @Entity
 @Table(name = "PINK1PRKN18", schema = "public")
 @Cacheable(false)
 public class PINK1PRKN18 implements java.io.Serializable {
+
+	private static final Logger log = LoggerFactory.getLogger(PINK1PRKN18.class);
+
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="PINK1PRKN18_id_seq")
     @SequenceGenerator(name="PINK1PRKN18_id_seq", sequenceName="PINK1PRKN18_id_seq", allocationSize=1)
@@ -1148,189 +1159,124 @@ public class PINK1PRKN18 implements java.io.Serializable {
 
 
 	public String getStatusColor() {
-		if (!isAtLeastOneFieldCompleted()) {
-			return "blue"; // Ни одно поле не заполнено
-		} else if (areAllFieldsCompleted()) {
-			return "green"; // Все заполнены (с учетом выбранных групп)
-		} else {
-			return "orange"; // Частично заполнено
+		// Проверяем, заполнены ли все обязательные поля
+		boolean allCompleted = areAllFieldsCompleted();
+
+		// Если все обязательные поля заполнены -> green
+		if (allCompleted) {
+			return "green";
+		}
+		// Если заполнено хотя бы одно поле -> orange
+		else if (isAtLeastOneFieldCompleted()) {
+			return "orange";
+		}
+		// Если ни одно поле не заполнено -> blue
+		else {
+			return "blue";
 		}
 	}
 
+	/**
+	 * Проверяет, заполнены ли все обязательные поля.
+	 * Если все обязательные поля заполнены -> true, иначе -> false.
+	 */
 	private boolean areAllFieldsCompleted() {
-		// Проверяем, что все обязательные поля заполнены, учитывая группы и условия @Condition
-		return isGroupCompleted("cond_cat_1") &&
-				isGroupCompleted("cond_cat_2") &&
-				isGroupCompleted("cond_cat_3") &&
-				isGroupCompleted("cond_cat_4") &&
-				isGroupCompleted("cond_cat_5") &&
-				isGroupCompleted("cond_cat_6") &&
-				isGroupCompleted("cond_cat_7") &&
-				isGroupCompleted("cond_cat_8") &&
-				isGroupCompleted("cond_cat_9") &&
-				isGroupCompleted("cond_cat_10") &&
-				isGroupCompleted("cond_res_1") &&
-				isGroupCompleted("cond_res_2") &&
-				isGroupCompleted("cond_res_3") &&
-				isGroupCompleted("cond_res_4") &&
-				isGroupCompleted("cond_res_5") &&
-				isGroupCompleted("cond_res_6") &&
-				isGroupCompleted("cond_res_7") &&
-				isGroupCompleted("cond_res_8") &&
-				isGroupCompleted("cond_res_9") &&
-				isGroupCompleted("cond_res_10");
+		boolean mainFieldsCompleted = true;
+		int count = 0;
+
+		for (int i = 1; i <= 10; i++) {
+			if (!isAtLeastOneFieldCompleted(i)) {
+				continue;
+			}
+			count++;
+			// Основные поля, которые всегда должны быть заполнены
+			if (isEmpty(getFieldValue("cond_cat_" + i)) ||
+					isEmpty(getFieldValue("cond_dx_" + i)) ||
+					isEmpty(getFieldValue("cond_res_" + i))) {
+				log.info("Обязательное поле cond_cat_" + i + " или cond_dx_" + i + " или cond_res_" + i + " не заполнено");
+				mainFieldsCompleted = false;
+			}
+
+			// Проверка зависимых полей для категорий (Allergy/Other)
+			if ("Allergy/Immunologic – Please note drug allergies=116".equals(getFieldValue("cond_cat_" + i))) { // Allergy/Immunologic
+				if (isEmpty(getFieldValue("cond_cat_" + i + "_dr_all"))) {
+					log.info("Поле cond_cat_" + i + "_dr_all не заполнено, хотя выбрана категория Allergy/Immunologic");
+					mainFieldsCompleted = false;
+				}
+			}
+			if ("Other".equals(getFieldValue("cond_cat_" + i))) { // Other
+				if (isEmpty(getFieldValue("cond_cat_" + i + "_oth"))) {
+					log.info("Поле cond_cat_" + i + "_oth не заполнено, хотя выбрана категория Other");
+					mainFieldsCompleted = false;
+				}
+			}
+
+			// Проверка зависимых полей для даты разрешения (если resolved == yes)
+			if ("1".equals(getFieldValue("cond_res_" + i))) {
+				if (isEmpty(getFieldValue("cond_res_dat_" + i + "_year")) ||
+						isEmpty(getFieldValue("cond_res_dat_" + i + "_month")) ||
+						isEmpty(getFieldValue("cond_res_dat_" + i + "_day"))) {
+					log.info("Поле cond_res_dat_" + i + "_year или month или day не заполнено, хотя cond_res_" + i + " == yes");
+					mainFieldsCompleted = false;
+				}
+			}
+		}
+
+		return mainFieldsCompleted && count > 0;
 	}
 
-	private boolean isGroupCompleted(String groupPrefix) {
-		// Проверяем, что все поля в группе заполнены, если группа выбрана
-		String groupValue = getFieldValue(groupPrefix);
+	/**
+	 * Проверяет, заполнено ли хотя бы одно из полей.
+	 */
+	private boolean isAtLeastOneFieldCompleted() {
+		for (int i = 1; i <= 10; i++) {
+			if (!isEmpty(getFieldValue("cond_cat_" + i)) ||
+					!isEmpty(getFieldValue("cond_dx_" + i)) ||
+					!isEmpty(getFieldValue("cond_res_" + i)) ||
+					!isEmpty(getFieldValue("cond_res_dat_" + i + "_year")) ||
+					!isEmpty(getFieldValue("cond_res_dat_" + i + "_month")) ||
+					!isEmpty(getFieldValue("cond_res_dat_" + i + "_day")) ||
+					!isEmpty(getFieldValue("cond_cat_" + i + "_dr_all")) ||
+					!isEmpty(getFieldValue("cond_cat_" + i + "_oth"))) {
+				return true;
+			}
+		}
+		return false;
+	}
 
-		if (groupValue == null || groupValue.isEmpty()) {
-			// Группа не выбрана, игнорируем связанные поля
+	private boolean isAtLeastOneFieldCompleted(int i) {
+		if (!isEmpty(getFieldValue("cond_cat_" + i)) ||
+				!isEmpty(getFieldValue("cond_dx_" + i)) ||
+				!isEmpty(getFieldValue("cond_res_" + i)) ||
+				!isEmpty(getFieldValue("cond_res_dat_" + i + "_year")) ||
+				!isEmpty(getFieldValue("cond_res_dat_" + i + "_month")) ||
+				!isEmpty(getFieldValue("cond_res_dat_" + i + "_day")) ||
+				!isEmpty(getFieldValue("cond_cat_" + i + "_dr_all")) ||
+				!isEmpty(getFieldValue("cond_cat_" + i + "_oth"))) {
 			return true;
 		}
-
-		// Проверяем связанные поля в группе, учитывая @Condition
-		switch (groupPrefix) {
-			case "cond_cat_1":
-			case "cond_cat_2":
-			case "cond_cat_3":
-			case "cond_cat_4":
-			case "cond_cat_5":
-			case "cond_cat_6":
-			case "cond_cat_7":
-			case "cond_cat_8":
-			case "cond_cat_9":
-			case "cond_cat_10":
-				boolean isDrAllCompleted = !shouldDisplayField(groupPrefix + "_dr_all") || isFieldCompleted(getFieldValue(groupPrefix + "_dr_all"));
-				boolean isOthCompleted = !shouldDisplayField(groupPrefix + "_oth") || isFieldCompleted(getFieldValue(groupPrefix + "_oth"));
-				return isDrAllCompleted && isOthCompleted;
-			case "cond_res_1":
-			case "cond_res_2":
-			case "cond_res_3":
-			case "cond_res_4":
-			case "cond_res_5":
-			case "cond_res_6":
-			case "cond_res_7":
-			case "cond_res_8":
-			case "cond_res_9":
-			case "cond_res_10":
-				boolean isDayCompleted = !shouldDisplayField(groupPrefix + "_dat_day") || isFieldCompleted(getFieldValue(groupPrefix + "_dat_day"));
-				boolean isMonthCompleted = !shouldDisplayField(groupPrefix + "_dat_month") || isFieldCompleted(getFieldValue(groupPrefix + "_dat_month"));
-				boolean isYearCompleted = !shouldDisplayField(groupPrefix + "_dat_year") || isFieldCompleted(getFieldValue(groupPrefix + "_dat_year"));
-				return isDayCompleted && isMonthCompleted && isYearCompleted;
-			default:
-				return true; // По умолчанию группа считается завершенной
-		}
+		return false;
 	}
 
-	private boolean isAtLeastOneFieldCompleted() {
-		// Проверяем, заполнено ли хотя бы одно поле
-		return isFieldCompleted(this.cond_cat_1) ||
-				isFieldCompleted(this.cond_cat_2) ||
-				isFieldCompleted(this.cond_cat_3) ||
-				isFieldCompleted(this.cond_cat_4) ||
-				isFieldCompleted(this.cond_cat_5) ||
-				isFieldCompleted(this.cond_cat_6) ||
-				isFieldCompleted(this.cond_cat_7) ||
-				isFieldCompleted(this.cond_cat_8) ||
-				isFieldCompleted(this.cond_cat_9) ||
-				isFieldCompleted(this.cond_cat_10) ||
-				isFieldCompleted(this.cond_res_1) ||
-				isFieldCompleted(this.cond_res_2) ||
-				isFieldCompleted(this.cond_res_3) ||
-				isFieldCompleted(this.cond_res_4) ||
-				isFieldCompleted(this.cond_res_5) ||
-				isFieldCompleted(this.cond_res_6) ||
-				isFieldCompleted(this.cond_res_7) ||
-				isFieldCompleted(this.cond_res_8) ||
-				isFieldCompleted(this.cond_res_9) ||
-				isFieldCompleted(this.cond_res_10);
-	}
-
-	private boolean isFieldCompleted(String field) {
-		// Проверяем, что поле не равно null и не пустое
-		return field != null && !field.isEmpty() && !"-".equals(field);
-	}
-
+	/**
+	 * Получает значение поля по имени.
+	 */
 	private String getFieldValue(String fieldName) {
-		// Возвращает значение поля по его имени
 		try {
-			java.lang.reflect.Method method = this.getClass().getMethod("get" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1));
-			return (String) method.invoke(this);
-		} catch (Exception e) {
+			Field field = this.getClass().getDeclaredField(fieldName);
+			field.setAccessible(true);
+			return (String) field.get(this);
+		} catch (NoSuchFieldException | IllegalAccessException e) {
+			log.warn("Ошибка при доступе к полю: " + fieldName);
 			return null;
 		}
 	}
 
-	private boolean shouldDisplayField(String fieldName) {
-		// Логика проверки, должно ли поле отображаться на основе @Condition
-		switch (fieldName) {
-			case "cond_cat_1_dr_all":
-			case "cond_cat_2_dr_all":
-			case "cond_cat_3_dr_all":
-			case "cond_cat_4_dr_all":
-			case "cond_cat_5_dr_all":
-			case "cond_cat_6_dr_all":
-			case "cond_cat_7_dr_all":
-			case "cond_cat_8_dr_all":
-			case "cond_cat_9_dr_all":
-			case "cond_cat_10_dr_all":
-				return "Allergy/Immunologic – Please note drug allergies".equals(getFieldValue(fieldName.replace("_dr_all", "")));
-			case "cond_cat_1_oth":
-			case "cond_cat_2_oth":
-			case "cond_cat_3_oth":
-			case "cond_cat_4_oth":
-			case "cond_cat_5_oth":
-			case "cond_cat_6_oth":
-			case "cond_cat_7_oth":
-			case "cond_cat_8_oth":
-			case "cond_cat_9_oth":
-			case "cond_cat_10_oth":
-				return "Other".equals(getFieldValue(fieldName.replace("_oth", "")));
-			case "cond_res_1_dat_day":
-			case "cond_res_1_dat_month":
-			case "cond_res_1_dat_year":
-				return "1".equals(getFieldValue("cond_res_1"));
-			case "cond_res_2_dat_day":
-			case "cond_res_2_dat_month":
-			case "cond_res_2_dat_year":
-				return "1".equals(getFieldValue("cond_res_2"));
-			case "cond_res_3_dat_day":
-			case "cond_res_3_dat_month":
-			case "cond_res_3_dat_year":
-				return "1".equals(getFieldValue("cond_res_3"));
-			case "cond_res_4_dat_day":
-			case "cond_res_4_dat_month":
-			case "cond_res_4_dat_year":
-				return "1".equals(getFieldValue("cond_res_4"));
-			case "cond_res_5_dat_day":
-			case "cond_res_5_dat_month":
-			case "cond_res_5_dat_year":
-				return "1".equals(getFieldValue("cond_res_5"));
-			case "cond_res_6_dat_day":
-			case "cond_res_6_dat_month":
-			case "cond_res_6_dat_year":
-				return "1".equals(getFieldValue("cond_res_6"));
-			case "cond_res_7_dat_day":
-			case "cond_res_7_dat_month":
-			case "cond_res_7_dat_year":
-				return "1".equals(getFieldValue("cond_res_7"));
-			case "cond_res_8_dat_day":
-			case "cond_res_8_dat_month":
-			case "cond_res_8_dat_year":
-				return "1".equals(getFieldValue("cond_res_8"));
-			case "cond_res_9_dat_day":
-			case "cond_res_9_dat_month":
-			case "cond_res_9_dat_year":
-				return "1".equals(getFieldValue("cond_res_9"));
-			case "cond_res_10_dat_day":
-			case "cond_res_10_dat_month":
-			case "cond_res_10_dat_year":
-				return "1".equals(getFieldValue("cond_res_10"));
-			default:
-				return false; // По умолчанию поле не отображается
-		}
+	/**
+	 * Проверяет, является ли поле пустым.
+	 */
+	private boolean isEmpty(String value) {
+		return value == null || value.trim().isEmpty() || value.trim().equals("-");
 	}
 }
 

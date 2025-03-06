@@ -461,7 +461,8 @@ public class PINK1PRKN119 implements java.io.Serializable {
 				isFieldCompleted(this.mdsupdrs_3_fac) &&
 				isFieldCompleted(this.mdsupdrs_3_ft_l) &&
 				isFieldCompleted(this.mdsupdrs_3_ft_r) &&
-				isFieldCompleted(this.mdsupdrs_3_gait);
+				isFieldCompleted(this.mdsupdrs_3_gait) &&
+				isFieldCompleted(this.mdsupdrs_3_pdmed); // Добавляем проверку
 	}
 
 	private boolean isAtLeastOneFieldCompleted() {
@@ -475,7 +476,9 @@ public class PINK1PRKN119 implements java.io.Serializable {
 				isFieldCompleted(this.mdsupdrs_3_fac) ||
 				isFieldCompleted(this.mdsupdrs_3_ft_l) ||
 				isFieldCompleted(this.mdsupdrs_3_ft_r) ||
-				isFieldCompleted(this.mdsupdrs_3_gait);
+				isFieldCompleted(this.mdsupdrs_3_gait) ||
+				isFieldCompleted(this.mdsupdrs_3_on) ||
+				isFieldCompleted(this.mdsupdrs_3_pdmed); // Добавляем проверку
 	}
 
 	private boolean isFieldCompleted(String field) {
@@ -485,7 +488,7 @@ public class PINK1PRKN119 implements java.io.Serializable {
 	private boolean shouldDisplayField(String fieldName) {
 		switch (fieldName) {
 			case "mdsupdrs_3_dk_e_r":
-				return "yes".equalsIgnoreCase(this.mdsupdrs_3_dk_e);
+				return "1".equalsIgnoreCase(this.mdsupdrs_3_dk_e);
 			default:
 				return true;
 		}
@@ -493,3 +496,4 @@ public class PINK1PRKN119 implements java.io.Serializable {
 }
 
 //green if all items completed, orange if some but not all, blue if none are completed
+
