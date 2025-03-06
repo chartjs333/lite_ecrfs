@@ -46,15 +46,20 @@ public class SurveyController {
     private IUserDAO userDAO;
 
     @GetMapping(value = Routes.Survey.GET, name = "get-surveys")
-    public String dashboard(Model model, Pageable pageable) {
+    public String getSurvey(Model model, Pageable pageable) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User loggedInUser = userDAO.findOneByUsername(authentication.getName());
+        
+        // Check if user is logged in
         if (loggedInUser == null) {
             return "redirect:/user/sign_in";
         }
+        
+        // Check if password needs to be changed
         if (!loggedInUser.isPasswordChanged()) {
             return "redirect:/change-password";
         }
+        
         int userId = loggedInUser.getId();
         Page<PINK1PRKN11> page = ecrfService.findAll(pageable);
         model.addAttribute("user_id", userId);
@@ -62,6 +67,35 @@ public class SurveyController {
         model.addAttribute("createSurveyRequest", new CreateSurveyRequest());
         model.addAttribute("updateSurveyRequest", new UpdateSurveyRequest());
         return GET_SURVEY_VIEW;
+    }
+
+    private boolean isPasswordValid(String password) {
+        // Password must be 12-16 characters long
+        if (password.length() < 12 || password.length() > 16) {
+            return false;
+        }
+        
+        // Must contain at least one uppercase letter
+        if (!password.matches(".*[A-Z].*")) {
+            return false;
+        }
+        
+        // Must contain at least one lowercase letter
+        if (!password.matches(".*[a-z].*")) {
+            return false;
+        }
+        
+        // Must contain at least one number
+        if (!password.matches(".*[0-9].*")) {
+            return false;
+        }
+        
+        // Must contain at least one special character (!@#$%^*-_)
+        if (!password.matches(".*[!@#$%^*\\-_].*")) {
+            return false;
+        }
+        
+        return true;
     }
 
     @PostMapping(value = Routes.Survey.AJAX_GET, consumes = MediaType.APPLICATION_JSON_VALUE)

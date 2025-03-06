@@ -27,30 +27,64 @@ public class ChangePasswordController {
     // Обработка отправки формы
     @PostMapping("/change-password")
     public String handleChangePassword(@ModelAttribute("changePasswordDTO") ChangePasswordDTO dto, Model model) {
-        // Получаем текущего пользователя из контекста безопасности
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentUsername = authentication.getName();
         
-        // Проверка совпадения паролей
+        // Check if passwords match
         if (!dto.isPasswordConfirmed()) {
-            model.addAttribute("error", "Новый пароль и подтверждение не совпадают");
+            model.addAttribute("error", "New password and confirmation do not match");
+            return "changePassword";
+        }
+        
+        // Validate new password
+        if (!isPasswordValid(dto.getNewPassword())) {
+            model.addAttribute("error", "Password does not meet requirements");
             return "changePassword";
         }
         
         try {
-            // Вызываем сервис для смены пароля текущего пользователя
+            // Change password
             boolean changed = userService.changePassword(currentUsername, 
-                                                         dto.getCurrentPassword(), 
-                                                         dto.getNewPassword());
+                                                       dto.getCurrentPassword(), 
+                                                       dto.getNewPassword());
             if (changed) {
-                model.addAttribute("message", "Пароль успешно изменён");
+                return "redirect:/survey"; // Redirect to survey page after successful change
             } else {
-                model.addAttribute("error", "Не удалось изменить пароль. Проверьте введенный текущий пароль");
+                model.addAttribute("error", "Failed to change password. Please check your current password");
             }
         } catch (Exception e) {
-            model.addAttribute("error", "Произошла ошибка при смене пароля: " + e.getMessage());
+            model.addAttribute("error", "An error occurred while changing password: " + e.getMessage());
         }
         
         return "changePassword";
+    }
+
+    private boolean isPasswordValid(String password) {
+        // Password must be 12-16 characters long
+        if (password.length() < 12 || password.length() > 16) {
+            return false;
+        }
+        
+        // Must contain at least one uppercase letter
+        if (!password.matches(".*[A-Z].*")) {
+            return false;
+        }
+        
+        // Must contain at least one lowercase letter
+        if (!password.matches(".*[a-z].*")) {
+            return false;
+        }
+        
+        // Must contain at least one number
+        if (!password.matches(".*[0-9].*")) {
+            return false;
+        }
+        
+        // Must contain at least one special character (!@#$%^*-_)
+        if (!password.matches(".*[!@#$%^*\\-_].*")) {
+            return false;
+        }
+        
+        return true;
     }
 }
