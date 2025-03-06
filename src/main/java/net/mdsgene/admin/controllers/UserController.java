@@ -1,7 +1,6 @@
 package net.mdsgene.admin.controllers;
 
 import net.mdsgene.admin.WebSecurityConfig;
-import net.mdsgene.admin.admintool.business.MDSUserVerificationHelper;
 import net.mdsgene.admin.admintool.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -31,9 +30,6 @@ public class UserController {
 
 	@Autowired
 	WebSecurityConfig ws;
-
-	@Autowired
-	MDSUserVerificationHelper mdsUserVerificationHelper;
 
 	@Autowired
 	CrossroadController crossroadController;

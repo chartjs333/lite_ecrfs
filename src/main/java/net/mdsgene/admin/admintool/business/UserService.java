@@ -28,9 +28,6 @@ public class UserService implements UserDetailsService {
     private IUserDAO userDAO;
 
     @Autowired
-    private MDSUserVerificationHelper mdsUserVerificationHelper;
-
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
     public final String CURRENT_USER_KEY = "CURRENT_USER";
@@ -67,21 +64,7 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = null;
-        if (null != username && username.contains("@")) {
-            user = userDAO.findOneByUsername(username);
-        } else {
-            try {
-                int status = mdsUserVerificationHelper.getObjectAccessorValue(username);
-                if (status == 200) {
-                    user = new User();
-                    user.setUsername("mds-member");
-                    user.setPassword(username); // which is loginToken in this case;
-                    user.setRole("USER");
-                }
-            } catch (Exception ex) {
-                user = null;
-            }
-        }
+        user = userDAO.findOneByUsername(username);
 
         if (user == null) {
             throw new UsernameNotFoundException(username);
